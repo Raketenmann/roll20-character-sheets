@@ -1,0 +1,789 @@
+<div>
+    <div class="col">
+        <img src="https://ulisses-spiele.de/wp-content/uploads/HeXXen1733_Logo_Fanwerk-300x212.png" />
+        <label>Hexxenwürfel</label><input class="sheet-textline" type="number" name="attr_hexxen" />
+        <label>Januswürfel</label><input class="sheet-textline" type="number" name="attr_janus" />
+        <span name="attr_hexxenvaluename"></span>
+        <button type='roll' name='roll_testattack' value='@{rollquery}'></button>
+        <button type='roll' name='roll_testattack' value='"&{template:hxx} {{name=@{character_name}}} {{roll_name=Test}} {{attr=Intelligence}} {{attr_num=1}} {{hexxen=[[10d6>5cs>5cf1]]}} {{janus=[[5d6>4]]}} {{esprit=0}}"'></button>
+        <button type="action" name="act_resetroll">Reset</button>
+	</div>
+    <button type="action" name="act_character" >Character</button>
+    <button type="action" name="act_combat" >Combat</button>
+    <button type="action" name="act_configuration" >Configuration</button>
+    
+
+</div>
+<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
+
+<div class='sheet-character'>
+<div class="2colrow">
+	<div class="col">
+		<h2>Charakter</h2>
+
+        <label>Name</label><input class="sheet-textline" type="text" name="attr_character_name" />
+        <br />
+        <label>Jägerstufe</label><input class="sheet-textline" type="number" name="attr_rank" />
+        <br />
+        <label>Profession</label><input class="sheet-textline" type="text" name="attr_profession" />
+        <br />
+        <label>Motivation</label><input class="sheet-textline" type="text" name="attr_motivation" />
+        <br />
+        <label>Vorteil:</label><input class="sheet-textline" type="text" name="attr_advantage" />
+        <br />
+        <label>Verderbnis:</label><input class="sheet-textline" type="number" name="attr_verderbnis" />
+        <label>Segnungen:</label><input class="sheet-textline" type="number" name="attr_segnungen" />
+
+        <h2>Kleidungssets</h2>
+        <label>Set No1</label><input class="sheet-textline" type="text" name="attr_armorset1" />
+        <br />
+        <label>Bonus</label><input class="sheet-textline" type="text" name="attr_armorset1_bonus" />
+        <br />
+        <label>Set No2</label><input class="sheet-textline" type="text" name="attr_armorset2" />
+        <br />
+        <label>Bonus</label><input class="sheet-textline" type="text" name="attr_armorset2_bonus" />
+        <br />
+
+        <h2>Jägerkräfte</h2>
+        
+        <fieldset class="repeating_hunterpowers">
+            <input class='sheet-medium'  type="text" name="attr_hunterpowername" />
+            <input class="sheet-textline" type="text" name="attr_hunterpowereffect" />
+        </fieldset>
+
+        <h2>Ausbaukräfte</h2>
+        
+        <fieldset class="repeating_powers">
+            <input class='sheet-medium'  type="text" name="attr_powername"/>
+            <input class="sheet-textline" type="text" name="attr_powereffect" />
+        </fieldset>
+
+	</div>
+
+	<div class="col">
+        <h2>Rollen</h2>
+        <label>Rolle No1:</label><input class="sheet-textline" type="text" name="attr_role1" />
+        <br />
+        <label>Rolle No2:</label><input class="sheet-textline" type="text" name="attr_role2" />
+        <br />
+        <label>Rolle No3:</label><input class="sheet-textline" type="text" name="attr_role3" />
+
+        <h2>Geld</h2>
+        <label>Unterhalt</label><input class="sheet-textline" type="text" name="attr_unterhalt" />
+        <br />
+        <label>Vermögen</label><input class="sheet-textline" type="text" name="attr_vermoegen" />
+
+        <h2>Restliche Ausrüstung</h2>
+        <textarea name="attr_equipment"></textarea>
+
+        <h2>Körperliche Attribute</h2>
+		<label>Körperkraft </label><label class='short pureattribute'>Kkr</label><input type="number" name='attr_kkr' class='number'>
+        <button type='roll' name='roll_testattack' value='!hxx h@{kkr} j?{Janus|0}'></button>
+        <br />
+		<label>Athletik </label><label class='short pureattribute'>Ath</label><input type="number" name='attr_ath' class='number'>
+        <button type='action' name='act_ath'></button>
+        <br />
+		<label>Geschick </label><label class='short pureattribute'>Ges</label><input type="number" name='attr_ges' class='number'>
+        <button type='roll' name='roll_testattack' value='!hxx h@{ges}'></button>
+        <br />
+		<label>Coups </label><label class='short'>[=<span class="pureattribute">Ath</span>]</label><input type="number" name='attr_coups' class='number'><span name="attr_coups_max" ></span>
+        <br />
+
+        <h2>Geistige Attribute</h2>
+		<label>Sinnesschärfe </label><label class='short pureattribute'>Sin</label><input type="number" name='attr_sin' class='number'>
+        <button type='roll' name='roll_testattack' value='!hxx h@{sin}'></button>
+        <br />
+        <label>Wissen </label><label class='short pureattribute'>Wis</label><input type="number" name='attr_wis' class='number'>
+        <button type='roll' name='roll_testattack' value='!hxx h@{wis}'></button>
+        <br />
+        <label>Willenskraft </label><label class='short pureattribute'>Wil</label><input type="number" name='attr_wil' class='number'>
+        <button type='roll' name='roll_testattack' value='!hxx h@{wil}'></button>
+        <br />
+        <label>Ideen </label><label class='short'>[=<span class="pureattribute">Wis</span>]</label><input type="number" name='attr_ideas' class='number'><span name="attr_ideas_max" ></span>
+        <br />
+
+		<h2>Abgleitete Ressourcen</h2>
+        
+        <h3>Base</h3><h3>Max</h3>
+        <label>Lebenspunkte</label><label>[<span class="pureattribute">Kkr</span>+<span class="pureattribute">Wil</span>+<span class="pureattribute">7</span>]</label><input class='sheet-number' type="number" name="attr_hitpoints" /><span name="attr_hitpoints_max" ></span>
+        <label>Initiative</label><label>[<span class="pureattribute">Sin</span>+<span class="pureattribute">Ges</span>]</label><input class='sheet-number' type="number" name="attr_ini" />
+       
+
+        <h2>Allgemeine Fertigkeiten</h2>
+        <div class="skills">
+            <h3>Name</h3><h3>FN</h3><h3>Attribut</h3><h3>SUM</h3><h3>Roll</h3>
+            <!-- acrobatics -->
+            <label class="item">Akrobatik</label>
+            <input class='number' type="number" name="attr_acrobatics"/>
+            <label class="attribute">Ath</label>
+            <span name="attr_acrobatics_max"></span>
+            <!--<button type='roll' name='roll_testattack' value='@{rollquery}@{acrobatics|max}'></button>-->
+            <button type='action' name='act_acrobatics_max'></button>
+            <!-- alertness -->
+            <label class="item">Aufmerksamkeit</label>
+            <input class='number' type="number" name="attr_alertness"/>
+            <label class="attribute">Sin</label>
+            <span name="attr_alertness_max"></span>
+            <button type='roll' name='roll_testattack' value='@{rollquery}@{alertness|max}'></button>
+             <!-- perception -->
+             <label class="item">Erkennen</label>
+             <input class='number' type="number" name="attr_perception"/>
+             <label class="attribute">Sin</label>
+             <span name="attr_perception_max"></span>
+             <button type='roll' name='roll_testattack' value='@{rollquery}@{perception|max}'></button>
+              <!-- firstaid -->
+            <label class="item">Erste Hilfe</label>
+            <input class='number' type="number" name="attr_firstaid"/>
+            <label class="attribute">Wis</label>
+            <span name="attr_firstaid_max"></span>
+            <button type='roll' name='roll_testattack' value='@{rollquery}@{firstaid|max}'></button>
+             <!-- sleightofhand -->
+             <label class="item">Fingerfertigkeit</label>
+             <input class='number' type="number" name="attr_sleightofhand"/>
+             <label class="attribute">Ges</label>
+             <span name="attr_sleightofhand_max"></span>
+             <button type='roll' name='roll_testattack' value='@{rollquery}@{sleightofhand|max}'></button>
+              <!-- mentalpower -->
+            <label class="item">Geistesstärke</label>
+            <input class='number' type="number" name="attr_mentalpower"/>
+            <label class="attribute">Wil</label>
+            <span name="attr_mentalpower_max"></span>
+            <button type='roll' name='roll_testattack' value='@{rollquery}@{mentalpower|max}'></button>
+             <!-- crafting -->
+             <label class="item">Handwerken</label>
+             <input class='number' type="number" name="attr_crafting"/>
+             <label class="attribute">Ges</label>
+             <span name="attr_crafting_max"></span>
+             <button type='roll' name='roll_testattack' value='@{rollquery}@{crafting|max}'></button>
+              <!-- stealth -->
+            <label class="item">Heimlichkeit</label>
+            <input class='number' type="number" name="attr_stealth"/>
+            <label class="attribute">Ath</label>
+            <span name="attr_stealth_max"></span>
+            <button type='roll' name='roll_testattack' value='@{rollquery}@{stealth|max}'></button>
+             <!-- countryandpeople -->
+             <label class="item">Land und Leute</label>
+             <input class='number' type="number" name="attr_countryandpeople"/>
+             <label class="attribute">Wis</label>
+             <span name="attr_countryandpeople_max"></span>
+             <button type='roll' name='roll_testattack' value='@{rollquery}@{countryandpeople|max}'></button>
+              <!-- rhetoric -->
+            <label class="item">Redekunst</label>
+            <input class='number' type="number" name="attr_rhetoric"/>
+            <label class="attribute">Wil</label>
+            <span name="attr_rhetoric_max"></span>
+            <button type='roll' name='roll_testattack' value='@{rollquery}@{rhetoric|max}'></button>
+             <!-- flexing -->
+             <label class="item">Muskelspiel</label>
+             <input class='number' type="number" name="attr_flexing"/>
+             <label class="attribute">Kkr</label>
+             <span name="attr_flexing_max"></span>
+             <button type='roll' name='roll_testattack' value='@{rollquery}@{flexing|max}'></button>
+              <!-- reflexes -->
+            <label class="item">Reflexe</label>
+            <input class='number' type="number" name="attr_reflexes"/>
+            <label class="attribute">Sin</label>
+            <span name="attr_reflexes_max"></span>
+            <button type='roll' name='roll_testattack' value='@{rollquery}@{reflexes|max}'></button>
+             <!-- riding -->
+             <label class="item">Reiten</label>
+             <input class='number' type="number" name="attr_riding"/>
+             <label class="attribute">Ath</label>
+             <span name="attr_riding_max"></span>
+             <button type='roll' name='roll_testattack' value='@{rollquery}@{riding|max}'></button>
+              <!-- insensibility -->
+            <label class="item">Unempfindlichkeit</label>
+            <input class='number' type="number" name="attr_insensibility"/>
+            <label class="attribute">Kkr</label>
+            <span name="attr_insensibility_max"></span>
+            <button type='roll' name='roll_testattack' value='@{rollquery}@{insensibility|max}'></button>
+             <!-- fieldsofknowledge -->
+             <label class="item">Wissensgebiete</label>
+             <input class='number' type="number" name="attr_fieldsofknowledge"/>
+             <label class="attribute">Wis</label>
+             <span name="attr_fieldsofknowledge_max"></span>
+             <button type='roll' name='roll_testattack' value='@{rollquery}@{fieldsofknowledge|max}'></button>
+        </div>
+	</div>
+<!--
+	<div class="col">
+
+		<h2>Hindrances</h2>
+
+		<textarea name="attr_hindrances"></textarea>
+
+		<hr/>
+
+		<h2>Edges</h2>
+
+		<textarea name="attr_edges"></textarea>
+
+	</div>
+-->
+</div>
+</div>
+<div class='sheet-combat'>
+    <h2>Anhaltende Einflüsse</h2>
+    <div class="3colrow">
+    <div class="influences">
+    <h3>Art</h3><h3>Stufen</h3><h3>Anm.</h3><h3>Zustände</h3>
+
+    <label class="item">Äußerer Schaden</label>
+    <span class="item">
+        <input type="radio" class="sheet-rating sheet-zero" name="attr_outerdamage" value="0" checked="checked" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_outerdamage" value="1" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_outerdamage" value="2" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_outerdamage" value="3" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_outerdamage" value="4" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_outerdamage" value="5" /><span></span>
+    </span>
+    <label class="item"></label>
+    <input class="item textline" type="text" name="attr_outerdamage_conditions" />
+
+    <label class="item">Innerer Schaden</label>
+    <span class="item">
+        <input type="radio" class="sheet-rating sheet-zero" name="attr_innerdamage" value="0" checked="checked" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_innerdamage" value="1" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_innerdamage" value="2" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_innerdamage" value="3" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_innerdamage" value="4" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_innerdamage" value="5" /><span></span>
+    </span>
+    <label class="item"></label>
+    <input class="item textline" type="text" name="attr_innerdamage_conditions" />
+
+    <label class="item">Malusschaden</label>
+    <span class="item">
+        <input type="radio" class="sheet-rating sheet-zero" name="attr_malusdamage" value="0" checked="checked" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_malusdamage" value="1" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_malusdamage" value="2" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_malusdamage" value="3" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_malusdamage" value="4" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_malusdamage" value="5" /><span></span>
+    </span> 
+    <label class="item"></label>
+    <input class="item textline" type="text" name="attr_malusdamage_conditions" />
+
+    <label class="item">Lähmungsschaden</label>
+    <span class="item">
+        <input type="radio" class="sheet-rating sheet-zero" name="attr_paralysisdamage" value="0" checked="checked" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="1" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="2" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="3" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="4" /><span></span>
+        <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="5" /><span></span>
+    </span>
+    <label class="item">≤[Ap]</label>
+    <input class="item textline" type="text" name="attr_paralysisdamage_conditions" />
+    </div>
+    </div>
+    <br>
+    <div class="3colrow">
+        <div class="2col">
+            <h2>Schutz und Gesundheit</h2>
+            <label class="short">Panzerung</label>
+            <input type="radio" class="sheet-normal" name="attr_armor" value="1" checked="checked"/><span></span><label class="short">Leicht (<span class="pureattribute">Pw1</span>)</label>
+            <input type="radio" class="sheet-normal" name="attr_armor" value="2" /><span></span><label class="short">Mittel (<span class="pureattribute">Pw2</span>)</label>
+            <input type="radio" class="sheet-normal" name="attr_armor" value="3" /><span></span><label class="short">Schwer (<span class="pureattribute">Pw3</span>)</label>
+            <label>Puffer-[Lep]</label><input class='sheet-number' type="number" name="attr_bufferhitpoints" /> 
+            <br>
+            <label>Basis-[Lep]</label><span name="attr_hitpoints_max" ></span><label>Aktuell-[Lep]</label><input class='sheet-number' type="number" name="attr_hitpoints" />    
+            <br>
+            <label class="text note">Bei Basis-[Lep]≤-1 der Verlust alle Coups/Ideen, deren Benutzung unmöglich. Puffer-[Lep]=0</label>
+        </div>
+        <div class="col">
+            <h2>Handlungen</h2>
+            <label>Aktionspunkte</label><input type="number" class="number" name="attr_ap" value="(4 - @{armor})" disabled="disabled"  />
+            <h2>Heilfaktor</h2>
+            <label>Erste Hilfe [<span class="pureattribute">Eh</span>]</label>
+            <span>
+                <input type="radio" class="sheet-rating sheet-zero" name="attr_counter_firstaid" value="0" checked="checked" /><span></span>
+                <input type="radio" class="sheet-rating" name="attr_counter_firstaid" value="1" /><span></span>
+                <input type="radio" class="sheet-rating" name="attr_counter_firstaid" value="2" /><span></span>
+            </span>
+            <br>
+            <label>Mag. Heilung [<span class="pureattribute">Mh</span>] & Elixiere</label>
+            <span>
+                <input type="radio" class="sheet-rating sheet-zero" name="attr_counter_magicalheal" value="0" checked="checked" /><span></span>
+                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="1" /><span></span>
+                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="2" /><span></span>
+                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="3" /><span></span>
+                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="4" /><span></span>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+    <hr/>
+    <label>Initiative</label><span name="attr_ini"></span>
+       
+    <h2>Waffenübersicht</h2>
+    <div class="weapons">
+        <h3>Waffe dabei?</h3>
+        <h3>Waffe</h3>
+        <h3>Sch</h3>
+        <h3>Ap</h3>
+        <h3>Fw</h3>
+        <h3>Attribut</h3>
+        <h3>Summe</h3>
+        <h3>Würfeln</h3>
+        <h3>Anmerkungen</h3>
+
+        <span class="item"><input class="normal" type="checkbox" name="attr_punchactive" value="1" checked="true" /><span></span></span>
+        <label class="item">Fausthieb</label>
+        <label class="item">0</label>
+        <label class="item">1</label>
+        <input type="number" class="number" name="attr_punch" />
+        <label class="item attribute">Ath</label>
+        <span class="item" name="attr_punch_max"></span>
+        <!--<button type='roll' name='roll_testattack' value='@{attackquery}@{punch|max}'></button>-->
+        <button type='action' name='act_punch_max'></button>
+        <label class="item note">Parade -3, außer Fausthiebe</label>
+
+        <span class="item"><input class="normal" type="checkbox" name="attr_daggeractive" value="1" /><span></span></span>
+        <label class="item">Dolche & Messer</label>
+        <label class="item">1</label>
+        <label class="item">1</label>
+        <input type="number" class="number" name="attr_dagger" />
+        <label class="item attribute">Ges</label>
+        <span class="item" name="attr_dagger_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{dagger|max}'></button>
+        <label class="item note">Giftverwendung / Parade -2, außer Fausthiebe und Dolche & Messer</label>
+
+        <span class="item"><input class="normal" type="checkbox" name="attr_fencingactive" value="1" /><span></span></span>
+        <label class="item">Fechtwaffen</label>
+        <label class="item">2</label>
+        <label class="item">1</label>
+        <input type="number" class="number" name="attr_fencing" />
+        <label class="item attribute">Ath</label>
+        <span class="item" name="attr_fencing_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{fencing|max}'></button>
+        <label class="item note">Parade -1 pro gebundenem Gegner über dem Ersten</label>
+        <!-- swords -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_swordsactive" value="1" /><span></span></span>
+        <label class="item">Schwertwaffen</label>
+        <label class="item">3</label>
+        <label class="item">2</label>
+        <input type="number" class="number" name="attr_swords" />
+        <label class="item attribute">Kkr</label>
+        <span class="item" name="attr_swords_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{swords|max}'></button>
+        <label class="item note">Voll parierfähig</label>
+        <!-- scimitar -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_scimitaractive" value="1" /><span></span></span>
+        <label class="item">Säbelwaffen</label>
+        <label class="item">4</label>
+        <label class="item">2</label>
+        <input type="number" class="number" name="attr_scimitar" />
+        <label class="item attribute">Kkr</label>
+        <span class="item" name="attr_scimitar_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{scimitar|max}'></button>
+        <label class="item note">Parade -1</label>
+        <!-- scimitar -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_scimitaractive" value="1"  /><span></span></span>
+        <label class="item">(...beritten)</label>
+        <label class="item">5</label>
+        <label class="item">2</label>
+        <input type="number" class="number" name="attr_scimitar" />
+        <label class="item attribute">Kkr</label>
+        <span class="item" name="attr_scimitar_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{scimitar|max}'></button>
+        <label class="item note">Parade -1</label>
+        <!-- impact -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_impactactive" value="1" /><span></span></span>
+        <label class="item">Schlagwaffen</label>
+        <label class="item">5</label>
+        <label class="item">2</label>
+        <input type="number" class="number" name="attr_impact" />
+        <label class="item attribute">Kkr</label>
+        <span class="item" name="attr_impact_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{impact|max}'></button>
+        <label class="item note">Parade -2</label>
+        <!-- polearm -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_polearmactive" value="1" /><span></span></span>
+        <label class="item">Stangenwaffen</label>
+        <label class="item">6</label>
+        <label class="item">3</label>
+        <input type="number" class="number" name="attr_polearm" />
+        <label class="item attribute">Kkr</label>
+        <span class="item" name="attr_polearm_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{polearm|max}'></button>
+        <label class="item note">Parade kostet 2AP</label>
+        <!-- polearm -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_polearmactive" value="1" /><span></span></span>
+        <label class="item">(...geg. Reiter)</label>
+        <label class="item">8</label>
+        <label class="item">3</label>
+        <input type="number" class="number" name="attr_polearm" />
+        <label class="item attribute">Kkr</label>
+        <span class="item" name="attr_polearm_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{polearm|max}'></button>
+        <label class="item note">Parade kostet 2AP</label>
+        <!-- lance -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_lanceactive" value="1" /><span></span></span>
+        <label class="item">Lanzenwaffen</label>
+        <label class="item">6</label>
+        <label class="item">3</label>
+        <input type="number" class="number" name="attr_lance" />
+        <label class="item attribute">Kkr</label>
+        <span class="item" name="attr_lance_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{lance|max}'></button>
+        <label class="item note">Parade kostet 2AP</label>
+        <!-- lance -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_lanceactive" value="1"/><span></span></span>
+        <label class="item">(...beritten)</label>
+        <label class="item">7</label>
+        <label class="item">2</label>
+        <input type="number" class="number" name="attr_lance" />
+        <label class="item attribute">Kkr</label>
+        <span class="item" name="attr_lance_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{lance|max}'></button>
+        <label class="item note">Parade kostet 2AP</label>
+        <!-- sling -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_slingactive" value="1"/><span></span></span>
+        <label class="item">Schleuder</label>
+        <label class="item">1</label>
+        <label class="item">2</label>
+        <input type="number" class="number" name="attr_sling" />
+        <label class="item attribute">Ges</label>
+        <span class="item" name="attr_sling_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{sling|max}'></button>
+        <label class="item note">Geschossgeeignet, Werfer muss freistehen</label>
+        <!-- pistol -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_pistolactive" value="1"/><span></span></span>
+        <label class="item">Pistole</label>
+        <label class="item">3</label>
+        <label class="item">2</label>
+        <input type="number" class="number" name="attr_pistol" />
+        <label class="item attribute">Sin</label>
+        <span class="item" name="attr_pistol_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{pistol|max}'></button>
+        <label class="item note">Immer freie Schussmöglichkeit</label>
+        <!-- crossbow -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_crossbowactive" value="1"/><span></span></span>
+        <label class="item">Armbrust</label>
+        <label class="item">5</label>
+        <label class="item">3</label>
+        <input type="number" class="number" name="attr_crossbow" />
+        <label class="item attribute">Sin</label>
+        <span class="item" name="attr_crossbow_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{crossbow|max}'></button>
+        <label class="item note">Schütze muss freistehen</label>
+        <!-- musket -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_musketactive" value="1"/><span></span></span>
+        <label class="item">Muskete</label>
+        <label class="item">8</label>
+        <label class="item">3</label>
+        <input type="number" class="number" name="attr_musket" />
+        <label class="item attribute">Sin</label>
+        <span class="item" name="attr_musket_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{musket|max}'></button>
+        <label class="item note">Schütze und Ziel müssen freistehen</label>
+        <!-- dodge -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_dodgeactive" value="1" checked="true" /><span></span></span>
+        <label class="item">Ausweichen</label>
+        <label class="item">-</label>
+        <label class="item">1</label>
+        <input type="number" class="number" name="attr_dodge" />
+        <label class="item attribute">Ath</label>
+        <span class="item" name="attr_dodge_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{dodge|max}'></button>
+        <label class="item note">Pro geb. Gegner -1, Distanzangriffe -1</label>
+        <!-- shield -->
+        <span class="item"><input class="normal" type="checkbox" name="attr_shieldactive" value="1" /><span></span></span>
+        <label class="item">Schildbenutzung</label>
+        <label class="item">-</label>
+        <label class="item">1</label>
+        <input type="number" class="number" name="attr_shield" />
+        <label class="item attribute">Kkr</label>
+        <span class="item" name="attr_shield_max"></span>
+        <button type='roll' name='roll_testattack' value='@{attackquery}@{shield|max}'></button>
+        <label class="item note">Nur 1x pro Runde / Blockt Distanzangriffe</label>
+    </div>
+    <hr />
+    <div class='sheet-stats'>
+		<label class="pureattribute">KKR</label><input type="number" name='attr_kkr' class='sheet-number'/>
+		<label class="pureattribute">ATH</label><input type="number" name='attr_ath' class='sheet-number'/>
+		<label class="pureattribute">GES</label><input type="number" name='attr_ges' class='sheet-number'/>
+		<label class="pureattribute">SIN</label><input type="number" name='attr_sin' class='sheet-number'/>
+        <label class="pureattribute">WIS</label><input type="number" name='attr_wis' class='sheet-number'/>
+        <label class="pureattribute">WIL</label><input type="number" name='attr_wil' class='sheet-number'/>
+    </div>
+    </div>
+    </div>
+<div class='sheet-config'>
+    <h2>Config/Settings</h2>
+    <span>Sheet Config/Settings goes here</span> 
+</div>
+
+<script type="text/worker">
+
+    const buttonlist = ["character","combat","configuration"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
+
+    on("change:janus change:hexxen", () =>{
+        let attributeName = "hexxen";
+        getAttrs(["janus", attributeName], function(values) {
+            let janusValue = parseInt(values["janus"],10)||0;
+            let attributeValue = parseInt(values[attributeName],10)||0;
+            let query = "&{template:ova} {{name=@{character_name}}}";
+            var i;
+            for (i = 1; i <= attributeValue; i++) {
+                query = query + " {{hexxen"+i+"=[[d6cs>5]]}}";
+            }
+            for (i = 1; i <= janusValue; i++) {
+                query = query + " {{janus"+i+"=[[d6cs>4cf]]}}";
+            }
+            
+            //query = query + " {{blessing1=[[d6cs>4cf1cf2]]}}";
+            setAttrs({                            
+                rollquery: query
+            });
+        });
+    });
+
+    on(`clicked:resetroll`, function(value) {
+        setAttrs({
+            hexxen: 0,
+            janus: 0,
+            hexxenvaluename: 'empty'
+        });
+    });
+   
+    const rolllist = ["ath", "acrobatics_max", "punch_max", ];
+    rolllist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            getAttrs([button], function(values) {
+                let v = parseInt(values[button],10)||0;
+                
+                setAttrs({
+                    hexxen: v,
+                    hexxenvaluename: button
+                });
+            });
+        });
+    });
+
+    on("change:ath", function() {
+        getAttrs(["ATH"], function(values) {
+            let ath = parseInt(values.ATH,10)||0;
+            setAttrs({                            
+                coups_max: ath
+            });
+          });
+    });
+    on("change:wis", function() {
+        getAttrs(["WIS"], function(values) {
+            let wis = parseInt(values.WIS,10)||0;
+            setAttrs({                            
+                ideas_max: wis
+            });
+          });
+    });
+    on("change:kkr change:wil", function() {
+        getAttrs(["KKR", "WIL"], function(values) {
+            let kkr = parseInt(values.KKR,10)||0;
+            let wil = parseInt(values.WIL,10)||0;
+            let hp = kkr + wil + 7;
+            setAttrs({                            
+                hitpoints_max: hp
+            });
+          });
+    });
+    on("change:sin change:ges", function() {
+        getAttrs(["SIN", "GES"], function(values) {
+            let sin = parseInt(values.SIN,10)||0;
+            let ges = parseInt(values.GES,10)||0;
+            let ini = sin + ges;
+            setAttrs({                            
+                ini: ini
+            });
+          });
+    });
+
+    const skills = {
+        'acrobatics':{att: 'ath'},
+        'alertness':{att: 'sin'},
+        'perception':{att: 'sin'},
+        'firstaid':{att: 'wis'},
+        'sleightofhand':{att: 'ges'},
+        'mentalpower':{att: 'wil'},
+        'crafting':{att: 'ges'},
+        'stealth':{att: 'ath'},
+        'countryandpeople':{att: 'wis'},
+        'rhetoric':{att: 'wil'},
+        'flexing':{att: 'kkr'},
+        'reflexes':{att: 'sin'},
+        'riding':{att: 'ath'},
+        'insensibility':{att: 'kkr'},
+        'fieldsofknowledge':{att: 'wis'},
+
+        'punch':{att: 'ath'},
+        'dagger':{att: 'ges'},
+        'fencing':{att: 'ath'},
+        'swords' :{att: 'kkr'},
+        'scimitar' :{att: 'kkr'},
+        'impact' :{att: 'kkr'},
+        'polearm' :{att: 'kkr'},
+        'lance' :{att: 'kkr'},
+        'sling' :{att: 'ges'},
+        'pistol' :{att: 'sin'},
+        'crossbow' :{att: 'sin'},
+        'musket' :{att: 'sin'},
+        'dodge' :{att: 'ath'},
+        'shield' :{att: 'kkr'},
+    };
+    Object.keys(skills).forEach(skill => {  
+        let attributeName = skills[skill].att;   
+        on(`change:${skill} change:${attributeName}`, () => {
+            getAttrs([skill, attributeName], function(values) {
+                let skillValue = parseInt(values[skill],10)||0;
+                let attributeValue = parseInt(values[attributeName],10)||0;
+                let v = skillValue + attributeValue;
+                setAttrs({                            
+                    [`${skill}_max`]: v
+                });
+            });
+        });
+    });
+
+    on("sheet:opened", function(eventInfo){
+    
+        setAttrs({
+            rollquery: "!hxx h",
+            attackquery: "!hxx h"
+        });
+        
+    });
+
+    </script>
+
+    <rolltemplate class="sheet-rolltemplate-hxx">
+        <span value="15"></span>
+        <table>
+            <tr><th colspan="2">{{name}} rolls</th></tr>
+            <tr><td class="attr" colspan="2">
+                {{#attr}}
+                    {{attr}}({{attr_num}})
+                {{/attr}}
+            </td></tr>
+            <tr>
+                <td class="result">{{hexxen}}</td><td class="resultname">Successes</td>        
+            </tr>
+            <tr>
+                <td class="result">{{janus}}</td><td class="resultname">Janus</td>        
+            </tr>
+            <tr>
+                <td class="result">{{esprit}}</td><td class="resultname">Esprit</td>        
+            </tr>
+        </table>
+    </rolltemplate>
+    <rolltemplate class="sheet-rolltemplate-ova">
+		<div class="sheet-rtcard">
+            {{#name}}
+            <h3>{{name}}</h3>
+            {{/name}}
+            {{#allprops()}}
+					{{key}}={{value}}<br>
+
+                {{/allprops()}}
+                
+            {{#hexxen1}}
+            {{#rollTotal() hexxen1 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen1 1}}
+            {{#rollBetween() hexxen1 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen1 2 4}}
+            {{#rollBetween() hexxen1 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen1 5 6}}
+            {{/hexxen1}}
+
+            {{#hexxen2}}
+            {{#rollTotal() hexxen2 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen2 1}}
+            {{#rollBetween() hexxen2 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen2 2 4}}
+            {{#rollBetween() hexxen2 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen2 5 6}}
+            {{/hexxen2}}
+
+            {{#hexxen3}}
+            {{#rollTotal() hexxen3 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen3 1}}
+            {{#rollBetween() hexxen3 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen3 2 4}}
+            {{#rollBetween() hexxen3 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen3 5 6}}
+            {{/hexxen3}}
+
+            {{#hexxen4}}
+            {{#rollTotal() hexxen4 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen4 1}}
+            {{#rollBetween() hexxen4 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen4 2 4}}
+            {{#rollBetween() hexxen4 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen4 5 6}}
+            {{/hexxen4}}
+
+            {{#hexxen5}}
+            {{#rollTotal() hexxen5 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen5 1}}
+            {{#rollBetween() hexxen5 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen5 2 4}}
+            {{#rollBetween() hexxen5 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen5 5 6}}
+            {{/hexxen5}}
+
+            {{#hexxen6}}
+            {{#rollTotal() hexxen6 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen6 1}}
+            {{#rollBetween() hexxen6 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen6 2 4}}
+            {{#rollBetween() hexxen6 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen6 5 6}}
+            {{/hexxen6}}
+
+            {{#hexxen7}}
+            {{#rollTotal() hexxen7 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen7 1}}
+            {{#rollBetween() hexxen7 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen7 2 4}}
+            {{#rollBetween() hexxen7 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen7 5 6}}
+            {{/hexxen7}}
+
+            {{#hexxen8}}
+            {{#rollTotal() hexxen8 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen8 1}}
+            {{#rollBetween() hexxen8 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen8 2 4}}
+            {{#rollBetween() hexxen8 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen8 5 6}}
+            {{/hexxen8}}
+
+            {{#hexxen9}}
+            {{#rollTotal() hexxen9 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen9 1}}
+            {{#rollBetween() hexxen9 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen9 2 4}}
+            {{#rollBetween() hexxen9 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen9 5 6}}
+            {{/hexxen9}}
+
+            {{#hexxen10}}
+            {{#rollTotal() hexxen10 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen10 1}}
+            {{#rollBetween() hexxen10 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen10 2 4}}
+            {{#rollBetween() hexxen10 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen10 5 6}}
+            {{/hexxen10}}
+            <br>
+
+            {{#janus1}}
+            {{#rollBetween() janus1 1 3}}<span class="janus empty"></span>{{/rollBetween() janus1 1 3}}
+            {{#rollBetween() janus1 4 6}}<span class="janus success"></span>{{/rollBetween() janus1 4 6}}
+            {{/janus1}}
+
+            {{#janus2}}
+            {{#rollBetween() janus2 1 3}}<span class="janus empty"></span>{{/rollBetween() janus2 1 3}}
+            {{#rollBetween() janus2 4 6}}<span class="janus success"></span>{{/rollBetween() janus2 4 6}}
+            {{/janus2}}
+
+            {{#janus3}}
+            {{#rollBetween() janus3 1 3}}<span class="janus empty"></span>{{/rollBetween() janus3 1 3}}
+            {{#rollBetween() janus3 4 6}}<span class="janus success"></span>{{/rollBetween() janus3 4 6}}
+            {{/janus3}}
+
+            {{#janus4}}
+            {{#rollBetween() janus4 1 3}}<span class="janus empty"></span>{{/rollBetween() janus4 1 3}}
+            {{#rollBetween() janus4 4 6}}<span class="janus success"></span>{{/rollBetween() janus4 4 6}}
+            {{/janus4}}
+
+            {{#janus5}}
+            {{#rollBetween() janus5 1 3}}<span class="janus empty"></span>{{/rollBetween() janus5 1 3}}
+            {{#rollBetween() janus5 4 6}}<span class="janus success"></span>{{/rollBetween() janus5 4 6}}
+            {{/janus5}}
+            <br>
+            {{#blessing1}}
+            {{#rollBetween() blessing1 1 2}}<span class="blessing esprit"></span>{{/rollBetween() blessing1 1 2}}
+            {{#rollTotal() blessing1 3}}<span class="blessing empty"></span>{{/rollTotal() blessing1 3}}
+            {{#rollBetween() blessing1 4 5}}<span class="blessing success"></span>{{/rollBetween() blessing1 4 5}}
+            {{#rollTotal() blessing1 6}}<span class="blessing doublesuccess"></span>{{/rollTotal() blessing1 6}}
+            {{/blessing1}}
+		</div>
+	</rolltemplate>
