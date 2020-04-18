@@ -34,6 +34,10 @@ label {
 	display: inline-block;
 	width: 31%;
 }
+span {
+	font-weight: bold;
+	font-size: 1.2em;
+}
 
 input {
 	display: inline-block;
@@ -250,6 +254,7 @@ input.sheet-textline {
 	border-bottom: 2px solid black;
 	border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+	padding-bottom: 0px;
   }
 
   input.sheet-number {
@@ -271,26 +276,6 @@ span.sheet-dee {
 	padding-right: 4px;
 	position: relative;
 	top: 3px;
-}
-
-/* Targetted styling that only effects elements contained within the stated class */
-.sheet-stats h3 {
-	display: inline-block;
-	text-align: left;
-}
-
-.sheet-stats h3:first-child {
-	margin-left: 35%;
-	margin-right: 15%;
-}
-
-.sheet-stats input {
-	margin-right: 5%;
-	width: 5%;
-}
-.sheet-stats label {
-	margin-right: 0;
-	width: 5%;
 }
 
 .sheet-weapons {

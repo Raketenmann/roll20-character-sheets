@@ -1,16 +1,18 @@
 <div>
-    <div class="col">
-        <img src="https://ulisses-spiele.de/wp-content/uploads/HeXXen1733_Logo_Fanwerk-300x212.png" />
-        <label>Hexxenwürfel</label><input class="sheet-textline" type="number" name="attr_hexxen" />
-        <label>Januswürfel</label><input class="sheet-textline" type="number" name="attr_janus" />
+    
+   
+        <!--<img src="https://ulisses-spiele.de/wp-content/uploads/HeXXen1733_Logo_Fanwerk-300x212.png" />-->
+        <button type="action" name="act_character" >Character</button>
+        <button type="action" name="act_combat" >Combat</button>
+        <button type="action" name="act_configuration" >Configuration</button>
+<br>
+        <label class="short">Hexxenwürfel</label><input class="sheet-textline" type="number" name="attr_hexxen" />
+        <label class="short">Januswürfel</label><input class="sheet-textline" type="number" name="attr_janus" />
         <span name="attr_hexxenvaluename"></span>
         <button type='roll' name='roll_testattack' value='@{rollquery}'></button>
-        <button type='roll' name='roll_testattack' value='"&{template:hxx} {{name=@{character_name}}} {{roll_name=Test}} {{attr=Intelligence}} {{attr_num=1}} {{hexxen=[[10d6>5cs>5cf1]]}} {{janus=[[5d6>4]]}} {{esprit=0}}"'></button>
         <button type="action" name="act_resetroll">Reset</button>
-	</div>
-    <button type="action" name="act_character" >Character</button>
-    <button type="action" name="act_combat" >Combat</button>
-    <button type="action" name="act_configuration" >Configuration</button>
+
+    
     
 
 </div>
@@ -78,26 +80,26 @@
 
         <h2>Körperliche Attribute</h2>
 		<label>Körperkraft </label><label class='short pureattribute'>Kkr</label><input type="number" name='attr_kkr' class='number'>
-        <button type='roll' name='roll_testattack' value='!hxx h@{kkr} j?{Janus|0}'></button>
+        <button type='action' name='act_kkr'></button>
         <br />
 		<label>Athletik </label><label class='short pureattribute'>Ath</label><input type="number" name='attr_ath' class='number'>
         <button type='action' name='act_ath'></button>
         <br />
 		<label>Geschick </label><label class='short pureattribute'>Ges</label><input type="number" name='attr_ges' class='number'>
-        <button type='roll' name='roll_testattack' value='!hxx h@{ges}'></button>
+        <button type='action' name='act_ges'></button>
         <br />
 		<label>Coups </label><label class='short'>[=<span class="pureattribute">Ath</span>]</label><input type="number" name='attr_coups' class='number'><span name="attr_coups_max" ></span>
         <br />
 
         <h2>Geistige Attribute</h2>
 		<label>Sinnesschärfe </label><label class='short pureattribute'>Sin</label><input type="number" name='attr_sin' class='number'>
-        <button type='roll' name='roll_testattack' value='!hxx h@{sin}'></button>
+        <button type='action' name='act_sin'></button>
         <br />
         <label>Wissen </label><label class='short pureattribute'>Wis</label><input type="number" name='attr_wis' class='number'>
-        <button type='roll' name='roll_testattack' value='!hxx h@{wis}'></button>
+        <button type='action' name='act_wis'></button>
         <br />
         <label>Willenskraft </label><label class='short pureattribute'>Wil</label><input type="number" name='attr_wil' class='number'>
-        <button type='roll' name='roll_testattack' value='!hxx h@{wil}'></button>
+        <button type='action' name='act_wil'></button>
         <br />
         <label>Ideen </label><label class='short'>[=<span class="pureattribute">Wis</span>]</label><input type="number" name='attr_ideas' class='number'><span name="attr_ideas_max" ></span>
         <br />
@@ -117,109 +119,94 @@
             <input class='number' type="number" name="attr_acrobatics"/>
             <label class="attribute">Ath</label>
             <span name="attr_acrobatics_max"></span>
-            <!--<button type='roll' name='roll_testattack' value='@{rollquery}@{acrobatics|max}'></button>-->
             <button type='action' name='act_acrobatics_max'></button>
             <!-- alertness -->
             <label class="item">Aufmerksamkeit</label>
             <input class='number' type="number" name="attr_alertness"/>
             <label class="attribute">Sin</label>
             <span name="attr_alertness_max"></span>
-            <button type='roll' name='roll_testattack' value='@{rollquery}@{alertness|max}'></button>
+            <button type='action' name='act_alertness_max'></button>
              <!-- perception -->
              <label class="item">Erkennen</label>
              <input class='number' type="number" name="attr_perception"/>
              <label class="attribute">Sin</label>
              <span name="attr_perception_max"></span>
-             <button type='roll' name='roll_testattack' value='@{rollquery}@{perception|max}'></button>
+             <button type='action' name='act_perception_max'></button>
               <!-- firstaid -->
             <label class="item">Erste Hilfe</label>
             <input class='number' type="number" name="attr_firstaid"/>
             <label class="attribute">Wis</label>
             <span name="attr_firstaid_max"></span>
-            <button type='roll' name='roll_testattack' value='@{rollquery}@{firstaid|max}'></button>
+            <button type='action' name='act_firstaid_max'></button>
              <!-- sleightofhand -->
              <label class="item">Fingerfertigkeit</label>
              <input class='number' type="number" name="attr_sleightofhand"/>
              <label class="attribute">Ges</label>
              <span name="attr_sleightofhand_max"></span>
-             <button type='roll' name='roll_testattack' value='@{rollquery}@{sleightofhand|max}'></button>
+             <button type='action' name='act_sleightofhand_max'></button>
               <!-- mentalpower -->
             <label class="item">Geistesstärke</label>
             <input class='number' type="number" name="attr_mentalpower"/>
             <label class="attribute">Wil</label>
             <span name="attr_mentalpower_max"></span>
-            <button type='roll' name='roll_testattack' value='@{rollquery}@{mentalpower|max}'></button>
+            <button type='action' name='act_mentalpower_max'></button>
              <!-- crafting -->
              <label class="item">Handwerken</label>
              <input class='number' type="number" name="attr_crafting"/>
              <label class="attribute">Ges</label>
              <span name="attr_crafting_max"></span>
-             <button type='roll' name='roll_testattack' value='@{rollquery}@{crafting|max}'></button>
+             <button type='action' name='act_crafting_max'></button>
               <!-- stealth -->
             <label class="item">Heimlichkeit</label>
             <input class='number' type="number" name="attr_stealth"/>
             <label class="attribute">Ath</label>
             <span name="attr_stealth_max"></span>
-            <button type='roll' name='roll_testattack' value='@{rollquery}@{stealth|max}'></button>
+            <button type='action' name='act_stealth_max'></button>
              <!-- countryandpeople -->
              <label class="item">Land und Leute</label>
              <input class='number' type="number" name="attr_countryandpeople"/>
              <label class="attribute">Wis</label>
              <span name="attr_countryandpeople_max"></span>
-             <button type='roll' name='roll_testattack' value='@{rollquery}@{countryandpeople|max}'></button>
+             <button type='action' name='act_countryandpeople_max'></button>
               <!-- rhetoric -->
             <label class="item">Redekunst</label>
             <input class='number' type="number" name="attr_rhetoric"/>
             <label class="attribute">Wil</label>
             <span name="attr_rhetoric_max"></span>
-            <button type='roll' name='roll_testattack' value='@{rollquery}@{rhetoric|max}'></button>
+            <button type='action' name='act_rhetoric_max'></button>
              <!-- flexing -->
              <label class="item">Muskelspiel</label>
              <input class='number' type="number" name="attr_flexing"/>
              <label class="attribute">Kkr</label>
              <span name="attr_flexing_max"></span>
-             <button type='roll' name='roll_testattack' value='@{rollquery}@{flexing|max}'></button>
+             <button type='action' name='act_flexing_max'></button>
               <!-- reflexes -->
             <label class="item">Reflexe</label>
             <input class='number' type="number" name="attr_reflexes"/>
             <label class="attribute">Sin</label>
             <span name="attr_reflexes_max"></span>
-            <button type='roll' name='roll_testattack' value='@{rollquery}@{reflexes|max}'></button>
+            <button type='action' name='act_reflexes_max'></button>
              <!-- riding -->
              <label class="item">Reiten</label>
              <input class='number' type="number" name="attr_riding"/>
              <label class="attribute">Ath</label>
              <span name="attr_riding_max"></span>
-             <button type='roll' name='roll_testattack' value='@{rollquery}@{riding|max}'></button>
+             <button type='action' name='act_riding_max'></button>
               <!-- insensibility -->
             <label class="item">Unempfindlichkeit</label>
             <input class='number' type="number" name="attr_insensibility"/>
             <label class="attribute">Kkr</label>
             <span name="attr_insensibility_max"></span>
-            <button type='roll' name='roll_testattack' value='@{rollquery}@{insensibility|max}'></button>
+            <button type='action' name='act_insensibility_max'></button>
              <!-- fieldsofknowledge -->
              <label class="item">Wissensgebiete</label>
              <input class='number' type="number" name="attr_fieldsofknowledge"/>
              <label class="attribute">Wis</label>
              <span name="attr_fieldsofknowledge_max"></span>
-             <button type='roll' name='roll_testattack' value='@{rollquery}@{fieldsofknowledge|max}'></button>
+             <button type='action' name='act_fieldsofknowledge_max'></button>
         </div>
 	</div>
-<!--
-	<div class="col">
 
-		<h2>Hindrances</h2>
-
-		<textarea name="attr_hindrances"></textarea>
-
-		<hr/>
-
-		<h2>Edges</h2>
-
-		<textarea name="attr_edges"></textarea>
-
-	</div>
--->
 </div>
 </div>
 <div class='sheet-combat'>
@@ -335,8 +322,7 @@
         <input type="number" class="number" name="attr_punch" />
         <label class="item attribute">Ath</label>
         <span class="item" name="attr_punch_max"></span>
-        <!--<button type='roll' name='roll_testattack' value='@{attackquery}@{punch|max}'></button>-->
-        <button type='action' name='act_punch_max'></button>
+        <button type='action' class="roll attack" name='act_punch_max'></button>
         <label class="item note">Parade -3, außer Fausthiebe</label>
 
         <span class="item"><input class="normal" type="checkbox" name="attr_daggeractive" value="1" /><span></span></span>
@@ -346,7 +332,7 @@
         <input type="number" class="number" name="attr_dagger" />
         <label class="item attribute">Ges</label>
         <span class="item" name="attr_dagger_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{dagger|max}'></button>
+        <button type='action' class="roll attack" name='act_dagger_max'></button>
         <label class="item note">Giftverwendung / Parade -2, außer Fausthiebe und Dolche & Messer</label>
 
         <span class="item"><input class="normal" type="checkbox" name="attr_fencingactive" value="1" /><span></span></span>
@@ -356,7 +342,7 @@
         <input type="number" class="number" name="attr_fencing" />
         <label class="item attribute">Ath</label>
         <span class="item" name="attr_fencing_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{fencing|max}'></button>
+        <button type='action' class="roll attack" name='act_fencing_max'></button>
         <label class="item note">Parade -1 pro gebundenem Gegner über dem Ersten</label>
         <!-- swords -->
         <span class="item"><input class="normal" type="checkbox" name="attr_swordsactive" value="1" /><span></span></span>
@@ -366,7 +352,7 @@
         <input type="number" class="number" name="attr_swords" />
         <label class="item attribute">Kkr</label>
         <span class="item" name="attr_swords_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{swords|max}'></button>
+        <button type='action' class="roll attack" name='act_swords_max'></button>
         <label class="item note">Voll parierfähig</label>
         <!-- scimitar -->
         <span class="item"><input class="normal" type="checkbox" name="attr_scimitaractive" value="1" /><span></span></span>
@@ -376,7 +362,7 @@
         <input type="number" class="number" name="attr_scimitar" />
         <label class="item attribute">Kkr</label>
         <span class="item" name="attr_scimitar_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{scimitar|max}'></button>
+        <button type='action' class="roll attack" name='act_scimitar_max'></button>
         <label class="item note">Parade -1</label>
         <!-- scimitar -->
         <span class="item"><input class="normal" type="checkbox" name="attr_scimitaractive" value="1"  /><span></span></span>
@@ -386,7 +372,7 @@
         <input type="number" class="number" name="attr_scimitar" />
         <label class="item attribute">Kkr</label>
         <span class="item" name="attr_scimitar_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{scimitar|max}'></button>
+        <button type='action' class="roll attack" name='act_scimitar_max'></button>
         <label class="item note">Parade -1</label>
         <!-- impact -->
         <span class="item"><input class="normal" type="checkbox" name="attr_impactactive" value="1" /><span></span></span>
@@ -396,7 +382,7 @@
         <input type="number" class="number" name="attr_impact" />
         <label class="item attribute">Kkr</label>
         <span class="item" name="attr_impact_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{impact|max}'></button>
+        <button type='action' class="roll attack" name='act_impact_max'></button>
         <label class="item note">Parade -2</label>
         <!-- polearm -->
         <span class="item"><input class="normal" type="checkbox" name="attr_polearmactive" value="1" /><span></span></span>
@@ -406,7 +392,7 @@
         <input type="number" class="number" name="attr_polearm" />
         <label class="item attribute">Kkr</label>
         <span class="item" name="attr_polearm_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{polearm|max}'></button>
+        <button type='action' class="roll attack" name='act_polearm_max'></button>
         <label class="item note">Parade kostet 2AP</label>
         <!-- polearm -->
         <span class="item"><input class="normal" type="checkbox" name="attr_polearmactive" value="1" /><span></span></span>
@@ -416,7 +402,7 @@
         <input type="number" class="number" name="attr_polearm" />
         <label class="item attribute">Kkr</label>
         <span class="item" name="attr_polearm_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{polearm|max}'></button>
+        <button type='action' class="roll attack" name='act_polearm_max'></button>
         <label class="item note">Parade kostet 2AP</label>
         <!-- lance -->
         <span class="item"><input class="normal" type="checkbox" name="attr_lanceactive" value="1" /><span></span></span>
@@ -426,7 +412,7 @@
         <input type="number" class="number" name="attr_lance" />
         <label class="item attribute">Kkr</label>
         <span class="item" name="attr_lance_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{lance|max}'></button>
+        <button type='action' class="roll attack" name='act_lance_max'></button>
         <label class="item note">Parade kostet 2AP</label>
         <!-- lance -->
         <span class="item"><input class="normal" type="checkbox" name="attr_lanceactive" value="1"/><span></span></span>
@@ -436,7 +422,7 @@
         <input type="number" class="number" name="attr_lance" />
         <label class="item attribute">Kkr</label>
         <span class="item" name="attr_lance_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{lance|max}'></button>
+        <button type='action' class="roll attack" name='act_lance_max'></button>
         <label class="item note">Parade kostet 2AP</label>
         <!-- sling -->
         <span class="item"><input class="normal" type="checkbox" name="attr_slingactive" value="1"/><span></span></span>
@@ -446,7 +432,7 @@
         <input type="number" class="number" name="attr_sling" />
         <label class="item attribute">Ges</label>
         <span class="item" name="attr_sling_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{sling|max}'></button>
+        <button type='action' class="roll attack" name='act_sling_max'></button>
         <label class="item note">Geschossgeeignet, Werfer muss freistehen</label>
         <!-- pistol -->
         <span class="item"><input class="normal" type="checkbox" name="attr_pistolactive" value="1"/><span></span></span>
@@ -456,7 +442,7 @@
         <input type="number" class="number" name="attr_pistol" />
         <label class="item attribute">Sin</label>
         <span class="item" name="attr_pistol_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{pistol|max}'></button>
+        <button type='action' class="roll attack" name='act_pistol_max'></button>
         <label class="item note">Immer freie Schussmöglichkeit</label>
         <!-- crossbow -->
         <span class="item"><input class="normal" type="checkbox" name="attr_crossbowactive" value="1"/><span></span></span>
@@ -466,7 +452,7 @@
         <input type="number" class="number" name="attr_crossbow" />
         <label class="item attribute">Sin</label>
         <span class="item" name="attr_crossbow_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{crossbow|max}'></button>
+        <button type='action' class="roll attack" name='act_crossbow_max'></button>
         <label class="item note">Schütze muss freistehen</label>
         <!-- musket -->
         <span class="item"><input class="normal" type="checkbox" name="attr_musketactive" value="1"/><span></span></span>
@@ -476,7 +462,7 @@
         <input type="number" class="number" name="attr_musket" />
         <label class="item attribute">Sin</label>
         <span class="item" name="attr_musket_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{musket|max}'></button>
+        <button type='action' class="roll attack" name='act_musket_max'></button>
         <label class="item note">Schütze und Ziel müssen freistehen</label>
         <!-- dodge -->
         <span class="item"><input class="normal" type="checkbox" name="attr_dodgeactive" value="1" checked="true" /><span></span></span>
@@ -486,7 +472,7 @@
         <input type="number" class="number" name="attr_dodge" />
         <label class="item attribute">Ath</label>
         <span class="item" name="attr_dodge_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{dodge|max}'></button>
+        <button type='action' class="roll attack" name='act_dodge_max'></button>
         <label class="item note">Pro geb. Gegner -1, Distanzangriffe -1</label>
         <!-- shield -->
         <span class="item"><input class="normal" type="checkbox" name="attr_shieldactive" value="1" /><span></span></span>
@@ -496,17 +482,17 @@
         <input type="number" class="number" name="attr_shield" />
         <label class="item attribute">Kkr</label>
         <span class="item" name="attr_shield_max"></span>
-        <button type='roll' name='roll_testattack' value='@{attackquery}@{shield|max}'></button>
+        <button type='action' class="roll attack" name='act_shield_max'></button>
         <label class="item note">Nur 1x pro Runde / Blockt Distanzangriffe</label>
     </div>
     <hr />
-    <div class='sheet-stats'>
-		<label class="pureattribute">KKR</label><input type="number" name='attr_kkr' class='sheet-number'/>
-		<label class="pureattribute">ATH</label><input type="number" name='attr_ath' class='sheet-number'/>
-		<label class="pureattribute">GES</label><input type="number" name='attr_ges' class='sheet-number'/>
-		<label class="pureattribute">SIN</label><input type="number" name='attr_sin' class='sheet-number'/>
-        <label class="pureattribute">WIS</label><input type="number" name='attr_wis' class='sheet-number'/>
-        <label class="pureattribute">WIL</label><input type="number" name='attr_wil' class='sheet-number'/>
+    <div>
+		<label class="pureattribute">KKR</label><input type="number" name='attr_kkr' class='number'/>
+		<label class="pureattribute">ATH</label><input type="number" name='attr_ath' class='number'/>
+		<label class="pureattribute">GES</label><input type="number" name='attr_ges' class='number'/>
+		<label class="pureattribute">SIN</label><input type="number" name='attr_sin' class='number'/>
+        <label class="pureattribute">WIS</label><input type="number" name='attr_wis' class='number'/>
+        <label class="pureattribute">WIL</label><input type="number" name='attr_wil' class='number'/>
     </div>
     </div>
     </div>
@@ -555,7 +541,36 @@
         });
     });
    
-    const rolllist = ["ath", "acrobatics_max", "punch_max", ];
+    const rolllist = ['kkr', 'ath', 'ges', 'sin', 'wis', 'wil',
+     'acrobatics_max',
+        'alertness_max',
+        'perception_max',
+        'firstaid_max',
+        'sleightofhand_max',
+        'mentalpower_max',
+        'crafting_max',
+        'stealth_max',
+        'countryandpeople_max',
+        'rhetoric_max',
+        'flexing_max',
+        'reflexes_max',
+        'riding_max',
+        'insensibility_max',
+        'fieldsofknowledge_max',
+        'punch_max',
+        'dagger_max',
+        'fencing_max',
+        'swords_max',
+        'scimitar_max',
+        'impact_max',
+        'polearm_max',
+        'lance_max',
+        'sling_max',
+        'pistol_max',
+        'crossbow_max',
+        'musket_max',
+        'dodge_max',
+        'shield_max'];
     rolllist.forEach(button => {
         on(`clicked:${button}`, function() {
             getAttrs([button], function(values) {
