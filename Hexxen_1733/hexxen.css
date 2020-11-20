@@ -3,11 +3,17 @@
 /* Set the min-width so that when the window is resized the look will stay consistant */
 
 .charsheet {
+
 	background-color: rgb(225, 236, 204);
 	background: rgb(225, 236, 204);
-	background: linear-gradient(90deg, rgba(36,66,0,1) 0%, rgba(225, 236, 204,1) 5%, rgba(225, 236, 204,1) 95%, rgba(36,66,0,1) 100%);
+	background: linear-gradient(90deg, rgb(209, 235, 163) 0%,  rgb(245, 240, 225) 30%, rgb(245, 240, 225) 80%,rgb(109, 141, 51) 100%);
+	background-color:;
+	/*background: linear-gradient(90deg, rgba(36,66,0,1) 0%, rgba(225, 236, 204,1) 5%, rgba(225, 236, 204,1) 95%, rgba(36,66,0,1) 100%);
+	*/
 	min-width: 800px;
 	font-family: 'Times New Roman', Times, serif;
+	border: 10px solid darkolivegreen;
+	border-style: double;
 }
 /*Configure the tab buttons*/
 .sheet-character,
@@ -21,6 +27,7 @@
 .sheet-tabstoggle[value="combat"] ~ div.sheet-combat {
 	display: block;
 }
+
 /* Universal styling applied to all elements of these types */
 
 h2 {
@@ -32,7 +39,11 @@ h2 {
 
 label {
 	display: inline-block;
-	width: 31%;
+	width: auto;
+	height: auto;
+	vertical-align: middle;
+	margin: 0;
+	padding: 4px 0px 4px 0px;
 }
 span {
 	font-weight: bold;
@@ -43,15 +54,29 @@ input {
 	display: inline-block;
 	width: 66%;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 16px;	
+	border: 2px solid #333;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	border-bottom: 2px solid #333;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+	padding-bottom: 0px;
 }
 fieldset {
 	display: inline-block;
 }
 button {
+	height: 22px;
 	border-radius: 0;
 	background: transparent;
-	border: 2px solid black;
+	border: 2px solid #333;
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: bold;
+	font-size: 1.2em;
+	vertical-align: middle;
+	padding-top: 0;
 }
 hr {
 	border-top: 2px dashed rgb(0, 0, 0);
@@ -59,6 +84,10 @@ hr {
 img {
 	max-height: 100px;
 }
+div {
+	border-color: #333;
+}
+
 
 textarea {
 	resize: vertical;
@@ -72,6 +101,7 @@ textarea {
     line-height: 31px;
     padding: 0px;
 }
+
 .sheet-2col
 {
 	width:calc(66% - 21px);
@@ -96,7 +126,7 @@ input.sheet-normal[type="checkbox"]
 /* -----Fake radio----- */
 input.sheet-normal[type="checkbox"] + span::before
 {
-    border: solid 2px black;
+    border: solid 2px #333;
     line-height: 16px;
     text-align: center;
     display: inline-block;
@@ -129,7 +159,7 @@ input.sheet-normal[type="radio"]
 /* -----Fake radio----- */
 input.sheet-normal[type="radio"] + span::before
 {
-    border: solid 2px black;
+    border: solid 2px #333;
     line-height: 16px;
     text-align: center;
     display: inline-block;
@@ -163,7 +193,7 @@ input.sheet-rating[type="radio"]
 /* -----Fake radio----- */
 input.sheet-rating[type="radio"] + span::before
 {
-    border: solid 2px black;
+    border: solid 2px #333;
     line-height: 16px;
     text-align: center;
     display: inline-block;
@@ -181,6 +211,119 @@ input.sheet-rating[type="radio"]:checked ~ input.sheet-rating[type="radio"] + sp
 {    
     content: "";
 }
+
+/*### DICEBAR ###*/
+/* -----Hide actual radio----- */
+.sheet-dicebar,
+.sheet-dicebarzero,
+.sheet-singledie
+{
+    opacity: 0;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 0px;
+    left: 8px;
+    margin: -8px;
+    cursor: pointer;
+    z-index: 1;
+	font-family: 'Patrick Hand';
+}
+/* -----Fake radio----- */
+.sheet-dicebar + span::before,
+.sheet-dicebarzero + span::before,
+.sheet-singledie + span::before
+{
+	border: solid 1px #333;
+	border-radius: 4px;
+	background-color: black;
+    text-align: center;
+    display: inline-block;
+	vertical-align: middle;
+    color:black;
+    content: "";
+    width: 16px;
+    height: 16px;
+	opacity: 0.1;
+}
+.sheet-hexdie + span::before
+{    
+	background-color:black;
+}
+.sheet-janusdiebonus + span::before
+{    
+	background-color:lightgrey;
+}
+.sheet-janusdiemalus + span::before
+{    
+	background-color:darkgrey;
+}
+.sheet-blessingdie + span::before
+{    
+	background-color:white;
+}
+.sheet-dicebargroup:not(:hover) .sheet-reverse.sheet-dicebar + span::before
+{    
+	opacity: 0.1;
+}
+.sheet-dicebargroup:not(:hover) :not(.sheet-reverse).sheet-dicebar + span::before,
+.sheet-dicebargroup:not(:hover) .sheet-reverse.sheet-dicebar:checked + span::before,
+.sheet-dicebargroup:not(:hover) .sheet-reverse.sheet-dicebar:checked ~ .sheet-reverse.sheet-dicebar + span::before
+{    
+	opacity: 1;
+}
+.sheet-dicebargroup:not(:hover) .sheet-reverse.sheet-dicebar:checked ~ :not(.sheet-reverse).sheet-dicebar + span::before,
+.sheet-dicebargroup:not(:hover) :not(.sheet-reverse).sheet-dicebar:checked ~ :not(.sheet-reverse).sheet-dicebar + span::before,
+.sheet-dicebargroup:not(:hover) :not(.sheet-reverse).sheet-dicebarzero:checked ~ :not(.sheet-reverse).sheet-dicebar + span::before
+{    
+	opacity: 0.1;
+}
+
+.sheet-dicebargroup:hover .sheet-reverse.sheet-dicebar + span::before
+{
+	opacity: 0.25;
+}
+.sheet-dicebargroup:hover .sheet-dicebar:hover + span::before,
+.sheet-dicebargroup:hover .sheet-reverse.sheet-dicebar:hover ~ .sheet-reverse.sheet-dicebar + span::before,
+.sheet-dicebargroup:hover :not(.sheet-reverse).sheet-dicebar + span::before
+{    
+	opacity: 0.75;
+}
+.sheet-reverse.sheet-dicebar:hover ~ :not(.sheet-reverse).sheet-dicebar + span::before,
+:not(.sheet-reverse).sheet-dicebar:hover ~ :not(.sheet-reverse).sheet-dicebar + span::before
+{    
+	opacity: 0.25;
+}
+
+/*------------empty traits-----------*/
+input.sheet-dicebarzero[type="radio"]:checked + span::before
+{
+    opacity: 0;
+}
+input.sheet-dicebarzero[type="radio"]:hover + span::before
+{
+    opacity: 1;
+}
+input.sheet-dicebarzero[type="radio"] + span::before
+{
+	background-color:black;
+	opacity: 0.25;
+}
+
+/*------------single die-----------*/
+input.sheet-singledie:checked + span::before
+{
+    opacity: 1;
+}
+input.sheet-singledie:hover + span::before
+{
+    opacity: 0.75;
+}
+input.sheet-singledie + span::before
+{
+    opacity: 0.25;
+}
+
 /*------------empty traits-----------*/
 input.sheet-zero[type="radio"]:checked + span::before
 {
@@ -198,6 +341,10 @@ input.sheet-zero[type="radio"] + span::before
 	font-size: 2em;
 	font-family: 'Patrick Hand';
 }
+
+
+
+
 /* Targetted styling that only effects elements with these classes */
 label.sheet-note {
 	font-style: italic;
@@ -230,8 +377,12 @@ div.sheet-sticky {
 	position: -webkit-sticky; /* Safari */
 	position: sticky;
 	top: 0;
-	background-color: rgba(225, 236, 204,1);
-	border: 2px solid #000000;
+	padding: 10px;
+	/*background-color: rgba(225, 236, 204,1);*/
+	background-color: rgb(245, 240, 225);
+	border: 4px solid darkolivegreen;
+	border-style: ridge;
+	box-shadow: 5px 5px #888888;
 	z-index: 10;
 }
 label.sheet-short {
@@ -242,37 +393,18 @@ label.sheet-short {
 
 input.sheet-short {
 	width: 17%;
-	border: 0;
-	outline: 0;
-	background: transparent;
-	border-bottom: 2px solid black;
-	border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
 }
 input.sheet-medium {
 	width: 31%;
-	border: 0;
-	outline: 0;
-	background: transparent;
-	border-bottom: 2px solid black;
-	border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
 }
 input.sheet-textline {
-	border: 0;
-	outline: 0;
-	background: transparent;
-	border-bottom: 2px solid black;
-	border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-	padding-bottom: 0px;
+
   }
 
   input.sheet-number {
-	border: 0;
+	  height:26px;
 	outline: 0;
 	background: transparent;
-	border: 2px solid black;
 	border-radius: 0px;
   }
   
@@ -318,13 +450,17 @@ span.sheet-dee {
 
   .sheet-weapons {
 	display: grid;
-	grid-template-columns: 30px 150px 3.5em 3.5em 3.5em 3.5em 3.5em 3.5em auto;
+	grid-template-columns: 30px 150px 2em 2em 3.5em 3.5em 2em 3.5em auto;
 	grid-row-gap: 2px;
 	grid-column-gap: 1rem;
   }
   .sheet-weapons > .sheet-item {
 	  width: auto;
   }
+.sheet-label {
+	padding: 4px;
+	vertical-align: middle;
+}
 
   .sheet-influences {
 	display: grid;
@@ -337,79 +473,23 @@ span.sheet-dee {
   }
 
   /* roll template */
-  .sheet-rolltemplate-hxx table {
-    width: 189px;
-    height: 189px;
-    padding: 2px;
-    background: url(http://i.imgur.com/xBk4U1p.jpg) top left;
-    background-size: 189px 189px;
-    background-repeat: no-repeat;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    border-spacing: 0;
-}
- 
-.sheet-rolltemplate-hxx th {
-	color: rgb(112, 0, 0);
-    padding: 15px 2px 2px 20px;
-	line-height: 1.2em;
-	font-size: 1.2em;
-    text-align: left;
-}
- 
- 
-.sheet-rolltemplate-hxx td {
-    font-size: 1.0em;
-	vertical-align: top;
-	padding-left: 15px;
-}
- 
-.sheet-rolltemplate-hxx .sheet-resultname {
-    font-size: 1.2em;
-    text-align: left;
-    color: rgb(112, 0, 0);
-	padding-bottom: 2px;
-	padding-left: 5px;
-}
-.sheet-rolltemplate-hxx .sheet-result {
-    font-size: 1.2em;
-    text-align: right;
-    color: rgb(112, 0, 0);
-	padding-bottom: 2px;
-	padding-left: 5px;
-}
- 
-.sheet-rolltemplate-hxx .inlinerollresult  {
-    background-color: transparent;
-    color: #000000;
-    border: none;
-}
- 
-.sheet-rolltemplate-hxx .inlinerollresult.fullcrit {
-   color: #3FB315;
-    border: none;
-}
- 
-.sheet-rolltemplate-hxx .inlinerollresult.fullfail {
-    color: #000000;
-    border: none;
-}
- 
-.sheet-rolltemplate-hxx .inlinerollresult.importantroll {
-	color: #3FB315;
-    border: none;
-}
 
 
 
 .sheet-rolltemplate-ova .sheet-rtcard {
 	counter-reset: hexxen janus esprit;
-	width: 189px;
-    height: 189px;
-    padding: 12px;
+	width: auto;
+    height: auto;
+	padding: 0px;
+	/*
 	background: url(http://i.imgur.com/xBk4U1p.jpg) top left;
-	background-size: 189px 189px;
-    background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	*/
+	border: 19px solid transparent;
+	border-image: url(http://i.imgur.com/xBk4U1p.jpg) round;
+	border-image-slice: 8% fill;
+
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     border-spacing: 0;
