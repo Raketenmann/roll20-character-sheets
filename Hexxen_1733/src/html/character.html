@@ -1,0 +1,269 @@
+<div class='sheet-character'>
+<div class="2colrow">
+	<div class="col">
+		<h2>Charakter</h2>
+
+        <label>Name</label><input class="sheet-textline" type="text" name="attr_character_name" />
+        <br />
+        <label>Jägerstufe</label><input class="sheet-textline" type="number" name="attr_rank" />
+        <br />
+        <label>Profession</label><input class="sheet-textline" type="text" name="attr_profession" />
+        <br />
+        <label>Motivation</label><input class="sheet-textline" type="text" name="attr_motivation" />
+        <br />
+        <label>Vorteil:</label><input class="sheet-textline" type="text" name="attr_advantage" />
+        <br />
+        <label>Verderbnis:</label><input class="sheet-textline" type="number" name="attr_verderbnis" />
+        <label>Segnungen:</label><input class="sheet-textline" type="number" name="attr_segnungen" />
+
+        <h2>Kleidungssets</h2>
+        <label>Set No1</label><input class="sheet-textline" type="text" name="attr_armorset1" />
+        <br />
+        <label>Bonus</label><input class="sheet-textline" type="text" name="attr_armorset1_bonus" />
+        <br />
+        <label>Set No2</label><input class="sheet-textline" type="text" name="attr_armorset2" />
+        <br />
+        <label>Bonus</label><input class="sheet-textline" type="text" name="attr_armorset2_bonus" />
+        <br />
+
+        <h2>Jägerkräfte</h2>
+        
+        <fieldset class="repeating_hunterpowers">
+            <input class='sheet-medium'  type="text" name="attr_hunterpowername" />
+            <input class="sheet-textline" type="text" name="attr_hunterpowereffect" />
+        </fieldset>
+
+        <h2>Ausbaukräfte</h2>
+        
+        <fieldset class="repeating_powers">
+            <input class='sheet-medium'  type="text" name="attr_powername"/>
+            <input class="sheet-textline" type="text" name="attr_powereffect" />
+        </fieldset>
+
+        <h2>Aktive Effekte</h2>
+        <fieldset class="repeating_effects">
+            <input class='sheet-medium'  type="text" name="attr_name"/>
+            <input class="sheet-medium" type="text" name="attr_source" />
+            <select name="attr_target">
+                <option value="0" selected="selected">None</option>
+                <option value="hitpoints" >Lebenspunkte</option>
+                <option value="parry_all" >Alle Paraden</option>
+                <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
+                <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
+                <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
+                <option value="attribute_senses" data-i18n="attribute_senses">attribute_senses</option>
+                <option value="attribute_knowledge" data-i18n="attribute_knowledge">attribute_knowledge</option>
+                <option value="attribute_willpower" data-i18n="attribute_willpower">attribute_willpower</option>
+                <option value="skill_acrobatics" data-i18n="skill_acrobatics">skill_acrobatics</option>
+                <option value="skill_alertness" data-i18n="skill_alertness">skill_alertness</option>
+                <option value="skill_perception" data-i18n="skill_perception">skill_perception</option>
+                <option value="skill_firstaid" data-i18n="skill_firstaid">skill_firstaid</option>
+                <option value="skill_sleightofhand" data-i18n="skill_sleightofhand">skill_sleightofhand</option>
+                <option value="skill_mentalpower" data-i18n="skill_mentalpower">skill_mentalpower</option>
+                <option value="skill_crafting" data-i18n="skill_crafting">skill_crafting</option>
+                <option value="skill_stealth" data-i18n="skill_stealth">skill_stealth</option>
+                <option value="skill_countryandpeople" data-i18n="skill_countryandpeople">skill_countryandpeople</option>
+                <option value="skill_rhetoric" data-i18n="skill_rhetoric">skill_rhetoric</option>
+                <option value="skill_flexing" data-i18n="skill_flexing">skill_flexing</option>
+                <option value="skill_reflexes" data-i18n="skill_reflexes">skill_reflexes</option>
+                <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
+                <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
+                <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+                <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
+                <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
+                <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
+                <option value="weapon_swords" data-i18n="weapon_swords">weapon_swords</option>
+                <option value="weapon_scimitar" data-i18n="weapon_scimitar">weapon_scimitar</option>
+                <option value="weapon_impact" data-i18n="weapon_impact">weapon_impact</option>
+                <option value="weapon_polearm" data-i18n="weapon_polearm">weapon_polearm</option>
+                <option value="weapon_lance" data-i18n="weapon_lance">weapon_lance</option>
+                <option value="weapon_sling" data-i18n="weapon_sling">weapon_sling</option>
+                <option value="weapon_pistol" data-i18n="weapon_pistol">weapon_pistol</option>
+                <option value="weapon_crossbow" data-i18n="weapon_crossbow">weapon_crossbow</option>
+                <option value="weapon_musket" data-i18n="weapon_musket">weapon_musket</option>
+                <option value="weapon_dodge" data-i18n="weapon_dodge">weapon_dodge</option>
+                <option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option>
+              </select>
+            <input class="sheet-medium" type="number" name="attr_bonus" />
+        </fieldset>
+
+	</div>
+
+	<div class="col">
+        <h2>Rollen</h2>
+        <label>Rolle No1:</label><input class="sheet-textline" type="text" name="attr_role1" />
+        <br />
+        <label>Rolle No2:</label><input class="sheet-textline" type="text" name="attr_role2" />
+        <br />
+        <label>Rolle No3:</label><input class="sheet-textline" type="text" name="attr_role3" />
+
+        <h2>Geld</h2>
+        <label>Unterhalt</label><input class="sheet-textline" type="text" name="attr_unterhalt" />
+        <br />
+        <label>Vermögen</label><input class="sheet-textline" type="text" name="attr_vermoegen" />
+
+        <h2>Restliche Ausrüstung</h2>
+        <textarea name="attr_equipment"></textarea>
+
+        <h2>Körperliche Attribute</h2>
+        <div class="attributes">
+            
+            <label data-i18n="attribute_strength">Strength</label>
+            <label class='short pureattribute' data-i18n="attribute_strength_short">Str</label>
+            <input type="number" name='attr_attribute_strength' class='number'>
+            <button type='action' name='act_attribute_strength'></button>
+          
+            <label data-i18n="attribute_athletic">Athletics</label>
+            <label class='short pureattribute' data-i18n="attribute_athletic_short">Ath</label>
+            <input type="number" name='attr_attribute_athletic' class='number'>
+            <button type='action' name='act_attribute_athletic'></button>
+        
+            <label data-i18n="attribute_dexterity">Dexterity</label>
+            <label class='short pureattribute' data-i18n="attribute_dexterity_short">Dex</label>
+            <input type="number" name='attr_attribute_dexterity' class='number'>
+            <button type='action' name='act_attribute_dexterity'></button>
+        
+            <label data-i18n="attribute_coups">Coups</label>
+            <label class='short'>[=<span class="pureattribute" data-i18n="attribute_athletic_short">Ath</span>]</label>
+            <input type="number" name='attr_coups' class='number'>
+            <span class='item' name="attr_coups_max" ></span>
+      
+        </div>
+        <h2>Geistige Attribute</h2>
+        <div class="attributes">
+            <label data-i18n="attribute_senses">Senses</label>
+            <label class='short pureattribute' data-i18n="attribute_senses_short">Sen</label>
+            <input type="number" name='attr_attribute_senses' class='number'>
+            <button type='action' name='act_attribute_senses'></button>
+          
+            <label data-i18n="attribute_knowledge">Knowledge</label>
+            <label class='short pureattribute' data-i18n="attribute_knowledge_short">Kno</label>
+            <input type="number" name='attr_attribute_knowledge' class='number'>
+            <button type='action' name='act_attribute_knowledge'></button>
+          
+            <label data-i18n="attribute_willpower">Willpower</label>
+            <label class='short pureattribute' data-i18n="attribute_willpower_short">Wil</label>
+            <input type="number" name='attr_attribute_willpower' class='number'>
+            <button type='action' name='act_attribute_willpower'></button>
+            
+            <label data-i18n="attribute_ideas">Ideas</label>
+            <label class='short'>[=<span class="pureattribute" data-i18n="attribute_knowledge_short">Kno</span>]</label>
+            <input type="number" name='attr_ideas' class='number'>
+            <span name="attr_ideas_max" ></span>
+        </div>
+        <h2>Abgleitete Ressourcen</h2>
+        <div class="ressources">    
+            <label data-i18n="attribute_hitpoints">Lebenspunkte</label>
+            
+<input type="hidden" name="attr_hitpoints_mod_desc" />
+            <label class="tooltip">[<span class="pureattribute" data-i18n="attribute_strength_short">Str</span>+<span class="pureattribute" data-i18n="attribute_willpower_short">Wil</span>+<span class="pureattribute">7</span>]<span class="tooltiptext" name="attr_hitpoints_mod_desc"></span></label>
+            <input class='sheet-number' type="number" name="attr_hitpoints" />
+            <span name="attr_hitpoints_max" ></span>
+            
+            <label data-i18n="attribute_initiative">Initiative</label>
+            <label>[<span class="pureattribute" data-i18n="attribute_senses_short">Sen</span>+<span class="pureattribute" data-i18n="attribute_dexterity_short">Dex</span>]</label>
+            <input class='sheet-number' type="number" name="attr_ini" />
+        </div>
+
+        <h2>Allgemeine Fertigkeiten</h2>
+        <div class="skills">
+            <h3>Name</h3><h3>FN</h3><h3>Attribut</h3><h3>SUM</h3><h3>Roll</h3>
+            <!-- acrobatics -->
+            <label class="item" data-i18n="skill_acrobatics">Akrobatik</label>
+            <input class='number' type="number" name="attr_skill_acrobatics"/>
+            <label class="attribute" data-i18n="attribute_athletic_short">Ath</label>
+            <span name="attr_skill_acrobatics_max"></span>
+            <button type='action' name='act_skill_acrobatics'></button>
+            <!-- alertness -->
+            <label class="item" data-i18n="skill_alertness">Aufmerksamkeit</label>
+            <input class='number' type="number" name="attr_skill_alertness"/>
+            <label class="attribute" data-i18n="attribute_senses_short">Sen</label>
+            <span name="attr_skill_alertness_max"></span>
+            <button type='action' name='act_skill_alertness'></button>
+             <!-- perception -->
+             <label class="item" data-i18n="skill_perception">Erkennen</label>
+             <input class='number' type="number" name="attr_skill_perception"/>
+             <label class="attribute" data-i18n="attribute_senses_short">Sen</label>
+             <span name="attr_skill_perception_max"></span>
+             <button type='action' name='act_skill_perception'></button>
+              <!-- firstaid -->
+            <label class="item" data-i18n="skill_firstaid">Erste Hilfe</label>
+            <input class='number' type="number" name="attr_skill_firstaid"/>
+            <label class="attribute" data-i18n="attribute_knowledge_short">Kno</label>
+            <span name="attr_skill_firstaid_max"></span>
+            <button type='action' name='act_skill_firstaid'></button>
+             <!-- sleightofhand -->
+             <label class="item" data-i18n="skill_sleightofhand">Fingerfertigkeit</label>
+             <input class='number' type="number" name="attr_skill_sleightofhand"/>
+             <label class="attribute" data-i18n="attribute_dexterity_short">Dex</label>
+             <span name="attr_skill_sleightofhand_max"></span>
+             <button type='action' name='act_skill_sleightofhand'></button>
+              <!-- mentalpower -->
+            <label class="item" data-i18n="skill_mentalpower">Geistesstärke</label>
+            <input class='number' type="number" name="attr_skill_mentalpower"/>
+            <label class="attribute" data-i18n="attribute_willpower_short">Wil</label>
+            <span name="attr_skill_mentalpower_max"></span>
+            <button type='action' name='act_skill_mentalpower'></button>
+             <!-- crafting -->
+             <label class="item" data-i18n="skill_crafting">Handwerken</label>
+             <input class='number' type="number" name="attr_skill_crafting"/>
+             <label class="attribute" data-i18n="attribute_dexterity_short">Dex</label>
+             <span name="attr_skill_crafting_max"></span>
+             <button type='action' name='act_skill_crafting'></button>
+              <!-- stealth -->
+            <label class="item" data-i18n="skill_stealth">Heimlichkeit</label>
+            <input class='number' type="number" name="attr_skill_stealth"/>
+            <label class="attribute" data-i18n="attribute_athletic_short">Ath</label>
+            <span name="attr_skill_stealth_max"></span>
+            <button type='action' name='act_skill_stealth'></button>
+             <!-- countryandpeople -->
+             <label class="item" data-i18n="skill_countryandpeople">Land und Leute</label>
+             <input class='number' type="number" name="attr_skill_countryandpeople"/>
+             <label class="attribute" data-i18n="attribute_knowledge_short">Kno</label>
+             <span name="attr_skill_countryandpeople_max"></span>
+             <button type='action' name='act_skill_countryandpeople'></button>
+              <!-- rhetoric -->
+            <label class="item" data-i18n="skill_rhetoric">Redekunst</label>
+            <input class='number' type="number" name="attr_skill_rhetoric"/>
+            <label class="attribute" data-i18n="attribute_willpower_short">Wil</label>
+            <span name="attr_skill_rhetoric_max"></span>
+            <button type='action' name='act_skill_rhetoric'></button>
+             <!-- flexing -->
+             <label class="item" data-i18n="skill_flexing">Muskelspiel</label>
+             <input class='number' type="number" name="attr_skill_flexing"/>
+             <label class="attribute" data-i18n="attribute_strength_short">Str</label>
+             <span name="attr_skill_flexing_max"></span>
+             <button type='action' name='act_skill_flexing'></button>
+              <!-- reflexes -->
+            <label class="item" data-i18n="skill_reflexes">Reflexe</label>
+            <input class='number' type="number" name="attr_skill_reflexes"/>
+            <label class="attribute" data-i18n="attribute_senses_short">Sen</label>
+            <span name="attr_skill_reflexes_max"></span>
+            <button type='action' name='act_skill_reflexes'></button>
+             <!-- riding -->
+             <label class="item" data-i18n="skill_riding">Reiten</label>
+             <input class='number' type="number" name="attr_skill_riding"/>
+             <label class="attribute" data-i18n="attribute_athletic_short">Ath</label>
+             <span name="attr_skill_riding_max"></span>
+             <button type='action' name='act_skill_riding'></button>
+              <!-- insensibility -->
+            <label class="item" data-i18n="skill_insensibility">Unempfindlichkeit</label>
+            <input class='number' type="number" name="attr_skill_insensibility"/>
+            <label class="attribute" data-i18n="attribute_strength_short">Str</label>
+            <span name="attr_skill_insensibility_max"></span>
+            <button type='action' name='act_skill_insensibility'></button>
+             <!-- fieldsofknowledge -->
+             <label class="item" data-i18n="skill_fieldsofknowledge">Wissensgebiete</label>
+             <input class='number' type="number" name="attr_skill_fieldsofknowledge"/>
+             <label class="attribute" data-i18n="attribute_knowledge_short">Kno</label>
+             <span name="attr_skill_fieldsofknowledge_max"></span>
+             <button type='action' name='act_skill_fieldsofknowledge'></button>
+        </div>
+	</div>
+
+</div>
+</div>
+
+
+
+

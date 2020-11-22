@@ -1,90 +1,89 @@
 <div class="sticky">
     
    
-        <!--<img src="https://ulisses-spiele.de/wp-content/uploads/HeXXen1733_Logo_Fanwerk-300x212.png" />-->
-        <button type="action" name="act_character" >Character</button>
-        <button type="action" name="act_combat" >Combat</button>
-        <button type="action" name="act_configuration" >Configuration</button>
+    <!--<img src="https://ulisses-spiele.de/wp-content/uploads/HeXXen1733_Logo_Fanwerk-300x212.png" />-->
+    <button type="action" name="act_character" >Character</button>
+    <button type="action" name="act_combat" >Combat</button>
+    <button type="action" name="act_configuration" >Configuration</button>
 <br>
 
-        <div class="rolltestdice">
-            <button type='roll' name='roll_testattack' value='@{rollquery}'>Roll</button>
-        </div>
-        <label >Hexxenwürfel</label><input class="textline" type="number" min="0" max="10" name="attr_hexxen" />
-        <span class="label" name="attr_rollvaluename"></span>
-        
-        
-  
-        <span class="dicebargroup">
-            <input type="radio" class="dicebarzero" name="attr_hexxen" value="0" checked="checked" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="1" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="2" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="3" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="4" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="5" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="6" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="7" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="8" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="9" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="10" /><span></span>
-        </span>
-      <br>
-        <label >Januswürfel</label><input class="textline janusdice" type="number" min="-5" max="5" name="attr_janus" />
-        <span class="dicebargroup">
-            <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-5" /><span></span>
-            <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-4" /><span></span>
-            <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-3" /><span></span>
-            <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-2" /><span></span>
-            <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-1" /><span></span>
-            <input type="radio" class="dicebarzero" name="attr_janus" value="0" /><span></span>
-            <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="1" /><span></span>
-            <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="2" /><span></span>
-            <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="3" /><span></span>
-            <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="4" /><span></span>
-            <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="5" /><span></span>
-        </span>
-        <span class="label" name="attr_rollmodifiers"></span>
-        <br>
-        <button type='roll' class="directdieroller blessingdie" name='roll_blessingdie' title="Segnung" value='"&{template:check} {{name=@{character_name}}} {{attr=Segnung}} {{blessing1=[[d6cs>4cf1cf2]]}}"'></button>
-        <button type='roll' class="directdieroller blooddie" name='roll_blooddie' title="Blutwürfel" value='"&{template:blood} {{name=@{character_name}}} {{attr=Blutwürfel}} {{blood1=[[d6cs>5cf1]]}}"'></button>
-        <button type='roll' class="directdieroller elixirdie" name='roll_elixirdie' title="Elixierwürfel" value='"&{template:elixir} {{name=@{character_name}}} {{attr=Elixierwürfel}} {{elixir1=[[d6cs5]]}}"'></button>
-        
-        <br>
-       
-        <button type="action" name="act_resetroll">Reset</button>
+    <div class="rolltestdice">
+        <button type='roll' name='roll_testattack' value='@{rollquery}'>Roll</button>
+    </div>
+    <label >Hexxenwürfel</label><input class="textline" type="number" min="0" max="10" name="attr_hexxen" />
+    <input type="hidden" name="attr_rollvaluename"/><span class="label" name="attr_rollvaluename"></span>
+    
+    
 
-        <label data-i18n="attribute_coups">Coups</label>
-        <input type="number" name='attr_coups' class='number' min="0" max="@{coups_max}">
-        <span class='item' name="attr_coups_max" ></span>
-
-        <span class="dicebargroup">
-            <input type="radio" class="dicebarzero" name="attr_coups" value="0" checked="checked" /><span></span>
-            <input type="radio" class="dicebar coupchip" name="attr_coups" value="1" /><span></span>
-            <input type="radio" class="dicebar coupchip" name="attr_coups" value="2" /><span></span>
-            <input type="radio" class="dicebar coupchip" name="attr_coups" value="3" /><span></span>
-            <input type="radio" class="dicebar coupchip" name="attr_coups" value="4" /><span></span>
-            <input type="radio" class="dicebar coupchip" name="attr_coups" value="5" /><span></span>
-        </span>
-
-        <label data-i18n="attribute_ideas">Ideas</label>
-        <input type="number" name='attr_ideas' class='number'>
-        <span name="attr_ideas_max" ></span>
-
-        <span class="dicebargroup">
-            <input type="radio" class="dicebarzero" name="attr_ideas" value="0" checked="checked" /><span></span>
-            <input type="radio" class="dicebar ideachip" name="attr_ideas" value="1" /><span></span>
-            <input type="radio" class="dicebar ideachip" name="attr_ideas" value="2" /><span></span>
-            <input type="radio" class="dicebar ideachip" name="attr_ideas" value="3" /><span></span>
-            <input type="radio" class="dicebar ideachip" name="attr_ideas" value="4" /><span></span>
-            <input type="radio" class="dicebar ideachip" name="attr_ideas" value="5" /><span></span>
-        </span>
+    <span class="dicebargroup">
+        <input type="radio" class="dicebarzero" name="attr_hexxen" value="0" checked="checked" /><span></span>
+        <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="1" /><span></span>
+        <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="2" /><span></span>
+        <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="3" /><span></span>
+        <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="4" /><span></span>
+        <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="5" /><span></span>
+        <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="6" /><span></span>
+        <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="7" /><span></span>
+        <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="8" /><span></span>
+        <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="9" /><span></span>
+        <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="10" /><span></span>
+    </span>
+  <br>
+    <label >Januswürfel</label><input class="textline janusdice" type="number" min="-5" max="5" name="attr_janus" />
+    <span class="dicebargroup">
+        <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-5" /><span></span>
+        <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-4" /><span></span>
+        <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-3" /><span></span>
+        <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-2" /><span></span>
+        <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-1" /><span></span>
+        <input type="radio" class="dicebarzero" name="attr_janus" value="0" /><span></span>
+        <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="1" /><span></span>
+        <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="2" /><span></span>
+        <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="3" /><span></span>
+        <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="4" /><span></span>
+        <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="5" /><span></span>
+    </span>
+    <input type="hidden" name="attr_rollmodifiers"/>
+    <span class="label" name="attr_rollmodifiers"></span>
+    <br>
+    <button type='roll' class="directdieroller blessingdie" name='roll_blessingdie' title="Segnung" value='"&{template:check} {{name=@{character_name}}} {{attr=Segnung}} {{blessing1=[[d6cs>4cf1cf2]]}}"'></button>
+    <button type='roll' class="directdieroller blooddie" name='roll_blooddie' title="Blutwürfel" value='"&{template:blood} {{name=@{character_name}}} {{attr=Blutwürfel}} {{blood1=[[d6cs>5cf1]]}}"'></button>
+    <button type='roll' class="directdieroller elixirdie" name='roll_elixirdie' title="Elixierwürfel" value='"&{template:elixir} {{name=@{character_name}}} {{attr=Elixierwürfel}} {{elixir1=[[d6cs5]]}}"'></button>
+    
+    <br>
    
-        <label>Aktionspunkte</label><input type="number" class="number" name="attr_ap" value="(4 - @{armor})" disabled="disabled"  />
+    <button type="action" name="act_resetroll">Reset</button>
+
+    <label data-i18n="attribute_coups">Coups</label>
+    <input type="number" name='attr_coups' class='number' min="0" max="@{coups_max}">
+    <span class='item' name="attr_coups_max" ></span>
+
+    <span class="dicebargroup">
+        <input type="radio" class="dicebarzero" name="attr_coups" value="0" checked="checked" /><span></span>
+        <input type="radio" class="dicebar coupchip" name="attr_coups" value="1" /><span></span>
+        <input type="radio" class="dicebar coupchip" name="attr_coups" value="2" /><span></span>
+        <input type="radio" class="dicebar coupchip" name="attr_coups" value="3" /><span></span>
+        <input type="radio" class="dicebar coupchip" name="attr_coups" value="4" /><span></span>
+        <input type="radio" class="dicebar coupchip" name="attr_coups" value="5" /><span></span>
+    </span>
+
+    <label data-i18n="attribute_ideas">Ideas</label>
+    <input type="number" name='attr_ideas' class='number'>
+    <span name="attr_ideas_max" ></span>
+
+    <span class="dicebargroup">
+        <input type="radio" class="dicebarzero" name="attr_ideas" value="0" checked="checked" /><span></span>
+        <input type="radio" class="dicebar ideachip" name="attr_ideas" value="1" /><span></span>
+        <input type="radio" class="dicebar ideachip" name="attr_ideas" value="2" /><span></span>
+        <input type="radio" class="dicebar ideachip" name="attr_ideas" value="3" /><span></span>
+        <input type="radio" class="dicebar ideachip" name="attr_ideas" value="4" /><span></span>
+        <input type="radio" class="dicebar ideachip" name="attr_ideas" value="5" /><span></span>
+    </span>
+
+    <label>Aktionspunkte</label><input type="number" class="number" name="attr_ap" value="(4 - @{armor})" disabled="disabled"  />
 
 </div>
-<input type='hidden' class='tabstoggle' name='attr_sheetTab'  value='character'  />
-
-<div class='sheet-character'>
+<input class="tabstoggle" type="hidden" name="attr_sheetTab" value="character"/><div class='sheet-character'>
 <div class="2colrow">
 	<div class="col">
 		<h2>Charakter</h2>
@@ -240,7 +239,9 @@
         <h2>Abgleitete Ressourcen</h2>
         <div class="ressources">    
             <label data-i18n="attribute_hitpoints">Lebenspunkte</label>
-            <label>[<span class="pureattribute" data-i18n="attribute_strength_short">Str</span>+<span class="pureattribute" data-i18n="attribute_willpower_short">Wil</span>+<span class="pureattribute">7</span>]</label>
+            
+<input type="hidden" name="attr_hitpoints_mod_desc" />
+            <label class="tooltip">[<span class="pureattribute" data-i18n="attribute_strength_short">Str</span>+<span class="pureattribute" data-i18n="attribute_willpower_short">Wil</span>+<span class="pureattribute">7</span>]<span class="tooltiptext" name="attr_hitpoints_mod_desc"></span></label>
             <input class='sheet-number' type="number" name="attr_hitpoints" />
             <span name="attr_hitpoints_max" ></span>
             
@@ -257,410 +258,458 @@
             <input class='number' type="number" name="attr_skill_acrobatics"/>
             <label class="attribute" data-i18n="attribute_athletic_short">Ath</label>
             <span name="attr_skill_acrobatics_max"></span>
-            <button type='action' name='act_skill_acrobatics_max'></button>
+            <button type='action' name='act_skill_acrobatics'></button>
             <!-- alertness -->
             <label class="item" data-i18n="skill_alertness">Aufmerksamkeit</label>
             <input class='number' type="number" name="attr_skill_alertness"/>
             <label class="attribute" data-i18n="attribute_senses_short">Sen</label>
             <span name="attr_skill_alertness_max"></span>
-            <button type='action' name='act_skill_alertness_max'></button>
+            <button type='action' name='act_skill_alertness'></button>
              <!-- perception -->
              <label class="item" data-i18n="skill_perception">Erkennen</label>
              <input class='number' type="number" name="attr_skill_perception"/>
              <label class="attribute" data-i18n="attribute_senses_short">Sen</label>
              <span name="attr_skill_perception_max"></span>
-             <button type='action' name='act_skill_perception_max'></button>
+             <button type='action' name='act_skill_perception'></button>
               <!-- firstaid -->
             <label class="item" data-i18n="skill_firstaid">Erste Hilfe</label>
             <input class='number' type="number" name="attr_skill_firstaid"/>
             <label class="attribute" data-i18n="attribute_knowledge_short">Kno</label>
             <span name="attr_skill_firstaid_max"></span>
-            <button type='action' name='act_skill_firstaid_max'></button>
+            <button type='action' name='act_skill_firstaid'></button>
              <!-- sleightofhand -->
              <label class="item" data-i18n="skill_sleightofhand">Fingerfertigkeit</label>
              <input class='number' type="number" name="attr_skill_sleightofhand"/>
              <label class="attribute" data-i18n="attribute_dexterity_short">Dex</label>
              <span name="attr_skill_sleightofhand_max"></span>
-             <button type='action' name='act_skill_sleightofhand_max'></button>
+             <button type='action' name='act_skill_sleightofhand'></button>
               <!-- mentalpower -->
             <label class="item" data-i18n="skill_mentalpower">Geistesstärke</label>
             <input class='number' type="number" name="attr_skill_mentalpower"/>
             <label class="attribute" data-i18n="attribute_willpower_short">Wil</label>
             <span name="attr_skill_mentalpower_max"></span>
-            <button type='action' name='act_skill_mentalpower_max'></button>
+            <button type='action' name='act_skill_mentalpower'></button>
              <!-- crafting -->
              <label class="item" data-i18n="skill_crafting">Handwerken</label>
              <input class='number' type="number" name="attr_skill_crafting"/>
              <label class="attribute" data-i18n="attribute_dexterity_short">Dex</label>
              <span name="attr_skill_crafting_max"></span>
-             <button type='action' name='act_skill_crafting_max'></button>
+             <button type='action' name='act_skill_crafting'></button>
               <!-- stealth -->
             <label class="item" data-i18n="skill_stealth">Heimlichkeit</label>
             <input class='number' type="number" name="attr_skill_stealth"/>
             <label class="attribute" data-i18n="attribute_athletic_short">Ath</label>
             <span name="attr_skill_stealth_max"></span>
-            <button type='action' name='act_skill_stealth_max'></button>
+            <button type='action' name='act_skill_stealth'></button>
              <!-- countryandpeople -->
              <label class="item" data-i18n="skill_countryandpeople">Land und Leute</label>
              <input class='number' type="number" name="attr_skill_countryandpeople"/>
              <label class="attribute" data-i18n="attribute_knowledge_short">Kno</label>
              <span name="attr_skill_countryandpeople_max"></span>
-             <button type='action' name='act_skill_countryandpeople_max'></button>
+             <button type='action' name='act_skill_countryandpeople'></button>
               <!-- rhetoric -->
             <label class="item" data-i18n="skill_rhetoric">Redekunst</label>
             <input class='number' type="number" name="attr_skill_rhetoric"/>
             <label class="attribute" data-i18n="attribute_willpower_short">Wil</label>
             <span name="attr_skill_rhetoric_max"></span>
-            <button type='action' name='act_skill_rhetoric_max'></button>
+            <button type='action' name='act_skill_rhetoric'></button>
              <!-- flexing -->
              <label class="item" data-i18n="skill_flexing">Muskelspiel</label>
              <input class='number' type="number" name="attr_skill_flexing"/>
              <label class="attribute" data-i18n="attribute_strength_short">Str</label>
              <span name="attr_skill_flexing_max"></span>
-             <button type='action' name='act_skill_flexing_max'></button>
+             <button type='action' name='act_skill_flexing'></button>
               <!-- reflexes -->
             <label class="item" data-i18n="skill_reflexes">Reflexe</label>
             <input class='number' type="number" name="attr_skill_reflexes"/>
             <label class="attribute" data-i18n="attribute_senses_short">Sen</label>
             <span name="attr_skill_reflexes_max"></span>
-            <button type='action' name='act_skill_reflexes_max'></button>
+            <button type='action' name='act_skill_reflexes'></button>
              <!-- riding -->
              <label class="item" data-i18n="skill_riding">Reiten</label>
              <input class='number' type="number" name="attr_skill_riding"/>
              <label class="attribute" data-i18n="attribute_athletic_short">Ath</label>
              <span name="attr_skill_riding_max"></span>
-             <button type='action' name='act_skill_riding_max'></button>
+             <button type='action' name='act_skill_riding'></button>
               <!-- insensibility -->
             <label class="item" data-i18n="skill_insensibility">Unempfindlichkeit</label>
             <input class='number' type="number" name="attr_skill_insensibility"/>
             <label class="attribute" data-i18n="attribute_strength_short">Str</label>
             <span name="attr_skill_insensibility_max"></span>
-            <button type='action' name='act_skill_insensibility_max'></button>
+            <button type='action' name='act_skill_insensibility'></button>
              <!-- fieldsofknowledge -->
              <label class="item" data-i18n="skill_fieldsofknowledge">Wissensgebiete</label>
              <input class='number' type="number" name="attr_skill_fieldsofknowledge"/>
              <label class="attribute" data-i18n="attribute_knowledge_short">Kno</label>
              <span name="attr_skill_fieldsofknowledge_max"></span>
-             <button type='action' name='act_skill_fieldsofknowledge_max'></button>
+             <button type='action' name='act_skill_fieldsofknowledge'></button>
         </div>
 	</div>
 
 </div>
 </div>
-<div class='sheet-combat'>
-    <h2>Anhaltende Einflüsse</h2>
-    <div class="3colrow">
+
+
+
+
+
+<div class="sheet-combat">
+<h2>Anhaltende Einflüsse</h2>
+<div class="3colrow">
     <div class="influences">
-    <h3>Art</h3><h3>Stufen</h3><h3>Anm.</h3><h3>Zustände</h3>
+        <h3>Art</h3><h3>Stufen</h3><h3>Anm.</h3><h3>Zustände</h3>
 
-    <label class="item">Äußerer Schaden</label>
-    <span class="item">
-        <input type="radio" class="sheet-rating sheet-zero" name="attr_outerdamage" value="0" checked="checked" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_outerdamage" value="1" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_outerdamage" value="2" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_outerdamage" value="3" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_outerdamage" value="4" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_outerdamage" value="5" /><span></span>
-    </span>
-    <label class="item"></label>
-    <input class="item textline" type="text" name="attr_outerdamage_conditions" />
+        <label class="item">Äußerer Schaden</label>
+        <span class="item">
+            <input type="radio" class="sheet-rating sheet-zero" name="attr_outerdamage" value="0" checked="checked" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_outerdamage" value="1" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_outerdamage" value="2" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_outerdamage" value="3" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_outerdamage" value="4" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_outerdamage" value="5" /><span></span>
+        </span>
+        <label class="item"></label>
+        <input class="item textline" type="text" name="attr_outerdamage_conditions" />
 
-    <label class="item">Innerer Schaden</label>
-    <span class="item">
-        <input type="radio" class="sheet-rating sheet-zero" name="attr_innerdamage" value="0" checked="checked" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_innerdamage" value="1" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_innerdamage" value="2" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_innerdamage" value="3" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_innerdamage" value="4" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_innerdamage" value="5" /><span></span>
-    </span>
-    <label class="item"></label>
-    <input class="item textline" type="text" name="attr_innerdamage_conditions" />
+        <label class="item">Innerer Schaden</label>
+        <span class="item">
+            <input type="radio" class="sheet-rating sheet-zero" name="attr_innerdamage" value="0" checked="checked" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_innerdamage" value="1" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_innerdamage" value="2" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_innerdamage" value="3" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_innerdamage" value="4" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_innerdamage" value="5" /><span></span>
+        </span>
+        <label class="item"></label>
+        <input class="item textline" type="text" name="attr_innerdamage_conditions" />
 
-    <label class="item">Malusschaden</label>
-    <span class="item">
-        <input type="radio" class="sheet-rating sheet-zero" name="attr_malusdamage" value="0" checked="checked" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_malusdamage" value="1" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_malusdamage" value="2" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_malusdamage" value="3" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_malusdamage" value="4" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_malusdamage" value="5" /><span></span>
-    </span> 
-    <label class="item"></label>
-    <input class="item textline" type="text" name="attr_malusdamage_conditions" />
+        <label class="item">Malusschaden</label>
+        <span class="item">
+            <input type="radio" class="sheet-rating sheet-zero" name="attr_malusdamage" value="0" checked="checked" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_malusdamage" value="1" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_malusdamage" value="2" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_malusdamage" value="3" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_malusdamage" value="4" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_malusdamage" value="5" /><span></span>
+        </span> 
+        <label class="item"></label>
+        <input class="item textline" type="text" name="attr_malusdamage_conditions" />
 
-    <label class="item">Lähmungsschaden</label>
-    <span class="item">
-        <input type="radio" class="sheet-rating sheet-zero" name="attr_paralysisdamage" value="0" checked="checked" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="1" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="2" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="3" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="4" /><span></span>
-        <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="5" /><span></span>
-    </span>
-    <label class="item">≤[Ap]</label>
-    <input class="item textline" type="text" name="attr_paralysisdamage_conditions" />
+        <label class="item">Lähmungsschaden</label>
+        <span class="item">
+            <input type="radio" class="sheet-rating sheet-zero" name="attr_paralysisdamage" value="0" checked="checked" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="1" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="2" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="3" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="4" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="5" /><span></span>
+        </span>
+        <label class="item">≤[Ap]</label>
+        <input class="item textline" type="text" name="attr_paralysisdamage_conditions" />
     </div>
+</div>
+<br>
+<div class="3colrow">
+    <div class="2col">
+        <h2>Schutz und Gesundheit</h2>
+        <label class="short">Panzerung</label>
+        <input type="radio" class="normal" name="attr_armor" value="1" checked="checked"/><span></span><label class="short">Leicht (<span class="pureattribute">Pw1</span>)</label>
+        <input type="radio" class="normal" name="attr_armor" value="2" /><span></span><label class="short">Mittel (<span class="pureattribute">Pw2</span>)</label>
+        <input type="radio" class="normal" name="attr_armor" value="3" /><span></span><label class="short">Schwer (<span class="pureattribute">Pw3</span>)</label>
+        <label>Puffer-[Lep]</label><input class='number' type="number" name="attr_bufferhitpoints" /> 
+        <br>
+        <label>Basis-[Lep]</label><span class="label" name="attr_hitpoints_max" ></span>
+        <br>
+        <label>Aktuell-[Lep]</label><input class='number' type="number" name="attr_hitpoints" />    
+        <br>
+        <label class="text note">Bei Basis-[Lep]≤-1 der Verlust alle Coups/Ideen, deren Benutzung unmöglich. Puffer-[Lep]=0</label>
     </div>
-    <br>
-    <div class="3colrow">
-        <div class="2col">
-            <h2>Schutz und Gesundheit</h2>
-            <label class="short">Panzerung</label>
-            <input type="radio" class="normal" name="attr_armor" value="1" checked="checked"/><span></span><label class="short">Leicht (<span class="pureattribute">Pw1</span>)</label>
-            <input type="radio" class="normal" name="attr_armor" value="2" /><span></span><label class="short">Mittel (<span class="pureattribute">Pw2</span>)</label>
-            <input type="radio" class="normal" name="attr_armor" value="3" /><span></span><label class="short">Schwer (<span class="pureattribute">Pw3</span>)</label>
-            <label>Puffer-[Lep]</label><input class='number' type="number" name="attr_bufferhitpoints" /> 
-            <br>
-            <label>Basis-[Lep]</label><span class="label" name="attr_hitpoints_max" ></span>
-            <br>
-            <label>Aktuell-[Lep]</label><input class='number' type="number" name="attr_hitpoints" />    
-            <br>
-            <label class="text note">Bei Basis-[Lep]≤-1 der Verlust alle Coups/Ideen, deren Benutzung unmöglich. Puffer-[Lep]=0</label>
-        </div>
-        <div class="col">
-            <h2>Handlungen</h2>
-            <label>Aktionspunkte</label><input type="number" class="number" name="attr_ap" value="(4 - @{armor})" disabled="disabled"  />
-            <h2>Heilfaktor</h2>
-            <label>Erste Hilfe [<span class="pureattribute">Eh</span>]</label>
-            <span>
-                <input type="radio" class="rating sheet-zero" name="attr_counter_firstaid" value="0" checked="checked" /><span></span>
-                <input type="radio" class="rating" name="attr_counter_firstaid" value="1" /><span></span>
-                <input type="radio" class="rating" name="attr_counter_firstaid" value="2" /><span></span>
-            </span>
-            <br>
-            <label>Mag. Heilung [<span class="pureattribute">Mh</span>] & Elixiere</label>
-            <span>
-                <input type="radio" class="sheet-rating sheet-zero" name="attr_counter_magicalheal" value="0" checked="checked" /><span></span>
-                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="1" /><span></span>
-                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="2" /><span></span>
-                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="3" /><span></span>
-                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="4" /><span></span>
-            </span>
-        </div>
+    <div class="col">
+        <h2>Handlungen</h2>
+        <label>Aktionspunkte</label><input type="number" class="number" name="attr_ap" value="(4 - @{armor})" disabled="disabled"  />
+        <h2>Heilfaktor</h2>
+        <label>Erste Hilfe [<span class="pureattribute">Eh</span>]</label>
+        <span>
+            <input type="radio" class="rating sheet-zero" name="attr_counter_firstaid" value="0" checked="checked" /><span></span>
+            <input type="radio" class="rating" name="attr_counter_firstaid" value="1" /><span></span>
+            <input type="radio" class="rating" name="attr_counter_firstaid" value="2" /><span></span>
+        </span>
+        <br>
+        <label>Mag. Heilung [<span class="pureattribute">Mh</span>] & Elixiere</label>
+        <span>
+            <input type="radio" class="sheet-rating sheet-zero" name="attr_counter_magicalheal" value="0" checked="checked" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="1" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="2" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="3" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="4" /><span></span>
+        </span>
     </div>
-    <div class="row">
-    <hr/>
-    <label>Initiative</label><span name="attr_ini"></span>
-       
-    <h2>Waffenübersicht</h2>
-    <div class="weapons">
-        <h3>Waffe dabei?</h3>
-        <h3>Waffe</h3>
-        <h3>Sch</h3>
-        <h3>Ap</h3>
-        <h3>Fw</h3>
-        <h3>Attribut</h3>
-        <h3>Summe</h3>
-        <h3>Angriff</h3>
-        <h3>Parade</h3>
-        <h3>Anmerkungen</h3>
-
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_punchactive" value="1" checked="true" /><span></span></span>
-        <label class="item" data-i18n="weapon_punch">Punch</label>
-        <label class="item">0</label>
-        <label class="item">1</label>
-        <input type="number" class="number" name="attr_weapon_punch"/>
-        <label class="item attribute" data-i18n="attribute_athletic_short">Ath</label>
-        <span class="item label" name="attr_weapon_punch_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_punch_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_punch_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_punch_note">Parade -3, außer Fausthiebe</label>
-
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_daggeractive" value="1" /><span></span></span>
-        <label class="item" data-i18n="weapon_dagger">Dolche & Messer</label>
-        <label class="item">1</label>
-        <label class="item">1</label>
-        <input type="number" class="number" name="attr_weapon_dagger" />
-        <label class="item attribute" data-i18n="attribute_dexterity_short">Dex</label>
-        <span class="item label" name="attr_weapon_dagger_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_dagger_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_dagger_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_dagger_note">Giftverwendung / Parade -2, außer Fausthiebe und Dolche & Messer</label>
-
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_fencingactive" value="1" /><span></span></span>
-        <label class="item" data-i18n="weapon_fencing">Fechtwaffen</label>
-        <label class="item">2</label>
-        <label class="item">1</label>
-        <input type="number" class="number" name="attr_weapon_fencing" />
-        <label class="item attribute" data-i18n="attribute_athletic_short">Ath</label>
-        <span class="item label" name="attr_weapon_fencing_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_fencing_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_fencing_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_fencing_note">Parade -1 pro gebundenem Gegner über dem Ersten</label>
-        <!-- swords -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_swordsactive" value="1" /><span></span></span>
-        <label class="item" data-i18n="weapon_swords">Schwertwaffen</label>
-        <label class="item">3</label>
-        <label class="item">2</label>
-        <input type="number" class="number" name="attr_weapon_swords" />
-        <label class="item attribute" data-i18n="attribute_strength_short">Str</label>
-        <span class="item label" name="attr_weapon_swords_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_swords_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_swords_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_swords_note">Voll parierfähig</label>
-        <!-- scimitar -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_scimitaractive" value="1" /><span></span></span>
-        <label class="item" data-i18n="weapon_scimitar">Säbelwaffen</label>
-        <label class="item">4</label>
-        <label class="item">2</label>
-        <input type="number" class="number" name="attr_weapon_scimitar" />
-        <label class="item attribute" data-i18n="attribute_strength_short">Str</label>
-        <span class="item label" name="attr_weapon_scimitar_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_scimitar_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_scimitar_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_scimitar_note">Parade -1</label>
-        <!-- scimitar -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_scimitaractive" value="1"  /><span></span></span>
-        <label class="item" data-i18n="weapon_scimitar_mounted">(...beritten)</label>
-        <label class="item">5</label>
-        <label class="item">2</label>
-        <input type="number" class="number" name="attr_weapon_scimitar" />
-        <label class="item attribute" data-i18n="attribute_strength_short">Str</label>
-        <span class="item label" name="attr_weapon_scimitar_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_scimitar_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_scimitar_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_scimitar_note">Parade -1</label>
-        <!-- impact -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_impactactive" value="1" /><span></span></span>
-        <label class="item" data-i18n="weapon_impact">Schlagwaffen</label>
-        <label class="item">5</label>
-        <label class="item">2</label>
-        <input type="number" class="number" name="attr_weapon_impact" />
-        <label class="item attribute" data-i18n="attribute_strength_short">Str</label>
-        <span class="item label" name="attr_weapon_impact_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_impact_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_impact_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_impact_note">Parade -2</label>
-        <!-- polearm -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_polearmactive" value="1" /><span></span></span>
-        <label class="item" data-i18n="weapon_polearm">Stangenwaffen</label>
-        <label class="item">6</label>
-        <label class="item">3</label>
-        <input type="number" class="number" name="attr_weapon_polearm" />
-        <label class="item attribute" data-i18n="attribute_strength_short">Str</label>
-        <span class="item label" name="attr_weapon_polearm_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_polearm_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_polearm_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_polearm_note">Parade kostet 2AP</label>
-        <!-- polearm -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_polearmactive" value="1" /><span></span></span>
-        <label class="item" data-i18n="weapon_polearm_mounted">(...geg. Reiter)</label>
-        <label class="item">8</label>
-        <label class="item">3</label>
-        <input type="number" class="number" name="attr_weapon_polearm" />
-        <label class="item attribute" data-i18n="attribute_strength_short">Str</label>
-        <span class="item label" name="attr_weapon_polearm_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_polearm_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_polearm_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_polearm_note">Parade kostet 2AP</label>
-        <!-- lance -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_lanceactive" value="1" /><span></span></span>
-        <label class="item" data-i18n="weapon_lance">Lanzenwaffen</label>
-        <label class="item">6</label>
-        <label class="item">3</label>
-        <input type="number" class="number" name="attr_weapon_lance" />
-        <label class="item attribute" data-i18n="attribute_strength_short">Str</label>
-        <span class="item label" name="attr_weapon_lance_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_lance_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_lance_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_lance_note">Parade kostet 2AP</label>
-        <!-- lance -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_lanceactive" value="1"/><span></span></span>
-        <label class="item" data-i18n="weapon_lance_mounted">(...beritten)</label>
-        <label class="item">7</label>
-        <label class="item">2</label>
-        <input type="number" class="number" name="attr_weapon_lance" />
-        <label class="item attribute" data-i18n="attribute_strength_short">Str</label>
-        <span class="item label" name="attr_weapon_lance_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_lance_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_lance_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_lance_note">Parade kostet 2AP</label>
-        <!-- sling -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_slingactive" value="1"/><span></span></span>
-        <label class="item" data-i18n="weapon_sling">Schleuder</label>
-        <label class="item">1</label>
-        <label class="item">2</label>
-        <input type="number" class="number" name="attr_weapon_sling" />
-        <label class="item attribute" data-i18n="attribute_dexterity_short">Dex</label>
-        <span class="item label" name="attr_weapon_sling_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_sling_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_sling_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_sling_note">Geschossgeeignet, Werfer muss freistehen</label>
-        <!-- pistol -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_pistolactive" value="1"/><span></span></span>
-        <label class="item" data-i18n="weapon_pistol">Pistole</label>
-        <label class="item">3</label>
-        <label class="item">2</label>
-        <input type="number" class="number" name="attr_weapon_pistol" />
-        <label class="item attribute" data-i18n="attribute_senses_short">Sen</label>
-        <span class="item label" name="attr_weapon_pistol_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_pistol_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_pistol_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_pistol_note">Immer freie Schussmöglichkeit</label>
-        <!-- crossbow -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_crossbowactive" value="1"/><span></span></span>
-        <label class="item" data-i18n="weapon_crossbow">Armbrust</label>
-        <label class="item">5</label>
-        <label class="item">3</label>
-        <input type="number" class="number" name="attr_weapon_crossbow" />
-        <label class="item attribute" data-i18n="attribute_senses_short">Sen</label>
-        <span class="item label" name="attr_weapon_crossbow_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_crossbow_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_crossbow_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_crossbow_note">Schütze muss freistehen</label>
-        <!-- musket -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_musketactive" value="1"/><span></span></span>
-        <label class="item" data-i18n="weapon_musket">Muskete</label>
-        <label class="item">8</label>
-        <label class="item">3</label>
-        <input type="number" class="number" name="attr_weapon_musket" />
-        <label class="item attribute" data-i18n="attribute_senses_short">Sen</label>
-        <span class="item label" name="attr_weapon_musket_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_musket_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_musket_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_musket_note">Schütze und Ziel müssen freistehen</label>
-        <!-- dodge -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_dodgeactive" value="1" checked="true" /><span></span></span>
-        <label class="item" data-i18n="weapon_dodge">Ausweichen</label>
-        <label class="item">-</label>
-        <label class="item">1</label>
-        <input type="number" class="number" name="attr_weapon_dodge" />
-        <label class="item attribute" data-i18n="attribute_athletic_short">Ath</label>
-        <span class="item label" name="attr_weapon_dodge_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_dodge_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_dodge_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_dodge_note">Pro geb. Gegner -1, Distanzangriffe -1</label>
-        <!-- shield -->
-        <span class="item"><input class="normal" type="checkbox" name="attr_weapon_shieldactive" value="1" /><span></span></span>
-        <label class="item" data-i18n="weapon_shield">Schildbenutzung</label>
-        <label class="item">-</label>
-        <label class="item">1</label>
-        <input type="number" class="number" name="attr_weapon_shield" />
-        <label class="item attribute" data-i18n="attribute_strength_short">Str</label>
-        <span class="item label" name="attr_weapon_shield_max"></span>
-        <button type='action' class="roll attack" name='act_weapon_shield_max'>Angriff</button>
-        <button type='action' class="roll parry" name='act_parry_weapon_shield_max'>Parade</button>
-        <label class="item note" data-i18n="weapon_shield_note">Nur 1x pro Runde / Blockt Distanzangriffe</label>
-    </div>
-    <hr />
-    <div>
-		<label class="pureattribute" data-i18n="attribute_strength_short">Str</label><input type="number" name='attr_attribute_strength' class='number'/>
-		<label class="pureattribute" data-i18n="attribute_athletic_short">Ath</label><input type="number" name='attr_attribute_athletic' class='number'/>
-		<label class="pureattribute" data-i18n="attribute_dexterity_short">Dex</label><input type="number" name='attr_attribute_dexterity' class='number'/>
-		<label class="pureattribute" data-i18n="attribute_senses_short">Sen</label><input type="number" name='attr_attribute_senses' class='number'/>
-        <label class="pureattribute" data-i18n="attribute_knowledge_short">Kno</label><input type="number" name='attr_attribute_knowledge' class='number'/>
-        <label class="pureattribute" data-i18n="attribute_willpower_short">Wil</label><input type="number" name='attr_attribute_willpower' class='number'/>
-    </div>
-    </div>
-    </div>
-<div class='sheet-config'>
-    <h2>Config/Settings</h2>
-    <span>Sheet Config/Settings goes here</span> 
 </div>
 
 
 
+  <div class="row">
+    <hr/>
+    <label>Initiative</label><span name="attr_ini"></span>
+    <h2>Waffenübersicht       </h2>
+    <div class="weapons">
+      <h3>Waffe dabei?</h3>
+      <h3>Waffe</h3>
+      <h3>Sch</h3>
+      <h3>Ap</h3>
+      <h3>Fw</h3>
+      <h3>Att    </h3>
+      <h3>Sum</h3>
+      <h3>Mod</h3>
+      <h3>Angriff</h3>
+      <h3>PMod</h3>
+      <h3>Parade</h3>
+      <h3>Anmerkungen</h3><span>
+        <input class="normal" type="checkbox" name="attr_weapon_punch_active" value="1" checked="checked"/><span></span></span>
+      <label class="item" data-i18n="weapon_punch">Punch</label>
+      <label class="item">0</label>
+      <label class="item">1</label>
+      <input class="number" type="number" name="attr_weapon_punch"/>
+      <label class="item attribute" data-i18n="attribute_athletic_short">Ath             </label><span class="item label" name="attr_weapon_punch_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_punch_mod"/><span class="tooltiptext" name="attr_weapon_punch_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_punch">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_punch_mod"/>
+        <input type="hidden" name="attr_parry_weapon_punch_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_punch_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_punch">Parry</button>
+      <label class="item note" data-i18n="weapon_punch_note">Parry -3, except Punches</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_dagger_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_dagger">Daggers &amp; Knives</label>
+      <label class="item">1</label>
+      <label class="item">1</label>
+      <input class="number" type="number" name="attr_weapon_dagger"/>
+      <label class="item attribute" data-i18n="attribute_dexterity_short">Ath             </label><span class="item label" name="attr_weapon_dagger_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_dagger_mod"/><span class="tooltiptext" name="attr_weapon_dagger_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_dagger">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_dagger_mod"/>
+        <input type="hidden" name="attr_parry_weapon_dagger_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_dagger_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_dagger">Parry</button>
+      <label class="item note" data-i18n="weapon_dagger_note">Giftverwendung / Parry -2, except Punches and Daggers &amp; Knives</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_fencing_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_fencing">Fencing Weapons</label>
+      <label class="item">2</label>
+      <label class="item">1</label>
+      <input class="number" type="number" name="attr_weapon_fencing"/>
+      <label class="item attribute" data-i18n="attribute_athletic_short">Ath             </label><span class="item label" name="attr_weapon_fencing_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_fencing_mod"/><span class="tooltiptext" name="attr_weapon_fencing_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_fencing">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_fencing_mod"/>
+        <input type="hidden" name="attr_parry_weapon_fencing_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_fencing_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_fencing">Parry</button>
+      <label class="item note" data-i18n="weapon_fencing_note">Parry -1 per engaged enemy after the first one</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_swords_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_swords">Swords</label>
+      <label class="item">3</label>
+      <label class="item">2</label>
+      <input class="number" type="number" name="attr_weapon_swords"/>
+      <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_swords_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_swords_mod"/><span class="tooltiptext" name="attr_weapon_swords_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_swords">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_swords_mod"/>
+        <input type="hidden" name="attr_parry_weapon_swords_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_swords_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_swords">Parry</button>
+      <label class="item note" data-i18n="weapon_swords_note">full parry</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_scimitar_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_scimitar">Scimitars</label>
+      <label class="item">4</label>
+      <label class="item">2</label>
+      <input class="number" type="number" name="attr_weapon_scimitar"/>
+      <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_scimitar_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_scimitar_mod"/><span class="tooltiptext" name="attr_weapon_scimitar_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_scimitar">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_scimitar_mod"/>
+        <input type="hidden" name="attr_parry_weapon_scimitar_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_scimitar_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_scimitar">Parry</button>
+      <label class="item note" data-i18n="weapon_scimitar_note">Parry -1</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_impact_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_impact">Impact Weapons</label>
+      <label class="item">5</label>
+      <label class="item">2</label>
+      <input class="number" type="number" name="attr_weapon_impact"/>
+      <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_impact_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_impact_mod"/><span class="tooltiptext" name="attr_weapon_impact_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_impact">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_impact_mod"/>
+        <input type="hidden" name="attr_parry_weapon_impact_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_impact_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_impact">Parry</button>
+      <label class="item note" data-i18n="weapon_impact_note">Parry -2</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_polearm_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_polearm">Polearms</label>
+      <label class="item">6</label>
+      <label class="item">3</label>
+      <input class="number" type="number" name="attr_weapon_polearm"/>
+      <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_polearm_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_polearm_mod"/><span class="tooltiptext" name="attr_weapon_polearm_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_polearm">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_polearm_mod"/>
+        <input type="hidden" name="attr_parry_weapon_polearm_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_polearm_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_polearm">Parry</button>
+      <label class="item note" data-i18n="weapon_polearm_note">Parry costs 2AP</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_lance_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_lance">Lance Weapons</label>
+      <label class="item">6</label>
+      <label class="item">3</label>
+      <input class="number" type="number" name="attr_weapon_lance"/>
+      <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_lance_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_lance_mod"/><span class="tooltiptext" name="attr_weapon_lance_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_lance">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_lance_mod"/>
+        <input type="hidden" name="attr_parry_weapon_lance_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_lance_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_lance">Parry</button>
+      <label class="item note" data-i18n="weapon_lance_note">Parry costs 2AP</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_sling_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_sling">Sling</label>
+      <label class="item">1</label>
+      <label class="item">2</label>
+      <input class="number" type="number" name="attr_weapon_sling"/>
+      <label class="item attribute" data-i18n="attribute_dexterity_short">Ath             </label><span class="item label" name="attr_weapon_sling_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_sling_mod"/><span class="tooltiptext" name="attr_weapon_sling_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_sling">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_sling_mod"/>
+        <input type="hidden" name="attr_parry_weapon_sling_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_sling_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_sling">Parry</button>
+      <label class="item note" data-i18n="weapon_sling_note">Geschossgeeignet, Thrower must be free</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_pistol_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_pistol">Pistol</label>
+      <label class="item">3</label>
+      <label class="item">2</label>
+      <input class="number" type="number" name="attr_weapon_pistol"/>
+      <label class="item attribute" data-i18n="attribute_senses_short">Ath             </label><span class="item label" name="attr_weapon_pistol_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_pistol_mod"/><span class="tooltiptext" name="attr_weapon_pistol_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_pistol">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_pistol_mod"/>
+        <input type="hidden" name="attr_parry_weapon_pistol_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_pistol_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_pistol">Parry</button>
+      <label class="item note" data-i18n="weapon_pistol_note">Immer freie Schussmöglichkeit</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_crossbow_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_crossbow">Crosswbow</label>
+      <label class="item">5</label>
+      <label class="item">3</label>
+      <input class="number" type="number" name="attr_weapon_crossbow"/>
+      <label class="item attribute" data-i18n="attribute_senses_short">Ath             </label><span class="item label" name="attr_weapon_crossbow_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_crossbow_mod"/><span class="tooltiptext" name="attr_weapon_crossbow_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_crossbow">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_crossbow_mod"/>
+        <input type="hidden" name="attr_parry_weapon_crossbow_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_crossbow_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_crossbow">Parry</button>
+      <label class="item note" data-i18n="weapon_crossbow_note">Shooter must be free</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_musket_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_musket">Musket</label>
+      <label class="item">8</label>
+      <label class="item">3</label>
+      <input class="number" type="number" name="attr_weapon_musket"/>
+      <label class="item attribute" data-i18n="attribute_senses_short">Ath             </label><span class="item label" name="attr_weapon_musket_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_musket_mod"/><span class="tooltiptext" name="attr_weapon_musket_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_musket">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_musket_mod"/>
+        <input type="hidden" name="attr_parry_weapon_musket_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_musket_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_musket">Parry</button>
+      <label class="item note" data-i18n="weapon_musket_note">Shooter and target must be free</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_dodge_active" value="1" checked="checked"/><span></span></span>
+      <label class="item" data-i18n="weapon_dodge">Dodge</label>
+      <label class="item">0</label>
+      <label class="item">1</label>
+      <input class="number" type="number" name="attr_weapon_dodge"/>
+      <label class="item attribute" data-i18n="attribute_athletic_short">Ath             </label><span class="item label" name="attr_weapon_dodge_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_dodge_mod"/><span class="tooltiptext" name="attr_weapon_dodge_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_dodge">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_dodge_mod"/>
+        <input type="hidden" name="attr_parry_weapon_dodge_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_dodge_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_dodge">Parry</button>
+      <label class="item note" data-i18n="weapon_dodge_note">Per engaged enemy -1, ranged attacks -1</label><span>
+        <input class="normal" type="checkbox" name="attr_weapon_shield_active" value="1"/><span></span></span>
+      <label class="item" data-i18n="weapon_shield">Shield</label>
+      <label class="item">0</label>
+      <label class="item">1</label>
+      <input class="number" type="number" name="attr_weapon_shield"/>
+      <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_shield_max"> </span>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_weapon_shield_mod"/><span class="tooltiptext" name="attr_weapon_shield_mod_desc"></span>
+      </div>
+      <button class="roll attack" type="action" name="act_weapon_shield">Attack</button>
+      <div class="item tooltip">
+        <input class="number" type="number" name="attr_parry_weapon_shield_mod"/>
+        <input type="hidden" name="attr_parry_weapon_shield_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_shield_mod_desc"></span>
+      </div>
+      <button class="roll parry" type="action" name="act_parry_weapon_shield">Parry</button>
+      <label class="item note" data-i18n="weapon_shield_note">Only 1x per round / blocks ranged attacks</label>
+    </div>
+    <hr/>
+    <div>
+      <label class="pureattribute" data-i18n="attribute_strength_short">Str</label>
+      <input class="number" type="number" name="attr_attribute_strength"/>
+      <label class="pureattribute" data-i18n="attribute_athletic_short">Ath</label>
+      <input class="number" type="number" name="attr_attribute_athletic"/>
+      <label class="pureattribute" data-i18n="attribute_dexterity_short">Dex</label>
+      <input class="number" type="number" name="attr_attribute_dexterity"/>
+      <label class="pureattribute" data-i18n="attribute_senses_short">Sen</label>
+      <input class="number" type="number" name="attr_attribute_senses"/>
+      <label class="pureattribute" data-i18n="attribute_knowledge_short">Kno</label>
+      <input class="number" type="number" name="attr_attribute_knowledge"/>
+      <label class="pureattribute" data-i18n="attribute_willpower_short">Wil</label>
+      <input class="number" type="number" name="attr_attribute_willpower"/>
+    </div>
+  </div>
+</div><div class='sheet-config'>
+    <h2>Config/Settings</h2>
+    <span>Sheet Config/Settings goes here</span> 
+</div>
 <script type="text/worker">const buttonlist = ["character","combat","configuration"];
     buttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
@@ -698,164 +747,127 @@
         setAttrs({
             hexxen: 0,
             janus: 0,
-            rollvaluename: ' ',
-            rollattribute: ' ',
-            rollmodifiers: ' '
+            rollvaluename: '',
+            rollattribute: '',
+            rollmodifiers: ''
         });
     });
    
-    const rolllist = [
+    const checklist = [
     'attribute_strength',
      'attribute_athletic',
       'attribute_dexterity',
        'attribute_senses',
         'attribute_knowledge',
         'attribute_willpower',
-     'skill_acrobatics_max',
-        'skill_alertness_max',
-        'skill_perception_max',
-        'skill_firstaid_max',
-        'skill_sleightofhand_max',
-        'skill_mentalpower_max',
-        'skill_crafting_max',
-        'skill_stealth_max',
-        'skill_countryandpeople_max',
-        'skill_rhetoric_max',
-        'skill_flexing_max',
-        'skill_reflexes_max',
-        'skill_riding_max',
-        'skill_insensibility_max',
-        'skill_fieldsofknowledge_max',
-        'weapon_punch_max',
-        'weapon_dagger_max',
-        'weapon_fencing_max',
-        'weapon_swords_max',
-        'weapon_scimitar_max',
-        'weapon_impact_max',
-        'weapon_polearm_max',
-        'weapon_lance_max',
-        'weapon_sling_max',
-        'weapon_pistol_max',
-        'weapon_crossbow_max',
-        'weapon_musket_max',
-        'weapon_dodge_max',
-        'weapon_shield_max'];
-    rolllist.forEach(button => {
-        on(`clicked:${button}`, function() {
-            getAttrs([button], function(values) {
-                let v = parseInt(values[button],10)||0;
-                let baseattribute = "???"; 
-                let valuename = "???";
-                let key = button;
-                if(key.endsWith('_max'))
-                {
-                    key = key.replace('_max', '');
-                    baseattribute = skills[key].att; 
-                    valuename = getTranslationByKey(key)+"["+getTranslationByKey(baseattribute+"_short")+"]";
-                }
-                else if(key.startsWith('attribute_'))
-                {
-                    baseattribute = key;
-                    valuename = getTranslationByKey(key);
-                }
+     'skill_acrobatics',
+        'skill_alertness',
+        'skill_perception',
+        'skill_firstaid',
+        'skill_sleightofhand',
+        'skill_mentalpower',
+        'skill_crafting',
+        'skill_stealth',
+        'skill_countryandpeople',
+        'skill_rhetoric',
+        'skill_flexing',
+        'skill_reflexes',
+        'skill_riding',
+        'skill_insensibility',
+        'skill_fieldsofknowledge',
+        'weapon_punch',
+        'weapon_dagger',
+        'weapon_fencing',
+        'weapon_swords',
+        'weapon_scimitar',
+        'weapon_impact',
+        'weapon_polearm',
+        'weapon_lance',
+        'weapon_sling',
+        'weapon_pistol',
+        'weapon_crossbow',
+        'weapon_musket',
+        'weapon_dodge',
+        'weapon_shield',
+        'parry_weapon_punch',
+        'parry_weapon_dagger',
+        'parry_weapon_fencing',
+        'parry_weapon_swords',
+        'parry_weapon_scimitar',
+        'parry_weapon_impact',
+        'parry_weapon_polearm',
+        'parry_weapon_lance',
+        'parry_weapon_sling',
+        'parry_weapon_pistol',
+        'parry_weapon_crossbow',
+        'parry_weapon_musket',
+        'parry_weapon_dodge',
+        'parry_weapon_shield'];
+        checklist.forEach(checkname => {
+        on(`clicked:${checkname}`, function() {
+                
+            let valuename = "???";
+            let baseattributename = "???"; 
+            var checkmax = checkname+"_max";
+            if(checkname.startsWith('attribute_'))
+            {
+                baseattributename = checkname;
+                checkmax = checkname;
+                valuename = getTranslationByKey(checkname);
+            }
+           else if(checkname.startsWith('parry_'))
+           {
+            var checkmax = checkname.replace("parry_", "")+"_max";
+            baseattributename = skills[checkname.replace("parry_", "")].att; ;
+               valuename = getTranslationByKey(checkname.replace("parry_", ""))+" (Parry)";
+           }
+          else
+            {               
+                baseattributename = skills[checkname].att; 
+                valuename = getTranslationByKey(checkname)+"["+getTranslationByKey(baseattributename+"_short")+"]";
+            }
+            
+            var checkmod = checkname+"_mod";
+            var checkmoddesc = checkname+"_mod_desc";
+            console.log(valuename);
+            console.log(baseattributename);
+            console.log(checkmax);
+            console.log(checkmod);
+            console.log(checkmoddesc);
 
-                fillPossibleMods( [key, baseattribute] );
+            getAttrs([checkmax, checkmod, checkmoddesc], function(values) {
+                let v = parseInt(values[checkmax],10)||0;
+                var modstring = values[checkmoddesc]||"";
+                var janus = parseInt(values[checkmod],10)||0;
+
                 setAttrs({
                     hexxen: v,
+                    janus: janus,
                     rollvaluename: valuename,
-                    rollattribute: baseattribute
+                    rollattribute: baseattributename,
+                    rollmodifiers: modstring
                 });
             });
         });
     });
-
-    var fillPossibleMods = function(attributes) {
-        var mods = [];
-        var itemfields = [];
-        getSectionIDs("repeating_effects", function(idarray) {
-
-            _.each(idarray, function(currentID, i) {
-                console.log("id2:"+currentID);
-                itemfields.push("repeating_effects_" + currentID + "_name");
-                itemfields.push("repeating_effects_" + currentID + "_source");
-                itemfields.push("repeating_effects_" + currentID + "_target");
-                itemfields.push("repeating_effects_" + currentID + "_bonus");
-            });
-            getAttrs(itemfields, function(v) {
-                var bonus_sum = 0;
-                _.each(idarray, function(currentID) {
-                    
-                    var target = v["repeating_effects_" + currentID + "_target"];
-                    console.log("target:"+target);
-                    if(attributes.indexOf(target) > -1)
-                    {
-                        var modname = v["repeating_effects_" + currentID + "_name"];
-                        var bonus = parseInt(v["repeating_effects_" + currentID + "_bonus"],10);
-                        var bonusstring = bonus.toString();
-                        if(bonus > 0)
-                            bonusstring = "+"+bonusstring;
-                        bonus_sum += bonus;
-                        console.log("targetmatch!:"+modname);
-                        mods.push(modname + " "+bonusstring);
-                    }      
-                });
-                if(mods.length > 0)
-                    setAttrs({
-                        rollmodifiers: mods.join(),
-                        janus: bonus_sum
-                    });
-                else
-                    setAttrs({
-                        rollmodifiers: ' ',
-                        janus: 0
-                    });
-            });
-         });
-        return mods;
-    };
 
     const parrylist = [
-        'parry_weapon_punch_max',
-        'parry_weapon_dagger_max',
-        'parry_weapon_fencing_max',
-        'parry_weapon_swords_max',
-        'parry_weapon_scimitar_max',
-        'parry_weapon_impact_max',
-        'parry_weapon_polearm_max',
-        'parry_weapon_lance_max',
-        'parry_weapon_sling_max',
-        'parry_weapon_pistol_max',
-        'parry_weapon_crossbow_max',
-        'parry_weapon_musket_max',
-        'parry_weapon_dodge_max',
-        'parry_weapon_shield_max'];
-    parrylist.forEach(button => {
-        on(`clicked:${button}`, function() {
-            let key = button;
-            key = key.replace('parry_','');
-            getAttrs([key], function(values) {
-                
-                
-                let v = parseInt(values[key],10)||0;
-                let baseattribute = "???"; 
-                let valuename = "???";
+        'parry_weapon_punch',
+        'parry_weapon_dagger',
+        'parry_weapon_fencing',
+        'parry_weapon_swords',
+        'parry_weapon_scimitar',
+        'parry_weapon_impact',
+        'parry_weapon_polearm',
+        'parry_weapon_lance',
+        'parry_weapon_sling',
+        'parry_weapon_pistol',
+        'parry_weapon_crossbow',
+        'parry_weapon_musket',
+        'parry_weapon_dodge',
+        'parry_weapon_shield'];
 
-                if(key.endsWith('_max'))
-                {
-                    key = key.replace('_max', '');
-                    baseattribute = skills[key].att; 
-                    valuename = getTranslationByKey(key) + " (Parry) ["+getTranslationByKey(baseattribute+"_short")+"]";;
-                }
-
-                fillPossibleMods([button,baseattribute, key, 'parry_all']);
-
-                setAttrs({
-                    hexxen: v,
-                    rollvaluename: valuename
-                });
-            });
-        });
-    });
+   
 
     on("change:attribute_athletic", function() {
         getAttrs(["attribute_athletic"], function(values) {
@@ -873,12 +885,13 @@
             });
           });
     });
-    on("change:attribute_strength change:attribute_willpower change:skill_insensibility", function() {
-        getAttrs(["attribute_strength", "attribute_willpower", "skill_insensibility"], function(values) {
+    on("change:attribute_strength change:attribute_willpower change:skill_insensibility change:hitpoints_mod", function() {
+        getAttrs(["attribute_strength", "attribute_willpower", "skill_insensibility","hitpoints_mod" ], function(values) {
             let str = parseInt(values.attribute_strength,10)||0;
             let wil = parseInt(values.attribute_willpower,10)||0;
             let ins = parseInt(values.skill_insensibility, 10)||0;
-            let hp = str + wil + 7 + ins;
+            let hp_mod = parseInt(values.hitpoints_mod, 10)||0;
+            let hp = str + wil + 7 + ins + hp_mod;
             setAttrs({                            
                 hitpoints_max: hp
             });
@@ -894,6 +907,102 @@
             });
           });
     });
+
+    on("change:repeating_effects", function(){
+        rebuildMods();
+    });
+    on("remove:repeating_effects", function(eventInfo){
+        
+        rebuildMods();
+    });
+
+    var rebuildMods = function() {
+        console.log("rebuild mods");
+        var mods = {};
+        clearMods(mods);
+        var itemfields = [];
+        getSectionIDs("repeating_effects", function(idarray) {
+
+            _.each(idarray, function(currentID, i) {
+                itemfields.push("repeating_effects_" + currentID + "_name");
+                itemfields.push("repeating_effects_" + currentID + "_source");
+                itemfields.push("repeating_effects_" + currentID + "_target");
+                itemfields.push("repeating_effects_" + currentID + "_bonus");
+            });
+            getAttrs(itemfields, function(v) {
+                _.each(idarray, function(currentID) {
+                    
+                    var target = v["repeating_effects_" + currentID + "_target"];
+                    
+                    var modname = v["repeating_effects_" + currentID + "_name"];
+                    var bonus = parseInt(v["repeating_effects_" + currentID + "_bonus"],10);
+                    addToMods(modname, target, bonus, mods);
+                        
+                });
+                applyParryAll(mods);
+                applyParryToWeapons(mods);
+                console.log(mods);
+
+                var update = createUpdateListFromMods(mods);
+                console.log(update);
+                setAttrs(update);
+            });
+         });
+    };
+    var applyParryAll = function(mods) {
+        if (mods.hasOwnProperty('parry_all')) {
+            //add parry_all to all parry_...
+            _.each(parrylist, function (parryitem) {
+                _.each(mods['parry_all'], function (parryallmod) {
+                    addToMods(parryallmod.modname, parryitem, parryallmod.bonus, mods);
+                });
+    
+            });
+        }
+    };
+    var applyParryToWeapons = function(mods) {
+        _.each(parrylist, function (parryitem) {
+            var weaponname = parryitem.replace("parry_", "");
+            if(mods.hasOwnProperty(weaponname))
+            {
+                _.each(mods[weaponname], function (weaponmod) {
+                    addToMods(weaponmod.modname, parryitem, weaponmod.bonus, mods);
+                });
+            }
+        });       
+    };
+    var clearMods = function(mods) {
+        _.each(checklist, function (checkitem) {
+            mods[checkitem] = [];
+        });
+        mods["hitpoints"] = [];
+        mods["parry_all"] = [];
+    };
+    var addToMods = function(modname, target, bonus, mods) {
+        if(!mods.hasOwnProperty(target))
+            mods[target] = [];
+
+        mods[target].push({modname: modname, bonus: bonus});
+    };
+    var createUpdateListFromMods = function(mods){
+        var update = {};
+        Object.entries(mods).forEach(([target,v]) => {
+            var modnames = [];
+            var bonus_sum = 0;
+            _.each(v, function(mod){
+                var bonus = mod.bonus;
+                bonus_sum += bonus;
+                var bonusstring = bonus.toString();
+                if(bonus > 0)
+                    bonusstring = "+"+bonusstring;
+                modnames.push(mod.modname + " "+bonusstring);
+            });                  
+
+            update[target+"_mod"] = bonus_sum;
+            update[target+"_mod_desc"] = modnames.join(", ")||"";
+        });
+        return update;
+    };
 
     const skills = {
         'skill_acrobatics':{att: 'attribute_athletic'},
@@ -948,6 +1057,9 @@
         });
         
     });
+
+
+
 </script><rolltemplate class="sheet-rolltemplate-check">
     <div class="sheet-rtcard">
         {{#name}}

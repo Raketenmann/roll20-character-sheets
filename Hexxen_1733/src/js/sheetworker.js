@@ -35,164 +35,127 @@ const buttonlist = ["character","combat","configuration"];
         setAttrs({
             hexxen: 0,
             janus: 0,
-            rollvaluename: ' ',
-            rollattribute: ' ',
-            rollmodifiers: ' '
+            rollvaluename: '',
+            rollattribute: '',
+            rollmodifiers: ''
         });
     });
    
-    const rolllist = [
+    const checklist = [
     'attribute_strength',
      'attribute_athletic',
       'attribute_dexterity',
        'attribute_senses',
         'attribute_knowledge',
         'attribute_willpower',
-     'skill_acrobatics_max',
-        'skill_alertness_max',
-        'skill_perception_max',
-        'skill_firstaid_max',
-        'skill_sleightofhand_max',
-        'skill_mentalpower_max',
-        'skill_crafting_max',
-        'skill_stealth_max',
-        'skill_countryandpeople_max',
-        'skill_rhetoric_max',
-        'skill_flexing_max',
-        'skill_reflexes_max',
-        'skill_riding_max',
-        'skill_insensibility_max',
-        'skill_fieldsofknowledge_max',
-        'weapon_punch_max',
-        'weapon_dagger_max',
-        'weapon_fencing_max',
-        'weapon_swords_max',
-        'weapon_scimitar_max',
-        'weapon_impact_max',
-        'weapon_polearm_max',
-        'weapon_lance_max',
-        'weapon_sling_max',
-        'weapon_pistol_max',
-        'weapon_crossbow_max',
-        'weapon_musket_max',
-        'weapon_dodge_max',
-        'weapon_shield_max'];
-    rolllist.forEach(button => {
-        on(`clicked:${button}`, function() {
-            getAttrs([button], function(values) {
-                let v = parseInt(values[button],10)||0;
-                let baseattribute = "???"; 
-                let valuename = "???";
-                let key = button;
-                if(key.endsWith('_max'))
-                {
-                    key = key.replace('_max', '');
-                    baseattribute = skills[key].att; 
-                    valuename = getTranslationByKey(key)+"["+getTranslationByKey(baseattribute+"_short")+"]";
-                }
-                else if(key.startsWith('attribute_'))
-                {
-                    baseattribute = key;
-                    valuename = getTranslationByKey(key);
-                }
+     'skill_acrobatics',
+        'skill_alertness',
+        'skill_perception',
+        'skill_firstaid',
+        'skill_sleightofhand',
+        'skill_mentalpower',
+        'skill_crafting',
+        'skill_stealth',
+        'skill_countryandpeople',
+        'skill_rhetoric',
+        'skill_flexing',
+        'skill_reflexes',
+        'skill_riding',
+        'skill_insensibility',
+        'skill_fieldsofknowledge',
+        'weapon_punch',
+        'weapon_dagger',
+        'weapon_fencing',
+        'weapon_swords',
+        'weapon_scimitar',
+        'weapon_impact',
+        'weapon_polearm',
+        'weapon_lance',
+        'weapon_sling',
+        'weapon_pistol',
+        'weapon_crossbow',
+        'weapon_musket',
+        'weapon_dodge',
+        'weapon_shield',
+        'parry_weapon_punch',
+        'parry_weapon_dagger',
+        'parry_weapon_fencing',
+        'parry_weapon_swords',
+        'parry_weapon_scimitar',
+        'parry_weapon_impact',
+        'parry_weapon_polearm',
+        'parry_weapon_lance',
+        'parry_weapon_sling',
+        'parry_weapon_pistol',
+        'parry_weapon_crossbow',
+        'parry_weapon_musket',
+        'parry_weapon_dodge',
+        'parry_weapon_shield'];
+        checklist.forEach(checkname => {
+        on(`clicked:${checkname}`, function() {
+                
+            let valuename = "???";
+            let baseattributename = "???"; 
+            var checkmax = checkname+"_max";
+            if(checkname.startsWith('attribute_'))
+            {
+                baseattributename = checkname;
+                checkmax = checkname;
+                valuename = getTranslationByKey(checkname);
+            }
+           else if(checkname.startsWith('parry_'))
+           {
+            var checkmax = checkname.replace("parry_", "")+"_max";
+            baseattributename = skills[checkname.replace("parry_", "")].att; ;
+               valuename = getTranslationByKey(checkname.replace("parry_", ""))+" (Parry)";
+           }
+          else
+            {               
+                baseattributename = skills[checkname].att; 
+                valuename = getTranslationByKey(checkname)+"["+getTranslationByKey(baseattributename+"_short")+"]";
+            }
+            
+            var checkmod = checkname+"_mod";
+            var checkmoddesc = checkname+"_mod_desc";
+            console.log(valuename);
+            console.log(baseattributename);
+            console.log(checkmax);
+            console.log(checkmod);
+            console.log(checkmoddesc);
 
-                fillPossibleMods( [key, baseattribute] );
+            getAttrs([checkmax, checkmod, checkmoddesc], function(values) {
+                let v = parseInt(values[checkmax],10)||0;
+                var modstring = values[checkmoddesc]||"";
+                var janus = parseInt(values[checkmod],10)||0;
+
                 setAttrs({
                     hexxen: v,
+                    janus: janus,
                     rollvaluename: valuename,
-                    rollattribute: baseattribute
+                    rollattribute: baseattributename,
+                    rollmodifiers: modstring
                 });
             });
         });
     });
-
-    var fillPossibleMods = function(attributes) {
-        var mods = [];
-        var itemfields = [];
-        getSectionIDs("repeating_effects", function(idarray) {
-
-            _.each(idarray, function(currentID, i) {
-                console.log("id2:"+currentID);
-                itemfields.push("repeating_effects_" + currentID + "_name");
-                itemfields.push("repeating_effects_" + currentID + "_source");
-                itemfields.push("repeating_effects_" + currentID + "_target");
-                itemfields.push("repeating_effects_" + currentID + "_bonus");
-            });
-            getAttrs(itemfields, function(v) {
-                var bonus_sum = 0;
-                _.each(idarray, function(currentID) {
-                    
-                    var target = v["repeating_effects_" + currentID + "_target"];
-                    console.log("target:"+target);
-                    if(attributes.indexOf(target) > -1)
-                    {
-                        var modname = v["repeating_effects_" + currentID + "_name"];
-                        var bonus = parseInt(v["repeating_effects_" + currentID + "_bonus"],10);
-                        var bonusstring = bonus.toString();
-                        if(bonus > 0)
-                            bonusstring = "+"+bonusstring;
-                        bonus_sum += bonus;
-                        console.log("targetmatch!:"+modname);
-                        mods.push(modname + " "+bonusstring);
-                    }      
-                });
-                if(mods.length > 0)
-                    setAttrs({
-                        rollmodifiers: mods.join(),
-                        janus: bonus_sum
-                    });
-                else
-                    setAttrs({
-                        rollmodifiers: ' ',
-                        janus: 0
-                    });
-            });
-         });
-        return mods;
-    };
 
     const parrylist = [
-        'parry_weapon_punch_max',
-        'parry_weapon_dagger_max',
-        'parry_weapon_fencing_max',
-        'parry_weapon_swords_max',
-        'parry_weapon_scimitar_max',
-        'parry_weapon_impact_max',
-        'parry_weapon_polearm_max',
-        'parry_weapon_lance_max',
-        'parry_weapon_sling_max',
-        'parry_weapon_pistol_max',
-        'parry_weapon_crossbow_max',
-        'parry_weapon_musket_max',
-        'parry_weapon_dodge_max',
-        'parry_weapon_shield_max'];
-    parrylist.forEach(button => {
-        on(`clicked:${button}`, function() {
-            let key = button;
-            key = key.replace('parry_','');
-            getAttrs([key], function(values) {
-                
-                
-                let v = parseInt(values[key],10)||0;
-                let baseattribute = "???"; 
-                let valuename = "???";
+        'parry_weapon_punch',
+        'parry_weapon_dagger',
+        'parry_weapon_fencing',
+        'parry_weapon_swords',
+        'parry_weapon_scimitar',
+        'parry_weapon_impact',
+        'parry_weapon_polearm',
+        'parry_weapon_lance',
+        'parry_weapon_sling',
+        'parry_weapon_pistol',
+        'parry_weapon_crossbow',
+        'parry_weapon_musket',
+        'parry_weapon_dodge',
+        'parry_weapon_shield'];
 
-                if(key.endsWith('_max'))
-                {
-                    key = key.replace('_max', '');
-                    baseattribute = skills[key].att; 
-                    valuename = getTranslationByKey(key) + " (Parry) ["+getTranslationByKey(baseattribute+"_short")+"]";;
-                }
-
-                fillPossibleMods([button,baseattribute, key, 'parry_all']);
-
-                setAttrs({
-                    hexxen: v,
-                    rollvaluename: valuename
-                });
-            });
-        });
-    });
+   
 
     on("change:attribute_athletic", function() {
         getAttrs(["attribute_athletic"], function(values) {
@@ -210,12 +173,13 @@ const buttonlist = ["character","combat","configuration"];
             });
           });
     });
-    on("change:attribute_strength change:attribute_willpower change:skill_insensibility", function() {
-        getAttrs(["attribute_strength", "attribute_willpower", "skill_insensibility"], function(values) {
+    on("change:attribute_strength change:attribute_willpower change:skill_insensibility change:hitpoints_mod", function() {
+        getAttrs(["attribute_strength", "attribute_willpower", "skill_insensibility","hitpoints_mod" ], function(values) {
             let str = parseInt(values.attribute_strength,10)||0;
             let wil = parseInt(values.attribute_willpower,10)||0;
             let ins = parseInt(values.skill_insensibility, 10)||0;
-            let hp = str + wil + 7 + ins;
+            let hp_mod = parseInt(values.hitpoints_mod, 10)||0;
+            let hp = str + wil + 7 + ins + hp_mod;
             setAttrs({                            
                 hitpoints_max: hp
             });
@@ -231,6 +195,102 @@ const buttonlist = ["character","combat","configuration"];
             });
           });
     });
+
+    on("change:repeating_effects", function(){
+        rebuildMods();
+    });
+    on("remove:repeating_effects", function(eventInfo){
+        
+        rebuildMods();
+    });
+
+    var rebuildMods = function() {
+        console.log("rebuild mods");
+        var mods = {};
+        clearMods(mods);
+        var itemfields = [];
+        getSectionIDs("repeating_effects", function(idarray) {
+
+            _.each(idarray, function(currentID, i) {
+                itemfields.push("repeating_effects_" + currentID + "_name");
+                itemfields.push("repeating_effects_" + currentID + "_source");
+                itemfields.push("repeating_effects_" + currentID + "_target");
+                itemfields.push("repeating_effects_" + currentID + "_bonus");
+            });
+            getAttrs(itemfields, function(v) {
+                _.each(idarray, function(currentID) {
+                    
+                    var target = v["repeating_effects_" + currentID + "_target"];
+                    
+                    var modname = v["repeating_effects_" + currentID + "_name"];
+                    var bonus = parseInt(v["repeating_effects_" + currentID + "_bonus"],10);
+                    addToMods(modname, target, bonus, mods);
+                        
+                });
+                applyParryAll(mods);
+                applyParryToWeapons(mods);
+                console.log(mods);
+
+                var update = createUpdateListFromMods(mods);
+                console.log(update);
+                setAttrs(update);
+            });
+         });
+    };
+    var applyParryAll = function(mods) {
+        if (mods.hasOwnProperty('parry_all')) {
+            //add parry_all to all parry_...
+            _.each(parrylist, function (parryitem) {
+                _.each(mods['parry_all'], function (parryallmod) {
+                    addToMods(parryallmod.modname, parryitem, parryallmod.bonus, mods);
+                });
+    
+            });
+        }
+    };
+    var applyParryToWeapons = function(mods) {
+        _.each(parrylist, function (parryitem) {
+            var weaponname = parryitem.replace("parry_", "");
+            if(mods.hasOwnProperty(weaponname))
+            {
+                _.each(mods[weaponname], function (weaponmod) {
+                    addToMods(weaponmod.modname, parryitem, weaponmod.bonus, mods);
+                });
+            }
+        });       
+    };
+    var clearMods = function(mods) {
+        _.each(checklist, function (checkitem) {
+            mods[checkitem] = [];
+        });
+        mods["hitpoints"] = [];
+        mods["parry_all"] = [];
+    };
+    var addToMods = function(modname, target, bonus, mods) {
+        if(!mods.hasOwnProperty(target))
+            mods[target] = [];
+
+        mods[target].push({modname: modname, bonus: bonus});
+    };
+    var createUpdateListFromMods = function(mods){
+        var update = {};
+        Object.entries(mods).forEach(([target,v]) => {
+            var modnames = [];
+            var bonus_sum = 0;
+            _.each(v, function(mod){
+                var bonus = mod.bonus;
+                bonus_sum += bonus;
+                var bonusstring = bonus.toString();
+                if(bonus > 0)
+                    bonusstring = "+"+bonusstring;
+                modnames.push(mod.modname + " "+bonusstring);
+            });                  
+
+            update[target+"_mod"] = bonus_sum;
+            update[target+"_mod_desc"] = modnames.join(", ")||"";
+        });
+        return update;
+    };
 
     const skills = {
         'skill_acrobatics':{att: 'attribute_athletic'},
@@ -285,3 +345,5 @@ const buttonlist = ["character","combat","configuration"];
         });
         
     });
+
+

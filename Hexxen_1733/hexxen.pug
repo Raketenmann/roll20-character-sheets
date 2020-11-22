@@ -1,7 +1,90 @@
-include src/html/main.html
+
+-
+  var weapons = [
+    {preselect:true, id:'weapon_punch',   damage:0, ap:1, baseattribute:'attribute_athletic', name:'Punch',  note:'Parry -3, except Punches'},
+    {preselect:false, id:'weapon_dagger',  damage:1, ap:1, baseattribute:'attribute_dexterity', name:'Daggers & Knives', note:'Giftverwendung / Parry -2, except Punches and Daggers & Knives'},
+    {preselect:false, id:'weapon_fencing', damage:2, ap:1, baseattribute:'attribute_athletic', name:'Fencing Weapons',  note:'Parry -1 per engaged enemy after the first one'},
+    {preselect:false, id:'weapon_swords' , damage:3, ap:2, baseattribute:'attribute_strength', name:'Swords',  note:'full parry'},
+    {preselect:false, id:'weapon_scimitar',damage:4, ap:2, baseattribute:'attribute_strength', name:'Scimitars',  note:'Parry -1'},
+    {preselect:false, id:'weapon_impact',  damage:5, ap:2, baseattribute:'attribute_strength', name:'Impact Weapons',  note:'Parry -2'},
+    {preselect:false, id:'weapon_polearm', damage:6, ap:3, baseattribute:'attribute_strength', name:'Polearms',  note:'Parry costs 2AP'},
+    {preselect:false, id:'weapon_lance',   damage:6, ap:3, baseattribute:'attribute_strength', name:'Lance Weapons',  note:'Parry costs 2AP'},
+    {preselect:false, id:'weapon_sling' ,  damage:1, ap:2, baseattribute:'attribute_dexterity', name:'Sling',  note:'Geschossgeeignet, Thrower must be free'},
+    {preselect:false, id:'weapon_pistol',  damage:3, ap:2, baseattribute:'attribute_senses', name:'Pistol',  note:'Immer freie Schussmöglichkeit'},
+    {preselect:false, id:'weapon_crossbow',damage:5, ap:3, baseattribute:'attribute_senses', name:'Crosswbow',  note:'Shooter must be free'},
+    {preselect:false, id:'weapon_musket',  damage:8, ap:3, baseattribute:'attribute_senses', name:'Musket',  note:'Shooter and target must be free'},
+    {preselect:true, id:'weapon_dodge',   damage:0, ap:1, baseattribute:'attribute_athletic', name:'Dodge',  note:'Per engaged enemy -1, ranged attacks -1'},
+    {preselect:false, id:'weapon_shield',  damage:0, ap:1, baseattribute:'attribute_strength', name:'Shield',  note:'Only 1x per round / blocks ranged attacks'}
+  ];
+
+include src/html/sticky.html
+
+input(type='hidden' class='tabstoggle' name='attr_sheetTab'  value='character')
+
+include src/html/character.html
+
+div(class='sheet-combat')
+  include src/html/combat.html
+  
+  div(class="row")
+    hr
+    label Initiative
+    span(name="attr_ini")
+          
+    h2 Waffenübersicht       
+    div(class="weapons")
+      h3 Waffe dabei?
+      h3 Waffe
+      h3 Sch
+      h3 Ap
+      h3 Fw
+      h3 Att    
+      h3 Sum
+      h3 Mod
+      h3 Angriff
+      h3 PMod
+      h3 Parade
+      h3 Anmerkungen
+      each val in weapons
+        span
+          input(type="checkbox" class="normal" name="attr_"+val.id+"_active" value="1" checked=val.preselect)
+          span
+        label(class="item" data-i18n=val.id)= val.name
+        label(class="item")= val.damage
+        label(class="item")= val.ap
+        input(type="number" class="number" name="attr_"+val.id)
+        label(class="item attribute" data-i18n=val.baseattribute+"_short") Ath             
+        span(class="item label" name="attr_"+val.id+"_max") 
+        div(class="item tooltip")
+          input(type="number" class="number" name="attr_"+val.id+"_mod")
+          span(class="tooltiptext" name="attr_"+val.id+"_mod_desc")
+        button(type='action' class="roll attack" name='act_'+val.id) Attack
+        div(class="item tooltip")
+          input(type="number" class="number" name="attr_parry_"+val.id+"_mod")
+          input(type="hidden" name="attr_parry_"+val.id+"_mod_desc")
+          span(class="tooltiptext" name="attr_parry_"+val.id+"_mod_desc")
+        button(type='action' class="roll parry" name='act_parry_'+val.id) Parry
+        label(class="item note" data-i18n=val.id+"_note")= val.note
+    hr
+    div
+        label(class="pureattribute" data-i18n="attribute_strength_short") Str
+        input(type="number" name='attr_attribute_strength' class='number')
+        label(class="pureattribute" data-i18n="attribute_athletic_short") Ath
+        input(type="number" name='attr_attribute_athletic' class='number')
+        label(class="pureattribute" data-i18n="attribute_dexterity_short") Dex
+        input(type="number" name='attr_attribute_dexterity' class='number')
+        label(class="pureattribute" data-i18n="attribute_senses_short") Sen
+        input(type="number" name='attr_attribute_senses' class='number')
+        label(class="pureattribute" data-i18n="attribute_knowledge_short") Kno
+        input(type="number" name='attr_attribute_knowledge' class='number')
+        label(class="pureattribute" data-i18n="attribute_willpower_short") Wil
+        input(type="number" name='attr_attribute_willpower' class='number')
+
+
+include src/html/config.html
 
 //- SHEET WORKERS
 script(type="text/worker")
-	include src/js/sheetworker.js
+    include src/js/sheetworker.js
 
 include src/html/rolltemplate.html

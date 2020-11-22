@@ -1,0 +1,94 @@
+
+<h2>Anhaltende Einflüsse</h2>
+<div class="3colrow">
+    <div class="influences">
+        <h3>Art</h3><h3>Stufen</h3><h3>Anm.</h3><h3>Zustände</h3>
+
+        <label class="item">Äußerer Schaden</label>
+        <span class="item">
+            <input type="radio" class="sheet-rating sheet-zero" name="attr_outerdamage" value="0" checked="checked" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_outerdamage" value="1" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_outerdamage" value="2" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_outerdamage" value="3" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_outerdamage" value="4" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_outerdamage" value="5" /><span></span>
+        </span>
+        <label class="item"></label>
+        <input class="item textline" type="text" name="attr_outerdamage_conditions" />
+
+        <label class="item">Innerer Schaden</label>
+        <span class="item">
+            <input type="radio" class="sheet-rating sheet-zero" name="attr_innerdamage" value="0" checked="checked" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_innerdamage" value="1" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_innerdamage" value="2" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_innerdamage" value="3" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_innerdamage" value="4" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_innerdamage" value="5" /><span></span>
+        </span>
+        <label class="item"></label>
+        <input class="item textline" type="text" name="attr_innerdamage_conditions" />
+
+        <label class="item">Malusschaden</label>
+        <span class="item">
+            <input type="radio" class="sheet-rating sheet-zero" name="attr_malusdamage" value="0" checked="checked" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_malusdamage" value="1" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_malusdamage" value="2" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_malusdamage" value="3" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_malusdamage" value="4" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_malusdamage" value="5" /><span></span>
+        </span> 
+        <label class="item"></label>
+        <input class="item textline" type="text" name="attr_malusdamage_conditions" />
+
+        <label class="item">Lähmungsschaden</label>
+        <span class="item">
+            <input type="radio" class="sheet-rating sheet-zero" name="attr_paralysisdamage" value="0" checked="checked" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="1" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="2" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="3" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="4" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="5" /><span></span>
+        </span>
+        <label class="item">≤[Ap]</label>
+        <input class="item textline" type="text" name="attr_paralysisdamage_conditions" />
+    </div>
+</div>
+<br>
+<div class="3colrow">
+    <div class="2col">
+        <h2>Schutz und Gesundheit</h2>
+        <label class="short">Panzerung</label>
+        <input type="radio" class="normal" name="attr_armor" value="1" checked="checked"/><span></span><label class="short">Leicht (<span class="pureattribute">Pw1</span>)</label>
+        <input type="radio" class="normal" name="attr_armor" value="2" /><span></span><label class="short">Mittel (<span class="pureattribute">Pw2</span>)</label>
+        <input type="radio" class="normal" name="attr_armor" value="3" /><span></span><label class="short">Schwer (<span class="pureattribute">Pw3</span>)</label>
+        <label>Puffer-[Lep]</label><input class='number' type="number" name="attr_bufferhitpoints" /> 
+        <br>
+        <label>Basis-[Lep]</label><span class="label" name="attr_hitpoints_max" ></span>
+        <br>
+        <label>Aktuell-[Lep]</label><input class='number' type="number" name="attr_hitpoints" />    
+        <br>
+        <label class="text note">Bei Basis-[Lep]≤-1 der Verlust alle Coups/Ideen, deren Benutzung unmöglich. Puffer-[Lep]=0</label>
+    </div>
+    <div class="col">
+        <h2>Handlungen</h2>
+        <label>Aktionspunkte</label><input type="number" class="number" name="attr_ap" value="(4 - @{armor})" disabled="disabled"  />
+        <h2>Heilfaktor</h2>
+        <label>Erste Hilfe [<span class="pureattribute">Eh</span>]</label>
+        <span>
+            <input type="radio" class="rating sheet-zero" name="attr_counter_firstaid" value="0" checked="checked" /><span></span>
+            <input type="radio" class="rating" name="attr_counter_firstaid" value="1" /><span></span>
+            <input type="radio" class="rating" name="attr_counter_firstaid" value="2" /><span></span>
+        </span>
+        <br>
+        <label>Mag. Heilung [<span class="pureattribute">Mh</span>] & Elixiere</label>
+        <span>
+            <input type="radio" class="sheet-rating sheet-zero" name="attr_counter_magicalheal" value="0" checked="checked" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="1" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="2" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="3" /><span></span>
+            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="4" /><span></span>
+        </span>
+    </div>
+</div>
+
+

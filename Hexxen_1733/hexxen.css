@@ -210,6 +210,33 @@ input.sheet-rating[type="radio"]:checked ~ input.sheet-rating[type="radio"] + sp
 {    
     content: "";
 }
+/*#### Tooltip ###*/
+.sheet-tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+  }
+  
+  .sheet-tooltip .sheet-tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+  
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+  }
+  
+  .sheet-tooltip:hover .sheet-tooltiptext {
+	visibility: visible;
+  }
+  .sheet-tooltip:hover .sheet-tooltiptext:empty {
+	visibility: hidden;
+  }
 
 /*### DICEBAR ###*/
 /* -----Hide actual radio----- */
@@ -487,7 +514,7 @@ span.sheet-dee {
 
   .sheet-weapons {
 	display: grid;
-	grid-template-columns: 30px 150px 2em 2em 3.5em 3.5em 2em auto auto auto;
+	grid-template-columns: 30px 150px 2em 2em 3.5em 3.5em 2em 3.5em auto 3.5em auto auto;
 	grid-row-gap: 2px;
 	grid-column-gap: 1rem;
   }
@@ -532,13 +559,13 @@ span.sheet-dee {
     border-spacing: 0;
 }
 
-  .sheet-rolltemplate-check .sheet-rtresult_hexxen::after {
+ .sheet-rtresult_hexxen::after {
 	content: counter(hexxen);
   }
-  .sheet-rolltemplate-check .sheet-rtresult_janus::after {
+.sheet-rtresult_janus::after {
 	content: counter(janus);
   }
-  .sheet-rolltemplate-check .sheet-rtresult_esprit::after {
+.sheet-rtresult_esprit::after {
 	content: counter(esprit);
   }
   
@@ -628,7 +655,7 @@ span.sheet-dee {
     border-spacing: 0;
 }
 
-  .sheet-rolltemplate-blood .sheet-rtresult_blood::after {
+  .sheet-rtresult_blood::after {
 	content: counter(blood);
   }
 
@@ -679,7 +706,7 @@ span.sheet-dee {
     border-spacing: 0;
 }
 
-  .sheet-rolltemplate-elixir .sheet-rtresult_elixir::after {
+  .sheet-rtresult_elixir::after {
 	content: counter(elixir);
   }
 
