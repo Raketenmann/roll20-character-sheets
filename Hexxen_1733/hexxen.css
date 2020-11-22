@@ -7,7 +7,6 @@
 	background-color: rgb(225, 236, 204);
 	background: rgb(225, 236, 204);
 	background: linear-gradient(90deg, rgb(209, 235, 163) 0%,  rgb(245, 240, 225) 30%, rgb(245, 240, 225) 80%,rgb(109, 141, 51) 100%);
-	background-color:;
 	/*background: linear-gradient(90deg, rgba(36,66,0,1) 0%, rgba(225, 236, 204,1) 5%, rgba(225, 236, 204,1) 95%, rgba(36,66,0,1) 100%);
 	*/
 	min-width: 800px;
@@ -258,9 +257,27 @@ input.sheet-rating[type="radio"]:checked ~ input.sheet-rating[type="radio"] + sp
 {    
 	background-color:darkgrey;
 }
-.sheet-blessingdie + span::before
+.sheet-blessingdie
 {    
 	background-color:white;
+}
+.sheet-blooddie
+{    
+	background-color:maroon;
+}
+.sheet-elixirdie
+{    
+	background-color:cornflowerblue;
+}
+.sheet-ideachip + span::before
+{
+	border-radius: 10px;
+	background-color:olivedrab;
+}
+.sheet-coupchip + span::before
+{
+	border-radius: 10px;
+	background-color:maroon;
 }
 .sheet-dicebargroup:not(:hover) .sheet-reverse.sheet-dicebar + span::before
 {    
@@ -385,6 +402,29 @@ div.sheet-sticky {
 	box-shadow: 5px 5px #888888;
 	z-index: 10;
 }
+div.sheet-rolltestdice {
+	right:0;
+	width: auto;
+	display: inline;
+	position: absolute;
+	margin-right: 10px;
+}
+div.sheet-rolltestdice::before {
+	content: "";
+}
+div.sheet-rolltestdice button[type="roll"] {
+	background-color: #333;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: burlywood;
+}
+
+button[type="roll"].sheet-directdieroller {
+	border-radius: 6px;
+	width: 20px;
+	height: 20px;
+}
+
 label.sheet-short {
 	width: 17%;
 	border: 0;
@@ -397,9 +437,6 @@ input.sheet-short {
 input.sheet-medium {
 	width: 31%;
 }
-input.sheet-textline {
-
-  }
 
   input.sheet-number {
 	  height:26px;
@@ -450,7 +487,7 @@ span.sheet-dee {
 
   .sheet-weapons {
 	display: grid;
-	grid-template-columns: 30px 150px 2em 2em 3.5em 3.5em 2em 3.5em auto;
+	grid-template-columns: 30px 150px 2em 2em 3.5em 3.5em 2em auto auto auto;
 	grid-row-gap: 2px;
 	grid-column-gap: 1rem;
   }
@@ -476,7 +513,7 @@ span.sheet-dee {
 
 
 
-.sheet-rolltemplate-ova .sheet-rtcard {
+.sheet-rolltemplate-check .sheet-rtcard {
 	counter-reset: hexxen janus esprit;
 	width: auto;
     height: auto;
@@ -495,165 +532,190 @@ span.sheet-dee {
     border-spacing: 0;
 }
 
-  .sheet-rolltemplate-ova .sheet-rtresult_hexxen::after {
+  .sheet-rolltemplate-check .sheet-rtresult_hexxen::after {
 	content: counter(hexxen);
   }
-  .sheet-rolltemplate-ova .sheet-rtresult_janus::after {
+  .sheet-rolltemplate-check .sheet-rtresult_janus::after {
 	content: counter(janus);
   }
-  .sheet-rolltemplate-ova .sheet-rtresult_esprit::after {
+  .sheet-rolltemplate-check .sheet-rtresult_esprit::after {
 	content: counter(esprit);
   }
   
-
-.sheet-rolltemplate-ova td,
-.sheet-rolltemplate-ova th,
-.sheet-rolltemplate-ova tr {
-	padding: 3px;
-}
-
-.sheet-rolltemplate-ova caption {
-	font-size: 1.5em;
-	font-family: "Shadows Into Light";
-	background-color: #801421;
-	color: white;
-	font-weight: bold;
-	text-align: center;
-	padding: 2px;
-	margin-bottom: 0px;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;	
-}
-
-.sheet-rolltemplate-ova th {
-	height: 1.0em;
-	font-size: 1.0em;
-	border-collapse: collapse;
-}
-
-.sheet-rolltemplate-ova td {
-	/*width: 75%;*/
-	height: .75em;
-	vertical-align: top;
-	font-family: Helvetica, sans-serif;
-	font-size: 0.875em;
-}
-
-.sheet-rolltemplate-ova tr:nth-child(even) {
-	background-color: #eee2e2;
-}
-
-.sheet-rolltemplate-ova td.sheet-roll {
-	width: 25%;
-	text-align: right;
-}
-
-.sheet-rolltemplate-ova td.sheet-rresults {
-	font-size: 0.95em;
-	height: 0.95em;
-}
-
-.sheet-rolltemplate-ova td.sheet-fakeroll {
-	text-align: right;
-}
-
-.sheet-rolltemplate-ova .sheet-rtcard .sheet-fakeroll .inlinerollresult{
-	/*padding-right: 0px;*/
-	text-align: right;
-	color: #4d4d4d;
-	font-weight: normal;
-	font-family: Helvetica, sans-serif;
-	font-size: 13px;
-	margin-right: -3px;
-}
-
-.sheet-rolltemplate-ova .inlinerollresult {
-    background-color: transparent;
-    color: #000000;
-    border: none;
-}
-
-.sheet-rolltemplate-ova .inlinerollresult.fullcrit {
-	color: #3FB315;
-    border: none;
-}
-
-.sheet-rolltemplate-ova .inlinerollresult.fullfail {
-    color: maroon;
-    border: none;
-}
- 
-.sheet-rolltemplate-ova .inlinerollresult.importantroll {
-	color: #3FB315;
-    border: none;
-}
-
-.sheet-rolltemplate-ova .sheet-hexxen {
+.sheet-rolltemplate-check .sheet-hexxen {
 	display:inline-block;
 	width: 36px;
 	height: 36px;
 	background-size: 36px 36px;
 }
 
-.sheet-rolltemplate-ova .sheet-hexxen.sheet-success {
+.sheet-rolltemplate-check .sheet-hexxen.sheet-success {
 	counter-increment: hexxen;
 	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
 	background-size: 36px 36px;
 }
-.sheet-rolltemplate-ova .sheet-hexxen.sheet-esprit {
+.sheet-rolltemplate-check .sheet-hexxen.sheet-esprit {
 	counter-increment: esprit;
 	background: url(http://i.imgur.com/fk5nuTh.jpg) top left;
 	background-size: 36px 36px;
 }
-.sheet-rolltemplate-ova .sheet-hexxen.sheet-empty {
+.sheet-rolltemplate-check .sheet-hexxen.sheet-empty {
 	counter-increment: none;
 	background: url(http://i.imgur.com/JZfuoZr.jpg) top left;
 	background-size: 36px 36px;
 }
 
-.sheet-rolltemplate-ova .sheet-janus {
+.sheet-rolltemplate-check .sheet-janus {
 	display:inline-block;
 	width: 36px;
 	height: 36px;
 	background-size: 36px 36px;
 }
 
-.sheet-rolltemplate-ova .sheet-janus.sheet-success {
+.sheet-rolltemplate-check .sheet-janus.sheet-success {
 	counter-increment: janus;
 	background: url(http://i.imgur.com/PBt16sl.jpg) top left;
 	background-size: 36px 36px;
 }
-.sheet-rolltemplate-ova .sheet-janus.sheet-empty {
+.sheet-rolltemplate-check .sheet-janus.sheet-empty {
 	counter-increment: none;
 	background: url(http://i.imgur.com/JZfuoZr.jpg) top left;
 	background-size: 36px 36px;
 }
 
-.sheet-rolltemplate-ova .sheet-blessing {
+.sheet-rolltemplate-check .sheet-blessing {
 	display:inline-block;
 	width: 36px;
 	height: 36px;
 	background-size: 36px 36px;
 }
 
-.sheet-rolltemplate-ova .sheet-blessing.sheet-success {
+.sheet-rolltemplate-check .sheet-blessing.sheet-success {
 	counter-increment: hexxen;
 	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
 	background-size: 36px 36px;
 }
-.sheet-rolltemplate-ova .sheet-blessing.sheet-doublesuccess {
+.sheet-rolltemplate-check .sheet-blessing.sheet-doublesuccess {
 	counter-increment: hexxen +2;
 	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
 	background-size: 36px 36px;
 }
-.sheet-rolltemplate-ova .sheet-blessing.sheet-esprit {
+.sheet-rolltemplate-check .sheet-blessing.sheet-esprit {
 	counter-increment: esprit;
 	background: url(http://i.imgur.com/fk5nuTh.jpg) top left;
 	background-size: 36px 36px;
 }
-.sheet-rolltemplate-ova .sheet-blessing.sheet-empty {
+.sheet-rolltemplate-check .sheet-blessing.sheet-empty {
 	counter-increment: none;
 	background: url(http://i.imgur.com/JZfuoZr.jpg) top left;
 	background-size: 36px 36px;
 }
+/*----------- End Roll Template --------------------*/
+
+/*----- Roll Template Blood ------*/
+.sheet-rolltemplate-blood .sheet-rtcard {
+	counter-reset: blood;
+	width: auto;
+    height: auto;
+	padding: 0px;
+
+	border: 19px solid transparent;
+	border-image: url(http://i.imgur.com/xBk4U1p.jpg) round;
+	border-image-slice: 8% fill;
+
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    border-spacing: 0;
+}
+
+  .sheet-rolltemplate-blood .sheet-rtresult_blood::after {
+	content: counter(blood);
+  }
+
+
+.sheet-rolltemplate-blood .sheet-blood {
+	display:inline-block;
+	width: 36px;
+	height: 36px;
+	background-size: 36px 36px;
+}
+
+.sheet-rolltemplate-blood .sheet-blood.sheet-blood1 {
+	counter-increment: blood;
+	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background-size: 36px 36px;
+}
+.sheet-rolltemplate-blood .sheet-blood.sheet-blood2 {
+	counter-increment: blood 2;
+	background: url(http://i.imgur.com/fk5nuTh.jpg) top left;
+	background-size: 36px 36px;
+}
+.sheet-rolltemplate-blood .sheet-blood.sheet-empty {
+	counter-increment: none;
+	background: url(http://i.imgur.com/JZfuoZr.jpg) top left;
+	background-size: 36px 36px;
+}
+.sheet-rolltemplate-blood .sheet-blood.sheet-blood3 {
+	counter-increment: blood 3;
+	background: url(http://i.imgur.com/PBt16sl.jpg) top left;
+	background-size: 36px 36px;
+}
+
+/*----------- End Roll Template --------------------*/
+
+/*----- Roll Template Elixir ------*/
+.sheet-rolltemplate-elixir .sheet-rtcard {
+	counter-reset: elixir;
+	width: auto;
+    height: auto;
+	padding: 0px;
+
+	border: 19px solid transparent;
+	border-image: url(http://i.imgur.com/xBk4U1p.jpg) round;
+	border-image-slice: 8% fill;
+
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    border-spacing: 0;
+}
+
+  .sheet-rolltemplate-elixir .sheet-rtresult_elixir::after {
+	content: counter(elixir);
+  }
+
+
+.sheet-rolltemplate-elixir .sheet-elixir {
+	display:inline-block;
+	width: 36px;
+	height: 36px;
+	background-size: 36px 36px;
+}
+
+.sheet-rolltemplate-elixir .sheet-elixir.sheet-elixir1 {
+	counter-increment: elixir;
+	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background-size: 36px 36px;
+}
+.sheet-rolltemplate-elixir .sheet-elixir.sheet-elixir2 {
+	counter-increment: elixir 2;
+	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background-size: 36px 36px;
+}
+.sheet-rolltemplate-elixir .sheet-elixir.sheet-elixir3 {
+	counter-increment: elixir 3;
+	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background-size: 36px 36px;
+}
+.sheet-rolltemplate-elixir .sheet-elixir.sheet-elixir4 {
+	counter-increment: elixir 4;
+	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background-size: 36px 36px;
+}
+.sheet-rolltemplate-elixir .sheet-elixir.sheet-elixir5 {
+	counter-increment: elixir 5;
+	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background-size: 36px 36px;
+}
+
+
 /*----------- End Roll Template --------------------*/
