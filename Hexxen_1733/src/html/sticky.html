@@ -1,7 +1,7 @@
-<div class="sticky">
+<div class="sticky 2colrow">
     
-   
-    <!--<img src="https://ulisses-spiele.de/wp-content/uploads/HeXXen1733_Logo_Fanwerk-300x212.png" />-->
+   <div class="col">
+    <!--<img src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />-->
     <button type="action" name="act_character" >Character</button>
     <button type="action" name="act_combat" >Combat</button>
     <button type="action" name="act_configuration" >Configuration</button>
@@ -50,6 +50,12 @@
     <br>
    
     <button type="action" name="act_resetroll">Reset</button>
+    
+    <label>Aktionspunkte</label>
+    <input type="number" class="number" name="attr_ap" value="6" min="0" max="6"/>
+    <span name="attr_ap_max"></span>
+
+</div>
  <!--
     <label data-i18n="attribute_coups">Coups</label>
     <input type="hidden" name='attr_coups' class='number'>
@@ -107,7 +113,10 @@
         <input type="radio" class="dicebar ambitionchip" name="attr_ambition" value="5" /><span></span>
     </span>
 -->
-<div>
+<div class="col">
+    <input type="hidden" class="normal ressource_rage_toggle" name="attr_displayrage" value="1" checked="true"/>
+    <input type="hidden" class="normal ressource_ambition_toggle" name="attr_displayambition" value="1" checked="true"/>
+
     <input type="hidden" name='attr_coups' class='number'>
     <span class="tooltip chipstackgroup">       
         <input type="radio" class="chipstack chip0" name="attr_coups" value="0" checked="checked" /><span></span>
@@ -116,8 +125,17 @@
         <input type="radio" class="chipstack coupchip chip3" name="attr_coups" value="3" /><span></span>
         <input type="radio" class="chipstack coupchip chip4" name="attr_coups" value="4" /><span></span>
         <input type="radio" class="chipstack coupchip chip5" name="attr_coups" value="5" /><span></span>
+        <input type="radio" class="chipstack coupchip chip6" name="attr_coups" value="6" /><span></span>
+        <input type="radio" class="chipstack coupchip chip7" name="attr_coups" value="7" /><span></span>
+        <input type="radio" class="chipstack coupchip chip8" name="attr_coups" value="8" /><span></span>
+        <input type="radio" class="chipstack coupchip chip9" name="attr_coups" value="9" /><span></span>
+        <input type="radio" class="chipstack coupchip chip10" name="attr_coups" value="10" /><span></span>
     </span>
     <label class="tooltiptext">Coups</label> 
+    <!--
+    <button type="action" name="act_addcoups">+1</button>
+    <span name="attr_coups"></span>
+    <button type="action" name="act_remcoups">-1</button>-->
 
     <input type="hidden" name='attr_ideas' class='number'>
     <span class="tooltip chipstackgroup">       
@@ -141,31 +159,33 @@
     </span>
     <label class="tooltiptext">Segnungen</label> 
 
-    <input type="hidden" name='attr_rage' class='number'>
-    <span class="tooltip chipstackgroup">       
-        <input type="radio" class="chipstack chip0" name="attr_rage" value="0" checked="checked" /><span></span>
-        <input type="radio" class="chipstack ragechip chip1" name="attr_rage" value="1" /><span></span>
-        <input type="radio" class="chipstack ragechip chip2" name="attr_rage" value="2" /><span></span>
-        <input type="radio" class="chipstack ragechip chip3" name="attr_rage" value="3" /><span></span>
-        <input type="radio" class="chipstack ragechip chip4" name="attr_rage" value="4" /><span></span>
-        <input type="radio" class="chipstack ragechip chip5" name="attr_rage" value="5" /><span></span>
+    <span class="ressource_rage">
+        <input type="hidden" name='attr_rage' class='number'>
+        <span class="tooltip chipstackgroup">       
+            <input type="radio" class="chipstack chip0" name="attr_rage" value="0" checked="checked" /><span></span>
+            <input type="radio" class="chipstack ragechip chip1" name="attr_rage" value="1" /><span></span>
+            <input type="radio" class="chipstack ragechip chip2" name="attr_rage" value="2" /><span></span>
+            <input type="radio" class="chipstack ragechip chip3" name="attr_rage" value="3" /><span></span>
+            <input type="radio" class="chipstack ragechip chip4" name="attr_rage" value="4" /><span></span>
+            <input type="radio" class="chipstack ragechip chip5" name="attr_rage" value="5" /><span></span>
+        </span>
+        <label class="tooltiptext">Rage</label>  
     </span>
-    <label class="tooltiptext">Rage</label>  
-
-    <input type="hidden" name='attr_ambition' class='number'>
-    <span class="tooltip chipstackgroup">       
-        <input type="radio" class="chipstack chip0" name="attr_ambition" value="0" checked="checked" /><span></span>
-        <input type="radio" class="chipstack ambitionchip chip1" name="attr_ambition" value="1" /><span></span>
-        <input type="radio" class="chipstack ambitionchip chip2" name="attr_ambition" value="2" /><span></span>
-        <input type="radio" class="chipstack ambitionchip chip3" name="attr_ambition" value="3" /><span></span>
-        <input type="radio" class="chipstack ambitionchip chip4" name="attr_ambition" value="4" /><span></span>
-        <input type="radio" class="chipstack ambitionchip chip5" name="attr_ambition" value="5" /><span></span>
+    
+    <span class="ressource_ambition">
+        <input type="hidden" name='attr_ambition' class='number'>
+        <span class="tooltip chipstackgroup">       
+            <input type="radio" class="chipstack chip0" name="attr_ambition" value="0" checked="checked" /><span></span>
+            <input type="radio" class="chipstack ambitionchip chip1" name="attr_ambition" value="1" /><span></span>
+            <input type="radio" class="chipstack ambitionchip chip2" name="attr_ambition" value="2" /><span></span>
+            <input type="radio" class="chipstack ambitionchip chip3" name="attr_ambition" value="3" /><span></span>
+            <input type="radio" class="chipstack ambitionchip chip4" name="attr_ambition" value="4" /><span></span>
+            <input type="radio" class="chipstack ambitionchip chip5" name="attr_ambition" value="5" /><span></span>
+        </span>
+        <label class="tooltiptext">Ambitionen</label>  
     </span>
-    <label class="tooltiptext">Ambitionen</label>  
 </div>
     
-
-    <label>Aktionspunkte</label><input type="number" class="number" name="attr_ap" value="(4 - @{armor})" disabled="disabled"  />
 
 
     

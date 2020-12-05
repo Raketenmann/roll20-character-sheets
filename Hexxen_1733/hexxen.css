@@ -27,6 +27,14 @@
 	display: block;
 }
 
+.sheet-ressource_rage,
+.sheet-ressource_ambition {
+	display:none;
+}
+.sheet-ressource_rage_toggle[value="1"] ~ span.sheet-ressource_rage,
+.sheet-ressource_ambition_toggle[value="1"] ~ span.sheet-ressource_ambition {
+	display: inline-block;
+}
 /* Universal styling applied to all elements of these types */
 
 h2 {
@@ -48,20 +56,30 @@ span {
 	font-weight: bold;
 	font-size: 1.2em;
 }
+span.sheet-text {
+	font-weight: normal;
+	font-size: 1em;
+}
 
 input {
 	display: inline-block;
 	width: 66%;
 	font-weight: bold;
 	font-size: 16px;	
-	border: 2px solid #333;
+	border: 1px solid #333;
 	border: 0;
 	outline: 0;
 	background: transparent;
-	border-bottom: 2px solid #333;
+	border-bottom: 1px solid #333;
 	border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 	padding-bottom: 0px;
+}
+input.sheet-number {	
+	width: 2.5em;	
+	border: 0px solid #333;
+	border: 0;
+	border-bottom: 0px solid #333;
 }
 fieldset {
 	display: inline-block;
@@ -244,7 +262,7 @@ input.sheet-rating[type="radio"]:checked ~ input.sheet-rating[type="radio"] + sp
 .sheet-chipstackgroup{
 	position:relative;
 	display: inline-block;
-	height:70px;
+	height:120px;
 	width:48px;
 	margin: 5px;
 }
@@ -300,6 +318,41 @@ input.sheet-chip5 + span::before
 {
 	position: absolute;
 	bottom:50px;
+	left:5px;
+}
+input.sheet-chip6,
+input.sheet-chip6 + span::before
+{
+	position: absolute;
+	bottom:60px;
+	left:5px;
+}
+input.sheet-chip7,
+input.sheet-chip7 + span::before
+{
+	position: absolute;
+	bottom:70px;
+	left:5px;
+}
+input.sheet-chip8,
+input.sheet-chip8 + span::before
+{
+	position: absolute;
+	bottom:80px;
+	left:5px;
+}
+input.sheet-chip9,
+input.sheet-chip9 + span::before
+{
+	position: absolute;
+	bottom:90px;
+	left:5px;
+}
+input.sheet-chip10,
+input.sheet-chip10 + span::before
+{
+	position: absolute;
+	bottom:100px;
 	left:5px;
 }
 
@@ -397,43 +450,59 @@ input.sheet-chip5 + span::before
 .sheet-blessingdie
 {    
 	background-color:seashell;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/blessing_2raven.png) top left;
+	background-size: 100% 100%;
 }
 .sheet-blooddie
 {    
 	background-color:maroon;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/wound_3.png) top left;
+	background-size: 100% 100%;
 }
 .sheet-elixirdie
 {    
 	background-color:cornflowerblue;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/elixir_3.png) top left;
+	background-size: 100% 100%;
 }
 .sheet-ideachip + span::before
 {
 	border-radius: 50%;
 	background-color:olivedrab;
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_idea.png);
+	background-size: 100% 100%;
 	box-shadow: 0px 5px rgb(38, 56, 38);
 }
 .sheet-coupchip + span::before
 {
 	border-radius: 50%;
 	background-color:maroon;
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_coup.png);
+	background-size: 100% 100%;
 	box-shadow: 0px 5px rgb(66, 1, 1);
 }
 .sheet-blessingchip + span::before
 {
 	border-radius: 50%;
 	background-color:seashell;
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_blessing.png);
+	background-size: 100% 100%;
 	box-shadow: 0px 5px grey;
 }
 .sheet-ragechip + span::before
 {
 	border-radius: 50%;
 	background-color:rebeccapurple;
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_rage.png);
+	background-size: 100% 100%;
 	box-shadow: 0px 5px rgb(60, 42, 78);
 }
 .sheet-ambitionchip + span::before
 {
 	border-radius: 50%;
 	background-color:darkgoldenrod;
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_ambition.png);
+	background-size: 100% 100%;
 	box-shadow: 0px 5px rgb(94, 72, 16);
 }
 .sheet-dicebargroup:not(:hover) .sheet-reverse.sheet-dicebar + span::before
@@ -516,8 +585,16 @@ input.sheet-zero[type="radio"] + span::before
 	font-family: 'Patrick Hand';
 }
 
-
-
+.sheet-counterreset{
+	counter-reset: counter;
+}
+.repcontainer .repitem{
+	
+	counter-increment: counter;
+}
+.sheet-counter::after{
+	content:counter(counter);
+}
 
 /* Targetted styling that only effects elements with these classes */
 label.sheet-note {
@@ -563,7 +640,6 @@ div.sheet-rolltestdice {
 	right:0;
 	width: auto;
 	display: inline;
-	position: absolute;
 	margin-right: 10px;
 }
 div.sheet-rolltestdice::before {
@@ -671,20 +747,88 @@ span.sheet-dee {
 	  width: auto;
   }
 
+  /* Edit and details */
+  .charsheet .sheet-fieldsetcontainer .sheet-wrapper  {
+    position: relative;
+}
+.charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag:checked ~ .sheet-options {
+    display: inherit;
+}
+.charsheet .sheet-fieldsetcontainer .sheet-details-flag:not(:checked) ~ .sheet-wrapper,
+.charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag:checked ~ .sheet-details,
+.charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag:not(:checked) ~ .sheet-options {
+	display: none;
+}
+.charsheet .sheet-fieldsetcontainer .sheet-details-flag,
+.charsheet .sheet-fieldsetcontainer .sheet-options-flag
+ {
+    opacity: 0;
+    z-index: 2;
+}
+.charsheet .sheet-fieldsetcontainer .sheet-details-flag:checked + span  {
+    display: block;
+    color: #000000;
+}
+.charsheet .sheet-fieldsetcontainer .sheet-details-flag + span {
+    white-space: nowrap;
+    font-size: 20px;
+    font-family: pictos;
+    color: #A0A0A0;
+    cursor: pointer;
+    margin-top: 0px;
+    display: none;
+    line-height: 18px;
+}
+.charsheet .sheet-fieldsetcontainer .sheet-details-flag,
+.charsheet .sheet-fieldsetcontainer .sheet-details-flag + span {
+    position: absolute;
+    top: 0px;
+    right: 23px;
+    width: 18px;
+    height: 18px;
+}
+.charsheet .sheet-fieldsetcontainer:hover .sheet-details-flag + span {
+    display: block;
+}
+.charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag,
+.charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag + span  {
+    right: 23.5px;
+}
+.charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag {
+    z-index: 10;
+}
+.charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag,
+.charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag + span {
+    display: inherit;
+}
+.charsheet .sheet-fieldsetcontainer .sheet-options-flag + span {
+    white-space: nowrap;
+    font-size: 20px;
+    font-family: pictos;
+    color: #A0A0A0;
+    cursor: pointer;
+    margin-top: 0px;
+}
+ .charsheet .sheet-fieldsetcontainer .sheet-options-flag,
+ .charsheet .sheet-fieldsetcontainer .sheet-options-flag + span {
+    position: absolute;
+    top: 0px;
+    right: 23px;
+    width: 18px;
+    height: 18px;
+}
+.charsheet .sheet-fieldsetcontainer .sheet-options-flag:hover + span{
+	color:black;
+}
   /* roll template */
 
-
-
-.sheet-rolltemplate-check .sheet-rtcard {
-	counter-reset: hexxen janus esprit;
+.sheet-rolltemplate-check .sheet-rtcard,
+.sheet-rolltemplate-blood .sheet-rtcard,
+.sheet-rolltemplate-elixir .sheet-rtcard  {
 	width: auto;
     height: auto;
 	padding: 0px;
-	/*
-	background: url(http://i.imgur.com/xBk4U1p.jpg) top left;
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	*/
+	
 	border: 19px solid transparent;
 	border-image: url(http://i.imgur.com/xBk4U1p.jpg) round;
 	border-image-slice: 8% fill;
@@ -694,189 +838,162 @@ span.sheet-dee {
     border-spacing: 0;
 }
 
-.sheet-rolltemplate-check .sheet-rtcard .sheet-rtresult_hexxen::before {
-	content: counter(hexxen);
+.sheet-rolltemplate-check .sheet-rtcard {
+	counter-reset: result esprit;
+}
+.sheet-rolltemplate-blood .sheet-rtcard {
+	counter-reset: blood;
+}
+.sheet-rolltemplate-elixir .sheet-rtcard {
+	counter-reset: elixir;
+}
+
+.sheet-rolltemplate-check .sheet-rtcard .sheet-rtresult_result::before {
+	content: counter(result);
   }
 
-  .sheet-rolltemplate-check .sheet-rtcard .sheet-rtresult_janus::before {
-	content: counter(janus);
-  }
   .sheet-rolltemplate-check .sheet-rtcard .sheet-rtresult_esprit::before {
 	content: counter(esprit);
   }
   
-.sheet-rolltemplate-check .sheet-hexxen {
+.sheet-rolltemplate-check .sheet-hexxen,
+.sheet-rolltemplate-check .sheet-janus,
+.sheet-rolltemplate-check .sheet-janusmalus,
+.sheet-rolltemplate-check .sheet-blessing,
+.sheet-rolltemplate-blood .sheet-blood,
+.sheet-rolltemplate-elixir .sheet-elixir  {
 	display:inline-block;
 	width: 36px;
 	height: 36px;
 	background-size: 36px 36px;
+	border-radius: 5px;
 }
 
+
 .sheet-rolltemplate-check .sheet-hexxen.sheet-success {
-	counter-increment: hexxen;
-	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	counter-increment: result;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/hex_raven.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-check .sheet-hexxen.sheet-esprit {
 	counter-increment: esprit;
-	background: url(http://i.imgur.com/fk5nuTh.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/hex_esprit.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-check .sheet-hexxen.sheet-empty {
 	counter-increment: none;
-	background: url(http://i.imgur.com/JZfuoZr.jpg) top left;
-	background-size: 36px 36px;
-}
-
-.sheet-rolltemplate-check .sheet-janus {
-	display:inline-block;
-	width: 36px;
-	height: 36px;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/hex_empty.png) top left;
 	background-size: 36px 36px;
 }
 
 .sheet-rolltemplate-check .sheet-janus.sheet-success {
-	counter-increment: janus;
-	background: url(http://i.imgur.com/PBt16sl.jpg) top left;
+	counter-increment: result;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/janus_janus.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-check .sheet-janus.sheet-empty {
 	counter-increment: none;
-	background: url(http://i.imgur.com/JZfuoZr.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/janus_empty.png) top left;
 	background-size: 36px 36px;
 }
 
-.sheet-rolltemplate-check .sheet-blessing {
-	display:inline-block;
-	width: 36px;
-	height: 36px;
+
+.sheet-rolltemplate-check .sheet-janusmalus.sheet-success {
+	counter-increment: result -1;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/janus_janus.png) top left;
 	background-size: 36px 36px;
 }
+.sheet-rolltemplate-check .sheet-janusmalus.sheet-empty {
+	counter-increment: none;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/janus_empty.png) top left;
+	background-size: 36px 36px;
+}
+
+
 
 .sheet-rolltemplate-check .sheet-blessing.sheet-success {
-	counter-increment: hexxen;
-	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	counter-increment: result;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/blessing_raven.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-check .sheet-blessing.sheet-doublesuccess {
-	counter-increment: hexxen +2;
-	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	counter-increment: result +2;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/blessing_2raven.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-check .sheet-blessing.sheet-esprit {
 	counter-increment: esprit;
-	background: url(http://i.imgur.com/fk5nuTh.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/blessing_esprit.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-check .sheet-blessing.sheet-empty {
 	counter-increment: none;
-	background: url(http://i.imgur.com/JZfuoZr.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/blessing_empty.png) top left;
 	background-size: 36px 36px;
 }
 /*----------- End Roll Template --------------------*/
 
 /*----- Roll Template Blood ------*/
-.sheet-rolltemplate-blood .sheet-rtcard {
-	counter-reset: blood;
-	width: auto;
-    height: auto;
-	padding: 0px;
 
-	border: 19px solid transparent;
-	border-image: url(http://i.imgur.com/xBk4U1p.jpg) round;
-	border-image-slice: 8% fill;
-
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    border-spacing: 0;
-}
 
 .sheet-rolltemplate-blood .sheet-rtcard .sheet-rtresult_blood::after {
 	content: counter(blood);
   }
 
-
-.sheet-rolltemplate-blood .sheet-blood {
-	display:inline-block;
-	width: 36px;
-	height: 36px;
-	background-size: 36px 36px;
-}
-
 .sheet-rolltemplate-blood .sheet-blood.sheet-blood1 {
 	counter-increment: blood;
-	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/wound_1.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-blood .sheet-blood.sheet-blood2 {
 	counter-increment: blood 2;
-	background: url(http://i.imgur.com/fk5nuTh.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/wound_2.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-blood .sheet-blood.sheet-empty {
 	counter-increment: none;
-	background: url(http://i.imgur.com/JZfuoZr.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/wound_empty.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-blood .sheet-blood.sheet-blood3 {
 	counter-increment: blood 3;
-	background: url(http://i.imgur.com/PBt16sl.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/wound_3.png) top left;
 	background-size: 36px 36px;
 }
 
 /*----------- End Roll Template --------------------*/
 
 /*----- Roll Template Elixir ------*/
-.sheet-rolltemplate-elixir .sheet-rtcard {
-	counter-reset: elixir;
-	width: auto;
-    height: auto;
-	padding: 0px;
 
-	border: 19px solid transparent;
-	border-image: url(http://i.imgur.com/xBk4U1p.jpg) round;
-	border-image-slice: 8% fill;
-
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    border-spacing: 0;
-}
 
 .sheet-rolltemplate-elixir .sheet-rtcard .sheet-rtresult_elixir::after {
 	content: counter(elixir);
   }
 
 
-.sheet-rolltemplate-elixir .sheet-elixir {
-	display:inline-block;
-	width: 36px;
-	height: 36px;
-	background-size: 36px 36px;
-}
-
 .sheet-rolltemplate-elixir .sheet-elixir.sheet-elixir1 {
 	counter-increment: elixir;
-	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/elixir_1.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-elixir .sheet-elixir.sheet-elixir2 {
 	counter-increment: elixir 2;
-	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/elixir_2.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-elixir .sheet-elixir.sheet-elixir3 {
 	counter-increment: elixir 3;
-	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/elixir_3.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-elixir .sheet-elixir.sheet-elixir4 {
 	counter-increment: elixir 4;
-	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/elixir_4.png) top left;
 	background-size: 36px 36px;
 }
 .sheet-rolltemplate-elixir .sheet-elixir.sheet-elixir5 {
 	counter-increment: elixir 5;
-	background: url(http://i.imgur.com/7J2SZzF.jpg) top left;
+	background: url(http://www.handsongaming.de/public/images/hexxen/dice/elixir_5.png) top left;
 	background-size: 36px 36px;
 }
 

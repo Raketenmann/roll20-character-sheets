@@ -60,5 +60,19 @@
     "weapon_impact":"Impact Weapons",
     "weapon_impact_note":"Parry -2",
     "attribute_hitpoints":"Hitpoints",
-    "attribute_initiative":"Initiative"
+    "attribute_initiative":"Initiative",
+    "role_none":"None",
+    "role_alchemist":"Alchemist",
+    "role_assassin":"Attentäter",
+    "role_guard":"Beschützer",
+    "role_zealot":"Eiferer",
+    "role_fencer":"Fechter",
+    "role_range":"Fernkämpfer",
+    "role_witchfoe":"Hexenfeind",
+    "role_witchmystic":"Hexenmystiker",
+    "role_constructor":"Konstrukteur",
+    "role_scout":"Kundschafter",
+    "role_melee":"Nahkämpfer",
+    "role_priest":"Priester",
+    "role_strategist":"Stratege"
 }

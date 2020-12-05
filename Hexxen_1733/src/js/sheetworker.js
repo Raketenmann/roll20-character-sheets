@@ -6,6 +6,25 @@ const buttonlist = ["character","combat","configuration"];
             });
         });
     });
+
+    const resourcebuttonlist = ["addcoups","remcoups"];
+    resourcebuttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            var action = button.substr(0,3);
+            var ressource = button.substr(3);
+            getAttrs([ressource], function(values) {
+                let resourceValue = parseInt(values[ressource],10)||0;
+                if(action == "add")
+                    resourceValue = resourceValue + 1;
+                else if(action == "rem")
+                    resourceValue = resourceValue -1;
+                resourceValue =  Math.min(Math.max(resourceValue, 0), 10);
+                var update = {};
+                update[ressource] = resourceValue;
+                setAttrs(update);
+            });
+        });
+    });
     
     on("change:janus change:hexxen change:rollvaluename", () =>{
         getAttrs(["janus", "hexxen", "rollvaluename"], function(values) {
@@ -22,8 +41,17 @@ const buttonlist = ["character","combat","configuration"];
             for (i = 1; i <= attributeValue; i++) {
                 query = query + " {{hexxen"+i+"=[[d6cs>5]]}}";
             }
-            for (i = 1; i <= janusValue; i++) {
-                query = query + " {{janus"+i+"=[[d6cs>4cf]]}}";
+            if(janusValue > 0)
+            {
+                for (i = 1; i <= janusValue; i++) {
+                    query = query + " {{janus"+i+"=[[d6cs>4cf]]}}";
+                }
+            }
+            else if(janusValue < 0)
+            {
+                for (i = -1; i >= janusValue; i--) {
+                    query = query + " {{janus"+i+"=[[d6cs>4cf]]}}";
+                }
             }
             setAttrs({                            
                 rollquery: query
@@ -173,6 +201,15 @@ const buttonlist = ["character","combat","configuration"];
             });
           });
     });
+    on("change:armor", function() {
+        getAttrs(["armor"], function(values) {
+            let armor = parseInt(values.armor,10)||0;
+            let ap_max = 6 - armor;
+            setAttrs({                            
+                ap_max: ap_max
+            });
+          });
+    });
     on("change:attribute_strength change:attribute_willpower change:skill_insensibility change:hitpoints_mod", function() {
         getAttrs(["attribute_strength", "attribute_willpower", "skill_insensibility","hitpoints_mod" ], function(values) {
             let str = parseInt(values.attribute_strength,10)||0;
@@ -196,11 +233,20 @@ const buttonlist = ["character","combat","configuration"];
           });
     });
 
-    on("change:repeating_effects", function(){
+    on("clicked:addeffect", () => {
+        var newrowid = generateRowID();
+        var itemfields = {};
+        itemfields["repeating_effects_" + newrowid + "_name"] = "Effect name";
+        itemfields["repeating_effects_" + newrowid + "_source"] = "effect source";
+        itemfields["repeating_effects_" + newrowid + "_target"] = "hitpoints";
+        itemfields["repeating_effects_" + newrowid + "_bonus"] = "1";
+        setAttrs(itemfields);
+    });
+
+    on("change:repeating_effects change:repeating_powers change:repeating_hunterpowers", function(){
         rebuildMods();
     });
-    on("remove:repeating_effects", function(eventInfo){
-        
+    on("remove:repeating_effects remove:repeating_powers remove:repeating_hunterpowers", function(eventInfo){   
         rebuildMods();
     });
 
@@ -208,34 +254,52 @@ const buttonlist = ["character","combat","configuration"];
         console.log("rebuild mods");
         var mods = {};
         clearMods(mods);
+        
+        crawlEffects("repeating_armorsets", mods, function(mods) {
+            crawlEffects("repeating_powers", mods, function(mods) {
+                crawlEffects("repeating_hunterpowers", mods, function(mods) {
+                    crawlEffects("repeating_effects", mods, function(mods) {
+                        finishRebuildMods(mods);
+                    });
+                });
+            });
+        });
+
+    };
+
+    var crawlEffects = function(fieldsetname, mods, callback) {
         var itemfields = [];
-        getSectionIDs("repeating_effects", function(idarray) {
+        getSectionIDs(fieldsetname, function(idarray) {
 
             _.each(idarray, function(currentID, i) {
-                itemfields.push("repeating_effects_" + currentID + "_name");
-                itemfields.push("repeating_effects_" + currentID + "_source");
-                itemfields.push("repeating_effects_" + currentID + "_target");
-                itemfields.push("repeating_effects_" + currentID + "_bonus");
+                itemfields.push(fieldsetname+"_" + currentID + "_name");
+                itemfields.push(fieldsetname+"_" + currentID + "_target");
+                itemfields.push(fieldsetname+"_" + currentID + "_bonus");
             });
             getAttrs(itemfields, function(v) {
                 _.each(idarray, function(currentID) {
                     
-                    var target = v["repeating_effects_" + currentID + "_target"];
-                    
-                    var modname = v["repeating_effects_" + currentID + "_name"];
-                    var bonus = parseInt(v["repeating_effects_" + currentID + "_bonus"],10);
+                    var target = v[fieldsetname+"_" + currentID + "_target"];
+                    var modname = v[fieldsetname+"_" + currentID + "_name"];
+                    var bonus = parseInt(v[fieldsetname+"_" + currentID + "_bonus"],10);
                     addToMods(modname, target, bonus, mods);
                         
                 });
-                applyParryAll(mods);
-                applyParryToWeapons(mods);
-                console.log(mods);
-
-                var update = createUpdateListFromMods(mods);
-                console.log(update);
-                setAttrs(update);
+                callback(mods);
+                
             });
          });
+    }
+
+    var finishRebuildMods = function(mods) {
+        console.log("Finish rebuild mods");
+        applyParryAll(mods);
+        applyParryToWeapons(mods);
+        console.log(mods);
+
+        var update = createUpdateListFromMods(mods);
+        console.log(update);
+        setAttrs(update);
     };
     var applyParryAll = function(mods) {
         if (mods.hasOwnProperty('parry_all')) {

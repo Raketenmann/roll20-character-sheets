@@ -1,7 +1,7 @@
-<div class="sticky">
+<div class="sticky 2colrow">
     
-   
-    <!--<img src="https://ulisses-spiele.de/wp-content/uploads/HeXXen1733_Logo_Fanwerk-300x212.png" />-->
+   <div class="col">
+    <!--<img src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />-->
     <button type="action" name="act_character" >Character</button>
     <button type="action" name="act_combat" >Combat</button>
     <button type="action" name="act_configuration" >Configuration</button>
@@ -50,6 +50,12 @@
     <br>
    
     <button type="action" name="act_resetroll">Reset</button>
+    
+    <label>Aktionspunkte</label>
+    <input type="number" class="number" name="attr_ap" value="6" min="0" max="6"/>
+    <span name="attr_ap_max"></span>
+
+</div>
  <!--
     <label data-i18n="attribute_coups">Coups</label>
     <input type="hidden" name='attr_coups' class='number'>
@@ -107,7 +113,10 @@
         <input type="radio" class="dicebar ambitionchip" name="attr_ambition" value="5" /><span></span>
     </span>
 -->
-<div>
+<div class="col">
+    <input type="hidden" class="normal ressource_rage_toggle" name="attr_displayrage" value="1" checked="true"/>
+    <input type="hidden" class="normal ressource_ambition_toggle" name="attr_displayambition" value="1" checked="true"/>
+
     <input type="hidden" name='attr_coups' class='number'>
     <span class="tooltip chipstackgroup">       
         <input type="radio" class="chipstack chip0" name="attr_coups" value="0" checked="checked" /><span></span>
@@ -116,8 +125,17 @@
         <input type="radio" class="chipstack coupchip chip3" name="attr_coups" value="3" /><span></span>
         <input type="radio" class="chipstack coupchip chip4" name="attr_coups" value="4" /><span></span>
         <input type="radio" class="chipstack coupchip chip5" name="attr_coups" value="5" /><span></span>
+        <input type="radio" class="chipstack coupchip chip6" name="attr_coups" value="6" /><span></span>
+        <input type="radio" class="chipstack coupchip chip7" name="attr_coups" value="7" /><span></span>
+        <input type="radio" class="chipstack coupchip chip8" name="attr_coups" value="8" /><span></span>
+        <input type="radio" class="chipstack coupchip chip9" name="attr_coups" value="9" /><span></span>
+        <input type="radio" class="chipstack coupchip chip10" name="attr_coups" value="10" /><span></span>
     </span>
     <label class="tooltiptext">Coups</label> 
+    <!--
+    <button type="action" name="act_addcoups">+1</button>
+    <span name="attr_coups"></span>
+    <button type="action" name="act_remcoups">-1</button>-->
 
     <input type="hidden" name='attr_ideas' class='number'>
     <span class="tooltip chipstackgroup">       
@@ -141,31 +159,33 @@
     </span>
     <label class="tooltiptext">Segnungen</label> 
 
-    <input type="hidden" name='attr_rage' class='number'>
-    <span class="tooltip chipstackgroup">       
-        <input type="radio" class="chipstack chip0" name="attr_rage" value="0" checked="checked" /><span></span>
-        <input type="radio" class="chipstack ragechip chip1" name="attr_rage" value="1" /><span></span>
-        <input type="radio" class="chipstack ragechip chip2" name="attr_rage" value="2" /><span></span>
-        <input type="radio" class="chipstack ragechip chip3" name="attr_rage" value="3" /><span></span>
-        <input type="radio" class="chipstack ragechip chip4" name="attr_rage" value="4" /><span></span>
-        <input type="radio" class="chipstack ragechip chip5" name="attr_rage" value="5" /><span></span>
+    <span class="ressource_rage">
+        <input type="hidden" name='attr_rage' class='number'>
+        <span class="tooltip chipstackgroup">       
+            <input type="radio" class="chipstack chip0" name="attr_rage" value="0" checked="checked" /><span></span>
+            <input type="radio" class="chipstack ragechip chip1" name="attr_rage" value="1" /><span></span>
+            <input type="radio" class="chipstack ragechip chip2" name="attr_rage" value="2" /><span></span>
+            <input type="radio" class="chipstack ragechip chip3" name="attr_rage" value="3" /><span></span>
+            <input type="radio" class="chipstack ragechip chip4" name="attr_rage" value="4" /><span></span>
+            <input type="radio" class="chipstack ragechip chip5" name="attr_rage" value="5" /><span></span>
+        </span>
+        <label class="tooltiptext">Rage</label>  
     </span>
-    <label class="tooltiptext">Rage</label>  
-
-    <input type="hidden" name='attr_ambition' class='number'>
-    <span class="tooltip chipstackgroup">       
-        <input type="radio" class="chipstack chip0" name="attr_ambition" value="0" checked="checked" /><span></span>
-        <input type="radio" class="chipstack ambitionchip chip1" name="attr_ambition" value="1" /><span></span>
-        <input type="radio" class="chipstack ambitionchip chip2" name="attr_ambition" value="2" /><span></span>
-        <input type="radio" class="chipstack ambitionchip chip3" name="attr_ambition" value="3" /><span></span>
-        <input type="radio" class="chipstack ambitionchip chip4" name="attr_ambition" value="4" /><span></span>
-        <input type="radio" class="chipstack ambitionchip chip5" name="attr_ambition" value="5" /><span></span>
+    
+    <span class="ressource_ambition">
+        <input type="hidden" name='attr_ambition' class='number'>
+        <span class="tooltip chipstackgroup">       
+            <input type="radio" class="chipstack chip0" name="attr_ambition" value="0" checked="checked" /><span></span>
+            <input type="radio" class="chipstack ambitionchip chip1" name="attr_ambition" value="1" /><span></span>
+            <input type="radio" class="chipstack ambitionchip chip2" name="attr_ambition" value="2" /><span></span>
+            <input type="radio" class="chipstack ambitionchip chip3" name="attr_ambition" value="3" /><span></span>
+            <input type="radio" class="chipstack ambitionchip chip4" name="attr_ambition" value="4" /><span></span>
+            <input type="radio" class="chipstack ambitionchip chip5" name="attr_ambition" value="5" /><span></span>
+        </span>
+        <label class="tooltiptext">Ambitionen</label>  
     </span>
-    <label class="tooltiptext">Ambitionen</label>  
 </div>
     
-
-    <label>Aktionspunkte</label><input type="number" class="number" name="attr_ap" value="(4 - @{armor})" disabled="disabled"  />
 
 
     
@@ -188,86 +208,298 @@
         <label>Verderbnis:</label><input class="sheet-textline" type="number" name="attr_verderbnis" />
 
         <h2>Kleidungssets</h2>
-        <label>Set No1</label><input class="sheet-textline" type="text" name="attr_armorset1" />
-        <br />
-        <label>Bonus</label><input class="sheet-textline" type="text" name="attr_armorset1_bonus" />
-        <br />
-        <label>Set No2</label><input class="sheet-textline" type="text" name="attr_armorset2" />
-        <br />
-        <label>Bonus</label><input class="sheet-textline" type="text" name="attr_armorset2_bonus" />
-        <br />
+        <fieldset class="repeating_armorsets counterreset">
+          <div class="fieldsetcontainer">
+            <div class="display">
+              <label class="counter">Set No</label>
+              <span name="attr_name"></span>
+              <span name="attr_target" data-i18n-dynamic=""></span>
+              <span name="attr_bonus"></span>
+            </div>
+            <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
+            <div class="wrapper">
+              <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
+              <div class="options">
+                <input class='medium'  type="text" name="attr_name"/>
+                <input class="textline" type="text" name="attr_description" placeholder="Description" />
+                <select name="attr_target">
+                  <option value="0" selected="selected">None</option>
+                  <option value="hitpoints" >Lebenspunkte</option>
+                  <option value="parry_all" >Alle Paraden</option>
+                  <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
+                  <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
+                  <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
+                  <option value="attribute_senses" data-i18n="attribute_senses">attribute_senses</option>
+                  <option value="attribute_knowledge" data-i18n="attribute_knowledge">attribute_knowledge</option>
+                  <option value="attribute_willpower" data-i18n="attribute_willpower">attribute_willpower</option>
+                  <option value="skill_acrobatics" data-i18n="skill_acrobatics">skill_acrobatics</option>
+                  <option value="skill_alertness" data-i18n="skill_alertness">skill_alertness</option>
+                  <option value="skill_perception" data-i18n="skill_perception">skill_perception</option>
+                  <option value="skill_firstaid" data-i18n="skill_firstaid">skill_firstaid</option>
+                  <option value="skill_sleightofhand" data-i18n="skill_sleightofhand">skill_sleightofhand</option>
+                  <option value="skill_mentalpower" data-i18n="skill_mentalpower">skill_mentalpower</option>
+                  <option value="skill_crafting" data-i18n="skill_crafting">skill_crafting</option>
+                  <option value="skill_stealth" data-i18n="skill_stealth">skill_stealth</option>
+                  <option value="skill_countryandpeople" data-i18n="skill_countryandpeople">skill_countryandpeople</option>
+                  <option value="skill_rhetoric" data-i18n="skill_rhetoric">skill_rhetoric</option>
+                  <option value="skill_flexing" data-i18n="skill_flexing">skill_flexing</option>
+                  <option value="skill_reflexes" data-i18n="skill_reflexes">skill_reflexes</option>
+                  <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
+                  <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
+                  <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+                  <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
+                  <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
+                  <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
+                  <option value="weapon_swords" data-i18n="weapon_swords">weapon_swords</option>
+                  <option value="weapon_scimitar" data-i18n="weapon_scimitar">weapon_scimitar</option>
+                  <option value="weapon_impact" data-i18n="weapon_impact">weapon_impact</option>
+                  <option value="weapon_polearm" data-i18n="weapon_polearm">weapon_polearm</option>
+                  <option value="weapon_lance" data-i18n="weapon_lance">weapon_lance</option>
+                  <option value="weapon_sling" data-i18n="weapon_sling">weapon_sling</option>
+                  <option value="weapon_pistol" data-i18n="weapon_pistol">weapon_pistol</option>
+                  <option value="weapon_crossbow" data-i18n="weapon_crossbow">weapon_crossbow</option>
+                  <option value="weapon_musket" data-i18n="weapon_musket">weapon_musket</option>
+                  <option value="weapon_dodge" data-i18n="weapon_dodge">weapon_dodge</option>
+                  <option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option>
+                </select>
+              <input class="sheet-medium" type="number" name="attr_bonus" />
+              </div>
+              <div class="details">
+                <span class="text" name="attr_description"></span>
+              </div>
+            </div>
+          </div>
+      </fieldset>
 
         <h2>Jägerkräfte</h2>
         
         <fieldset class="repeating_hunterpowers">
-            <input class='sheet-medium'  type="text" name="attr_hunterpowername" />
-            <input class="sheet-textline" type="text" name="attr_hunterpowereffect" />
+            <div class="fieldsetcontainer">
+              <div class="display">
+                <span name="attr_name"></span>
+                <span name="attr_target" data-i18n-dynamic=""></span>
+                <span name="attr_bonus"></span>
+              </div>
+              <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
+              <div class="wrapper">
+                <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
+                <div class="options">
+                  <input class='medium'  type="text" name="attr_name"/>
+                  <input class="textline" type="text" name="attr_description"  placeholder="Description"/>
+                  <select name="attr_target">
+                    <option value="0" selected="selected">None</option>
+                    <option value="hitpoints" >Lebenspunkte</option>
+                    <option value="parry_all" >Alle Paraden</option>
+                    <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
+                    <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
+                    <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
+                    <option value="attribute_senses" data-i18n="attribute_senses">attribute_senses</option>
+                    <option value="attribute_knowledge" data-i18n="attribute_knowledge">attribute_knowledge</option>
+                    <option value="attribute_willpower" data-i18n="attribute_willpower">attribute_willpower</option>
+                    <option value="skill_acrobatics" data-i18n="skill_acrobatics">skill_acrobatics</option>
+                    <option value="skill_alertness" data-i18n="skill_alertness">skill_alertness</option>
+                    <option value="skill_perception" data-i18n="skill_perception">skill_perception</option>
+                    <option value="skill_firstaid" data-i18n="skill_firstaid">skill_firstaid</option>
+                    <option value="skill_sleightofhand" data-i18n="skill_sleightofhand">skill_sleightofhand</option>
+                    <option value="skill_mentalpower" data-i18n="skill_mentalpower">skill_mentalpower</option>
+                    <option value="skill_crafting" data-i18n="skill_crafting">skill_crafting</option>
+                    <option value="skill_stealth" data-i18n="skill_stealth">skill_stealth</option>
+                    <option value="skill_countryandpeople" data-i18n="skill_countryandpeople">skill_countryandpeople</option>
+                    <option value="skill_rhetoric" data-i18n="skill_rhetoric">skill_rhetoric</option>
+                    <option value="skill_flexing" data-i18n="skill_flexing">skill_flexing</option>
+                    <option value="skill_reflexes" data-i18n="skill_reflexes">skill_reflexes</option>
+                    <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
+                    <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
+                    <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+                    <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
+                    <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
+                    <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
+                    <option value="weapon_swords" data-i18n="weapon_swords">weapon_swords</option>
+                    <option value="weapon_scimitar" data-i18n="weapon_scimitar">weapon_scimitar</option>
+                    <option value="weapon_impact" data-i18n="weapon_impact">weapon_impact</option>
+                    <option value="weapon_polearm" data-i18n="weapon_polearm">weapon_polearm</option>
+                    <option value="weapon_lance" data-i18n="weapon_lance">weapon_lance</option>
+                    <option value="weapon_sling" data-i18n="weapon_sling">weapon_sling</option>
+                    <option value="weapon_pistol" data-i18n="weapon_pistol">weapon_pistol</option>
+                    <option value="weapon_crossbow" data-i18n="weapon_crossbow">weapon_crossbow</option>
+                    <option value="weapon_musket" data-i18n="weapon_musket">weapon_musket</option>
+                    <option value="weapon_dodge" data-i18n="weapon_dodge">weapon_dodge</option>
+                    <option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option>
+                  </select>
+                <input class="sheet-medium" type="number" name="attr_bonus" />
+                </div>
+                <div class="details">
+                  <span class="text" name="attr_description"></span>
+                </div>
+              </div>
+            </div>
         </fieldset>
 
         <h2>Ausbaukräfte</h2>
         
         <fieldset class="repeating_powers">
-            <input class='sheet-medium'  type="text" name="attr_powername"/>
-            <input class="sheet-textline" type="text" name="attr_powereffect" />
+            <div class="fieldsetcontainer">
+              <div class="display">
+                <span name="attr_name"></span>
+                <span name="attr_target" data-i18n-dynamic=""></span>
+                <span name="attr_bonus"></span>
+              </div>
+              <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
+              <div class="wrapper">
+                <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
+                <div class="options">
+                  <input class='medium'  type="text" name="attr_name"/>
+                  <input class="textline" type="text" name="attr_description"  placeholder="Description"/>
+                  <select name="attr_target">
+                    <option value="0" selected="selected">None</option>
+                    <option value="hitpoints" >Lebenspunkte</option>
+                    <option value="parry_all" >Alle Paraden</option>
+                    <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
+                    <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
+                    <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
+                    <option value="attribute_senses" data-i18n="attribute_senses">attribute_senses</option>
+                    <option value="attribute_knowledge" data-i18n="attribute_knowledge">attribute_knowledge</option>
+                    <option value="attribute_willpower" data-i18n="attribute_willpower">attribute_willpower</option>
+                    <option value="skill_acrobatics" data-i18n="skill_acrobatics">skill_acrobatics</option>
+                    <option value="skill_alertness" data-i18n="skill_alertness">skill_alertness</option>
+                    <option value="skill_perception" data-i18n="skill_perception">skill_perception</option>
+                    <option value="skill_firstaid" data-i18n="skill_firstaid">skill_firstaid</option>
+                    <option value="skill_sleightofhand" data-i18n="skill_sleightofhand">skill_sleightofhand</option>
+                    <option value="skill_mentalpower" data-i18n="skill_mentalpower">skill_mentalpower</option>
+                    <option value="skill_crafting" data-i18n="skill_crafting">skill_crafting</option>
+                    <option value="skill_stealth" data-i18n="skill_stealth">skill_stealth</option>
+                    <option value="skill_countryandpeople" data-i18n="skill_countryandpeople">skill_countryandpeople</option>
+                    <option value="skill_rhetoric" data-i18n="skill_rhetoric">skill_rhetoric</option>
+                    <option value="skill_flexing" data-i18n="skill_flexing">skill_flexing</option>
+                    <option value="skill_reflexes" data-i18n="skill_reflexes">skill_reflexes</option>
+                    <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
+                    <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
+                    <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+                    <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
+                    <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
+                    <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
+                    <option value="weapon_swords" data-i18n="weapon_swords">weapon_swords</option>
+                    <option value="weapon_scimitar" data-i18n="weapon_scimitar">weapon_scimitar</option>
+                    <option value="weapon_impact" data-i18n="weapon_impact">weapon_impact</option>
+                    <option value="weapon_polearm" data-i18n="weapon_polearm">weapon_polearm</option>
+                    <option value="weapon_lance" data-i18n="weapon_lance">weapon_lance</option>
+                    <option value="weapon_sling" data-i18n="weapon_sling">weapon_sling</option>
+                    <option value="weapon_pistol" data-i18n="weapon_pistol">weapon_pistol</option>
+                    <option value="weapon_crossbow" data-i18n="weapon_crossbow">weapon_crossbow</option>
+                    <option value="weapon_musket" data-i18n="weapon_musket">weapon_musket</option>
+                    <option value="weapon_dodge" data-i18n="weapon_dodge">weapon_dodge</option>
+                    <option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option>
+                  </select>
+                <input class="sheet-medium" type="number" name="attr_bonus" />
+                </div>
+                <div class="details">
+                  <span class="text" name="attr_description"></span>
+                </div>
+              </div>
+            </div>
         </fieldset>
 
         <h2>Aktive Effekte</h2>
         <fieldset class="repeating_effects">
-            <input class='sheet-medium'  type="text" name="attr_name"/>
-            <input class="sheet-medium" type="text" name="attr_source" />
-            <select name="attr_target">
-                <option value="0" selected="selected">None</option>
-                <option value="hitpoints" >Lebenspunkte</option>
-                <option value="parry_all" >Alle Paraden</option>
-                <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
-                <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
-                <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
-                <option value="attribute_senses" data-i18n="attribute_senses">attribute_senses</option>
-                <option value="attribute_knowledge" data-i18n="attribute_knowledge">attribute_knowledge</option>
-                <option value="attribute_willpower" data-i18n="attribute_willpower">attribute_willpower</option>
-                <option value="skill_acrobatics" data-i18n="skill_acrobatics">skill_acrobatics</option>
-                <option value="skill_alertness" data-i18n="skill_alertness">skill_alertness</option>
-                <option value="skill_perception" data-i18n="skill_perception">skill_perception</option>
-                <option value="skill_firstaid" data-i18n="skill_firstaid">skill_firstaid</option>
-                <option value="skill_sleightofhand" data-i18n="skill_sleightofhand">skill_sleightofhand</option>
-                <option value="skill_mentalpower" data-i18n="skill_mentalpower">skill_mentalpower</option>
-                <option value="skill_crafting" data-i18n="skill_crafting">skill_crafting</option>
-                <option value="skill_stealth" data-i18n="skill_stealth">skill_stealth</option>
-                <option value="skill_countryandpeople" data-i18n="skill_countryandpeople">skill_countryandpeople</option>
-                <option value="skill_rhetoric" data-i18n="skill_rhetoric">skill_rhetoric</option>
-                <option value="skill_flexing" data-i18n="skill_flexing">skill_flexing</option>
-                <option value="skill_reflexes" data-i18n="skill_reflexes">skill_reflexes</option>
-                <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
-                <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
-                <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
-                <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
-                <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
-                <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
-                <option value="weapon_swords" data-i18n="weapon_swords">weapon_swords</option>
-                <option value="weapon_scimitar" data-i18n="weapon_scimitar">weapon_scimitar</option>
-                <option value="weapon_impact" data-i18n="weapon_impact">weapon_impact</option>
-                <option value="weapon_polearm" data-i18n="weapon_polearm">weapon_polearm</option>
-                <option value="weapon_lance" data-i18n="weapon_lance">weapon_lance</option>
-                <option value="weapon_sling" data-i18n="weapon_sling">weapon_sling</option>
-                <option value="weapon_pistol" data-i18n="weapon_pistol">weapon_pistol</option>
-                <option value="weapon_crossbow" data-i18n="weapon_crossbow">weapon_crossbow</option>
-                <option value="weapon_musket" data-i18n="weapon_musket">weapon_musket</option>
-                <option value="weapon_dodge" data-i18n="weapon_dodge">weapon_dodge</option>
-                <option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option>
-              </select>
-            <input class="sheet-medium" type="number" name="attr_bonus" />
+          <div class="fieldsetcontainer">
+            <div class="display">
+              <span name="attr_name"></span>
+              <span name="attr_target" data-i18n-dynamic=""></span>
+              <span name="attr_bonus"></span>
+            </div>
+            <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
+            <div class="wrapper">
+              <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
+              <div class="options">
+                <input class='medium'  type="text" name="attr_name"/>
+                <input class="textline" type="text" name="attr_description"  placeholder="Description"/>
+                <select name="attr_target">
+                  <option value="0" selected="selected">None</option>
+                  <option value="hitpoints" >Lebenspunkte</option>
+                  <option value="parry_all" >Alle Paraden</option>
+                  <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
+                  <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
+                  <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
+                  <option value="attribute_senses" data-i18n="attribute_senses">attribute_senses</option>
+                  <option value="attribute_knowledge" data-i18n="attribute_knowledge">attribute_knowledge</option>
+                  <option value="attribute_willpower" data-i18n="attribute_willpower">attribute_willpower</option>
+                  <option value="skill_acrobatics" data-i18n="skill_acrobatics">skill_acrobatics</option>
+                  <option value="skill_alertness" data-i18n="skill_alertness">skill_alertness</option>
+                  <option value="skill_perception" data-i18n="skill_perception">skill_perception</option>
+                  <option value="skill_firstaid" data-i18n="skill_firstaid">skill_firstaid</option>
+                  <option value="skill_sleightofhand" data-i18n="skill_sleightofhand">skill_sleightofhand</option>
+                  <option value="skill_mentalpower" data-i18n="skill_mentalpower">skill_mentalpower</option>
+                  <option value="skill_crafting" data-i18n="skill_crafting">skill_crafting</option>
+                  <option value="skill_stealth" data-i18n="skill_stealth">skill_stealth</option>
+                  <option value="skill_countryandpeople" data-i18n="skill_countryandpeople">skill_countryandpeople</option>
+                  <option value="skill_rhetoric" data-i18n="skill_rhetoric">skill_rhetoric</option>
+                  <option value="skill_flexing" data-i18n="skill_flexing">skill_flexing</option>
+                  <option value="skill_reflexes" data-i18n="skill_reflexes">skill_reflexes</option>
+                  <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
+                  <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
+                  <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+                  <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
+                  <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
+                  <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
+                  <option value="weapon_swords" data-i18n="weapon_swords">weapon_swords</option>
+                  <option value="weapon_scimitar" data-i18n="weapon_scimitar">weapon_scimitar</option>
+                  <option value="weapon_impact" data-i18n="weapon_impact">weapon_impact</option>
+                  <option value="weapon_polearm" data-i18n="weapon_polearm">weapon_polearm</option>
+                  <option value="weapon_lance" data-i18n="weapon_lance">weapon_lance</option>
+                  <option value="weapon_sling" data-i18n="weapon_sling">weapon_sling</option>
+                  <option value="weapon_pistol" data-i18n="weapon_pistol">weapon_pistol</option>
+                  <option value="weapon_crossbow" data-i18n="weapon_crossbow">weapon_crossbow</option>
+                  <option value="weapon_musket" data-i18n="weapon_musket">weapon_musket</option>
+                  <option value="weapon_dodge" data-i18n="weapon_dodge">weapon_dodge</option>
+                  <option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option>
+                </select>
+              <input class="sheet-medium" type="number" name="attr_bonus" />
+              </div>
+              <div class="details">
+                <span class="text" name="attr_description"></span>
+              </div>
+            </div>
+          </div>
         </fieldset>
 
 	</div>
 
 	<div class="col">
         <h2>Rollen</h2>
-        <label>Rolle No1:</label><input class="sheet-textline" type="text" name="attr_role1" />
-        <br />
-        <label>Rolle No2:</label><input class="sheet-textline" type="text" name="attr_role2" />
-        <br />
-        <label>Rolle No3:</label><input class="sheet-textline" type="text" name="attr_role3" />
-
+        <fieldset class="repeating_roles counterreset">
+          <div class="fieldsetcontainer">
+            <div class="display">
+              <label class="counter">Rolle No</label>
+              <span name="attr_role" data-i18n-dynamic></span>
+            </div>
+            <input class="details-flag" type="checkbox" name="attr_details-flag"/><span>i</span>
+            <div class="wrapper">
+              <input class="options-flag" type="checkbox" name="attr_options-flag"/><span>y</span>
+              <div class="options">
+                <select name="attr_role">
+                  <option value="0" selected="selected" data-i18n="role_none">None</option>
+                  <option value="role_alchemist"  data-i18n="role_alchemist">Alchemist</option>
+                  <option value="role_assassin"  data-i18n="role_assassin">Attentäter</option>
+                  <option value="role_guard"  data-i18n="role_guard">Beschützer</option>
+                  <option value="role_zealot"  data-i18n="role_zealot">Eiferer</option>
+                  <option value="role_fencer"  data-i18n="role_fencer">Fechter</option>
+                  <option value="role_range"  data-i18n="role_range">Fernkämpfer</option>
+                  <option value="role_witchfoe"  data-i18n="role_witchfoe">Hexenfeind</option>
+                  <option value="role_witchmystic"  data-i18n="role_witchmystic">Hexenmystiker</option>
+                  <option value="role_constructor"  data-i18n="role_constructor">Konstrukteur</option>
+                  <option value="role_scout"  data-i18n="role_scout">Kundschafter</option>
+                  <option value="role_melee"  data-i18n="role_melee">Nahkämpfer</option>
+                  <option value="role_priest"  data-i18n="role_priest">Priester</option>
+                  <option value="role_strategist"  data-i18n="role_strategist">Stratege</option>       
+                </select>
+                <input type="text" name="attr_description" placeholder="Description"/>
+              </div>
+              <div class="details">
+                <span class="text" name="attr_description"></span>
+              </div>
+            </div>
+          </div>
+        </fieldset>
         <h2>Geld</h2>
         <label>Unterhalt</label><input class="sheet-textline" type="text" name="attr_unterhalt" />
         <br />
@@ -512,7 +744,9 @@
     </div>
     <div class="col">
         <h2>Handlungen</h2>
-        <label>Aktionspunkte</label><input type="number" class="number" name="attr_ap" value="(4 - @{armor})" disabled="disabled"  />
+        <label>Aktionspunkte</label>
+        <input type="number" class="number" name="attr_ap" value="6" min="0" max="6"/>
+        <span class="number" name="attr_ap_max"></span>
         <h2>Heilfaktor</h2>
         <label>Erste Hilfe [<span class="pureattribute">Eh</span>]</label>
         <span>
@@ -795,12 +1029,41 @@
 </div><div class='sheet-config'>
     <h2>Config/Settings</h2>
     <span>Sheet Config/Settings goes here</span> 
+    <br>
+
+    
+    <input type="checkbox" class="normal" name="attr_displayrage" value="1" checked=true/>
+    <span></span>
+    <label>Display Rage</label>
+    <br>
+    <input type="checkbox" class="normal" name="attr_displayambition" value="1" checked=true/>
+    <span></span>
+    <label>Display Ambition</label>
 </div>
 <script type="text/worker">const buttonlist = ["character","combat","configuration"];
     buttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
             setAttrs({
                 sheetTab: button
+            });
+        });
+    });
+
+    const resourcebuttonlist = ["addcoups","remcoups"];
+    resourcebuttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            var action = button.substr(0,3);
+            var ressource = button.substr(3);
+            getAttrs([ressource], function(values) {
+                let resourceValue = parseInt(values[ressource],10)||0;
+                if(action == "add")
+                    resourceValue = resourceValue + 1;
+                else if(action == "rem")
+                    resourceValue = resourceValue -1;
+                resourceValue =  Math.min(Math.max(resourceValue, 0), 10);
+                var update = {};
+                update[ressource] = resourceValue;
+                setAttrs(update);
             });
         });
     });
@@ -820,8 +1083,17 @@
             for (i = 1; i <= attributeValue; i++) {
                 query = query + " {{hexxen"+i+"=[[d6cs>5]]}}";
             }
-            for (i = 1; i <= janusValue; i++) {
-                query = query + " {{janus"+i+"=[[d6cs>4cf]]}}";
+            if(janusValue > 0)
+            {
+                for (i = 1; i <= janusValue; i++) {
+                    query = query + " {{janus"+i+"=[[d6cs>4cf]]}}";
+                }
+            }
+            else if(janusValue < 0)
+            {
+                for (i = -1; i >= janusValue; i--) {
+                    query = query + " {{janus"+i+"=[[d6cs>4cf]]}}";
+                }
             }
             setAttrs({                            
                 rollquery: query
@@ -971,6 +1243,15 @@
             });
           });
     });
+    on("change:armor", function() {
+        getAttrs(["armor"], function(values) {
+            let armor = parseInt(values.armor,10)||0;
+            let ap_max = 6 - armor;
+            setAttrs({                            
+                ap_max: ap_max
+            });
+          });
+    });
     on("change:attribute_strength change:attribute_willpower change:skill_insensibility change:hitpoints_mod", function() {
         getAttrs(["attribute_strength", "attribute_willpower", "skill_insensibility","hitpoints_mod" ], function(values) {
             let str = parseInt(values.attribute_strength,10)||0;
@@ -994,11 +1275,20 @@
           });
     });
 
-    on("change:repeating_effects", function(){
+    on("clicked:addeffect", () => {
+        var newrowid = generateRowID();
+        var itemfields = {};
+        itemfields["repeating_effects_" + newrowid + "_name"] = "Effect name";
+        itemfields["repeating_effects_" + newrowid + "_source"] = "effect source";
+        itemfields["repeating_effects_" + newrowid + "_target"] = "hitpoints";
+        itemfields["repeating_effects_" + newrowid + "_bonus"] = "1";
+        setAttrs(itemfields);
+    });
+
+    on("change:repeating_effects change:repeating_powers change:repeating_hunterpowers", function(){
         rebuildMods();
     });
-    on("remove:repeating_effects", function(eventInfo){
-        
+    on("remove:repeating_effects remove:repeating_powers remove:repeating_hunterpowers", function(eventInfo){   
         rebuildMods();
     });
 
@@ -1006,34 +1296,52 @@
         console.log("rebuild mods");
         var mods = {};
         clearMods(mods);
+        
+        crawlEffects("repeating_armorsets", mods, function(mods) {
+            crawlEffects("repeating_powers", mods, function(mods) {
+                crawlEffects("repeating_hunterpowers", mods, function(mods) {
+                    crawlEffects("repeating_effects", mods, function(mods) {
+                        finishRebuildMods(mods);
+                    });
+                });
+            });
+        });
+
+    };
+
+    var crawlEffects = function(fieldsetname, mods, callback) {
         var itemfields = [];
-        getSectionIDs("repeating_effects", function(idarray) {
+        getSectionIDs(fieldsetname, function(idarray) {
 
             _.each(idarray, function(currentID, i) {
-                itemfields.push("repeating_effects_" + currentID + "_name");
-                itemfields.push("repeating_effects_" + currentID + "_source");
-                itemfields.push("repeating_effects_" + currentID + "_target");
-                itemfields.push("repeating_effects_" + currentID + "_bonus");
+                itemfields.push(fieldsetname+"_" + currentID + "_name");
+                itemfields.push(fieldsetname+"_" + currentID + "_target");
+                itemfields.push(fieldsetname+"_" + currentID + "_bonus");
             });
             getAttrs(itemfields, function(v) {
                 _.each(idarray, function(currentID) {
                     
-                    var target = v["repeating_effects_" + currentID + "_target"];
-                    
-                    var modname = v["repeating_effects_" + currentID + "_name"];
-                    var bonus = parseInt(v["repeating_effects_" + currentID + "_bonus"],10);
+                    var target = v[fieldsetname+"_" + currentID + "_target"];
+                    var modname = v[fieldsetname+"_" + currentID + "_name"];
+                    var bonus = parseInt(v[fieldsetname+"_" + currentID + "_bonus"],10);
                     addToMods(modname, target, bonus, mods);
                         
                 });
-                applyParryAll(mods);
-                applyParryToWeapons(mods);
-                console.log(mods);
-
-                var update = createUpdateListFromMods(mods);
-                console.log(update);
-                setAttrs(update);
+                callback(mods);
+                
             });
          });
+    }
+
+    var finishRebuildMods = function(mods) {
+        console.log("Finish rebuild mods");
+        applyParryAll(mods);
+        applyParryToWeapons(mods);
+        console.log(mods);
+
+        var update = createUpdateListFromMods(mods);
+        console.log(update);
+        setAttrs(update);
     };
     var applyParryAll = function(mods) {
         if (mods.hasOwnProperty('parry_all')) {
@@ -1247,6 +1555,31 @@
         {{#rollBetween() janus5 1 3}}<span class="janus empty"></span>{{/rollBetween() janus5 1 3}}
         {{#rollBetween() janus5 4 6}}<span class="janus success"></span>{{/rollBetween() janus5 4 6}}
         {{/janus5}}
+
+        {{#janus-1}}
+        {{#rollBetween() janus-1 1 3}}<span class="janusmalus empty"></span>{{/rollBetween() janus-1 1 3}}
+        {{#rollBetween() janus-1 4 6}}<span class="janusmalus success"></span>{{/rollBetween() janus-1 4 6}}
+        {{/janus-1}}
+
+        {{#janus-2}}
+        {{#rollBetween() janus-2 1 3}}<span class="janusmalus empty"></span>{{/rollBetween() janus-2 1 3}}
+        {{#rollBetween() janus-2 4 6}}<span class="janusmalus success"></span>{{/rollBetween() janus-2 4 6}}
+        {{/janus-2}}
+
+        {{#janus-3}}
+        {{#rollBetween() janus-3 1 3}}<span class="janusmalus empty"></span>{{/rollBetween() janus-3 1 3}}
+        {{#rollBetween() janus-3 4 6}}<span class="janusmalus success"></span>{{/rollBetween() janus-3 4 6}}
+        {{/janus-3}}
+
+        {{#janus-4}}
+        {{#rollBetween() janus-4 1 3}}<span class="janusmalus empty"></span>{{/rollBetween() janus-4 1 3}}
+        {{#rollBetween() janus-4 4 6}}<span class="janusmalus success"></span>{{/rollBetween() janus-4 4 6}}
+        {{/janus-4}}
+
+        {{#janus-5}}
+        {{#rollBetween() janus-5 1 3}}<span class="janusmalus empty"></span>{{/rollBetween() janus-5 1 3}}
+        {{#rollBetween() janus-5 4 6}}<span class="janusmalus success"></span>{{/rollBetween() janus-5 4 6}}
+        {{/janus-5}}
         <!--<br>-->
         {{#blessing1}}
         {{#rollBetween() blessing1 1 2}}<span class="blessing esprit"></span>{{/rollBetween() blessing1 1 2}}
@@ -1257,8 +1590,7 @@
 
         <p>
             
-            Erfolge:<span class="rtresult_hexxen"></span>
-            Janus:<span class="rtresult_janus"></span>
+            Erfolge:<span class="rtresult_result"></span>
             Esprit:<span class="rtresult_esprit"></span>
         </p>
     </div>
