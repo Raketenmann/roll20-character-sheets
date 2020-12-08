@@ -243,10 +243,10 @@ const buttonlist = ["character","combat","configuration"];
         setAttrs(itemfields);
     });
 
-    on("change:repeating_effects change:repeating_powers change:repeating_hunterpowers", function(){
+    on("change:repeating_armorsets change:repeating_effects change:repeating_powers change:repeating_hunterpowers", function(){
         rebuildMods();
     });
-    on("remove:repeating_effects remove:repeating_powers remove:repeating_hunterpowers", function(eventInfo){   
+    on("remove:repeating_armorsets remove:repeating_effects remove:repeating_powers remove:repeating_hunterpowers", function(eventInfo){   
         rebuildMods();
     });
 

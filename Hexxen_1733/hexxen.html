@@ -206,7 +206,50 @@
         <label>Vorteil:</label><input class="sheet-textline" type="text" name="attr_advantage" />
         <br />
         <label>Verderbnis:</label><input class="sheet-textline" type="number" name="attr_verderbnis" />
+        <br>
+        <label>Unterhalt</label><input class="sheet-textline" type="number" name="attr_unterhalt" />
+        <br />
+        <label>Vermögen</label><input class="sheet-textline" type="number" name="attr_vermoegen" />
 
+        <h2>Rollen</h2>
+        <fieldset class="repeating_roles counterreset">
+          <div class="fieldsetcontainer">
+            <div class="display">
+              <label class="counter">Rolle No</label>
+              <span name="attr_role" data-i18n-dynamic></span>
+            </div>
+            <input class="details-flag" type="checkbox" name="attr_details-flag"/><span>i</span>
+            <div class="wrapper">
+              <input class="options-flag" type="checkbox" name="attr_options-flag"/><span>y</span>
+              <div class="options">
+                <select name="attr_role">
+                  <option value="0" selected="selected" data-i18n="role_none">None</option>
+                  <option value="role_alchemist"  data-i18n="role_alchemist">Alchemist</option>
+                  <option value="role_assassin"  data-i18n="role_assassin">Attentäter</option>
+                  <option value="role_guard"  data-i18n="role_guard">Beschützer</option>
+                  <option value="role_zealot"  data-i18n="role_zealot">Eiferer</option>
+                  <option value="role_fencer"  data-i18n="role_fencer">Fechter</option>
+                  <option value="role_range"  data-i18n="role_range">Fernkämpfer</option>
+                  <option value="role_witchfoe"  data-i18n="role_witchfoe">Hexenfeind</option>
+                  <option value="role_witchmystic"  data-i18n="role_witchmystic">Hexenmystiker</option>
+                  <option value="role_constructor"  data-i18n="role_constructor">Konstrukteur</option>
+                  <option value="role_scout"  data-i18n="role_scout">Kundschafter</option>
+                  <option value="role_melee"  data-i18n="role_melee">Nahkämpfer</option>
+                  <option value="role_priest"  data-i18n="role_priest">Priester</option>
+                  <option value="role_strategist"  data-i18n="role_strategist">Stratege</option>       
+                </select>
+                <textarea name="attr_description" placeholder="Description"></textarea>
+                <!--<input type="text" name="attr_description" placeholder="Description"/>-->
+              </div>
+              <div class="details">
+                <span class="text" name="attr_description"></span>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <h2>Restliche Ausrüstung</h2>
+        <textarea name="attr_equipment"></textarea>
         <h2>Kleidungssets</h2>
         <fieldset class="repeating_armorsets counterreset">
           <div class="fieldsetcontainer">
@@ -221,7 +264,8 @@
               <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
               <div class="options">
                 <input class='medium'  type="text" name="attr_name"/>
-                <input class="textline" type="text" name="attr_description" placeholder="Description" />
+                <textarea name="attr_description" placeholder="Description"></textarea>
+                <!--<input class="textline" type="text" name="attr_description" placeholder="Description" />-->
                 <select name="attr_target">
                   <option value="0" selected="selected">None</option>
                   <option value="hitpoints" >Lebenspunkte</option>
@@ -285,7 +329,8 @@
                 <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
                 <div class="options">
                   <input class='medium'  type="text" name="attr_name"/>
-                  <input class="textline" type="text" name="attr_description"  placeholder="Description"/>
+                  <textarea name="attr_description" placeholder="Description"></textarea>
+                  <!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
                   <select name="attr_target">
                     <option value="0" selected="selected">None</option>
                     <option value="hitpoints" >Lebenspunkte</option>
@@ -349,7 +394,8 @@
                 <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
                 <div class="options">
                   <input class='medium'  type="text" name="attr_name"/>
-                  <input class="textline" type="text" name="attr_description"  placeholder="Description"/>
+                  <textarea name="attr_description" placeholder="Description"></textarea>
+                  <!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
                   <select name="attr_target">
                     <option value="0" selected="selected">None</option>
                     <option value="hitpoints" >Lebenspunkte</option>
@@ -412,7 +458,8 @@
               <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
               <div class="options">
                 <input class='medium'  type="text" name="attr_name"/>
-                <input class="textline" type="text" name="attr_description"  placeholder="Description"/>
+                <textarea name="attr_description" placeholder="Description"></textarea>
+                <!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
                 <select name="attr_target">
                   <option value="0" selected="selected">None</option>
                   <option value="hitpoints" >Lebenspunkte</option>
@@ -465,48 +512,7 @@
 	</div>
 
 	<div class="col">
-        <h2>Rollen</h2>
-        <fieldset class="repeating_roles counterreset">
-          <div class="fieldsetcontainer">
-            <div class="display">
-              <label class="counter">Rolle No</label>
-              <span name="attr_role" data-i18n-dynamic></span>
-            </div>
-            <input class="details-flag" type="checkbox" name="attr_details-flag"/><span>i</span>
-            <div class="wrapper">
-              <input class="options-flag" type="checkbox" name="attr_options-flag"/><span>y</span>
-              <div class="options">
-                <select name="attr_role">
-                  <option value="0" selected="selected" data-i18n="role_none">None</option>
-                  <option value="role_alchemist"  data-i18n="role_alchemist">Alchemist</option>
-                  <option value="role_assassin"  data-i18n="role_assassin">Attentäter</option>
-                  <option value="role_guard"  data-i18n="role_guard">Beschützer</option>
-                  <option value="role_zealot"  data-i18n="role_zealot">Eiferer</option>
-                  <option value="role_fencer"  data-i18n="role_fencer">Fechter</option>
-                  <option value="role_range"  data-i18n="role_range">Fernkämpfer</option>
-                  <option value="role_witchfoe"  data-i18n="role_witchfoe">Hexenfeind</option>
-                  <option value="role_witchmystic"  data-i18n="role_witchmystic">Hexenmystiker</option>
-                  <option value="role_constructor"  data-i18n="role_constructor">Konstrukteur</option>
-                  <option value="role_scout"  data-i18n="role_scout">Kundschafter</option>
-                  <option value="role_melee"  data-i18n="role_melee">Nahkämpfer</option>
-                  <option value="role_priest"  data-i18n="role_priest">Priester</option>
-                  <option value="role_strategist"  data-i18n="role_strategist">Stratege</option>       
-                </select>
-                <input type="text" name="attr_description" placeholder="Description"/>
-              </div>
-              <div class="details">
-                <span class="text" name="attr_description"></span>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-        <h2>Geld</h2>
-        <label>Unterhalt</label><input class="sheet-textline" type="text" name="attr_unterhalt" />
-        <br />
-        <label>Vermögen</label><input class="sheet-textline" type="text" name="attr_vermoegen" />
-
-        <h2>Restliche Ausrüstung</h2>
-        <textarea name="attr_equipment"></textarea>
+        
 
         <h2>Körperliche Attribute</h2>
         <div class="attributes">
@@ -780,9 +786,7 @@
       <h3>Fw</h3>
       <h3>Att    </h3>
       <h3>Sum</h3>
-      <h3>Mod</h3>
       <h3>Angriff</h3>
-      <h3>PMod</h3>
       <h3>Parade</h3>
       <h3>Anmerkungen</h3><span>
         <input class="normal" type="checkbox" name="attr_weapon_punch_active" value="1" checked="checked"/><span></span></span>
@@ -792,14 +796,13 @@
       <input class="number" type="number" name="attr_weapon_punch"/>
       <label class="item attribute" data-i18n="attribute_athletic_short">Ath             </label><span class="item label" name="attr_weapon_punch_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_punch_mod"/><span class="tooltiptext" name="attr_weapon_punch_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_punch_mod_desc"/><span class="tooltiptext" name="attr_weapon_punch_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_punch">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_punch">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_punch_mod"/>
         <input type="hidden" name="attr_parry_weapon_punch_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_punch_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_punch">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_punch">Parry</button>
       <label class="item note" data-i18n="weapon_punch_note">Parry -3, except Punches</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_dagger_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_dagger">Daggers &amp; Knives</label>
@@ -808,14 +811,13 @@
       <input class="number" type="number" name="attr_weapon_dagger"/>
       <label class="item attribute" data-i18n="attribute_dexterity_short">Ath             </label><span class="item label" name="attr_weapon_dagger_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_dagger_mod"/><span class="tooltiptext" name="attr_weapon_dagger_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_dagger_mod_desc"/><span class="tooltiptext" name="attr_weapon_dagger_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_dagger">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_dagger">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_dagger_mod"/>
         <input type="hidden" name="attr_parry_weapon_dagger_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_dagger_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_dagger">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_dagger">Parry</button>
       <label class="item note" data-i18n="weapon_dagger_note">Giftverwendung / Parry -2, except Punches and Daggers &amp; Knives</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_fencing_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_fencing">Fencing Weapons</label>
@@ -824,14 +826,13 @@
       <input class="number" type="number" name="attr_weapon_fencing"/>
       <label class="item attribute" data-i18n="attribute_athletic_short">Ath             </label><span class="item label" name="attr_weapon_fencing_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_fencing_mod"/><span class="tooltiptext" name="attr_weapon_fencing_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_fencing_mod_desc"/><span class="tooltiptext" name="attr_weapon_fencing_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_fencing">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_fencing">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_fencing_mod"/>
         <input type="hidden" name="attr_parry_weapon_fencing_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_fencing_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_fencing">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_fencing">Parry</button>
       <label class="item note" data-i18n="weapon_fencing_note">Parry -1 per engaged enemy after the first one</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_swords_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_swords">Swords</label>
@@ -840,14 +841,13 @@
       <input class="number" type="number" name="attr_weapon_swords"/>
       <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_swords_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_swords_mod"/><span class="tooltiptext" name="attr_weapon_swords_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_swords_mod_desc"/><span class="tooltiptext" name="attr_weapon_swords_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_swords">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_swords">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_swords_mod"/>
         <input type="hidden" name="attr_parry_weapon_swords_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_swords_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_swords">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_swords">Parry</button>
       <label class="item note" data-i18n="weapon_swords_note">full parry</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_scimitar_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_scimitar">Scimitars</label>
@@ -856,14 +856,13 @@
       <input class="number" type="number" name="attr_weapon_scimitar"/>
       <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_scimitar_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_scimitar_mod"/><span class="tooltiptext" name="attr_weapon_scimitar_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_scimitar_mod_desc"/><span class="tooltiptext" name="attr_weapon_scimitar_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_scimitar">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_scimitar">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_scimitar_mod"/>
         <input type="hidden" name="attr_parry_weapon_scimitar_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_scimitar_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_scimitar">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_scimitar">Parry</button>
       <label class="item note" data-i18n="weapon_scimitar_note">Parry -1</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_impact_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_impact">Impact Weapons</label>
@@ -872,14 +871,13 @@
       <input class="number" type="number" name="attr_weapon_impact"/>
       <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_impact_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_impact_mod"/><span class="tooltiptext" name="attr_weapon_impact_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_impact_mod_desc"/><span class="tooltiptext" name="attr_weapon_impact_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_impact">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_impact">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_impact_mod"/>
         <input type="hidden" name="attr_parry_weapon_impact_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_impact_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_impact">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_impact">Parry</button>
       <label class="item note" data-i18n="weapon_impact_note">Parry -2</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_polearm_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_polearm">Polearms</label>
@@ -888,14 +886,13 @@
       <input class="number" type="number" name="attr_weapon_polearm"/>
       <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_polearm_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_polearm_mod"/><span class="tooltiptext" name="attr_weapon_polearm_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_polearm_mod_desc"/><span class="tooltiptext" name="attr_weapon_polearm_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_polearm">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_polearm">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_polearm_mod"/>
         <input type="hidden" name="attr_parry_weapon_polearm_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_polearm_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_polearm">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_polearm">Parry</button>
       <label class="item note" data-i18n="weapon_polearm_note">Parry costs 2AP</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_lance_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_lance">Lance Weapons</label>
@@ -904,14 +901,13 @@
       <input class="number" type="number" name="attr_weapon_lance"/>
       <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_lance_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_lance_mod"/><span class="tooltiptext" name="attr_weapon_lance_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_lance_mod_desc"/><span class="tooltiptext" name="attr_weapon_lance_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_lance">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_lance">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_lance_mod"/>
         <input type="hidden" name="attr_parry_weapon_lance_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_lance_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_lance">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_lance">Parry</button>
       <label class="item note" data-i18n="weapon_lance_note">Parry costs 2AP</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_sling_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_sling">Sling</label>
@@ -920,14 +916,13 @@
       <input class="number" type="number" name="attr_weapon_sling"/>
       <label class="item attribute" data-i18n="attribute_dexterity_short">Ath             </label><span class="item label" name="attr_weapon_sling_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_sling_mod"/><span class="tooltiptext" name="attr_weapon_sling_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_sling_mod_desc"/><span class="tooltiptext" name="attr_weapon_sling_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_sling">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_sling">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_sling_mod"/>
         <input type="hidden" name="attr_parry_weapon_sling_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_sling_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_sling">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_sling">Parry</button>
       <label class="item note" data-i18n="weapon_sling_note">Geschossgeeignet, Thrower must be free</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_pistol_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_pistol">Pistol</label>
@@ -936,14 +931,13 @@
       <input class="number" type="number" name="attr_weapon_pistol"/>
       <label class="item attribute" data-i18n="attribute_senses_short">Ath             </label><span class="item label" name="attr_weapon_pistol_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_pistol_mod"/><span class="tooltiptext" name="attr_weapon_pistol_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_pistol_mod_desc"/><span class="tooltiptext" name="attr_weapon_pistol_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_pistol">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_pistol">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_pistol_mod"/>
         <input type="hidden" name="attr_parry_weapon_pistol_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_pistol_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_pistol">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_pistol">Parry</button>
       <label class="item note" data-i18n="weapon_pistol_note">Immer freie Schussmöglichkeit</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_crossbow_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_crossbow">Crosswbow</label>
@@ -952,14 +946,13 @@
       <input class="number" type="number" name="attr_weapon_crossbow"/>
       <label class="item attribute" data-i18n="attribute_senses_short">Ath             </label><span class="item label" name="attr_weapon_crossbow_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_crossbow_mod"/><span class="tooltiptext" name="attr_weapon_crossbow_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_crossbow_mod_desc"/><span class="tooltiptext" name="attr_weapon_crossbow_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_crossbow">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_crossbow">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_crossbow_mod"/>
         <input type="hidden" name="attr_parry_weapon_crossbow_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_crossbow_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_crossbow">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_crossbow">Parry</button>
       <label class="item note" data-i18n="weapon_crossbow_note">Shooter must be free</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_musket_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_musket">Musket</label>
@@ -968,14 +961,13 @@
       <input class="number" type="number" name="attr_weapon_musket"/>
       <label class="item attribute" data-i18n="attribute_senses_short">Ath             </label><span class="item label" name="attr_weapon_musket_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_musket_mod"/><span class="tooltiptext" name="attr_weapon_musket_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_musket_mod_desc"/><span class="tooltiptext" name="attr_weapon_musket_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_musket">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_musket">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_musket_mod"/>
         <input type="hidden" name="attr_parry_weapon_musket_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_musket_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_musket">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_musket">Parry</button>
       <label class="item note" data-i18n="weapon_musket_note">Shooter and target must be free</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_dodge_active" value="1" checked="checked"/><span></span></span>
       <label class="item" data-i18n="weapon_dodge">Dodge</label>
@@ -984,14 +976,13 @@
       <input class="number" type="number" name="attr_weapon_dodge"/>
       <label class="item attribute" data-i18n="attribute_athletic_short">Ath             </label><span class="item label" name="attr_weapon_dodge_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_dodge_mod"/><span class="tooltiptext" name="attr_weapon_dodge_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_dodge_mod_desc"/><span class="tooltiptext" name="attr_weapon_dodge_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_dodge">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_dodge">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_dodge_mod"/>
         <input type="hidden" name="attr_parry_weapon_dodge_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_dodge_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_dodge">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_dodge">Parry</button>
       <label class="item note" data-i18n="weapon_dodge_note">Per engaged enemy -1, ranged attacks -1</label><span>
         <input class="normal" type="checkbox" name="attr_weapon_shield_active" value="1"/><span></span></span>
       <label class="item" data-i18n="weapon_shield">Shield</label>
@@ -1000,14 +991,13 @@
       <input class="number" type="number" name="attr_weapon_shield"/>
       <label class="item attribute" data-i18n="attribute_strength_short">Ath             </label><span class="item label" name="attr_weapon_shield_max"> </span>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_weapon_shield_mod"/><span class="tooltiptext" name="attr_weapon_shield_mod_desc"></span>
+        <input type="hidden" name="attr_weapon_shield_mod_desc"/><span class="tooltiptext" name="attr_weapon_shield_mod_desc"></span>
+        <button class="roll attack" type="action" name="act_weapon_shield">Attack</button>
       </div>
-      <button class="roll attack" type="action" name="act_weapon_shield">Attack</button>
       <div class="item tooltip">
-        <input class="number" type="number" name="attr_parry_weapon_shield_mod"/>
         <input type="hidden" name="attr_parry_weapon_shield_mod_desc"/><span class="tooltiptext" name="attr_parry_weapon_shield_mod_desc"></span>
+        <button class="roll parry" type="action" name="act_parry_weapon_shield">Parry</button>
       </div>
-      <button class="roll parry" type="action" name="act_parry_weapon_shield">Parry</button>
       <label class="item note" data-i18n="weapon_shield_note">Only 1x per round / blocks ranged attacks</label>
     </div>
     <hr/>
@@ -1285,10 +1275,10 @@
         setAttrs(itemfields);
     });
 
-    on("change:repeating_effects change:repeating_powers change:repeating_hunterpowers", function(){
+    on("change:repeating_armorsets change:repeating_effects change:repeating_powers change:repeating_hunterpowers", function(){
         rebuildMods();
     });
-    on("remove:repeating_effects remove:repeating_powers remove:repeating_hunterpowers", function(eventInfo){   
+    on("remove:repeating_armorsets remove:repeating_effects remove:repeating_powers remove:repeating_hunterpowers", function(eventInfo){   
         rebuildMods();
     });
 

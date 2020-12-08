@@ -13,7 +13,50 @@
         <label>Vorteil:</label><input class="sheet-textline" type="text" name="attr_advantage" />
         <br />
         <label>Verderbnis:</label><input class="sheet-textline" type="number" name="attr_verderbnis" />
+        <br>
+        <label>Unterhalt</label><input class="sheet-textline" type="number" name="attr_unterhalt" />
+        <br />
+        <label>Vermögen</label><input class="sheet-textline" type="number" name="attr_vermoegen" />
 
+        <h2>Rollen</h2>
+        <fieldset class="repeating_roles counterreset">
+          <div class="fieldsetcontainer">
+            <div class="display">
+              <label class="counter">Rolle No</label>
+              <span name="attr_role" data-i18n-dynamic></span>
+            </div>
+            <input class="details-flag" type="checkbox" name="attr_details-flag"/><span>i</span>
+            <div class="wrapper">
+              <input class="options-flag" type="checkbox" name="attr_options-flag"/><span>y</span>
+              <div class="options">
+                <select name="attr_role">
+                  <option value="0" selected="selected" data-i18n="role_none">None</option>
+                  <option value="role_alchemist"  data-i18n="role_alchemist">Alchemist</option>
+                  <option value="role_assassin"  data-i18n="role_assassin">Attentäter</option>
+                  <option value="role_guard"  data-i18n="role_guard">Beschützer</option>
+                  <option value="role_zealot"  data-i18n="role_zealot">Eiferer</option>
+                  <option value="role_fencer"  data-i18n="role_fencer">Fechter</option>
+                  <option value="role_range"  data-i18n="role_range">Fernkämpfer</option>
+                  <option value="role_witchfoe"  data-i18n="role_witchfoe">Hexenfeind</option>
+                  <option value="role_witchmystic"  data-i18n="role_witchmystic">Hexenmystiker</option>
+                  <option value="role_constructor"  data-i18n="role_constructor">Konstrukteur</option>
+                  <option value="role_scout"  data-i18n="role_scout">Kundschafter</option>
+                  <option value="role_melee"  data-i18n="role_melee">Nahkämpfer</option>
+                  <option value="role_priest"  data-i18n="role_priest">Priester</option>
+                  <option value="role_strategist"  data-i18n="role_strategist">Stratege</option>       
+                </select>
+                <textarea name="attr_description" placeholder="Description"></textarea>
+                <!--<input type="text" name="attr_description" placeholder="Description"/>-->
+              </div>
+              <div class="details">
+                <span class="text" name="attr_description"></span>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <h2>Restliche Ausrüstung</h2>
+        <textarea name="attr_equipment"></textarea>
         <h2>Kleidungssets</h2>
         <fieldset class="repeating_armorsets counterreset">
           <div class="fieldsetcontainer">
@@ -28,7 +71,8 @@
               <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
               <div class="options">
                 <input class='medium'  type="text" name="attr_name"/>
-                <input class="textline" type="text" name="attr_description" placeholder="Description" />
+                <textarea name="attr_description" placeholder="Description"></textarea>
+                <!--<input class="textline" type="text" name="attr_description" placeholder="Description" />-->
                 <select name="attr_target">
                   <option value="0" selected="selected">None</option>
                   <option value="hitpoints" >Lebenspunkte</option>
@@ -92,7 +136,8 @@
                 <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
                 <div class="options">
                   <input class='medium'  type="text" name="attr_name"/>
-                  <input class="textline" type="text" name="attr_description"  placeholder="Description"/>
+                  <textarea name="attr_description" placeholder="Description"></textarea>
+                  <!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
                   <select name="attr_target">
                     <option value="0" selected="selected">None</option>
                     <option value="hitpoints" >Lebenspunkte</option>
@@ -156,7 +201,8 @@
                 <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
                 <div class="options">
                   <input class='medium'  type="text" name="attr_name"/>
-                  <input class="textline" type="text" name="attr_description"  placeholder="Description"/>
+                  <textarea name="attr_description" placeholder="Description"></textarea>
+                  <!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
                   <select name="attr_target">
                     <option value="0" selected="selected">None</option>
                     <option value="hitpoints" >Lebenspunkte</option>
@@ -219,7 +265,8 @@
               <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
               <div class="options">
                 <input class='medium'  type="text" name="attr_name"/>
-                <input class="textline" type="text" name="attr_description"  placeholder="Description"/>
+                <textarea name="attr_description" placeholder="Description"></textarea>
+                <!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
                 <select name="attr_target">
                   <option value="0" selected="selected">None</option>
                   <option value="hitpoints" >Lebenspunkte</option>
@@ -272,48 +319,7 @@
 	</div>
 
 	<div class="col">
-        <h2>Rollen</h2>
-        <fieldset class="repeating_roles counterreset">
-          <div class="fieldsetcontainer">
-            <div class="display">
-              <label class="counter">Rolle No</label>
-              <span name="attr_role" data-i18n-dynamic></span>
-            </div>
-            <input class="details-flag" type="checkbox" name="attr_details-flag"/><span>i</span>
-            <div class="wrapper">
-              <input class="options-flag" type="checkbox" name="attr_options-flag"/><span>y</span>
-              <div class="options">
-                <select name="attr_role">
-                  <option value="0" selected="selected" data-i18n="role_none">None</option>
-                  <option value="role_alchemist"  data-i18n="role_alchemist">Alchemist</option>
-                  <option value="role_assassin"  data-i18n="role_assassin">Attentäter</option>
-                  <option value="role_guard"  data-i18n="role_guard">Beschützer</option>
-                  <option value="role_zealot"  data-i18n="role_zealot">Eiferer</option>
-                  <option value="role_fencer"  data-i18n="role_fencer">Fechter</option>
-                  <option value="role_range"  data-i18n="role_range">Fernkämpfer</option>
-                  <option value="role_witchfoe"  data-i18n="role_witchfoe">Hexenfeind</option>
-                  <option value="role_witchmystic"  data-i18n="role_witchmystic">Hexenmystiker</option>
-                  <option value="role_constructor"  data-i18n="role_constructor">Konstrukteur</option>
-                  <option value="role_scout"  data-i18n="role_scout">Kundschafter</option>
-                  <option value="role_melee"  data-i18n="role_melee">Nahkämpfer</option>
-                  <option value="role_priest"  data-i18n="role_priest">Priester</option>
-                  <option value="role_strategist"  data-i18n="role_strategist">Stratege</option>       
-                </select>
-                <input type="text" name="attr_description" placeholder="Description"/>
-              </div>
-              <div class="details">
-                <span class="text" name="attr_description"></span>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-        <h2>Geld</h2>
-        <label>Unterhalt</label><input class="sheet-textline" type="text" name="attr_unterhalt" />
-        <br />
-        <label>Vermögen</label><input class="sheet-textline" type="text" name="attr_vermoegen" />
-
-        <h2>Restliche Ausrüstung</h2>
-        <textarea name="attr_equipment"></textarea>
+        
 
         <h2>Körperliche Attribute</h2>
         <div class="attributes">

@@ -40,9 +40,7 @@ div(class='sheet-combat')
       h3 Fw
       h3 Att    
       h3 Sum
-      h3 Mod
       h3 Angriff
-      h3 PMod
       h3 Parade
       h3 Anmerkungen
       each val in weapons
@@ -56,14 +54,13 @@ div(class='sheet-combat')
         label(class="item attribute" data-i18n=val.baseattribute+"_short") Ath             
         span(class="item label" name="attr_"+val.id+"_max") 
         div(class="item tooltip")
-          input(type="number" class="number" name="attr_"+val.id+"_mod")
+          input(type="hidden" name="attr_"+val.id+"_mod_desc")
           span(class="tooltiptext" name="attr_"+val.id+"_mod_desc")
-        button(type='action' class="roll attack" name='act_'+val.id) Attack
+          button(type='action' class="roll attack" name='act_'+val.id) Attack
         div(class="item tooltip")
-          input(type="number" class="number" name="attr_parry_"+val.id+"_mod")
           input(type="hidden" name="attr_parry_"+val.id+"_mod_desc")
           span(class="tooltiptext" name="attr_parry_"+val.id+"_mod_desc")
-        button(type='action' class="roll parry" name='act_parry_'+val.id) Parry
+          button(type='action' class="roll parry" name='act_parry_'+val.id) Parry
         label(class="item note" data-i18n=val.id+"_note")= val.note
     hr
     div
