@@ -1,7 +1,10 @@
 <div class='sheet-character'>
 <div class="2colrow">
 	<div class="col">
-		<h2>Charakter</h2>
+    <div class="box">
+      
+      <h2>Charakter</h2>
+    <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <label>Name</label><input class="sheet-textline" type="text" name="attr_character_name" />
         <br />
         <label>Jägerstufe</label><input class="sheet-textline" type="number" name="attr_rank" />
@@ -17,8 +20,10 @@
         <label>Unterhalt</label><input class="sheet-textline" type="number" name="attr_unterhalt" />
         <br />
         <label>Vermögen</label><input class="sheet-textline" type="number" name="attr_vermoegen" />
-
+      </div>
+      <div class="box">
         <h2>Rollen</h2>
+        <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <fieldset class="repeating_roles counterreset">
           <div class="fieldsetcontainer">
             <div class="display">
@@ -54,10 +59,15 @@
             </div>
           </div>
         </fieldset>
-
+      </div>
+      <div class="box">
         <h2>Restliche Ausrüstung</h2>
+        <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <textarea name="attr_equipment"></textarea>
+      </div>
+      <div class="box">
         <h2>Kleidungssets</h2>
+        <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <fieldset class="repeating_armorsets counterreset">
           <div class="fieldsetcontainer">
             <div class="display">
@@ -70,12 +80,13 @@
             <div class="wrapper">
               <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
               <div class="options">
-                <input class='medium'  type="text" name="attr_name"/>
+                <input class='medium'  type="text" name="attr_name" placeholder="Name"/>
                 <textarea name="attr_description" placeholder="Description"></textarea>
                 <!--<input class="textline" type="text" name="attr_description" placeholder="Description" />-->
                 <select name="attr_target">
                   <option value="0" selected="selected">None</option>
                   <option value="hitpoints" >Lebenspunkte</option>
+                  <option value="ini" >Initiative</option>
                   <option value="parry_all" >Alle Paraden</option>
                   <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
                   <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
@@ -121,9 +132,10 @@
             </div>
           </div>
       </fieldset>
-
+    </div>
+    <div class="box">
         <h2>Jägerkräfte</h2>
-        
+        <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <fieldset class="repeating_hunterpowers">
             <div class="fieldsetcontainer">
               <div class="display">
@@ -135,12 +147,13 @@
               <div class="wrapper">
                 <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
                 <div class="options">
-                  <input class='medium'  type="text" name="attr_name"/>
+                  <input class='medium'  type="text" name="attr_name" placeholder="Name"/>
                   <textarea name="attr_description" placeholder="Description"></textarea>
                   <!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
                   <select name="attr_target">
                     <option value="0" selected="selected">None</option>
                     <option value="hitpoints" >Lebenspunkte</option>
+                    <option value="ini" >Initiative</option>
                     <option value="parry_all" >Alle Paraden</option>
                     <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
                     <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
@@ -186,9 +199,10 @@
               </div>
             </div>
         </fieldset>
-
+      </div>
+      <div class="box">
         <h2>Ausbaukräfte</h2>
-        
+        <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <fieldset class="repeating_powers">
             <div class="fieldsetcontainer">
               <div class="display">
@@ -200,12 +214,13 @@
               <div class="wrapper">
                 <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
                 <div class="options">
-                  <input class='medium'  type="text" name="attr_name"/>
+                  <input class='medium'  type="text" name="attr_name" placeholder="Name"/>
                   <textarea name="attr_description" placeholder="Description"></textarea>
                   <!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
                   <select name="attr_target">
                     <option value="0" selected="selected">None</option>
                     <option value="hitpoints" >Lebenspunkte</option>
+                    <option value="ini" >Initiative</option>
                     <option value="parry_all" >Alle Paraden</option>
                     <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
                     <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
@@ -251,8 +266,10 @@
               </div>
             </div>
         </fieldset>
-
+      </div>
+      <div class="box">
         <h2>Aktive Effekte</h2>
+        <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <fieldset class="repeating_effects">
           <div class="fieldsetcontainer">
             <div class="display">
@@ -264,12 +281,13 @@
             <div class="wrapper">
               <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
               <div class="options">
-                <input class='medium'  type="text" name="attr_name"/>
+                <input class='medium'  type="text" name="attr_name" placeholder="Name"/>
                 <textarea name="attr_description" placeholder="Description"></textarea>
                 <!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
                 <select name="attr_target">
                   <option value="0" selected="selected">None</option>
                   <option value="hitpoints" >Lebenspunkte</option>
+                  <option value="ini" >Initiative</option>
                   <option value="parry_all" >Alle Paraden</option>
                   <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
                   <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
@@ -315,13 +333,15 @@
             </div>
           </div>
         </fieldset>
-
+      </div>
 	</div>
 
 	<div class="col">
         
 
+    <div class="box">
         <h2>Körperliche Attribute</h2>
+        <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <div class="attributes">
             
             <label data-i18n="attribute_strength">Strength</label>
@@ -339,13 +359,16 @@
             <input type="number" name='attr_attribute_dexterity' class='number'>
             <button type='action' name='act_attribute_dexterity'></button>
         
-            <label data-i18n="attribute_coups">Coups</label>
+            <label data-i18n="attribute_coup">Coups</label>
             <label class='short'>[=<span class="pureattribute" data-i18n="attribute_athletic_short">Ath</span>]</label>
-            <input type="number" name='attr_coups' class='number'>
-            <span class='item' name="attr_coups_max" ></span>
+            <input type="number" name='attr_coup' class='number'>
+            <span class='item' name="attr_coup_max" ></span>
       
         </div>
+      </div>
+      <div class="box">
         <h2>Geistige Attribute</h2>
+        <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <div class="attributes">
             <label data-i18n="attribute_senses">Senses</label>
             <label class='short pureattribute' data-i18n="attribute_senses_short">Sen</label>
@@ -362,26 +385,37 @@
             <input type="number" name='attr_attribute_willpower' class='number'>
             <button type='action' name='act_attribute_willpower'></button>
             
-            <label data-i18n="attribute_ideas">Ideas</label>
+            <label data-i18n="attribute_idea">Ideas</label>
             <label class='short'>[=<span class="pureattribute" data-i18n="attribute_knowledge_short">Kno</span>]</label>
-            <input type="number" name='attr_ideas' class='number'>
-            <span name="attr_ideas_max" ></span>
+            <input type="number" name='attr_idea' class='number'>
+            <span name="attr_idea_max" ></span>
         </div>
+      </div>
+      <div class="box">
         <h2>Abgleitete Ressourcen</h2>
+        <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <div class="ressources">    
-            <label data-i18n="attribute_hitpoints">Lebenspunkte</label>
-            
-<input type="hidden" name="attr_hitpoints_mod_desc" />
-            <label class="tooltip">[<span class="pureattribute" data-i18n="attribute_strength_short">Str</span>+<span class="pureattribute" data-i18n="attribute_willpower_short">Wil</span>+<span class="pureattribute">7</span>]<span class="tooltiptext" name="attr_hitpoints_mod_desc"></span></label>
+            <label data-i18n="attribute_hitpoints">Lebenspunkte</label>        
+            <input type="hidden" name="attr_hitpoints_mod_desc" />
+            <label class="tooltip">
+              [<span class="pureattribute" data-i18n="attribute_strength_short">Str</span>+<span class="pureattribute" data-i18n="attribute_willpower_short">Wil</span>+<span class="pureattribute">7</span>]
+              <span class="tooltiptext" name="attr_hitpoints_mod_desc"></span>
+            </label>
             <input class='sheet-number' type="number" name="attr_hitpoints" />
             <span name="attr_hitpoints_max" ></span>
             
             <label data-i18n="attribute_initiative">Initiative</label>
-            <label>[<span class="pureattribute" data-i18n="attribute_senses_short">Sen</span>+<span class="pureattribute" data-i18n="attribute_dexterity_short">Dex</span>]</label>
+            <input type="hidden" name="attr_ini_mod_desc" />
+            <label class="tooltip">
+              [<span class="pureattribute" data-i18n="attribute_senses_short">Sen</span>+<span class="pureattribute" data-i18n="attribute_dexterity_short">Dex</span>]
+              <span class="tooltiptext" name="attr_ini_mod_desc"></span>
+            </label>
             <input class='sheet-number' type="number" name="attr_ini" />
         </div>
-
+      </div>
+      <div class="box">
         <h2>Allgemeine Fertigkeiten</h2>
+        <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <div class="skills">
             <h3>Name</h3><h3>FN</h3><h3>Attribut</h3><h3>SUM</h3><h3>Roll</h3>
             <!-- acrobatics -->
@@ -475,6 +509,7 @@
              <span name="attr_skill_fieldsofknowledge_max"></span>
              <button type='action' name='act_skill_fieldsofknowledge'></button>
         </div>
+      </div>
 	</div>
 
 </div>

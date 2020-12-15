@@ -6,13 +6,16 @@
 
 	background-color: rgb(225, 236, 204);
 	background: rgb(225, 236, 204);
-	background: linear-gradient(90deg, rgb(209, 235, 163) 0%,  rgb(245, 240, 225) 30%, rgb(245, 240, 225) 80%,rgb(109, 141, 51) 100%);
+	background: linear-gradient(90deg, rgb(209, 235, 163) 0%,  rgb(245, 240, 225) 20%, rgb(245, 240, 225) 95%,rgb(109, 141, 51) 100%);
 	/*background: linear-gradient(90deg, rgba(36,66,0,1) 0%, rgba(225, 236, 204,1) 5%, rgba(225, 236, 204,1) 95%, rgba(36,66,0,1) 100%);
 	*/
 	min-width: 800px;
 	font-family: 'Times New Roman', Times, serif;
-	border: 10px solid darkolivegreen;
-	border-style: double;
+	border: 2px solid #333;
+}
+.sheet-right {
+	width:auto;
+	float:right;
 }
 /*Configure the tab buttons*/
 .sheet-character,
@@ -31,23 +34,26 @@
 .sheet-ressource_ambition {
 	display:none;
 }
-.sheet-ressource_rage_toggle[value="1"] ~ span.sheet-ressource_rage,
-.sheet-ressource_ambition_toggle[value="1"] ~ span.sheet-ressource_ambition {
+.sheet-ressource_coup,
+.sheet-ressource_idea,
+.sheet-ressource_blessing,
+.sheet-ressource_rage_toggle[value="1"] ~ .sheet-ressource_rage,
+.sheet-ressource_ambition_toggle[value="1"] ~ .sheet-ressource_ambition {
 	display: inline-block;
 }
 /* Universal styling applied to all elements of these types */
 
 h2 {
 	font-size: 2em;
-	/*margin-bottom: 10px;*/
-	text-align: left;
 	font-family: 'UnifrakturMaguntia', cursive;
+	text-align: center;
 }
 
 label {
 	display: inline-block;
 	width: auto;
 	height: auto;
+	margin-bottom:0px;
 }
 span {
 	font-weight: bold;
@@ -66,16 +72,19 @@ input {
 	border: 0;
 	outline: 0;
 	background: transparent;
+	padding: 0;
+	vertical-align: baseline;
 }
 
 input[type=number].sheet-number {	
 	width: 2.5em;	
 	border: 0;
-	height:26px;
+	height:18px;
   outline: 0;
   background: transparent;
   border-radius: 0px;
   text-align:right;
+  vertical-align: baseline;
 }
 fieldset {
 	display: inline-block;
@@ -83,7 +92,7 @@ fieldset {
 button {
 	height: 22px;
 	border-radius: 0;
-	background: transparent;
+	background: white;
 	border: 2px solid #333;
 	font-family: 'Times New Roman', Times, serif;
 	font-weight: bold;
@@ -98,6 +107,31 @@ img {
 }
 div {
 	border-color: #333;
+}
+div.sheet-box {
+	border:2px solid #333;
+	border-radius: 10px;
+	padding:10px;
+	margin-top:30px;
+	position: relative;
+	padding-top:18px;
+}
+div.sheet-box .sheet-feather {
+	position: absolute;
+	right: 6px;
+	top:-7px;
+	width:52px;
+	opacity:100%;
+}
+
+div.sheet-box h2 {
+	position:absolute;
+	right: 50px;
+	top:-18px;
+	background: rgb(245, 240, 225);
+	padding-left: 10px;
+	padding-right: 15px;
+	font-size:1.5em;
 }
 
 
@@ -115,12 +149,20 @@ textarea {
     line-height: 31px;
     padding: 0px;*/
 }
-
+.sheet-2colrow {
+	margin-top:20px;
+}
 .sheet-2col
 {
-	width:calc(66% - 21px);
+	width:calc(67% - 17px);
 	display: inline-block;
-    vertical-align: top;
+	vertical-align: top;
+	margin-right:30px;
+}
+.ui-dialog .charsheet .sheet-3colrow .sheet-col
+{
+	width: calc(33% - 17px);
+	margin-right:30px;
 }
 
 /*-----radio boxes-----*/
@@ -194,12 +236,12 @@ input.sheet-normal[type="radio"]:checked + span::before
 input.sheet-rating[type="radio"]
 {
     opacity: 0;
-    width: 27px;
+    width: 20px;
     height: 20px;
     position: relative;
     top: 0px;
-    left: 13px;
-    margin: -14px;
+    left: 10px;
+    margin: -10px;
     cursor: pointer;
     z-index: 1;
 	font-family: 'Patrick Hand';
@@ -207,16 +249,16 @@ input.sheet-rating[type="radio"]
 /* -----Fake radio----- */
 input.sheet-rating[type="radio"] + span::before
 {
-    border: solid 2px #333;
+    border: solid 1px #333;
     line-height: 16px;
     text-align: center;
     display: inline-block;
 	vertical-align: middle;
     color:black;
     content: "X";
-    width: 23px;
+    width: 16px;
     height: 16px;
-	font-size: 2em;
+	font-size: 1.3em;
 	font-family: 'Patrick Hand';
 }
 
@@ -259,6 +301,40 @@ input.sheet-rating[type="radio"]:checked ~ input.sheet-rating[type="radio"] + sp
 	visibility: hidden;
   }
 /*### CHIPSTACK ###*/
+
+.sheet-chipnumber {
+	margin-top:-10px;
+}
+.sheet-chipnumber span {
+	width:20px;
+	display: inline-block;
+	text-align: center;
+	margin-right: -3.5px;
+}
+.sheet-chipnumber button {
+	border-radius: 100%;
+	width:20px;
+	height:20px;
+	font-family: "Pictos";
+	padding:0;
+	border:0;
+	background: transparent;
+	opacity:0;
+}
+.sheet-chipnumber:hover button {
+	opacity:1;
+}
+.sheet-chipnumber button:hover {
+	outline:0;
+	color: black;
+}
+.sheet-chipnumber button:active {
+	outline:0;
+}
+.sheet-chipnumber button:focus {
+	outline:0;
+}
+
 .sheet-chipstackgroup{
 	position:relative;
 	display: inline-block;
@@ -456,11 +532,21 @@ input.sheet-chip10 + span::before
 }
 .sheet-janusdiebonus + span::before
 {    
-	background-color:lightgrey;
+	background-color:darkgray;
+	content:"+";
+	color:black;
+	font-family: "Pictos";
+	font-size:0.8em;
+	line-height: 1.1;
 }
 .sheet-janusdiemalus + span::before
 {    
-	background-color:darkgrey;
+	background-color:darkgray;
+	content:"-";
+	color:black;
+	font-family: "Pictos";
+	font-size:0.8em;
+	line-height: 1.1;
 }
 .sheet-blessingdie
 {    
@@ -646,16 +732,42 @@ div.sheet-sticky {
 	padding: 10px;
 	/*background-color: rgba(225, 236, 204,1);*/
 	background-color: rgb(245, 240, 225);
-	border: 4px solid darkolivegreen;
-	border-style: ridge;
+	border-radius: 10px;
+	border: 2px solid black;
 	box-shadow: 5px 5px #888888;
 	z-index: 10;
 }
+div.sheet-sticky .sheet-raven
+{
+	position:absolute;
+	top: -30px;
+	width: 250px;
+	left: calc(50% - 125px);
+	background-color: rgb(245, 240, 225);
+}
+div.sheet-sticky .sheet-watermark
+{
+	position:absolute;
+	top: calc(47%);
+	width: 250px;
+	left: calc(39%);
+	background-color: transparent;
+	opacity: 0.1;
+	transform: scaleX(-1);
+}
+div.sheet-tabbuttonbar {
+	position: absolute;
+	right:10px;
+	bottom:-15px;
+}
+
 div.sheet-rolltestdice {
 	right:0;
 	width: auto;
 	display: inline;
 	margin-right: 10px;
+	position: relative;
+	top:13px;
 }
 div.sheet-rolltestdice::before {
 	content: "";
@@ -745,9 +857,8 @@ span.sheet-dee {
 
   .sheet-influences {
 	display: grid;
-	grid-template-columns: 17% 180px 3.5em auto;
+	grid-template-columns: auto 130px auto;
 	grid-row-gap: 2px;
-	grid-column-gap: 1rem;
   }
   .sheet-influences > .sheet-item {
 	  width: auto;

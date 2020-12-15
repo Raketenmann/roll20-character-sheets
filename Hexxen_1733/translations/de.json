@@ -8,14 +8,14 @@
     "attribute_strength_short":"Kkr",
     "attribute_dexterity":"Geschick",
     "attribute_dexterity_short":"Ges",
-    "attribute_coups":"Coups",
+    "attribute_coup":"Coups",
     "attribute_senses":"Sinnesschärfe",
     "attribute_senses_short":"Sin",
     "attribute_knowledge":"Wissen",
     "attribute_knowledge_short":"Wis",
     "attribute_willpower":"Willenskraft",
     "attribute_willpower_short":"Wil",
-    "attribute_ideas":"Ideas",
+    "attribute_idea":"Ideen",
     "skill_alertness":"Aufmerksamkeit",
     "skill_perception":"Erkennen",
     "skill_firstaid":"Erste Hilfe",
@@ -75,5 +75,7 @@
     "role_melee":"Nahkämpfer",
     "role_priest":"Priester",
     "role_strategist":"Stratege",
-    "parry_all":"Alle Paraden"
+    "parry_all":"Alle Paraden",
+    "ini":"Initiative",
+    "hitpoints":"Lebenspunkte"
 }

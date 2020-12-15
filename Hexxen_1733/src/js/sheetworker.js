@@ -7,7 +7,11 @@ const buttonlist = ["character","combat","configuration"];
         });
     });
 
-    const resourcebuttonlist = ["addcoups","remcoups"];
+    const resourcebuttonlist = ["addcoup","remcoup",
+    "addidea","remidea",
+    "addblessing","remblessing",
+    "addrage","remrage",
+    "addambition","remambition"];
     resourcebuttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
             var action = button.substr(0,3);
@@ -189,15 +193,15 @@ const buttonlist = ["character","combat","configuration"];
         getAttrs(["attribute_athletic"], function(values) {
             let ath = parseInt(values.attribute_athletic,10)||0;
             setAttrs({                            
-                coups_max: ath
+                coup_max: ath
             });
           });
     });
-    on("change:kno", function() {
-        getAttrs(["KNO"], function(values) {
-            let kno = parseInt(values.KNO,10)||0;
+    on("change:attribute_knowledge", function() {
+        getAttrs(["attribute_knowledge"], function(values) {
+            let kno = parseInt(values.attribute_knowledge,10)||0;
             setAttrs({                            
-                ideas_max: kno
+                idea_max: kno
             });
           });
     });
@@ -222,11 +226,13 @@ const buttonlist = ["character","combat","configuration"];
             });
           });
     });
-    on("change:attribute_senses change:attribute_dexterity", function() {
-        getAttrs(["attribute_senses", "attribute_dexterity"], function(values) {
+    on("change:attribute_senses change:attribute_dexterity change:skill_reflexes change:ini_mod", function() {
+        getAttrs(["attribute_senses", "attribute_dexterity", "skill_reflexes", "ini_mod"], function(values) {
             let sen = parseInt(values.attribute_senses,10)||0;
             let dex = parseInt(values.attribute_dexterity,10)||0;
-            let ini = sen + dex;
+            let reflexes = parseInt(values.skill_reflexes,10)||0;
+            let ini_mod = parseInt(values.ini_mod, 10)||0;
+            let ini = sen + dex + reflexes + ini_mod;
             setAttrs({                            
                 ini: ini
             });
@@ -328,6 +334,7 @@ const buttonlist = ["character","combat","configuration"];
             mods[checkitem] = [];
         });
         mods["hitpoints"] = [];
+        mods["ini"] = [];
         mods["parry_all"] = [];
     };
     var addToMods = function(modname, target, bonus, mods) {
@@ -403,10 +410,6 @@ const buttonlist = ["character","combat","configuration"];
     });
 
     on("sheet:opened", function(eventInfo){
-    
-        setAttrs({
-            rollquery: ""
-        });
         
     });
 

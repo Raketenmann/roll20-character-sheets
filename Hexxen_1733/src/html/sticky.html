@@ -1,15 +1,20 @@
-<div class="sticky 2colrow">
-    
-   <div class="col">
-    <!--<img src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />-->
-    <button type="action" name="act_character" >Character</button>
-    <button type="action" name="act_combat" >Combat</button>
-    <button type="action" name="act_configuration" >Configuration</button>
-<br>
 
-    <div class="rolltestdice">
-        <button type='roll' name='roll_testattack' value='@{rollquery}'>Roll</button>
-    </div>
+    <img class="raven" src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />
+    <img class="watermark" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+    <div class="tabbuttonbar">
+        <button type="action" name="act_character" >Character</button>
+        <button type="action" name="act_combat" >Combat</button>
+        <button type="action" name="act_configuration" >Configuration</button>
+        </div>
+   <div class="col">
+    
+    
+
+
+    <div>
+    <input type="hidden" name="attr_rollvaluename"/>
+    <span class="label" name="attr_rollvaluename"></span>
+    <br>
     <input type="hidden" min="0" max="10" name="attr_hexxen" />
     <span class="dicebargroup">
         <input type="radio" class="dicebarzero" name="attr_hexxen" value="0" checked="checked" /><span></span>
@@ -24,7 +29,9 @@
         <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="9" /><span></span>
         <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="10" /><span></span>
     </span>
-    <input type="hidden" name="attr_rollvaluename"/><span class="label" name="attr_rollvaluename"></span>
+    <div class="rolltestdice">
+        <button type='roll' name='roll_testattack' value='@{rollquery}'>Roll</button>
+    </div>
   <br>
     <input type="hidden" min="-5" max="5" name="attr_janus" />
     <span class="dicebargroup">
@@ -40,6 +47,7 @@
         <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="4" /><span></span>
         <input type="radio" class="dicebar janusdiebonus" name="attr_janus" value="5" /><span></span>
     </span>
+    <br>
     <input type="hidden" name="attr_rollmodifiers"/>
     <span class="label" name="attr_rollmodifiers"></span>
     <br>
@@ -48,7 +56,7 @@
     <button type='roll' class="directdieroller elixirdie" name='roll_elixirdie' title="Elixierwürfel" value='"&{template:elixir} {{name=@{character_name}}} {{attr=Elixierwürfel}} {{elixir1=[[d6cs5]]}}"'></button>
     
     <br>
-   
+</div>
     <button type="action" name="act_resetroll">Reset</button>
     
     <label>Aktionspunkte</label>
@@ -113,81 +121,4 @@
         <input type="radio" class="dicebar ambitionchip" name="attr_ambition" value="5" /><span></span>
     </span>
 -->
-<div class="col">
-    <input type="hidden" class="normal ressource_rage_toggle" name="attr_displayrage" value="1" checked="true"/>
-    <input type="hidden" class="normal ressource_ambition_toggle" name="attr_displayambition" value="1" checked="true"/>
 
-    <input type="hidden" name='attr_coups' class='number'>
-    <span class="tooltip chipstackgroup">       
-        <input type="radio" class="chipstack chip0" name="attr_coups" value="0" checked="checked" /><span></span>
-        <input type="radio" class="chipstack coupchip chip1" name="attr_coups" value="1" /><span></span>
-        <input type="radio" class="chipstack coupchip chip2" name="attr_coups" value="2" /><span></span>
-        <input type="radio" class="chipstack coupchip chip3" name="attr_coups" value="3" /><span></span>
-        <input type="radio" class="chipstack coupchip chip4" name="attr_coups" value="4" /><span></span>
-        <input type="radio" class="chipstack coupchip chip5" name="attr_coups" value="5" /><span></span>
-        <input type="radio" class="chipstack coupchip chip6" name="attr_coups" value="6" /><span></span>
-        <input type="radio" class="chipstack coupchip chip7" name="attr_coups" value="7" /><span></span>
-        <input type="radio" class="chipstack coupchip chip8" name="attr_coups" value="8" /><span></span>
-        <input type="radio" class="chipstack coupchip chip9" name="attr_coups" value="9" /><span></span>
-        <input type="radio" class="chipstack coupchip chip10" name="attr_coups" value="10" /><span></span>
-    </span>
-    <label class="tooltiptext">Coups</label> 
-    <!--
-    <button type="action" name="act_addcoups">+1</button>
-    <span name="attr_coups"></span>
-    <button type="action" name="act_remcoups">-1</button>-->
-
-    <input type="hidden" name='attr_ideas' class='number'>
-    <span class="tooltip chipstackgroup">       
-        <input type="radio" class="chipstack chip0" name="attr_ideas" value="0" checked="checked" /><span></span>
-        <input type="radio" class="chipstack ideachip chip1" name="attr_ideas" value="1" /><span></span>
-        <input type="radio" class="chipstack ideachip chip2" name="attr_ideas" value="2" /><span></span>
-        <input type="radio" class="chipstack ideachip chip3" name="attr_ideas" value="3" /><span></span>
-        <input type="radio" class="chipstack ideachip chip4" name="attr_ideas" value="4" /><span></span>
-        <input type="radio" class="chipstack ideachip chip5" name="attr_ideas" value="5" /><span></span>
-    </span>
-    <label class="tooltiptext">Ideen</label> 
-
-    <input type="hidden" name='attr_blessings' class='number'>
-    <span class="tooltip chipstackgroup">       
-        <input type="radio" class="chipstack chip0" name="attr_blessings" value="0" checked="checked" /><span></span>
-        <input type="radio" class="chipstack blessingchip chip1" name="attr_blessings" value="1" /><span></span>
-        <input type="radio" class="chipstack blessingchip chip2" name="attr_blessings" value="2" /><span></span>
-        <input type="radio" class="chipstack blessingchip chip3" name="attr_blessings" value="3" /><span></span>
-        <input type="radio" class="chipstack blessingchip chip4" name="attr_blessings" value="4" /><span></span>
-        <input type="radio" class="chipstack blessingchip chip5" name="attr_blessings" value="5" /><span></span>
-    </span>
-    <label class="tooltiptext">Segnungen</label> 
-
-    <span class="ressource_rage">
-        <input type="hidden" name='attr_rage' class='number'>
-        <span class="tooltip chipstackgroup">       
-            <input type="radio" class="chipstack chip0" name="attr_rage" value="0" checked="checked" /><span></span>
-            <input type="radio" class="chipstack ragechip chip1" name="attr_rage" value="1" /><span></span>
-            <input type="radio" class="chipstack ragechip chip2" name="attr_rage" value="2" /><span></span>
-            <input type="radio" class="chipstack ragechip chip3" name="attr_rage" value="3" /><span></span>
-            <input type="radio" class="chipstack ragechip chip4" name="attr_rage" value="4" /><span></span>
-            <input type="radio" class="chipstack ragechip chip5" name="attr_rage" value="5" /><span></span>
-        </span>
-        <label class="tooltiptext">Rage</label>  
-    </span>
-    
-    <span class="ressource_ambition">
-        <input type="hidden" name='attr_ambition' class='number'>
-        <span class="tooltip chipstackgroup">       
-            <input type="radio" class="chipstack chip0" name="attr_ambition" value="0" checked="checked" /><span></span>
-            <input type="radio" class="chipstack ambitionchip chip1" name="attr_ambition" value="1" /><span></span>
-            <input type="radio" class="chipstack ambitionchip chip2" name="attr_ambition" value="2" /><span></span>
-            <input type="radio" class="chipstack ambitionchip chip3" name="attr_ambition" value="3" /><span></span>
-            <input type="radio" class="chipstack ambitionchip chip4" name="attr_ambition" value="4" /><span></span>
-            <input type="radio" class="chipstack ambitionchip chip5" name="attr_ambition" value="5" /><span></span>
-        </span>
-        <label class="tooltiptext">Ambitionen</label>  
-    </span>
-</div>
-    
-
-
-    
-
-</div>
