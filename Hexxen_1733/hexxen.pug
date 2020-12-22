@@ -103,7 +103,7 @@ div(class='sheet-combat')
         h2 Waffenübersicht  
         img(class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png")
         div(class="weapons")
-          h3 Waffe dabei?
+          h3
           h3 Waffe
           h3 Sch
           h3 Ap
@@ -120,17 +120,27 @@ div(class='sheet-combat')
             label(class="item" data-i18n=val.id)= val.name
             label(class="item")= val.damage
             label(class="item")= val.ap
-            input(type="number" class="number" name="attr_"+val.id)
+            input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
+            input(class="number" type="number" name="attr_"+val.id)
+            span(class="number" name="attr_"+val.id)
             label(class="item attribute" data-i18n=val.baseattribute+"_short") Ath             
             span(class="item label" name="attr_"+val.id+"_max") 
             div(class="item tooltip")
               input(type="hidden" name="attr_"+val.id+"_mod_desc")
               span(class="tooltiptext" name="attr_"+val.id+"_mod_desc")
-              button(type='action' class="roll attack" name='act_'+val.id) Attack
+              if(val.preselect)
+                input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="1")
+              else
+                input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="0")
+              button(type='action' class="roll raven attack" name='act_'+val.id)
             div(class="item tooltip")
               input(type="hidden" name="attr_parry_"+val.id+"_mod_desc")
               span(class="tooltiptext" name="attr_parry_"+val.id+"_mod_desc")
-              button(type='action' class="roll parry" name='act_parry_'+val.id) Parry
+              if(val.preselect)
+                input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="1")
+              else
+                input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="0")
+              button(type='action' class="roll raven parry" name='act_parry_'+val.id) b
             label(class="item note" data-i18n=val.id+"_note")= val.note
 
 

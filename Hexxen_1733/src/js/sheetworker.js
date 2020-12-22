@@ -139,12 +139,12 @@ const buttonlist = ["character","combat","configuration"];
            {
             var checkmax = checkname.replace("parry_", "")+"_max";
             baseattributename = skills[checkname.replace("parry_", "")].att; ;
-               valuename = getTranslationByKey(checkname.replace("parry_", ""))+" (Parry)";
+               valuename = getTranslationByKey(checkname.replace("parry_", ""))+" ("+getTranslationByKey('parry')+")"+" ["+getTranslationByKey(baseattributename+"_short")+"]";
            }
           else
             {               
                 baseattributename = skills[checkname].att; 
-                valuename = getTranslationByKey(checkname)+"["+getTranslationByKey(baseattributename+"_short")+"]";
+                valuename = getTranslationByKey(checkname)+" ["+getTranslationByKey(baseattributename+"_short")+"]";
             }
             
             var checkmod = checkname+"_mod";

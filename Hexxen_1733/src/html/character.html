@@ -4,26 +4,31 @@
     <div class="box">
       
       <h2>Charakter</h2>
-    <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
-        <label>Name</label><input class="sheet-textline" type="text" name="attr_character_name" />
+        <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+
+        <label>Name</label><input class="textline" type="text" name="attr_character_name" />
         <br />
-        <label>Jägerstufe</label><input class="sheet-textline" type="number" name="attr_rank" />
+        <label>Jägerstufe</label>
+        <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+        <input class="number" type="number" name="attr_rank" />
+        <span class="number" name="attr_rank"></span>
         <br />
-        <label>Profession</label><input class="sheet-textline" type="text" name="attr_profession" />
+        <label>Profession</label><input class="textline" type="text" name="attr_profession" />
         <br />
-        <label>Motivation</label><input class="sheet-textline" type="text" name="attr_motivation" />
+        <label>Motivation</label><input class="textline" type="text" name="attr_motivation" />
         <br />
-        <label>Vorteil:</label><input class="sheet-textline" type="text" name="attr_advantage" />
+        <label>Vorteil:</label><input class="textline" type="text" name="attr_advantage" />
         <br />
-        <label>Verderbnis:</label><input class="sheet-textline" type="number" name="attr_verderbnis" />
+        <label>Verderbnis:</label><input class="textline" type="number" name="attr_verderbnis" />
         <br>
-        <label>Unterhalt</label><input class="sheet-textline" type="number" name="attr_unterhalt" />
+        <label>Unterhalt</label><input class="textline" type="number" name="attr_unterhalt" />
         <br />
-        <label>Vermögen</label><input class="sheet-textline" type="number" name="attr_vermoegen" />
+        <label>Vermögen</label><input class="textline" type="number" name="attr_vermoegen" />
       </div>
       <div class="box">
         <h2>Rollen</h2>
         <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+        <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
         <fieldset class="repeating_roles counterreset">
           <div class="fieldsetcontainer">
             <div class="display">
@@ -68,13 +73,17 @@
       <div class="box">
         <h2>Kleidungssets</h2>
         <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+        <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
         <fieldset class="repeating_armorsets counterreset">
           <div class="fieldsetcontainer">
             <div class="display">
               <label class="counter">Set No</label>
               <span name="attr_name"></span>
-              <span name="attr_target" data-i18n-dynamic=""></span>
-              <span name="attr_bonus"></span>
+              <input class="hideempty_toggle" type="hidden" name="attr_target"/>
+              <span class="hideempty">(
+                <span name="attr_target" data-i18n-dynamic=""></span>
+                <span name="attr_bonus"></span>
+              )</span>
             </div>
             <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
             <div class="wrapper">
@@ -136,12 +145,16 @@
     <div class="box">
         <h2>Jägerkräfte</h2>
         <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+        <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
         <fieldset class="repeating_hunterpowers">
             <div class="fieldsetcontainer">
               <div class="display">
                 <span name="attr_name"></span>
-                <span name="attr_target" data-i18n-dynamic=""></span>
-                <span name="attr_bonus"></span>
+                <input class="hideempty_toggle" type="hidden" name="attr_target"/>
+                <span class="hideempty">(
+                  <span name="attr_target" data-i18n-dynamic=""></span>
+                  <span name="attr_bonus"></span>
+                )</span>
               </div>
               <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
               <div class="wrapper">
@@ -203,12 +216,16 @@
       <div class="box">
         <h2>Ausbaukräfte</h2>
         <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+        <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
         <fieldset class="repeating_powers">
             <div class="fieldsetcontainer">
               <div class="display">
                 <span name="attr_name"></span>
-                <span name="attr_target" data-i18n-dynamic=""></span>
-                <span name="attr_bonus"></span>
+                <input class="hideempty_toggle" type="hidden" name="attr_target"/>
+                <span class="hideempty">(
+                  <span name="attr_target" data-i18n-dynamic=""></span>
+                  <span name="attr_bonus"></span>
+                )</span>
               </div>
               <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
               <div class="wrapper">
@@ -270,12 +287,16 @@
       <div class="box">
         <h2>Aktive Effekte</h2>
         <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+        <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
         <fieldset class="repeating_effects">
           <div class="fieldsetcontainer">
             <div class="display">
               <span name="attr_name"></span>
-              <span name="attr_target" data-i18n-dynamic=""></span>
-              <span name="attr_bonus"></span>
+              <input class="hideempty_toggle" type="hidden" name="attr_target"/>
+                <span class="hideempty">(
+                  <span name="attr_target" data-i18n-dynamic=""></span>
+                  <span name="attr_bonus"></span>
+                )</span>
             </div>
             <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
             <div class="wrapper">
@@ -346,18 +367,24 @@
             
             <label data-i18n="attribute_strength">Strength</label>
             <label class='short pureattribute' data-i18n="attribute_strength_short">Str</label>
-            <input type="number" name='attr_attribute_strength' class='number'>
-            <button type='action' name='act_attribute_strength'></button>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_attribute_strength" />
+            <span class="number" name="attr_attribute_strength"></span>
+            <button class="raven" type='action' name='act_attribute_strength'></button>
           
             <label data-i18n="attribute_athletic">Athletics</label>
             <label class='short pureattribute' data-i18n="attribute_athletic_short">Ath</label>
-            <input type="number" name='attr_attribute_athletic' class='number'>
-            <button type='action' name='act_attribute_athletic'></button>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_attribute_athletic" />
+            <span class="number" name="attr_attribute_athletic"></span>
+            <button class="raven" type='action' name='act_attribute_athletic'></button>
         
             <label data-i18n="attribute_dexterity">Dexterity</label>
             <label class='short pureattribute' data-i18n="attribute_dexterity_short">Dex</label>
-            <input type="number" name='attr_attribute_dexterity' class='number'>
-            <button type='action' name='act_attribute_dexterity'></button>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_attribute_dexterity" />
+            <span class="number" name="attr_attribute_dexterity"></span>
+            <button class="raven" type='action' name='act_attribute_dexterity'></button>
         
             <label data-i18n="attribute_coup">Coups</label>
             <label class='short'>[=<span class="pureattribute" data-i18n="attribute_athletic_short">Ath</span>]</label>
@@ -372,18 +399,24 @@
         <div class="attributes">
             <label data-i18n="attribute_senses">Senses</label>
             <label class='short pureattribute' data-i18n="attribute_senses_short">Sen</label>
-            <input type="number" name='attr_attribute_senses' class='number'>
-            <button type='action' name='act_attribute_senses'></button>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_attribute_senses" />
+            <span class="number" name="attr_attribute_senses"></span>
+            <button class="raven" type='action' name='act_attribute_senses'></button>
           
             <label data-i18n="attribute_knowledge">Knowledge</label>
             <label class='short pureattribute' data-i18n="attribute_knowledge_short">Kno</label>
-            <input type="number" name='attr_attribute_knowledge' class='number'>
-            <button type='action' name='act_attribute_knowledge'></button>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_attribute_knowledge" />
+            <span class="number" name="attr_attribute_knowledge"></span>
+            <button class="raven" type='action' name='act_attribute_knowledge'></button>
           
             <label data-i18n="attribute_willpower">Willpower</label>
             <label class='short pureattribute' data-i18n="attribute_willpower_short">Wil</label>
-            <input type="number" name='attr_attribute_willpower' class='number'>
-            <button type='action' name='act_attribute_willpower'></button>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_attribute_willpower" />
+            <span class="number" name="attr_attribute_willpower"></span>
+            <button class="raven" type='action' name='act_attribute_willpower'></button>
             
             <label data-i18n="attribute_idea">Ideas</label>
             <label class='short'>[=<span class="pureattribute" data-i18n="attribute_knowledge_short">Kno</span>]</label>
@@ -401,7 +434,7 @@
               [<span class="pureattribute" data-i18n="attribute_strength_short">Str</span>+<span class="pureattribute" data-i18n="attribute_willpower_short">Wil</span>+<span class="pureattribute">7</span>]
               <span class="tooltiptext" name="attr_hitpoints_mod_desc"></span>
             </label>
-            <input class='sheet-number' type="number" name="attr_hitpoints" />
+            <input class='number' type="number" name="attr_hitpoints" />
             <span name="attr_hitpoints_max" ></span>
             
             <label data-i18n="attribute_initiative">Initiative</label>
@@ -410,104 +443,136 @@
               [<span class="pureattribute" data-i18n="attribute_senses_short">Sen</span>+<span class="pureattribute" data-i18n="attribute_dexterity_short">Dex</span>]
               <span class="tooltiptext" name="attr_ini_mod_desc"></span>
             </label>
-            <input class='sheet-number' type="number" name="attr_ini" />
+            <!--<input class='number' type="number" name="attr_ini" />-->
+            <span></span>
+            <span class="number" name="attr_ini" ></span>
         </div>
       </div>
       <div class="box">
         <h2>Allgemeine Fertigkeiten</h2>
         <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
         <div class="skills">
-            <h3>Name</h3><h3>FN</h3><h3>Attribut</h3><h3>SUM</h3><h3>Roll</h3>
+            <!--<h3>Name</h3><h3>FN</h3><h3>Attribut</h3><h3>SUM</h3><h3>Roll</h3>-->
             <!-- acrobatics -->
             <label class="item" data-i18n="skill_acrobatics">Akrobatik</label>
-            <input class='number' type="number" name="attr_skill_acrobatics"/>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_acrobatics" />
+            <span class="number" name="attr_skill_acrobatics"></span>
             <label class="attribute" data-i18n="attribute_athletic_short">Ath</label>
             <span name="attr_skill_acrobatics_max"></span>
-            <button type='action' name='act_skill_acrobatics'></button>
+            <button class="raven" type='action' name='act_skill_acrobatics'></button>
             <!-- alertness -->
             <label class="item" data-i18n="skill_alertness">Aufmerksamkeit</label>
-            <input class='number' type="number" name="attr_skill_alertness"/>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_alertness" />
+            <span class="number" name="attr_skill_alertness"></span>
             <label class="attribute" data-i18n="attribute_senses_short">Sen</label>
             <span name="attr_skill_alertness_max"></span>
-            <button type='action' name='act_skill_alertness'></button>
+            <button class="raven" type='action' name='act_skill_alertness'></button>
              <!-- perception -->
              <label class="item" data-i18n="skill_perception">Erkennen</label>
-             <input class='number' type="number" name="attr_skill_perception"/>
+             <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_perception" />
+            <span class="number" name="attr_skill_perception"></span>
              <label class="attribute" data-i18n="attribute_senses_short">Sen</label>
              <span name="attr_skill_perception_max"></span>
-             <button type='action' name='act_skill_perception'></button>
+             <button class="raven" type='action' name='act_skill_perception'></button>
               <!-- firstaid -->
             <label class="item" data-i18n="skill_firstaid">Erste Hilfe</label>
-            <input class='number' type="number" name="attr_skill_firstaid"/>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_firstaid" />
+            <span class="number" name="attr_skill_firstaid"></span>
             <label class="attribute" data-i18n="attribute_knowledge_short">Kno</label>
             <span name="attr_skill_firstaid_max"></span>
-            <button type='action' name='act_skill_firstaid'></button>
+            <button class="raven" type='action' name='act_skill_firstaid'></button>
              <!-- sleightofhand -->
              <label class="item" data-i18n="skill_sleightofhand">Fingerfertigkeit</label>
-             <input class='number' type="number" name="attr_skill_sleightofhand"/>
+             <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_sleightofhand" />
+            <span class="number" name="attr_skill_sleightofhand"></span>
              <label class="attribute" data-i18n="attribute_dexterity_short">Dex</label>
              <span name="attr_skill_sleightofhand_max"></span>
-             <button type='action' name='act_skill_sleightofhand'></button>
+             <button class="raven" type='action' name='act_skill_sleightofhand'></button>
               <!-- mentalpower -->
             <label class="item" data-i18n="skill_mentalpower">Geistesstärke</label>
-            <input class='number' type="number" name="attr_skill_mentalpower"/>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_mentalpower" />
+            <span class="number" name="attr_skill_mentalpower"></span>
             <label class="attribute" data-i18n="attribute_willpower_short">Wil</label>
             <span name="attr_skill_mentalpower_max"></span>
-            <button type='action' name='act_skill_mentalpower'></button>
+            <button class="raven" type='action' name='act_skill_mentalpower'></button>
              <!-- crafting -->
              <label class="item" data-i18n="skill_crafting">Handwerken</label>
-             <input class='number' type="number" name="attr_skill_crafting"/>
+             <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_crafting" />
+            <span class="number" name="attr_skill_crafting"></span>
              <label class="attribute" data-i18n="attribute_dexterity_short">Dex</label>
              <span name="attr_skill_crafting_max"></span>
-             <button type='action' name='act_skill_crafting'></button>
+             <button class="raven" type='action' name='act_skill_crafting'></button>
               <!-- stealth -->
             <label class="item" data-i18n="skill_stealth">Heimlichkeit</label>
-            <input class='number' type="number" name="attr_skill_stealth"/>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_stealth" />
+            <span class="number" name="attr_skill_stealth"></span>
             <label class="attribute" data-i18n="attribute_athletic_short">Ath</label>
             <span name="attr_skill_stealth_max"></span>
-            <button type='action' name='act_skill_stealth'></button>
+            <button class="raven" type='action' name='act_skill_stealth'></button>
              <!-- countryandpeople -->
              <label class="item" data-i18n="skill_countryandpeople">Land und Leute</label>
-             <input class='number' type="number" name="attr_skill_countryandpeople"/>
+             <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_countryandpeople" />
+            <span class="number" name="attr_skill_countryandpeople"></span>
              <label class="attribute" data-i18n="attribute_knowledge_short">Kno</label>
              <span name="attr_skill_countryandpeople_max"></span>
-             <button type='action' name='act_skill_countryandpeople'></button>
+             <button class="raven" type='action' name='act_skill_countryandpeople'></button>
               <!-- rhetoric -->
             <label class="item" data-i18n="skill_rhetoric">Redekunst</label>
-            <input class='number' type="number" name="attr_skill_rhetoric"/>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_rhetoric" />
+            <span class="number" name="attr_skill_rhetoric"></span>
             <label class="attribute" data-i18n="attribute_willpower_short">Wil</label>
             <span name="attr_skill_rhetoric_max"></span>
-            <button type='action' name='act_skill_rhetoric'></button>
+            <button class="raven" type='action' name='act_skill_rhetoric'></button>
              <!-- flexing -->
              <label class="item" data-i18n="skill_flexing">Muskelspiel</label>
-             <input class='number' type="number" name="attr_skill_flexing"/>
+             <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_flexing" />
+            <span class="number" name="attr_skill_flexing"></span>
              <label class="attribute" data-i18n="attribute_strength_short">Str</label>
              <span name="attr_skill_flexing_max"></span>
-             <button type='action' name='act_skill_flexing'></button>
+             <button class="raven" type='action' name='act_skill_flexing'></button>
               <!-- reflexes -->
             <label class="item" data-i18n="skill_reflexes">Reflexe</label>
-            <input class='number' type="number" name="attr_skill_reflexes"/>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_reflexes" />
+            <span class="number" name="attr_skill_reflexes"></span>
             <label class="attribute" data-i18n="attribute_senses_short">Sen</label>
             <span name="attr_skill_reflexes_max"></span>
-            <button type='action' name='act_skill_reflexes'></button>
+            <button class="raven" type='action' name='act_skill_reflexes'></button>
              <!-- riding -->
              <label class="item" data-i18n="skill_riding">Reiten</label>
-             <input class='number' type="number" name="attr_skill_riding"/>
+             <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_riding" />
+            <span class="number" name="attr_skill_riding"></span>
              <label class="attribute" data-i18n="attribute_athletic_short">Ath</label>
              <span name="attr_skill_riding_max"></span>
-             <button type='action' name='act_skill_riding'></button>
+             <button class="raven" type='action' name='act_skill_riding'></button>
               <!-- insensibility -->
             <label class="item" data-i18n="skill_insensibility">Unempfindlichkeit</label>
-            <input class='number' type="number" name="attr_skill_insensibility"/>
+            <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_insensibility" />
+            <span class="number" name="attr_skill_insensibility"></span>
             <label class="attribute" data-i18n="attribute_strength_short">Str</label>
             <span name="attr_skill_insensibility_max"></span>
-            <button type='action' name='act_skill_insensibility'></button>
+            <button class="raven" type='action' name='act_skill_insensibility'></button>
              <!-- fieldsofknowledge -->
              <label class="item" data-i18n="skill_fieldsofknowledge">Wissensgebiete</label>
-             <input class='number' type="number" name="attr_skill_fieldsofknowledge"/>
+             <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+            <input class="number" type="number" name="attr_skill_fieldsofknowledge" />
+            <span class="number" name="attr_skill_fieldsofknowledge"></span>
              <label class="attribute" data-i18n="attribute_knowledge_short">Kno</label>
              <span name="attr_skill_fieldsofknowledge_max"></span>
-             <button type='action' name='act_skill_fieldsofknowledge'></button>
+             <button class="raven" type='action' name='act_skill_fieldsofknowledge'></button>
         </div>
       </div>
 	</div>

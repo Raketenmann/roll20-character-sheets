@@ -54,17 +54,21 @@ label {
 	width: auto;
 	height: auto;
 	margin-bottom:0px;
+	font-size:16px;
 }
 span {
 	font-weight: bold;
-	font-size: 1.2em;
+	font-size: 16px;
+	line-height:18px;
 }
 span.sheet-text {
 	font-weight: normal;
-	font-size: 1em;
+	font-size: 12px;
 }
 
-input {
+.charsheet .sheet-character input,
+.charsheet .sheet-combat input,
+.charsheet .sheet-configuration input {
 	display: inline-block;
 	width: 66%;
 	font-weight: bold;
@@ -85,6 +89,9 @@ input[type=number].sheet-number {
   border-radius: 0px;
   text-align:right;
   vertical-align: baseline;
+  font-size:16px;
+  line-height:18px;
+  font-weight: bold;
 }
 fieldset {
 	display: inline-block;
@@ -98,6 +105,28 @@ button {
 	font-weight: bold;
 	font-size: 1.2em;
 	padding-top: 0;
+	
+}
+
+button.sheet-raven {
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/dice/blessing_raven.png);
+	background-size: 26px 26px;
+	background-repeat: no-repeat;
+	background-position: center;
+	width:26px;
+}
+button.sheet-parry {
+	font-family:"Pictos Three";
+	font-size:1.9em;
+	text-align: left;
+	width:40px;
+	color:#111;
+	padding-left: 3px;
+	background-position-x: right;
+}
+input:not([value="1"]) + .sheet-attack,
+input:not([value="1"]) + .sheet-parry  {
+	opacity:20%;
 }
 hr {
 	border-top: 2px dashed rgb(0, 0, 0);
@@ -173,7 +202,7 @@ input.sheet-normal[type="checkbox"]
     width: 27px;
     height: 20px;
     position: relative;
-    top: 0px;
+    top: 6px;
     left: 13px;
     margin: -14px;
     cursor: pointer;
@@ -205,7 +234,7 @@ input.sheet-normal[type="radio"]
     width: 27px;
     height: 20px;
     position: relative;
-    top: 0px;
+    top: 6px;
     left: 13px;
     margin: -14px;
     cursor: pointer;
@@ -239,7 +268,7 @@ input.sheet-rating[type="radio"]
     width: 20px;
     height: 20px;
     position: relative;
-    top: 0px;
+    top: 6px;
     left: 10px;
     margin: -10px;
     cursor: pointer;
@@ -277,12 +306,13 @@ input.sheet-rating[type="radio"]:checked ~ input.sheet-rating[type="radio"] + sp
   .sheet-tooltip .sheet-tooltiptext,
   .sheet-tooltip + .sheet-tooltiptext  {
 	visibility: hidden;
-	width: 120px;
+	width: max-content;
+	max-width:300px;
 	background-color: black;
 	color: #fff;
 	text-align: center;
 	border-radius: 6px;
-	padding: 5px 0;
+	padding: 5px 7px;
   
 	/* Position the tooltip */
 	position: absolute;
@@ -819,7 +849,7 @@ span.sheet-dee {
 }
 .sheet-attributes {
 	display: grid;
-	grid-template-columns: auto 3.5em 3.5em 3.5em;
+	grid-template-columns: auto 3.5em 3.5em  40px;
 	grid-row-gap: 2px;
 	grid-column-gap: 1rem;
   }
@@ -837,7 +867,7 @@ span.sheet-dee {
   }
   .sheet-skills {
 	display: grid;
-	grid-template-columns: auto 3.5em 3.5em 3.5em 3.5em ;
+	grid-template-columns: auto 3.5em 3.5em 3.5em 40px ;
 	grid-row-gap: 2px;
 	grid-column-gap: 1rem;
   }
@@ -901,7 +931,7 @@ span.sheet-dee {
 .charsheet .sheet-fieldsetcontainer .sheet-details-flag + span {
     position: absolute;
     top: 0px;
-    right: 23px;
+    right: 0px;
     width: 18px;
     height: 18px;
 }
@@ -910,7 +940,8 @@ span.sheet-dee {
 }
 .charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag,
 .charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag + span  {
-    right: 23.5px;
+    top: -19px;
+    right: 21px;
 }
 .charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag {
     z-index: 10;
@@ -931,8 +962,8 @@ span.sheet-dee {
  .charsheet .sheet-fieldsetcontainer .sheet-options-flag,
  .charsheet .sheet-fieldsetcontainer .sheet-options-flag + span {
     position: absolute;
-    top: 0px;
-    right: 23px;
+    top: -19px;
+    right: 21px;
     width: 18px;
     height: 18px;
 }
@@ -941,11 +972,16 @@ span.sheet-dee {
 }
 
 .charsheet .repcontrol button.btn {
-    visibility: hidden;
+	visibility: hidden;
+	display: none;
 }
-.charsheet .repcontrol .repcontrol_add:before {
+.charsheet .sheet-editmode_toggle[value="1"] ~ .repcontrol button.btn  {
+	display: inline-block;
+}
+.charsheet .sheet-editmode_toggle[value="1"] ~ .repcontrol .repcontrol_add:before {
     content: "&";
-    visibility: visible;
+	visibility: visible;
+	display: inline;
     font-family: pictos;
     border: 1px solid #333;
     border-radius: 2px;
@@ -954,9 +990,10 @@ span.sheet-dee {
     width: 12px;
     padding: 2px 4px 2px 4px;
 }
-.charsheet .repcontrol .repcontrol_edit:after {
+.charsheet .sheet-editmode_toggle[value="1"] ~ .repcontrol .repcontrol_edit:after {
     content: "(";
-    visibility: visible;
+	visibility: visible;
+	display: inline;
     font-family: pictos;
     border: 1px solid #333;
     border-radius: 2px;
@@ -980,6 +1017,24 @@ span.sheet-dee {
 	width: 18px;
 	font-family: "Pictos";
 	background-color: #da4f49;
+}
+.sheet-editmode_toggle[value="0"] + input[type="number"] {
+	display: none;
+}
+.sheet-editmode_toggle[value="1"] + input[type="number"] {
+	display: inline-block;
+}
+.sheet-editmode_toggle[value="1"] + input[type="number"] + span.sheet-number {
+	display: none;
+}
+.sheet-editmode_toggle[value="0"] + input[type="number"] + span.sheet-number  {
+	display: inline-block;
+}
+
+
+.sheet-hideempty_toggle[value="0"] ~ .sheet-hideempty,
+.sheet-hideempty_toggle:not([value]) ~ .sheet-hideempty {
+	display: none;
 }
 
 
