@@ -20,25 +20,48 @@
 /*Configure the tab buttons*/
 .sheet-character,
 .sheet-config,
-.sheet-combat {
+.sheet-combat,
+.sheet-npc{
 	display: none;
 }
 /* show the selected tab */
 .sheet-tabstoggle[value="character"] ~ div.sheet-character,
 .sheet-tabstoggle[value="configuration"] ~ div.sheet-config,
-.sheet-tabstoggle[value="combat"] ~ div.sheet-combat {
+.sheet-tabstoggle[value="combat"] ~ div.sheet-combat,
+.sheet-tabstoggle[value="npc"] ~ div.sheet-npc{
 	display: block;
 }
+.sheet-npctoggle[value="1"] ~ div .sheet-pc_only
+{
+	display: none;
+}
+.sheet-npctoggle[value="0"] ~ div .sheet-npc_only
+{
+	display: none;
+}
 
+.sheet-npc_type_toggle:not([value="npc_type_gang"]) ~ div .sheet-npc_gang_only
+{
+	display:none;
+}
+.sheet-npc_type_toggle:not([value="npc_type_leader"]) ~ div .sheet-npc_leader_only
+{
+	display:none;
+}
+
+.sheet-ressource_hex,
 .sheet-ressource_rage,
-.sheet-ressource_ambition {
+.sheet-ressource_ambition,
+.sheet-ressource_quintessence {
 	display:none;
 }
 .sheet-ressource_coup,
 .sheet-ressource_idea,
 .sheet-ressource_blessing,
 .sheet-ressource_rage_toggle[value="1"] ~ .sheet-ressource_rage,
-.sheet-ressource_ambition_toggle[value="1"] ~ .sheet-ressource_ambition {
+.sheet-ressource_ambition_toggle[value="1"] ~ .sheet-ressource_ambition,
+.sheet-ressource_quintessence_toggle[value="1"] ~ .sheet-ressource_quintessence,  
+.sheet-npctoggle[value="1"] ~ div .sheet-ressource_hex  {
 	display: inline-block;
 }
 /* Universal styling applied to all elements of these types */
@@ -47,6 +70,11 @@ h2 {
 	font-size: 2em;
 	font-family: 'UnifrakturMaguntia', cursive;
 	text-align: center;
+}
+h2 span {
+	font-size: inherit;
+	font-family: inherit;
+	text-align: inherit;
 }
 
 label {
@@ -1031,6 +1059,31 @@ span.sheet-dee {
 	display: inline-block;
 }
 
+.sheet-editmode_toggle[value="0"] + input[type="text"] {
+	display: none;
+}
+.sheet-editmode_toggle[value="1"] + input[type="text"] {
+	display: inline-block;
+}
+.sheet-editmode_toggle[value="1"] + input[type="text"] + span.sheet-label {
+	display: none;
+}
+.sheet-editmode_toggle[value="0"] + input[type="text"] + span.sheet-label  {
+	display: inline-block;
+}
+
+.sheet-editmode_toggle[value="0"] + select {
+	display: none;
+}
+.sheet-editmode_toggle[value="1"] + select {
+	display: inline-block;
+}
+.sheet-editmode_toggle[value="1"] + select + span.sheet-label {
+	display: none;
+}
+.sheet-editmode_toggle[value="0"] + select + span.sheet-label  {
+	display: inline-block;
+}
 
 .sheet-hideempty_toggle[value="0"] ~ .sheet-hideempty,
 .sheet-hideempty_toggle:not([value]) ~ .sheet-hideempty {

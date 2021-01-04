@@ -1,8 +1,32 @@
-const buttonlist = ["character","combat","configuration"];
+const buttonlist = ["character","combat","npc","configuration"];
     buttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
-            setAttrs({
-                sheetTab: button
+            getAttrs(["npc"], function(values) {
+                var npc = parseInt(values["npc"],10)||0;
+                if(button === "npc")
+                    npc = 1;
+                else if(button === "character")
+                    npc = 0;
+                setAttrs({
+                    sheetTab: button,
+                    npc: npc
+                });
+            });
+        });
+    });
+    const convertbuttonlist = ["converttopc","converttonpc"];
+    convertbuttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            getAttrs(["npc"], function(values) {
+                var npc = 0;
+                if(button === "converttonpc")
+                    npc = 1;
+                else if(button === "converttopc")
+                    npc = 0;
+                setAttrs({
+                    sheetTab: "configuration",
+                    npc: npc
+                });
             });
         });
     });

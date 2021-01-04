@@ -78,5 +78,10 @@
     "parry_all":"Alle Paraden",
     "parry":"Parade",
     "ini":"Initiative",
-    "hitpoints":"Lebenspunkte"
+    "hitpoints":"Lebenspunkte",
+    "npc_type_gang":"Bande",
+    "npc_type_leader":"Anführer",
+    "npc_strategy_none":"Keine",
+    "npc_strategy_allrounder":"Allrounder",
+    "npc_strategy_offensive":"Offensiv"
 }

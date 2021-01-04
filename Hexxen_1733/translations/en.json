@@ -78,5 +78,10 @@
     "parry_all":"Parry",
     "parry":"Parry",
     "ini":"Initiative",
-    "hitpoints":"Hitpoints"
+    "hitpoints":"Hitpoints",
+    "npc_type_gang":"Gang",
+    "npc_type_leader":"Leader",
+    "npc_strategy_none":"None",
+    "npc_strategy_allrounder":"Allrounder",
+    "npc_strategy_offensive":"Offensive"
 }
