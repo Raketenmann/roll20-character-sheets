@@ -1,0 +1,23 @@
+<div class="box">
+    <h2>Allgemeine Fertigkeiten</h2>
+    <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+    <div class="skills">
+        h3
+        h3 Fw   
+        h3 Sum
+        h3 Wurf
+        each skill in skills
+            label(class="item" data-i18n=skill.id)=skill.name
+            input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
+            input(class="number" type="number" name="attr_"+skill.id)
+            span(class="number" name="attr_"+skill.id)
+
+            div(class="item tooltip")
+                span(class="number" name="attr_"+skill.id+"_max") 
+                div(class="tooltiptext")
+                    span() FW +  
+                    span(data-i18n=skill.baseattribute+"_short") Ath  
+
+            button(class="raven" type='action' name='act_'+skill.id)
+    </div>
+</div>

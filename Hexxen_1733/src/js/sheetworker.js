@@ -31,11 +31,23 @@ const buttonlist = ["character","combat","npc","configuration"];
         });
     });
 
+    on(`clicked:toggleeditmode`, function() {
+        getAttrs(["editmode"], function(values) {
+            var editmode = parseInt(values["editmode"],10)||0;
+
+            setAttrs({
+                editmode: editmode == 1 ? 0 : 1
+            });
+        });
+    });
+
     const resourcebuttonlist = ["addcoup","remcoup",
     "addidea","remidea",
     "addblessing","remblessing",
     "addrage","remrage",
-    "addambition","remambition"];
+    "addambition","remambition",
+    "addhex","remhex",
+    "addquintessence","remquintessence"];
     resourcebuttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
             var action = button.substr(0,3);
@@ -96,6 +108,31 @@ const buttonlist = ["character","combat","npc","configuration"];
             rollmodifiers: ''
         });
     });
+
+
+    on("clicked:repeating_npcattacks:rollnpcattack", function(eventInfo) {
+        
+        const rowid = eventInfo.sourceAttribute.split('_')[2];
+        getAttrs([`repeating_npcattacks_${rowid}_name`, `repeating_npcattacks_${rowid}_attribute`, `repeating_npcattacks_${rowid}_attackvalue`], function(attack) {
+
+           
+
+            let valuename =  attack[`repeating_npcattacks_${rowid}_name`];
+            let baseattributename = attack[`repeating_npcattacks_${rowid}_attribute`]; 
+            let v = parseInt( attack[`repeating_npcattacks_${rowid}_attackvalue`],10)||0;
+            var modstring = "";
+
+            setAttrs({
+                hexxen: v,
+                janus: 0,
+                rollvaluename: valuename,
+                rollattribute: baseattributename,
+                rollmodifiers: modstring
+            });  
+          
+        });
+    });
+
    
     const checklist = [
     'attribute_strength',
@@ -236,6 +273,18 @@ const buttonlist = ["character","combat","npc","configuration"];
             setAttrs({                            
                 ap_max: ap_max
             });
+          });
+    });
+    on("change:ap", function() {
+        getAttrs(["ap", "ap_max"], function(values) {
+            let ap = parseInt(values.ap,10)||0;
+            let ap_max = parseInt(values.ap_max,10)||0;
+            if(ap > ap_max)
+            {
+                setAttrs({                            
+                    ap: ap_max
+                });
+            }
           });
     });
     on("change:attribute_strength change:attribute_willpower change:skill_insensibility change:hitpoints_mod", function() {

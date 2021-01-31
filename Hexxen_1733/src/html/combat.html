@@ -15,7 +15,7 @@
                 <input type="radio" class="sheet-rating" name="attr_outerdamage" value="4" /><span></span>
                 <input type="radio" class="sheet-rating" name="attr_outerdamage" value="5" /><span></span>
             </span>
-            <input class="item textline" type="text" name="attr_outerdamage_conditions" />
+            <input class="item textline" type="text" name="attr_outerdamage_conditions" placeholder="Zustand"/>
 
             <label class="item">Innerer Schaden</label>
             <span class="item">
@@ -26,7 +26,7 @@
                 <input type="radio" class="sheet-rating" name="attr_innerdamage" value="4" /><span></span>
                 <input type="radio" class="sheet-rating" name="attr_innerdamage" value="5" /><span></span>
             </span>
-            <input class="item textline" type="text" name="attr_innerdamage_conditions" />
+            <input class="item textline" type="text" name="attr_innerdamage_conditions" placeholder="Zustand" />
 
             <label class="item">Malusschaden</label>
             <span class="item">
@@ -37,7 +37,7 @@
                 <input type="radio" class="sheet-rating" name="attr_malusdamage" value="4" /><span></span>
                 <input type="radio" class="sheet-rating" name="attr_malusdamage" value="5" /><span></span>
             </span> 
-            <input class="item textline" type="text" name="attr_malusdamage_conditions" />
+            <input class="item textline" type="text" name="attr_malusdamage_conditions" placeholder="Zustand" />
 
             <label class="item">Lähmungsschaden</label>
             <span class="item">
@@ -48,7 +48,7 @@
                 <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="4" /><span></span>
                 <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="5" /><span></span>
             </span>
-            <input class="item textline" type="text" name="attr_paralysisdamage_conditions" />
+            <input class="item textline" type="text" name="attr_paralysisdamage_conditions" placeholder="Zustand" />
         </div>
     </div>
 </div>
@@ -85,17 +85,7 @@
         <input type="radio" class="normal" name="attr_armor" value="1" checked="checked"/><span></span><label>Leicht (<span class="pureattribute">Pw1</span>)</label>
         <input type="radio" class="normal" name="attr_armor" value="2" /><span></span><label>Mittel (<span class="pureattribute">Pw2</span>)</label>
         <input type="radio" class="normal" name="attr_armor" value="3" /><span></span><label>Schwer (<span class="pureattribute">Pw3</span>)</label>
-        <label>Lebenspunkte</label>        
-        <div class="tooltip">
-            <input class='number' type="number" name="attr_bufferhitpoints" /> 
-            <label class="tooltiptext">Puffer-[Lep]</label>
-        </div>
-        <span class="label">+</span>
-        <div class="tooltip">
-            <input class='number' type="number" name="attr_hitpoints" />    
-            <label class="tooltiptext">Aktuelle Basis-[Lep].<br>Bei Basis-[Lep]≤-1 der Verlust alle Coups/Ideen, deren Benutzung unmöglich. Puffer-[Lep]=0</label>
-            <span class="label">(max. <span class="label" name="attr_hitpoints_max" ></span>)</span>
-        </div>
+        
         <br>
     </div>
     </div>

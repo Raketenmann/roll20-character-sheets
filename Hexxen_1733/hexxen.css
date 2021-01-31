@@ -2,16 +2,22 @@
 
 /* Set the min-width so that when the window is resized the look will stay consistant */
 
-.charsheet {
+.sheet-charsheet {
 
 	background-color: rgb(225, 236, 204);
 	background: rgb(225, 236, 204);
 	background: linear-gradient(90deg, rgb(209, 235, 163) 0%,  rgb(245, 240, 225) 20%, rgb(245, 240, 225) 95%,rgb(109, 141, 51) 100%);
 	/*background: linear-gradient(90deg, rgba(36,66,0,1) 0%, rgba(225, 236, 204,1) 5%, rgba(225, 236, 204,1) 95%, rgba(36,66,0,1) 100%);
 	*/
-	min-width: 800px;
+	min-width: 832px;
 	font-family: 'Times New Roman', Times, serif;
 	border: 2px solid #333;
+	padding:10px;
+}
+
+.sheet-npctoggle[value="1"] ~ .sheet-charsheet {
+	width:424px;
+	min-width: 424px;
 }
 .sheet-right {
 	width:auto;
@@ -76,7 +82,17 @@ h2 span {
 	font-family: inherit;
 	text-align: inherit;
 }
-
+h3 {
+	font-size: 18px;
+	font-variant: small-caps;
+	text-align: left;
+	color:maroon;
+}
+h3 span {
+	font-size: inherit;
+	font-family: inherit;
+	text-align: inherit;
+}
 label {
 	display: inline-block;
 	width: auto;
@@ -88,6 +104,12 @@ span {
 	font-weight: bold;
 	font-size: 16px;
 	line-height:18px;
+}
+span.sheet-label {
+	font-variant: small-caps;
+}
+span.sheet-normal {
+	font-weight: normal;
 }
 span.sheet-text {
 	font-weight: normal;
@@ -111,6 +133,7 @@ span.sheet-text {
 input[type=number].sheet-number {	
 	width: 2.5em;	
 	border: 0;
+	border-bottom: 2px solid #333;
 	height:18px;
   outline: 0;
   background: transparent;
@@ -121,6 +144,14 @@ input[type=number].sheet-number {
   line-height:18px;
   font-weight: bold;
 }
+
+input[type=text].sheet-textline {	
+
+	border: 0;
+	border-bottom: 2px solid  #333;
+	border-radius: 0px;
+}
+
 fieldset {
 	display: inline-block;
 }
@@ -142,6 +173,16 @@ button.sheet-raven {
 	background-repeat: no-repeat;
 	background-position: center;
 	width:26px;
+}
+button.sheet-smallraven {
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/dice/blessing_raven.png);
+	background-size: 13px 13px;
+	background-repeat: no-repeat;
+	background-position: center;
+	width:13px;
+	height:13px;
+	border: 1px solid #333;
+	padding:0px;
 }
 button.sheet-parry {
 	font-family:"Pictos Three";
@@ -206,8 +247,14 @@ textarea {
     line-height: 31px;
     padding: 0px;*/
 }
+.sheet-container {
+	display:flex;
+	flex-flow:column wrap;
+	align-content: flex-start;
+	align-items:flex-start;
+}
 .sheet-2colrow {
-	margin-top:20px;
+	margin-top:0px;
 }
 .sheet-2col
 {
@@ -794,6 +841,7 @@ div.sheet-sticky {
 	border: 2px solid black;
 	box-shadow: 5px 5px #888888;
 	z-index: 10;
+	margin-top:20px;
 }
 div.sheet-sticky .sheet-raven
 {
@@ -877,9 +925,9 @@ span.sheet-dee {
 }
 .sheet-attributes {
 	display: grid;
-	grid-template-columns: auto 3.5em 3.5em  40px;
+	grid-template-columns: auto auto 2.5em auto auto 2.5em ;
 	grid-row-gap: 2px;
-	grid-column-gap: 1rem;
+	grid-column-gap: 2px;
   }
   .sheet-attributes > .sheet-item {
 	  width: auto;
@@ -895,7 +943,7 @@ span.sheet-dee {
   }
   .sheet-skills {
 	display: grid;
-	grid-template-columns: auto 3.5em 3.5em 3.5em 40px ;
+	grid-template-columns: auto 3.5em 3.5em 40px ;
 	grid-row-gap: 2px;
 	grid-column-gap: 1rem;
   }
@@ -905,7 +953,7 @@ span.sheet-dee {
 
   .sheet-weapons {
 	display: grid;
-	grid-template-columns: 30px 150px 2em 2em 3.5em 3.5em 2em auto auto auto;
+	grid-template-columns: 30px 150px 2em 2em 3.5em 2em auto auto;
 	grid-row-gap: 2px;
 	grid-column-gap: 1rem;
   }
@@ -1003,10 +1051,12 @@ span.sheet-dee {
 	visibility: hidden;
 	display: none;
 }
-.charsheet .sheet-editmode_toggle[value="1"] ~ .repcontrol button.btn  {
+.charsheet .sheet-editmode_toggle[value="1"] ~ .repcontrol button.btn,
+.charsheet .sheet-editmode_toggle[value="1"] ~ ul .repcontrol button.btn  {
 	display: inline-block;
 }
-.charsheet .sheet-editmode_toggle[value="1"] ~ .repcontrol .repcontrol_add:before {
+.charsheet .sheet-editmode_toggle[value="1"] ~ .repcontrol .repcontrol_add:before,
+.charsheet .sheet-editmode_toggle[value="1"] ~ ul .repcontrol .repcontrol_add:before {
     content: "&";
 	visibility: visible;
 	display: inline;
@@ -1018,7 +1068,8 @@ span.sheet-dee {
     width: 12px;
     padding: 2px 4px 2px 4px;
 }
-.charsheet .sheet-editmode_toggle[value="1"] ~ .repcontrol .repcontrol_edit:after {
+.charsheet .sheet-editmode_toggle[value="1"] ~ .repcontrol .repcontrol_edit:after,
+.charsheet .sheet-editmode_toggle[value="1"] ~ ul .repcontrol .repcontrol_edit:after {
     content: "(";
 	visibility: visible;
 	display: inline;
@@ -1046,18 +1097,30 @@ span.sheet-dee {
 	font-family: "Pictos";
 	background-color: #da4f49;
 }
-.sheet-editmode_toggle[value="0"] + input[type="number"] {
+
+.sheet-editmode_toggle[value="0"] + input[type="number"],
+.sheet-editmode_toggle[value="0"] + button,
+.sheet-editmode_toggle[value="0"] + div {
 	display: none;
 }
-.sheet-editmode_toggle[value="1"] + input[type="number"] {
+.sheet-editmode_toggle[value="1"] + input[type="number"],
+.sheet-editmode_toggle[value="1"] + button,
+.sheet-editmode_toggle[value="1"] + div  {
 	display: inline-block;
 }
-.sheet-editmode_toggle[value="1"] + input[type="number"] + span.sheet-number {
+.sheet-editmode_toggle[value="1"] + input[type="number"] + span.sheet-number,
+.sheet-editmode_toggle[value="1"] + input[type="number"] + span.sheet-normal,
+.sheet-editmode_toggle[value="1"] + button + button,
+.sheet-editmode_toggle[value="1"] + div + div {
 	display: none;
 }
-.sheet-editmode_toggle[value="0"] + input[type="number"] + span.sheet-number  {
+.sheet-editmode_toggle[value="0"] + input[type="number"] + span.sheet-number,
+.sheet-editmode_toggle[value="0"] + input[type="number"] + span.sheet-normal,
+.sheet-editmode_toggle[value="0"] + button + button,
+.sheet-editmode_toggle[value="0"] + div + div {
 	display: inline-block;
 }
+
 
 .sheet-editmode_toggle[value="0"] + input[type="text"] {
 	display: none;

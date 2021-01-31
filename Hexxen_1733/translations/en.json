@@ -83,5 +83,11 @@
     "npc_type_leader":"Leader",
     "npc_strategy_none":"None",
     "npc_strategy_allrounder":"Allrounder",
-    "npc_strategy_offensive":"Offensive"
+    "npc_strategy_offensive":"Offensive",
+    "ressource_coup":"Coup",
+    "ressource_idea":"Idea",
+    "ressource_blessing":"Blessing",
+    "ressource_rage":"Rage",
+    "ressource_ambition":"Ambition",
+    "ressource_quintessence":"Quintessence"
 }
