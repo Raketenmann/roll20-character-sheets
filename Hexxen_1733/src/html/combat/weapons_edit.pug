@@ -1,0 +1,25 @@
+div(class="box")  
+    h2 Waffenübersicht  
+    img(class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png")
+    div(class="weapons_edit")
+        h3
+        h3 Waffe
+        h3 Sch
+        h3 Ap
+        h3 Fw   
+        h3 Sum
+        each val in weapons
+            span
+                input(type="checkbox" class="normal" name="attr_"+val.id+"_active" value="1" checked=val.preselect)
+                span
+            div(class="item tooltip")
+                label(class="item" data-i18n=val.id)= val.name
+                span(class="tooltiptext" data-i18n=val.id+"_note")= val.note
+            label(class="item")= val.damage
+            label(class="item")= val.ap
+            input(class="number" type="number" name="attr_"+val.id)  
+            div(class="item tooltip")
+                span(class="item label" name="attr_"+val.id+"_max") 
+                div(class="tooltiptext")
+                    span() FW +  
+                    span(data-i18n=val.baseattribute+"_short") Ath  

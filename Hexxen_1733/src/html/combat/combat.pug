@@ -1,0 +1,13 @@
+div(class='sheet-combat')
+
+    div(class="2colrow")
+        div(class="col")
+            include influences.pug
+            include healing.pug
+        div(class="col")
+            input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true)
+            include weapons_edit.pug
+            include weapons.pug
+
+
+        

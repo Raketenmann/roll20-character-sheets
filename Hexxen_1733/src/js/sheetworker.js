@@ -58,8 +58,20 @@ const buttonlist = ["character","combat","npc","configuration"];
                     resourceValue = resourceValue + 1;
                 else if(action == "rem")
                     resourceValue = resourceValue -1;
-                resourceValue =  Math.min(Math.max(resourceValue, 0), 10);
+                resourceValue =  Math.min(Math.max(resourceValue, 0), 20);
+
                 var update = {};
+
+                if(resourceValue > 0)
+                {
+                    if(ressource == "rage")
+                        update["ambition"] = 0;
+                    else if(ressource == "ambition")
+                        update["rage"] = 0;
+                }
+
+
+                
                 update[ressource] = resourceValue;
                 setAttrs(update);
             });

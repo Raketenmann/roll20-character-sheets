@@ -1,0 +1,50 @@
+<div class="box">      
+    <h2>Charakter</h2>
+    <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+    <label>Jägerstufe</label>
+    <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+    <input class="number" type="number" name="attr_rank" />
+    <span class="number" name="attr_rank"></span>
+    <br />
+    <label>Profession</label>
+    <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
+    <input class="textline" type="text" name="attr_profession" />
+    <span class="label" name="attr_profession"></span>
+    <br />
+    
+    <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>   
+    <div class="wrapper">
+        <div class="options">
+            <label>Motivation</label>
+            <input class='textline'  type="text" name="attr_motivation_name" placeholder="Motivation"/>
+            <br>
+            <label>Modifikator:</label>
+            <select name="attr_motivation_target">
+                +modoptions
+            </select>
+            <input class="number" type="number" name="attr_motivation_bonus" min="0" />
+        </div>
+    </div>
+    <div class="display">
+        <label>Motivation</label>
+        <span name="attr_motivation_name"></span>
+        <input class="hideempty_toggle" type="hidden" name="attr_motivation_target"/>
+        <span class="hideempty">(
+            <span name="attr_motivation_target" data-i18n-dynamic=""></span>
+            <span> +</span>
+            <span name="attr_motivation_bonus"></span>
+            <span>)</span>
+        </span>
+    </div>
+    <br>
+
+    <label>Verderbnis:</label><input class="number" type="number" name="attr_verderbnis" />
+    <br>
+    <label>Unterhalt</label><input class="number" type="number" name="attr_unterhalt" />
+    <br />
+    <label>Vermögen</label><input class="number" type="number" name="attr_vermoegen" />
+
+    
+    
+
+</div>

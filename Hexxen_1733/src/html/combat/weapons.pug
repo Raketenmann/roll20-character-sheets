@@ -1,0 +1,46 @@
+div(class="box")  
+    h2 Waffenübersicht  
+    img(class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png")
+    div(class="weapons")
+        h3 Waffe
+        h3 Sch
+        h3 Ap
+        h3 Fw   
+        h3 Sum
+        h3 Ang
+        h3 Par
+        each val in weapons
+            input(type="hidden" class="weaponrowactive" name="attr_"+val.id+"_active")
+            div(class="item tooltip")
+                label(class="item" data-i18n=val.id)= val.name
+                span(class="tooltiptext" data-i18n=val.id+"_note")= val.note
+            input(type="hidden" class="weaponrowactive" name="attr_"+val.id+"_active")
+            label(class="item")= val.damage
+            input(type="hidden" class="weaponrowactive" name="attr_"+val.id+"_active")
+            label(class="item")= val.ap
+            input(type="hidden" class="weaponrowactive" name="attr_"+val.id+"_active")
+            span(class="item" name="attr_"+val.id)  
+            input(type="hidden" class="weaponrowactive" name="attr_"+val.id+"_active")          
+            div(class="item tooltip")
+                span(class="item label" name="attr_"+val.id+"_max") 
+                div(class="tooltiptext")
+                    span() FW +  
+                    span(data-i18n=val.baseattribute+"_short") Ath  
+            input(type="hidden" class="weaponrowactive" name="attr_"+val.id+"_active")
+            div(class="item tooltip")
+                input(type="hidden" name="attr_"+val.id+"_mod_desc")
+                span(class="tooltiptext" name="attr_"+val.id+"_mod_desc")
+                if(val.preselect)
+                    input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="1")
+                else
+                    input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="0")
+                button(type='action' class="roll raven attack" name='act_'+val.id)
+            input(type="hidden" class="weaponrowactive" name="attr_"+val.id+"_active")
+            div(class="item tooltip")
+                input(type="hidden" name="attr_parry_"+val.id+"_mod_desc")
+                span(class="tooltiptext" name="attr_parry_"+val.id+"_mod_desc")
+                if(val.preselect)
+                    input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="1")
+                else
+                    input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="0")
+                button(type='action' class="roll raven parry" name='act_parry_'+val.id) b

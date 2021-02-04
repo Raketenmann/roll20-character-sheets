@@ -197,6 +197,9 @@ input:not([value="1"]) + .sheet-attack,
 input:not([value="1"]) + .sheet-parry  {
 	opacity:20%;
 }
+.sheet-weapons input.sheet-weaponrowactive:not([value="1"]) + .sheet-item{
+	display:none;
+}
 hr {
 	border-top: 2px dashed rgb(0, 0, 0);
 }
@@ -329,6 +332,7 @@ input.sheet-normal[type="radio"] + span::before
     width: 23px;
     height: 16px;
 	font-size: 2em;
+	margin-right: 8px;
 	font-family: 'Patrick Hand';
 }
 input.sheet-normal[type="radio"]:checked + span::before
@@ -439,13 +443,25 @@ input.sheet-rating[type="radio"]:checked ~ input.sheet-rating[type="radio"] + sp
 .sheet-chipnumber button:focus {
 	outline:0;
 }
-
+.sheet-singlechip {
+	position:relative;
+	display: inline-block;
+	height:48px;
+	width:48px;
+	margin: 5px;
+}
 .sheet-chipstackgroup{
 	position:relative;
 	display: inline-block;
 	height:120px;
 	width:48px;
 	margin: 5px;
+}
+input.sheet-displaychipstacks[value="0"] + .sheet-chipstackgroup{
+	display:none;
+}
+input.sheet-displaychipstacks[value="1"] + .sheet-chipstackgroup + .sheet-singlechip{
+	display:none;
 }
 .sheet-chipstack,
 .sheet-chipstackzero
@@ -671,6 +687,12 @@ input.sheet-chip10 + span::before
 	background: url(http://www.handsongaming.de/public/images/hexxen/dice/elixir_3.png) top left;
 	background-size: 100% 100%;
 }
+
+span.sheet-ideachip
+{
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_idea.png);
+	background-size: 100% 100%;
+}
 .sheet-ideachip + span::before
 {
 	border-radius: 50%;
@@ -678,6 +700,11 @@ input.sheet-chip10 + span::before
 	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_idea.png);
 	background-size: 100% 100%;
 	box-shadow: 0px 5px rgb(38, 56, 38);
+}
+span.sheet-coupchip
+{
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_coup.png);
+	background-size: 100% 100%;
 }
 .sheet-coupchip + span::before
 {
@@ -687,6 +714,11 @@ input.sheet-chip10 + span::before
 	background-size: 100% 100%;
 	box-shadow: 0px 5px rgb(66, 1, 1);
 }
+span.sheet-blessingchip
+{
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_blessing.png);
+	background-size: 100% 100%;
+}
 .sheet-blessingchip + span::before
 {
 	border-radius: 50%;
@@ -695,6 +727,11 @@ input.sheet-chip10 + span::before
 	background-size: 100% 100%;
 	box-shadow: 0px 5px grey;
 }
+span.sheet-ragechip
+{
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_rage.png);
+	background-size: 100% 100%;
+}
 .sheet-ragechip + span::before
 {
 	border-radius: 50%;
@@ -702,6 +739,11 @@ input.sheet-chip10 + span::before
 	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_rage.png);
 	background-size: 100% 100%;
 	box-shadow: 0px 5px rgb(60, 42, 78);
+}
+span.sheet-ambitionchip
+{
+	background-image: url(http://www.handsongaming.de/public/images/hexxen/chips/chip_ambition.png);
+	background-size: 100% 100%;
 }
 .sheet-ambitionchip + span::before
 {
@@ -950,25 +992,37 @@ span.sheet-dee {
   .sheet-skills > .sheet-item {
 	  width: auto;
   }
-
-  .sheet-weapons {
-	display: grid;
-	grid-template-columns: 30px 150px 2em 2em 3.5em 2em auto auto;
-	grid-row-gap: 2px;
-	grid-column-gap: 1rem;
-  }
-  .sheet-weapons > .sheet-item {
-	  width: auto;
-  }
-
   .sheet-influences {
 	display: grid;
-	grid-template-columns: auto 130px auto;
+	grid-template-columns: auto 130px 100px;
 	grid-row-gap: 2px;
   }
   .sheet-influences > .sheet-item {
 	  width: auto;
   }
+.sheet-healinggrid {
+	display: grid;
+	grid-template-columns: auto auto ;
+}
+  .sheet-weapons {
+	display: grid;
+	grid-template-columns: 130px 2em 2em 2em 2em auto auto;
+	grid-row-gap: 2px;
+	grid-column-gap: 2px;
+  }
+  .sheet-weapons > .sheet-item {
+	  width: auto;
+  }
+  .sheet-weapons_edit {
+	display: grid;
+	grid-template-columns: 30px 150px 2em 2em 3.5em 2em;
+	grid-row-gap: 2px;
+	grid-column-gap: 2px;
+  }
+  .sheet-weapons_edit > .sheet-item {
+	  width: auto;
+  }
+
 
   /* Edit and details */
   .charsheet .sheet-fieldsetcontainer .sheet-wrapper  {

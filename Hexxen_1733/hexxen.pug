@@ -35,6 +35,48 @@
     {id:'skill_fieldsofknowledge', baseattribute:'attribute_knowledge'}
   ];
 
+mixin modoptions
+  <option value="0" selected="selected">None</option>
+  <option value="hitpoints" >Lebenspunkte</option>
+  <option value="ini" >Initiative</option>
+  <option value="parry_all" >Alle Paraden</option>
+  <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
+  <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
+  <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
+  <option value="attribute_senses" data-i18n="attribute_senses">attribute_senses</option>
+  <option value="attribute_knowledge" data-i18n="attribute_knowledge">attribute_knowledge</option>
+  <option value="attribute_willpower" data-i18n="attribute_willpower">attribute_willpower</option>
+  <option value="skill_acrobatics" data-i18n="skill_acrobatics">skill_acrobatics</option>
+  <option value="skill_alertness" data-i18n="skill_alertness">skill_alertness</option>
+  <option value="skill_perception" data-i18n="skill_perception">skill_perception</option>
+  <option value="skill_firstaid" data-i18n="skill_firstaid">skill_firstaid</option>
+  <option value="skill_sleightofhand" data-i18n="skill_sleightofhand">skill_sleightofhand</option>
+  <option value="skill_mentalpower" data-i18n="skill_mentalpower">skill_mentalpower</option>
+  <option value="skill_crafting" data-i18n="skill_crafting">skill_crafting</option>
+  <option value="skill_stealth" data-i18n="skill_stealth">skill_stealth</option>
+  <option value="skill_countryandpeople" data-i18n="skill_countryandpeople">skill_countryandpeople</option>
+  <option value="skill_rhetoric" data-i18n="skill_rhetoric">skill_rhetoric</option>
+  <option value="skill_flexing" data-i18n="skill_flexing">skill_flexing</option>
+  <option value="skill_reflexes" data-i18n="skill_reflexes">skill_reflexes</option>
+  <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
+  <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
+  <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+  <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
+  <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
+  <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
+  <option value="weapon_swords" data-i18n="weapon_swords">weapon_swords</option>
+  <option value="weapon_scimitar" data-i18n="weapon_scimitar">weapon_scimitar</option>
+  <option value="weapon_impact" data-i18n="weapon_impact">weapon_impact</option>
+  <option value="weapon_polearm" data-i18n="weapon_polearm">weapon_polearm</option>
+  <option value="weapon_lance" data-i18n="weapon_lance">weapon_lance</option>
+  <option value="weapon_sling" data-i18n="weapon_sling">weapon_sling</option>
+  <option value="weapon_pistol" data-i18n="weapon_pistol">weapon_pistol</option>
+  <option value="weapon_crossbow" data-i18n="weapon_crossbow">weapon_crossbow</option>
+  <option value="weapon_musket" data-i18n="weapon_musket">weapon_musket</option>
+  <option value="weapon_dodge" data-i18n="weapon_dodge">weapon_dodge</option>
+  <option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option>
+                
+
 input(type='hidden' class='npctoggle' name='attr_npc'  value='0')
 
 div(class="charsheet")
@@ -46,222 +88,9 @@ div(class="charsheet")
       
 
 
-  include src/html/character.pug
-
-  div(class='sheet-combat')
-    include src/html/combat.html
-        
-    div(class="row") 
-      div(class="col")
-        div(class="box")  
-          h2 Waffenübersicht  
-          img(class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png")
-          div(class="weapons")
-            h3
-            h3 Waffe
-            h3 Sch
-            h3 Ap
-            h3 Fw   
-            h3 Sum
-            h3 Angriff
-            h3 Parade
-            each val in weapons
-              span
-                input(type="checkbox" class="normal" name="attr_"+val.id+"_active" value="1" checked=val.preselect)
-                span
-              div(class="item tooltip")
-                label(class="item" data-i18n=val.id)= val.name
-                span(class="tooltiptext" data-i18n=val.id+"_note")= val.note
-              label(class="item")= val.damage
-              label(class="item")= val.ap
-              input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-              input(class="number" type="number" name="attr_"+val.id)
-              span(class="number" name="attr_"+val.id)            
-              div(class="item tooltip")
-                span(class="item label" name="attr_"+val.id+"_max") 
-                div(class="tooltiptext")
-                  span() FW +  
-                  span(data-i18n=val.baseattribute+"_short") Ath  
-              div(class="item tooltip")
-                input(type="hidden" name="attr_"+val.id+"_mod_desc")
-                span(class="tooltiptext" name="attr_"+val.id+"_mod_desc")
-                if(val.preselect)
-                  input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="1")
-                else
-                  input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="0")
-                button(type='action' class="roll raven attack" name='act_'+val.id)
-              div(class="item tooltip")
-                input(type="hidden" name="attr_parry_"+val.id+"_mod_desc")
-                span(class="tooltiptext" name="attr_parry_"+val.id+"_mod_desc")
-                if(val.preselect)
-                  input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="1")
-                else
-                  input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="0")
-                button(type='action' class="roll raven parry" name='act_parry_'+val.id) b
-
-
-  div(class='npc')
-    input(type="hidden" class="npc_type_toggle" name="attr_npc_type" value="npc_type_gang")
-    div(class="box")
-      h3
-        span(name="attr_character_name")
-      div()
-        span(class="text") (
-        span(class="text" name="attr_npc_type" data-i18n-dynamic)  
-        span(class="text")  
-        span(class="text" name="attr_rank")
-        span(class="text") )
-      hr
-
-      input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-      select(name="attr_npc_type")
-        <option value="npc_type_gang" selected="selected" data-i18n="npc_type_gang">Bande</option>
-        <option value="npc_type_leader"  data-i18n="npc_type_leader">Anführer</option>
-      input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-      input(class="number" type="number" name="attr_rank" value="1")
-
-      div(class="npc_leader_only")
-        span(class='label' data-i18n="attribute_strength_short") Str
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        input(class="number" type="number" name="attr_attribute_strength")
-        span(class="normal" name="attr_attribute_strength")
-        span(class="normal") , 
-            
-        span(class='label' data-i18n="attribute_athletic_short") Ath
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        input(class="number" type="number" name="attr_attribute_athletic")
-        span(class="normal" name="attr_attribute_athletic")
-        span(class="normal") , 
-          
-        span(class='label' data-i18n="attribute_dexterity_short") Dex
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        input(class="number" type="number" name="attr_attribute_dexterity")
-        span(class="normal" name="attr_attribute_dexterity")
-        span(class="normal") , 
-          
-        span(class='label' data-i18n="attribute_senses_short") Sen
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        input(class="number" type="number" name="attr_attribute_senses")
-        span(class="normal" name="attr_attribute_senses")
-        span(class="normal") , 
-            
-        span(class='label' data-i18n="attribute_knowledge_short") Kno
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        input(class="number" type="number" name="attr_attribute_knowledge")
-        span(class="normal" name="attr_attribute_knowledge")
-        span(class="normal") , 
-            
-        span(class='label' data-i18n="attribute_willpower_short") Wil
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        input(class="number" type="number" name="attr_attribute_willpower")
-        span(class="normal" name="attr_attribute_willpower")
-
-        br
-        span(class="label") Lep:
-        input(class="number" type="number" name="attr_npc_hitpoints" value="1")
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        input(class="number" type="number" name="attr_npc_hitpoints_max" value="1")
-        span(class="normal" name="attr_npc_hitpoints_max")
-        span(class="label")  | 
-        span(class="label") Pw:
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        input(class="number" type="number" name="attr_armor" value="1" min="0" max="3")
-        span(class="normal" name="attr_armor")
-        br
-        span(class="label") Ini:
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        input(class="number" type="number" name="attr_ini" value="1")
-        span(class="normal" name="attr_ini")
-        span(class="label")  | 
-        span(class="label") Strategie:
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        select(name="attr_npc_strategy")
-          <option value="npc_strategy_simple" selected="selected"  data-i18n="npc_strategy_simple">Tumb</option>
-          <option value="npc_strategy_offensive"  data-i18n="npc_strategy_offensive">Offensiv</option>
-          <option value="npc_strategy_protective"  data-i18n="npc_strategy_protective">Beschützend</option>
-          <option value="npc_strategy_defensive"  data-i18n="npc_strategy_defensive">Defensiv</option>
-          <option value="npc_strategy_allrounder" data-i18n="npc_strategy_allrounder">Allrounder</option>
-          <option value="npc_strategy_mighty_allrounder"  data-i18n="npc_strategy_mighty_allrounder">Mächtiger Allrounder</option>
-        span(class="normal" name="attr_npc_strategy" data-i18n-dynamic)
-        
-
-      div(class="npc_gang_only")
-        span(class="label") Lep: 
-        input(class="number" type="number" name="attr_npc_hitpoints" value="1")
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        input(class="number" type="number" name="attr_npc_hitpoints_max" value="1")
-        span(class="normal" name="attr_npc_hitpoints_max")
-        span(class="label")  | 
-        span(class="label") Ini: 
-        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        input(class="number" type="number" name="attr_ini" value="1")
-        span(class="normal" name="attr_ini")
-        br
-      input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true)
-      fieldset(class="repeating_npcattacks")
-          div(class="fieldsetcontainer")
-            div(class="display")
-              span(class="text" name="attr_attacktype" data-i18n-dynamic="")
-              span(class="text") : 
-              span(name="attr_name")
-              span(class="text")  (
-              span(class="text" name="attr_attribute" data-i18n-dynamic="")
-              span(class="text") ), 
-              span(class="text") Angriff 
-              span(class="text" name="attr_attackvalue")
-              span(class="text") , 
-              span(class="text") Schaden 
-              span(class="text" name="attr_damage")
-              button(type='action' class="roll smallraven attack" name='act_rollnpcattack')
-            input(class="details-flag" type="checkbox" checked="true" name="attr_details-flag")
-            span i
-            div(class="wrapper")
-              input(class="options-flag" type="checkbox" checked="true" name="attr_options-flag")
-              span y
-              div(class="options")
-                select(name="attr_attacktype")
-                  option(value="melee") Nahkampf
-                  option(value="ranged") Fernkampf
-                input(type="text" name="attr_name" placeholder="Name")
-                select(name="attr_attribute")
-                  option(value="attribute_athletic_short" data-i18n="attribute_athletic_short") Ath
-                  option(value="attribute_strength_short" data-i18n="attribute_strength_short") Kkr
-                  option(value="attribute_dexterity_short" data-i18n="attribute_dexterity_short") Ges
-                  option(value="attribute_senses_short" data-i18n="attribute_senses_short") Sin
-                  option(value="attribute_knowledge_short" data-i18n="attribute_knowledge_short") Wis
-                  option(value="attribute_willpower_short" data-i18n="attribute_willpower_short") Wil
-                label Angriff
-                input(type="number" name="attr_attackvalue")
-                label Schaden
-                input(type="number" name="attr_damage")
-                textarea(name="attr_description" placeholder="Description")
-              
-              div(class="details")
-                span(class="text" name="attr_description")
-      hr
-      h4 Kräfte
-      input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true)
-      ul
-        fieldset(class="repeating_npcpowers")
-            div(class="fieldsetcontainer")
-              
-              li(class="display")
-                span(name="attr_name")
-                span(class="text")  (
-                span(class="text" name="attr_description")
-                span(class="text") )
-              input(class="details-flag" type="checkbox" checked="true" name="attr_details-flag")
-              span i
-              div(class="wrapper")
-                input(class="options-flag" type="checkbox" checked="true" name="attr_options-flag")
-                span y
-                div(class="options")
-                  input(class='medium'  type="text" name="attr_name" placeholder="Name")
-                  textarea(name="attr_description" placeholder="Description")
-                
-                div(class="details")
-                  //-span(class="text" name="attr_description")
-
+  include src/html/character/character.pug
+  include src/html/combat/combat.pug
+  include src/html/npc/npc.pug
   include src/html/config.html
 
 //- SHEET WORKERS
