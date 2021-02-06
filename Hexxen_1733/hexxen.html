@@ -1,10 +1,11 @@
 
 <input class="npctoggle" type="hidden" name="attr_npc" value="0"/>
+<input class="npc_type_toggle" type="hidden" name="attr_npc_type" value="npc_type_gang"/>
 <div class="charsheet">
   <input class="tabstoggle" type="hidden" name="attr_sheetTab" value="character"/>
   <div class="sticky">
     <div class="2colrow"><img class="raven" src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />
-<img class="watermark" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+<img class="pc_only watermark" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
 <div class="tabbuttonbar">
 <button type="action" class="pc_only" name="act_character" >Character</button>
 <button type="action" class="npc_only" name="act_npc" >NPC</button>
@@ -18,6 +19,10 @@
 <div>
 <div class="npc_only">
 <button type="action" name="act_converttopc" >Convert to PC</button>
+<div class="npc_only">       
+      <label>Lebenspunkte: </label>
+      <input class="number" type="number" name="attr_npc_hitpoints" value="1"/>
+      <input class="number" type="number" name="attr_npc_hitpoints_max" value="1"/></div>
 </div>
 <div class="pc_only">
 <button type="action" name="act_converttonpc" >Convert to NPC</button>
@@ -40,7 +45,7 @@
 </div>
 </div>
 <div style="min-width:400px">
-      <div class="right npc_only">
+      <div class="right npc_only npc_leader_only">
         <div class="ressource_hex">
           <div class="tooltip"></div>
           <input class="number" type="hidden" name="attr_hex"/><span class="chipstackgroup">
@@ -64,21 +69,39 @@
       </div><input type="hidden" name="attr_rollvaluename"/>
 <span class="label" name="attr_rollvaluename"></span>
 <br>
-<input type="hidden" min="0" max="10" name="attr_hexxen" />
-<span class="dicebargroup">
-<input type="radio" class="dicebarzero" name="attr_hexxen" value="0" checked="checked" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="1" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="2" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="3" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="4" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="5" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="6" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="7" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="8" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="9" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="10" /><span></span>
-</span>
-<div class="rolltestdice">
+<input type="hidden" min="0" max="10" name="attr_hexxen" /><span class="dicebargroup pc_only">
+        <input class="dicebarzero" type="radio" name="attr_hexxen" value="0" checked="checked"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="1" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="2" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="3" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="4" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="5" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="6" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="7" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="8" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="9" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="10" name="attr_hexxen"/><span></span></span><span class="dicebargroup npc_only">
+        <input class="dicebarzero" type="radio" name="attr_hexxen" value="0" checked="checked"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="1" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="2" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="3" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="4" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="5" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="6" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="7" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="8" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="9" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="10" name="attr_hexxen"/><span></span><br/><span class="spacer_dice"></span>
+        <input class="dicebar hexdie" type="radio" value="11" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="12" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="13" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="14" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="15" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="16" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="17" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="18" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="19" name="attr_hexxen"/><span></span>
+        <input class="dicebar hexdie" type="radio" value="20" name="attr_hexxen"/><span></span></span><div class="rolltestdice">
 <button type='roll' name='roll_testattack' value='@{rollquery}'>Roll</button>
 </div>
 <br>
@@ -119,9 +142,12 @@
 <div class="tooltip">
 <input class='number' type="number" name="attr_hitpoints" />    
 <label class="tooltiptext">Aktuelle Basis-[Lep].<br>Bei Basis-[Lep]≤-1 der Verlust alle Coups/Ideen, deren Benutzung unmöglich. Puffer-[Lep]=0</label>
-<span class="label">(max. <span class="label" name="attr_hitpoints_max" ></span>)</span>
+<span>(max. <span class="label" name="attr_hitpoints_max" ></span>)</span>
 </div>
 </div>
+<div class="npc_only">       
+      <label>Lebenspunkte: </label>
+      <input class="number" type="number" name="attr_npc_hitpoints" value="1"/><span>(max. <span name="attr_npc_hitpoints_max"></span>)</span></div>
 </div>
 </div>
       <div class="col pc_only">
@@ -147,7 +173,9 @@
               <button type="action" name="act_addcoup">+</button><span name="attr_coup"></span>
               <button type="action" name="act_remcoup">-</button>
             </div>
-            <label class="tooltiptext" data-i18n="ressource_coup">coup</label>
+            <div class="tooltiptext"><span data-i18n="ressource_coup">coup</span>
+              <input class="hideempty_toggle" type="hidden" name="attr_coup_max"/><span class="hideempty"> (max. <span name="attr_coup_max"></span>)</span>
+            </div>
           </div>
           <div class="tooltip ressource_idea">
             <input class="number" type="hidden" name="attr_idea"/>
@@ -167,7 +195,9 @@
               <button type="action" name="act_addidea">+</button><span name="attr_idea"></span>
               <button type="action" name="act_remidea">-</button>
             </div>
-            <label class="tooltiptext" data-i18n="ressource_idea">idea</label>
+            <div class="tooltiptext"><span data-i18n="ressource_idea">idea</span>
+              <input class="hideempty_toggle" type="hidden" name="attr_idea_max"/><span class="hideempty"> (max. <span name="attr_idea_max"></span>)</span>
+            </div>
           </div>
           <div class="tooltip ressource_blessing">
             <input class="number" type="hidden" name="attr_blessing"/>
@@ -187,7 +217,9 @@
               <button type="action" name="act_addblessing">+</button><span name="attr_blessing"></span>
               <button type="action" name="act_remblessing">-</button>
             </div>
-            <label class="tooltiptext" data-i18n="ressource_blessing">blessing</label>
+            <div class="tooltiptext"><span data-i18n="ressource_blessing">blessing</span>
+              <input class="hideempty_toggle" type="hidden" name="attr_blessing_max"/><span class="hideempty"> (max. <span name="attr_blessing_max"></span>)</span>
+            </div>
           </div>
           <div class="tooltip ressource_rage">
             <input class="number" type="hidden" name="attr_rage"/>
@@ -207,7 +239,9 @@
               <button type="action" name="act_addrage">+</button><span name="attr_rage"></span>
               <button type="action" name="act_remrage">-</button>
             </div>
-            <label class="tooltiptext" data-i18n="ressource_rage">rage</label>
+            <div class="tooltiptext"><span data-i18n="ressource_rage">rage</span>
+              <input class="hideempty_toggle" type="hidden" name="attr_rage_max"/><span class="hideempty"> (max. <span name="attr_rage_max"></span>)</span>
+            </div>
           </div>
           <div class="tooltip ressource_ambition">
             <input class="number" type="hidden" name="attr_ambition"/>
@@ -227,7 +261,9 @@
               <button type="action" name="act_addambition">+</button><span name="attr_ambition"></span>
               <button type="action" name="act_remambition">-</button>
             </div>
-            <label class="tooltiptext" data-i18n="ressource_ambition">ambition</label>
+            <div class="tooltiptext"><span data-i18n="ressource_ambition">ambition</span>
+              <input class="hideempty_toggle" type="hidden" name="attr_ambition_max"/><span class="hideempty"> (max. <span name="attr_ambition_max"></span>)</span>
+            </div>
           </div>
           <div class="tooltip ressource_quintessence">
             <input class="number" type="hidden" name="attr_quintessence"/>
@@ -247,7 +283,9 @@
               <button type="action" name="act_addquintessence">+</button><span name="attr_quintessence"></span>
               <button type="action" name="act_remquintessence">-</button>
             </div>
-            <label class="tooltiptext" data-i18n="ressource_quintessence">quintessence</label>
+            <div class="tooltiptext"><span data-i18n="ressource_quintessence">quintessence</span>
+              <input class="hideempty_toggle" type="hidden" name="attr_quintessence_max"/><span class="hideempty"> (max. <span name="attr_quintessence_max"></span>)</span>
+            </div>
           </div>
         </div>
       </div>
@@ -256,7 +294,9 @@
 <div class="2colrow">
 <div class="col"><div class="box">      
 <h2>Charakter</h2>
+<input class="feathertoggle" type="checkbox" name="attr_display-personal" value="1" checked="true"/>
 <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+<div>
 <label>Jägerstufe</label>
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
 <input class="number" type="number" name="attr_rank" />
@@ -278,6 +318,8 @@
 <option value="hitpoints" >Lebenspunkte</option>
 <option value="ini" >Initiative</option>
 <option value="parry_all" >Alle Paraden</option>
+<option value="idea" >Ideen</option>
+<option value="coup" >Coups</option>
 <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
 <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
 <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
@@ -299,6 +341,7 @@
 <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
 <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
 <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+<option value="skill_witchcraft" data-i18n="skill_witchcraft">skill_witchcraft</option>
 <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
 <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
 <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
@@ -333,20 +376,18 @@
 <label>Unterhalt</label><input class="number" type="number" name="attr_unterhalt" />
 <br />
 <label>Vermögen</label><input class="number" type="number" name="attr_vermoegen" />
+</div>
 </div><div class="box">
 <h2>Rollen</h2>
+<input class="feathertoggle" type="checkbox" name="attr_display-roles" value="1" checked="true"/>
 <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+<div>
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
 <fieldset class="repeating_roles counterreset">
 <div class="fieldsetcontainer">
 <div class="display">
 <label class="counter">Rolle No</label>
-<span name="attr_role" data-i18n-dynamic></span>
-</div>
-<input class="details-flag" type="checkbox" name="attr_details-flag" checked=true/><span>i</span>
-<div class="wrapper">
-<input class="options-flag" type="checkbox" name="attr_options-flag" checked=true/><span>y</span>
-<div class="options">
+<span class="fieldset_editmode_toggle"></span>
 <select name="attr_role">
 <option value="0" selected="selected" data-i18n="role_none">None</option>
 <option value="role_alchemist"  data-i18n="role_alchemist">Alchemist</option>
@@ -363,27 +404,32 @@
 <option value="role_priest"  data-i18n="role_priest">Priester</option>
 <option value="role_strategist"  data-i18n="role_strategist">Stratege</option>       
 </select>
-<textarea name="attr_description" placeholder="Description"></textarea>
-</div>
-<div class="details">
-<span class="text" name="attr_description"></span>
-</div>
+<span name="attr_role" data-i18n-dynamic></span>
 </div>
 </div>
 </fieldset>
+</div>
 </div><div class="box">
 <h2>Restliche Ausrüstung</h2>
+<input class="feathertoggle" type="checkbox" name="attr_display-equipment" value="1" checked="true"/>
 <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+<div>
 <textarea name="attr_equipment"></textarea>
+</div>
 </div><div class="box">
 <h2>Kleidungssets</h2>
+<input class="feathertoggle" type="checkbox" name="attr_display-armorsets" value="1" checked="true"/>
 <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+<div>
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
 <fieldset class="repeating_armorsets counterreset">
 <div class="fieldsetcontainer">
 <div class="display">
 <label class="counter">Set No</label>
-<span name="attr_name"></span>
+<span class="fieldset_editmode_toggle"></span>
+<input class='textline' type="text" name="attr_name" placeholder="Name"/>           
+<span class="tooltip" name="attr_name"></span>
+<span class="tooltiptext" name="attr_description"></span>
 <input class="hideempty_toggle" type="hidden" name="attr_target"/>
 <span class="hideempty">(
 <span name="attr_target" data-i18n-dynamic=""></span>
@@ -393,16 +439,16 @@
 </div>
 <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
 <div class="wrapper">
-<input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
-<div class="options">
-<input class='medium'  type="text" name="attr_name" placeholder="Name"/>
+<span class="fieldset_editmode_toggle"></span>
+<div>
 <textarea name="attr_description" placeholder="Description"></textarea>
 <label>Modifikator:</label>
-<select name="attr_target">
-<option value="0" selected="selected">None</option>
+<select name="attr_target"><option value="0" selected="selected">None</option>
 <option value="hitpoints" >Lebenspunkte</option>
 <option value="ini" >Initiative</option>
 <option value="parry_all" >Alle Paraden</option>
+<option value="idea" >Ideen</option>
+<option value="coup" >Coups</option>
 <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
 <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
 <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
@@ -424,6 +470,7 @@
 <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
 <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
 <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+<option value="skill_witchcraft" data-i18n="skill_witchcraft">skill_witchcraft</option>
 <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
 <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
 <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
@@ -437,23 +484,27 @@
 <option value="weapon_crossbow" data-i18n="weapon_crossbow">weapon_crossbow</option>
 <option value="weapon_musket" data-i18n="weapon_musket">weapon_musket</option>
 <option value="weapon_dodge" data-i18n="weapon_dodge">weapon_dodge</option>
-<option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option>
-</select>
+<option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option></select>
 <input class="number" type="number" name="attr_bonus" />
 </div>
-<div class="details">
+<div>
 <span class="text" name="attr_description"></span>
 </div>
 </div>
 </div>
 </fieldset>
+</div>
 </div><div class="box">
 <h2>Jägerkräfte</h2>
+<input class="feathertoggle" type="checkbox" name="attr_display-hunterpowers" value="1" checked="true"/>
 <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+<div>
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
 <fieldset class="repeating_hunterpowers">
 <div class="fieldsetcontainer">
 <div class="display">
+<span class="fieldset_editmode_toggle"></span>
+<input class="textline" type="text" name="attr_name" placeholder="Name"/>
 <span name="attr_name"></span>
 <input class="hideempty_toggle" type="hidden" name="attr_target"/>
 <span class="hideempty">(
@@ -464,16 +515,16 @@
 </div>
 <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
 <div class="wrapper">
-<input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
-<div class="options">
-<input class='medium'  type="text" name="attr_name" placeholder="Name"/>
+<span class="fieldset_editmode_toggle"></span>
+<div>
 <textarea name="attr_description" placeholder="Description"></textarea>
-<!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
 <label>Modifikator:</label>
 <select name="attr_target"><option value="0" selected="selected">None</option>
 <option value="hitpoints" >Lebenspunkte</option>
 <option value="ini" >Initiative</option>
 <option value="parry_all" >Alle Paraden</option>
+<option value="idea" >Ideen</option>
+<option value="coup" >Coups</option>
 <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
 <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
 <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
@@ -495,6 +546,7 @@
 <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
 <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
 <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+<option value="skill_witchcraft" data-i18n="skill_witchcraft">skill_witchcraft</option>
 <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
 <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
 <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
@@ -511,19 +563,24 @@
 <option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option></select>
 <input class="number" type="number" name="attr_bonus" />
 </div>
-<div class="details">
+<div>
 <span class="text" name="attr_description"></span>
 </div>
 </div>
 </div>
 </fieldset>
+</div>
 </div><div class="box">
 <h2>Ausbaukräfte</h2>
+<input class="feathertoggle" type="checkbox" name="attr_display-powers" value="1" checked="true"/>
 <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+<div>
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
 <fieldset class="repeating_powers">
 <div class="fieldsetcontainer">
 <div class="display">
+<span class="fieldset_editmode_toggle"></span>
+<input class='textline'  type="text" name="attr_name" placeholder="Name"/>
 <span name="attr_name"></span>
 <input class="hideempty_toggle" type="hidden" name="attr_target"/>
 <span class="hideempty">(
@@ -534,16 +591,16 @@
 </div>
 <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
 <div class="wrapper">
-<input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
-<div class="options">
-<input class='medium'  type="text" name="attr_name" placeholder="Name"/>
+<span class="fieldset_editmode_toggle"></span>
+<div>
 <textarea name="attr_description" placeholder="Description"></textarea>
-<!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
 <label>Modifikator:</label>
 <select name="attr_target"><option value="0" selected="selected">None</option>
 <option value="hitpoints" >Lebenspunkte</option>
 <option value="ini" >Initiative</option>
 <option value="parry_all" >Alle Paraden</option>
+<option value="idea" >Ideen</option>
+<option value="coup" >Coups</option>
 <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
 <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
 <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
@@ -565,6 +622,7 @@
 <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
 <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
 <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+<option value="skill_witchcraft" data-i18n="skill_witchcraft">skill_witchcraft</option>
 <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
 <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
 <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
@@ -581,19 +639,24 @@
 <option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option></select>
 <input class="number" type="number" name="attr_bonus" />
 </div>
-<div class="details">
+<div>
 <span class="text" name="attr_description"></span>
 </div>
 </div>
 </div>
 </fieldset>
+</div>
 </div><div class="box">
 <h2>Aktive Effekte</h2>
+<input class="feathertoggle" type="checkbox" name="attr_display-effects" value="1" checked="true"/>
 <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+<div>
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
 <fieldset class="repeating_effects">
 <div class="fieldsetcontainer">
 <div class="display">
+<span class="fieldset_editmode_toggle"></span>
+<input class='textline'  type="text" name="attr_name" placeholder="Name"/>
 <span name="attr_name"></span>
 <input class="hideempty_toggle" type="hidden" name="attr_target"/>
 <span class="hideempty">(
@@ -604,16 +667,16 @@
 </div>
 <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
 <div class="wrapper">
-<input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
-<div class="options">
-<input class='medium'  type="text" name="attr_name" placeholder="Name"/>
+<span class="fieldset_editmode_toggle"></span>
+<div>
 <textarea name="attr_description" placeholder="Description"></textarea>
-<!--<input class="textline" type="text" name="attr_description"  placeholder="Description"/>-->
 <label>Modifikator:</label>
 <select name="attr_target"><option value="0" selected="selected">None</option>
 <option value="hitpoints" >Lebenspunkte</option>
 <option value="ini" >Initiative</option>
 <option value="parry_all" >Alle Paraden</option>
+<option value="idea" >Ideen</option>
+<option value="coup" >Coups</option>
 <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
 <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
 <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
@@ -635,6 +698,7 @@
 <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
 <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
 <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+<option value="skill_witchcraft" data-i18n="skill_witchcraft">skill_witchcraft</option>
 <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
 <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
 <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
@@ -651,15 +715,17 @@
 <option value="weapon_shield" data-i18n="weapon_shield">weapon_shield_ma</option></select>
 <input class="number" type="number" name="attr_bonus" />
 </div>
-<div class="details">
+<div>
 <span class="text" name="attr_description"></span>
 </div>
 </div>
 </div>
 </fieldset>
+</div>
 </div></div>
 <div class="col"><div class="box">
 <h2>Attribute</h2>
+<input class="feathertoggle" type="checkbox" name="attr_display-attributes" value="1" checked="true"/>
 <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
 <div class="attributes">
 <h3>Körperliche</h3>
@@ -701,6 +767,7 @@
 </div>
 </div><div class="box">
 <h2>Allgemeine Fertigkeiten</h2>
+<input class="feathertoggle" type="checkbox" name="attr_display-skills" value="1" checked="true"/>
 <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
 <div class="skills">
   <h3></h3>
@@ -811,7 +878,14 @@
   <div class="item tooltip"><span class="number" name="attr_skill_fieldsofknowledge_max"> </span>
     <div class="tooltiptext"><span>FW +  </span><span data-i18n="attribute_knowledge_short">Ath  </span></div>
   </div>
-  <button class="raven" type="action" name="act_skill_fieldsofknowledge"></button></div>
+  <button class="raven" type="action" name="act_skill_fieldsofknowledge"></button>
+  <label class="item" data-i18n="skill_witchcraft"></label>
+  <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+  <input class="number" type="number" name="attr_skill_witchcraft"/><span class="number" name="attr_skill_witchcraft"></span>
+  <div class="item tooltip"><span class="number" name="attr_skill_witchcraft_max"> </span>
+    <div class="tooltiptext"><span>FW +  </span><span data-i18n="attribute_knowledge_short">Ath  </span></div>
+  </div>
+  <button class="raven" type="action" name="act_skill_witchcraft"></button></div>
 </div></div>
 </div>
 </div>
@@ -819,6 +893,7 @@
     <div class="2colrow">
       <div class="col"><div class="box">
 <h2>Anhaltende Einflüsse</h2>
+<input class="feathertoggle" type="checkbox" name="attr_display-influences" value="1" checked="true"/>
 <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
 <div class="influences">        
 <label class="item">Äußerer Schaden</label>
@@ -864,7 +939,9 @@
 </div>
 </div><div class="box">
 <h2>Schutz und Gesundheit</h2>
+<input class="feathertoggle" type="checkbox" name="attr_display-healing" value="1" checked="true"/>
 <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+<div>
 <div class="right">
 <label>Aktionspunkte</label>
 <br>
@@ -900,6 +977,7 @@
 <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="3" /><span></span>
 <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="4" /><span></span>
 </span>
+</div>
 </div>
 </div>
       </div>
@@ -1057,7 +1135,7 @@
           </div>
         </div>
         <div class="box"> 
-          <h2>Waffenübersicht  </h2><img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png"/>
+          <h2>Waffenübersicht  </h2><input class="feathertoggle" type="checkbox" name="attr_display-weapons" value="1" checked="true"/><img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png"/>
           <div class="weapons">
             <h3>Waffe</h3>
             <h3>Sch</h3>
@@ -1445,10 +1523,7 @@
         <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
         <input class="number" type="number" name="attr_attribute_knowledge"/><span class="normal" name="attr_attribute_knowledge"></span><span class="normal">, </span><span class="label" data-i18n="attribute_willpower_short">Wil</span>
         <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
-        <input class="number" type="number" name="attr_attribute_willpower"/><span class="normal" name="attr_attribute_willpower"></span><br/><span class="label">Lep:</span>
-        <input class="number" type="number" name="attr_npc_hitpoints" value="1"/>
-        <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
-        <input class="number" type="number" name="attr_npc_hitpoints_max" value="1"/><span class="normal" name="attr_npc_hitpoints_max"></span><span class="label"> | </span><span class="label">Pw:</span>
+        <input class="number" type="number" name="attr_attribute_willpower"/><span class="normal" name="attr_attribute_willpower"></span><br/><span class="label">Pw:</span>
         <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
         <input class="number" type="number" name="attr_armor" value="1" min="0" max="3"/><span class="normal" name="attr_armor"></span><br/><span class="label">Ini:</span>
         <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
@@ -1462,10 +1537,7 @@
 <option value="npc_strategy_mighty_allrounder"  data-i18n="npc_strategy_mighty_allrounder">Mächtiger Allrounder</option>
         </select><span class="normal" name="attr_npc_strategy" data-i18n-dynamic="data-i18n-dynamic"></span>
       </div>
-      <div class="npc_gang_only"><span class="label">Lep: </span>
-        <input class="number" type="number" name="attr_npc_hitpoints" value="1"/>
-        <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
-        <input class="number" type="number" name="attr_npc_hitpoints_max" value="1"/><span class="normal" name="attr_npc_hitpoints_max"></span><span class="label"> | </span><span class="label">Ini: </span>
+      <div class="npc_gang_only"><span class="label">Ini: </span>
         <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
         <input class="number" type="number" name="attr_ini" value="1"/><span class="normal" name="attr_ini"></span><br/>
       </div>
@@ -1723,6 +1795,7 @@
         'skill_riding',
         'skill_insensibility',
         'skill_fieldsofknowledge',
+        'skill_witchcraft',
         'weapon_punch',
         'weapon_dagger',
         'weapon_fencing',
@@ -1817,19 +1890,23 @@
 
    
 
-    on("change:attribute_athletic", function() {
-        getAttrs(["attribute_athletic"], function(values) {
-            let ath = parseInt(values.attribute_athletic,10)||0;
+    on("change:attribute_athletic change:coup_mod", function() {
+        getAttrs(["attribute_athletic", "coup_mod"], function(values) {
+            var ath = parseInt(values.attribute_athletic,10)||0;
+            var coup_mod = parseInt(values.coup_mod,10)||0;
+            var coup = ath + coup_mod;
             setAttrs({                            
-                coup_max: ath
+                coup_max: coup
             });
           });
     });
-    on("change:attribute_knowledge", function() {
-        getAttrs(["attribute_knowledge"], function(values) {
-            let kno = parseInt(values.attribute_knowledge,10)||0;
+    on("change:attribute_knowledge change:idea_mod", function() {
+        getAttrs(["attribute_knowledge", "idea_mod"], function(values) {
+            var kno = parseInt(values.attribute_knowledge,10)||0;
+            var idea_mod = parseInt(values.idea_mod,10)||0;
+            var idea = kno + idea_mod;
             setAttrs({                            
-                idea_max: kno
+                idea_max: idea
             });
           });
     });
@@ -1889,6 +1966,9 @@
         setAttrs(itemfields);
     });
 
+    on("change:motivation_name change:motivation_target change:motivation_bonus", function(){
+        rebuildMods();
+    });
     on("change:repeating_armorsets change:repeating_effects change:repeating_powers change:repeating_hunterpowers", function(){
         rebuildMods();
     });
@@ -1900,12 +1980,13 @@
         console.log("rebuild mods");
         var mods = {};
         clearMods(mods);
-        
-        crawlEffects("repeating_armorsets", mods, function(mods) {
-            crawlEffects("repeating_powers", mods, function(mods) {
-                crawlEffects("repeating_hunterpowers", mods, function(mods) {
-                    crawlEffects("repeating_effects", mods, function(mods) {
-                        finishRebuildMods(mods);
+        crawlSingleEffect("motivation", mods, function(mods) {
+            crawlEffects("repeating_armorsets", mods, function(mods) {
+                crawlEffects("repeating_powers", mods, function(mods) {
+                    crawlEffects("repeating_hunterpowers", mods, function(mods) {
+                        crawlEffects("repeating_effects", mods, function(mods) {
+                            finishRebuildMods(mods);
+                        });
                     });
                 });
             });
@@ -1935,6 +2016,29 @@
                 
             });
          });
+    }
+
+    var crawlSingleEffect = function(prefix, mods, callback) {
+        console.log("Crawl single effect");
+        var itemfields = [];
+        itemfields.push(prefix+"_name");
+        itemfields.push(prefix+"_target");
+        itemfields.push(prefix+"_bonus");
+        
+        getAttrs(itemfields, function(v) {
+            
+            console.log(itemfields);
+            console.log(v);
+            var target = v[prefix + "_target"];
+            var modname = v[prefix + "_name"];
+            var bonus = parseInt(v[prefix + "_bonus"],10);
+            addToMods(modname, target, bonus, mods);
+            console.log("mods after crawl single effect:");
+            console.log(mods);
+            callback(mods);
+            
+        });
+
     }
 
     var finishRebuildMods = function(mods) {
@@ -1976,6 +2080,8 @@
         mods["hitpoints"] = [];
         mods["ini"] = [];
         mods["parry_all"] = [];
+        mods["idea"] = [];
+        mods["coup"] = [];
     };
     var addToMods = function(modname, target, bonus, mods) {
         if(!mods.hasOwnProperty(target))
@@ -2019,6 +2125,7 @@
         'skill_riding':{att: 'attribute_athletic'},
         'skill_insensibility':{att: 'attribute_strength'},
         'skill_fieldsofknowledge':{att: 'attribute_knowledge'},
+        'skill_witchcraft':{att: 'attribute_knowledge'},
 
         'weapon_punch':{att: 'attribute_athletic'},
         'weapon_dagger':{att: 'attribute_dexterity'},
@@ -2055,200 +2162,160 @@
 
 
 
-</script><rolltemplate class="sheet-rolltemplate-check">
-    <div class="sheet-rtcard">
-        {{#name}}
-        <h3>{{name}}</h3>
-        {{/name}}
-        {{#attr}}
-            <p>{{attr}}{{#attr_val}} ({{attr_val}}){{/attr_val}}</p>
-        {{/attr}}
-        
-
-        <!--
-        {{#allprops()}}
-                {{key}}={{value}}<br>
-
-            {{/allprops()}}
-            -->
-        {{#hexxen1}}
-        {{#rollTotal() hexxen1 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen1 1}}
-        {{#rollBetween() hexxen1 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen1 2 4}}
-        {{#rollBetween() hexxen1 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen1 5 6}}
-        {{/hexxen1}}
-
-        {{#hexxen2}}
-        {{#rollTotal() hexxen2 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen2 1}}
-        {{#rollBetween() hexxen2 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen2 2 4}}
-        {{#rollBetween() hexxen2 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen2 5 6}}
-        {{/hexxen2}}
-
-        {{#hexxen3}}
-        {{#rollTotal() hexxen3 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen3 1}}
-        {{#rollBetween() hexxen3 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen3 2 4}}
-        {{#rollBetween() hexxen3 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen3 5 6}}
-        {{/hexxen3}}
-
-        {{#hexxen4}}
-        {{#rollTotal() hexxen4 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen4 1}}
-        {{#rollBetween() hexxen4 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen4 2 4}}
-        {{#rollBetween() hexxen4 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen4 5 6}}
-        {{/hexxen4}}
-
-        {{#hexxen5}}
-        {{#rollTotal() hexxen5 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen5 1}}
-        {{#rollBetween() hexxen5 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen5 2 4}}
-        {{#rollBetween() hexxen5 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen5 5 6}}
-        {{/hexxen5}}
-
-        {{#hexxen6}}
-        {{#rollTotal() hexxen6 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen6 1}}
-        {{#rollBetween() hexxen6 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen6 2 4}}
-        {{#rollBetween() hexxen6 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen6 5 6}}
-        {{/hexxen6}}
-
-        {{#hexxen7}}
-        {{#rollTotal() hexxen7 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen7 1}}
-        {{#rollBetween() hexxen7 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen7 2 4}}
-        {{#rollBetween() hexxen7 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen7 5 6}}
-        {{/hexxen7}}
-
-        {{#hexxen8}}
-        {{#rollTotal() hexxen8 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen8 1}}
-        {{#rollBetween() hexxen8 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen8 2 4}}
-        {{#rollBetween() hexxen8 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen8 5 6}}
-        {{/hexxen8}}
-
-        {{#hexxen9}}
-        {{#rollTotal() hexxen9 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen9 1}}
-        {{#rollBetween() hexxen9 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen9 2 4}}
-        {{#rollBetween() hexxen9 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen9 5 6}}
-        {{/hexxen9}}
-
-        {{#hexxen10}}
-        {{#rollTotal() hexxen10 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen10 1}}
-        {{#rollBetween() hexxen10 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen10 2 4}}
-        {{#rollBetween() hexxen10 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen10 5 6}}
-        {{/hexxen10}}
-        <!--<br>-->
-
-        {{#janus1}}
-        {{#rollBetween() janus1 1 3}}<span class="janus empty"></span>{{/rollBetween() janus1 1 3}}
-        {{#rollBetween() janus1 4 6}}<span class="janus success"></span>{{/rollBetween() janus1 4 6}}
-        {{/janus1}}
-
-        {{#janus2}}
-        {{#rollBetween() janus2 1 3}}<span class="janus empty"></span>{{/rollBetween() janus2 1 3}}
-        {{#rollBetween() janus2 4 6}}<span class="janus success"></span>{{/rollBetween() janus2 4 6}}
-        {{/janus2}}
-
-        {{#janus3}}
-        {{#rollBetween() janus3 1 3}}<span class="janus empty"></span>{{/rollBetween() janus3 1 3}}
-        {{#rollBetween() janus3 4 6}}<span class="janus success"></span>{{/rollBetween() janus3 4 6}}
-        {{/janus3}}
-
-        {{#janus4}}
-        {{#rollBetween() janus4 1 3}}<span class="janus empty"></span>{{/rollBetween() janus4 1 3}}
-        {{#rollBetween() janus4 4 6}}<span class="janus success"></span>{{/rollBetween() janus4 4 6}}
-        {{/janus4}}
-
-        {{#janus5}}
-        {{#rollBetween() janus5 1 3}}<span class="janus empty"></span>{{/rollBetween() janus5 1 3}}
-        {{#rollBetween() janus5 4 6}}<span class="janus success"></span>{{/rollBetween() janus5 4 6}}
-        {{/janus5}}
-
-        {{#janus-1}}
-        {{#rollBetween() janus-1 1 3}}<span class="janusmalus empty"></span>{{/rollBetween() janus-1 1 3}}
-        {{#rollBetween() janus-1 4 6}}<span class="janusmalus success"></span>{{/rollBetween() janus-1 4 6}}
-        {{/janus-1}}
-
-        {{#janus-2}}
-        {{#rollBetween() janus-2 1 3}}<span class="janusmalus empty"></span>{{/rollBetween() janus-2 1 3}}
-        {{#rollBetween() janus-2 4 6}}<span class="janusmalus success"></span>{{/rollBetween() janus-2 4 6}}
-        {{/janus-2}}
-
-        {{#janus-3}}
-        {{#rollBetween() janus-3 1 3}}<span class="janusmalus empty"></span>{{/rollBetween() janus-3 1 3}}
-        {{#rollBetween() janus-3 4 6}}<span class="janusmalus success"></span>{{/rollBetween() janus-3 4 6}}
-        {{/janus-3}}
-
-        {{#janus-4}}
-        {{#rollBetween() janus-4 1 3}}<span class="janusmalus empty"></span>{{/rollBetween() janus-4 1 3}}
-        {{#rollBetween() janus-4 4 6}}<span class="janusmalus success"></span>{{/rollBetween() janus-4 4 6}}
-        {{/janus-4}}
-
-        {{#janus-5}}
-        {{#rollBetween() janus-5 1 3}}<span class="janusmalus empty"></span>{{/rollBetween() janus-5 1 3}}
-        {{#rollBetween() janus-5 4 6}}<span class="janusmalus success"></span>{{/rollBetween() janus-5 4 6}}
-        {{/janus-5}}
-        <!--<br>-->
-        {{#blessing1}}
-        {{#rollBetween() blessing1 1 2}}<span class="blessing esprit"></span>{{/rollBetween() blessing1 1 2}}
-        {{#rollTotal() blessing1 3}}<span class="blessing empty"></span>{{/rollTotal() blessing1 3}}
-        {{#rollBetween() blessing1 4 5}}<span class="blessing success"></span>{{/rollBetween() blessing1 4 5}}
-        {{#rollTotal() blessing1 6}}<span class="blessing doublesuccess"></span>{{/rollTotal() blessing1 6}}
-        {{/blessing1}}
-
-        <p>
-            
-            Erfolge:<span class="rtresult_result"></span>
-            Esprit:<span class="rtresult_esprit"></span>
-        </p>
-    </div>
+</script>
+<rolltemplate class="sheet-rolltemplate-check">
+  <div class="sheet-rtcard">{{#name}}
+    <h3>{{name}}</h3>{{/name}}
+    {{#attr}}
+    <p>{{attr}}{{#attr_val}} ({{attr_val}}){{/attr_val}}</p>{{/attr}}{{#hexxen1}}
+    {{#rollTotal() hexxen1 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen1 1}}
+    {{#rollBetween() hexxen1 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen1 2 4}}
+    {{#rollBetween() hexxen1 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen1 5 6}}
+    {{/hexxen1}} {{#hexxen2}}
+    {{#rollTotal() hexxen2 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen2 1}}
+    {{#rollBetween() hexxen2 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen2 2 4}}
+    {{#rollBetween() hexxen2 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen2 5 6}}
+    {{/hexxen2}} {{#hexxen3}}
+    {{#rollTotal() hexxen3 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen3 1}}
+    {{#rollBetween() hexxen3 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen3 2 4}}
+    {{#rollBetween() hexxen3 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen3 5 6}}
+    {{/hexxen3}} {{#hexxen4}}
+    {{#rollTotal() hexxen4 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen4 1}}
+    {{#rollBetween() hexxen4 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen4 2 4}}
+    {{#rollBetween() hexxen4 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen4 5 6}}
+    {{/hexxen4}} {{#hexxen5}}
+    {{#rollTotal() hexxen5 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen5 1}}
+    {{#rollBetween() hexxen5 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen5 2 4}}
+    {{#rollBetween() hexxen5 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen5 5 6}}
+    {{/hexxen5}} {{#hexxen6}}
+    {{#rollTotal() hexxen6 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen6 1}}
+    {{#rollBetween() hexxen6 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen6 2 4}}
+    {{#rollBetween() hexxen6 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen6 5 6}}
+    {{/hexxen6}} {{#hexxen7}}
+    {{#rollTotal() hexxen7 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen7 1}}
+    {{#rollBetween() hexxen7 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen7 2 4}}
+    {{#rollBetween() hexxen7 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen7 5 6}}
+    {{/hexxen7}} {{#hexxen8}}
+    {{#rollTotal() hexxen8 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen8 1}}
+    {{#rollBetween() hexxen8 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen8 2 4}}
+    {{#rollBetween() hexxen8 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen8 5 6}}
+    {{/hexxen8}} {{#hexxen9}}
+    {{#rollTotal() hexxen9 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen9 1}}
+    {{#rollBetween() hexxen9 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen9 2 4}}
+    {{#rollBetween() hexxen9 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen9 5 6}}
+    {{/hexxen9}} {{#hexxen10}}
+    {{#rollTotal() hexxen10 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen10 1}}
+    {{#rollBetween() hexxen10 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen10 2 4}}
+    {{#rollBetween() hexxen10 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen10 5 6}}
+    {{/hexxen10}} {{#hexxen11}}
+    {{#rollTotal() hexxen11 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen11 1}}
+    {{#rollBetween() hexxen11 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen11 2 4}}
+    {{#rollBetween() hexxen11 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen11 5 6}}
+    {{/hexxen11}} {{#hexxen12}}
+    {{#rollTotal() hexxen12 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen12 1}}
+    {{#rollBetween() hexxen12 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen12 2 4}}
+    {{#rollBetween() hexxen12 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen12 5 6}}
+    {{/hexxen12}} {{#hexxen13}}
+    {{#rollTotal() hexxen13 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen13 1}}
+    {{#rollBetween() hexxen13 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen13 2 4}}
+    {{#rollBetween() hexxen13 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen13 5 6}}
+    {{/hexxen13}} {{#hexxen14}}
+    {{#rollTotal() hexxen14 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen14 1}}
+    {{#rollBetween() hexxen14 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen14 2 4}}
+    {{#rollBetween() hexxen14 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen14 5 6}}
+    {{/hexxen14}} {{#hexxen15}}
+    {{#rollTotal() hexxen15 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen15 1}}
+    {{#rollBetween() hexxen15 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen15 2 4}}
+    {{#rollBetween() hexxen15 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen15 5 6}}
+    {{/hexxen15}} {{#hexxen16}}
+    {{#rollTotal() hexxen16 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen16 1}}
+    {{#rollBetween() hexxen16 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen16 2 4}}
+    {{#rollBetween() hexxen16 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen16 5 6}}
+    {{/hexxen16}} {{#hexxen17}}
+    {{#rollTotal() hexxen17 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen17 1}}
+    {{#rollBetween() hexxen17 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen17 2 4}}
+    {{#rollBetween() hexxen17 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen17 5 6}}
+    {{/hexxen17}} {{#hexxen18}}
+    {{#rollTotal() hexxen18 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen18 1}}
+    {{#rollBetween() hexxen18 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen18 2 4}}
+    {{#rollBetween() hexxen18 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen18 5 6}}
+    {{/hexxen18}} {{#hexxen19}}
+    {{#rollTotal() hexxen19 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen19 1}}
+    {{#rollBetween() hexxen19 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen19 2 4}}
+    {{#rollBetween() hexxen19 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen19 5 6}}
+    {{/hexxen19}} {{#hexxen20}}
+    {{#rollTotal() hexxen20 1}}<span class="hexxen esprit"></span>{{/rollTotal() hexxen20 1}}
+    {{#rollBetween() hexxen20 2 4}}<span class="hexxen empty"></span>{{/rollBetween() hexxen20 2 4}}
+    {{#rollBetween() hexxen20 5 6}}<span class="hexxen success"></span>{{/rollBetween() hexxen20 5 6}}
+    {{/hexxen20}} {{#janus1}}
+    {{#rollBetween() janus1 1 3}}<span class="janus empty"></span>{{/rollBetween() janus1 1 3}}
+    {{#rollBetween() janus1 4 6}}<span class="janus success"></span>{{/rollBetween() janus1 4 6}}
+    {{/janus1}} {{#janus2}}
+    {{#rollBetween() janus2 1 3}}<span class="janus empty"></span>{{/rollBetween() janus2 1 3}}
+    {{#rollBetween() janus2 4 6}}<span class="janus success"></span>{{/rollBetween() janus2 4 6}}
+    {{/janus2}} {{#janus3}}
+    {{#rollBetween() janus3 1 3}}<span class="janus empty"></span>{{/rollBetween() janus3 1 3}}
+    {{#rollBetween() janus3 4 6}}<span class="janus success"></span>{{/rollBetween() janus3 4 6}}
+    {{/janus3}} {{#janus4}}
+    {{#rollBetween() janus4 1 3}}<span class="janus empty"></span>{{/rollBetween() janus4 1 3}}
+    {{#rollBetween() janus4 4 6}}<span class="janus success"></span>{{/rollBetween() janus4 4 6}}
+    {{/janus4}} {{#janus5}}
+    {{#rollBetween() janus5 1 3}}<span class="janus empty"></span>{{/rollBetween() janus5 1 3}}
+    {{#rollBetween() janus5 4 6}}<span class="janus success"></span>{{/rollBetween() janus5 4 6}}
+    {{/janus5}} {{#janus-1}}
+    {{#rollBetween() janus-1 1 3}}<span class="janus empty"></span>{{/rollBetween() janus-1 1 3}}
+    {{#rollBetween() janus-1 4 6}}<span class="janus success"></span>{{/rollBetween() janus-1 4 6}}
+    {{/janus-1}} {{#janus-2}}
+    {{#rollBetween() janus-2 1 3}}<span class="janus empty"></span>{{/rollBetween() janus-2 1 3}}
+    {{#rollBetween() janus-2 4 6}}<span class="janus success"></span>{{/rollBetween() janus-2 4 6}}
+    {{/janus-2}} {{#janus-3}}
+    {{#rollBetween() janus-3 1 3}}<span class="janus empty"></span>{{/rollBetween() janus-3 1 3}}
+    {{#rollBetween() janus-3 4 6}}<span class="janus success"></span>{{/rollBetween() janus-3 4 6}}
+    {{/janus-3}} {{#janus-4}}
+    {{#rollBetween() janus-4 1 3}}<span class="janus empty"></span>{{/rollBetween() janus-4 1 3}}
+    {{#rollBetween() janus-4 4 6}}<span class="janus success"></span>{{/rollBetween() janus-4 4 6}}
+    {{/janus-4}} {{#janus-5}}
+    {{#rollBetween() janus-5 1 3}}<span class="janus empty"></span>{{/rollBetween() janus-5 1 3}}
+    {{#rollBetween() janus-5 4 6}}<span class="janus success"></span>{{/rollBetween() janus-5 4 6}}
+    {{/janus-5}} {{#blessing1}}
+    {{#rollBetween() blessing1 1 2}}<span class="blessing esprit"></span>{{/rollBetween() blessing1 1 2}}
+    {{#rollTotal() blessing1 3}}<span class="blessing empty"></span>{{/rollTotal() blessing1 3}}
+    {{#rollBetween() blessing1 4 5}}<span class="blessing success"></span>{{/rollBetween() blessing1 4 5}}
+    {{#rollTotal() blessing1 6}}<span class="blessing doublesuccess"></span>{{/rollTotal() blessing1 6}}
+    {{/blessing1}}
+    <p>
+      Erfolge:<span class="rtresult_result"></span>
+      Esprit:<span class="rtresult_esprit"></span>
+    </p>
+  </div>
 </rolltemplate>
-
 <rolltemplate class="sheet-rolltemplate-blood">
-    <div class="sheet-rtcard">
-        {{#name}}
-        <h3>{{name}}</h3>
-        {{/name}}
-        {{#attr}}
-            <p>{{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}</p>
-        {{/attr}}      
-        <!--
-        {{#allprops()}}
-            {{key}}={{value}}<br>
-
-        {{/allprops()}}
-        -->          
-        {{#blood1}}
-        {{#rollTotal() blood1 1}}<span class="blood empty"></span>{{/rollTotal() blood1 1}}
-        {{#rollBetween() blood1 2 3}}<span class="blood blood1"></span>{{/rollBetween() blood1 2 3}}
-        {{#rollBetween() blood1 4 5}}<span class="blood blood2"></span>{{/rollBetween() blood1 4 5}}
-        {{#rollTotal() blood1 6}}<span class="blood blood3"></span>{{/rollTotal() blood1 6}}
-        {{/blood1}}
-
-        <p>
-            Blut:<span class="sheet-rtresult_blood"></span>
-        </p>
-    </div>
+  <div class="sheet-rtcard">{{#name}}
+    <h3>{{name}}</h3>{{/name}}
+    {{#attr}}
+    <p>{{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}</p>{{/attr}}               
+    {{#blood1}}
+    {{#rollTotal() blood1 1}}<span class="blood empty"></span>{{/rollTotal() blood1 1}}
+    {{#rollBetween() blood1 2 3}}<span class="blood blood1"></span>{{/rollBetween() blood1 2 3}}
+    {{#rollBetween() blood1 4 5}}<span class="blood blood2"></span>{{/rollBetween() blood1 4 5}}
+    {{#rollTotal() blood1 6}}<span class="blood blood3"></span>{{/rollTotal() blood1 6}}
+    {{/blood1}}
+    <p>Blut:<span class="sheet-rtresult_blood"></span></p>
+  </div>
 </rolltemplate>
-
 <rolltemplate class="sheet-rolltemplate-elixir">
-    <div class="sheet-rtcard">
-        {{#name}}
-        <h3>{{name}}</h3>
-        {{/name}}
-        {{#attr}}
-            <p>{{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}</p>
-        {{/attr}}      
-        <!--
-        {{#allprops()}}
-            {{key}}={{value}}<br>
-
-        {{/allprops()}}
-        -->          
-        {{#elixir1}}
-        {{#rollTotal() elixir1 1}}<span class="elixir elixir1"></span>{{/rollTotal() elixir1 1}}
-        {{#rollTotal() elixir1 2}}<span class="elixir elixir2"></span>{{/rollTotal() elixir1 2}}
-        {{#rollTotal() elixir1 3}}<span class="elixir elixir3"></span>{{/rollTotal() elixir1 3}}
-        {{#rollTotal() elixir1 4}}<span class="elixir elixir4"></span>{{/rollTotal() elixir1 4}}
-        {{#rollTotal() elixir1 5}}<span class="elixir elixir5"></span>{{/rollTotal() elixir1 5}}
-        {{#rollTotal() elixir1 6}}<span class="elixir elixir3"></span>{{/rollTotal() elixir1 6}}
-        {{/elixir1}}
-
-        <p>
-            Elixier:<span class="sheet-rtresult_elixir"></span>
-        </p>
-    </div>
+  <div class="sheet-rtcard">{{#name}}
+    <h3>{{name}}</h3>{{/name}}
+    {{#attr}}
+    <p>{{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}</p>{{/attr}}               
+    {{#elixir1}}
+    {{#rollTotal() elixir1 1}}<span class="elixir elixir1"></span>{{/rollTotal() elixir1 1}}
+    {{#rollTotal() elixir1 2}}<span class="elixir elixir2"></span>{{/rollTotal() elixir1 2}}
+    {{#rollTotal() elixir1 3}}<span class="elixir elixir3"></span>{{/rollTotal() elixir1 3}}
+    {{#rollTotal() elixir1 4}}<span class="elixir elixir4"></span>{{/rollTotal() elixir1 4}}
+    {{#rollTotal() elixir1 5}}<span class="elixir elixir5"></span>{{/rollTotal() elixir1 5}}
+    {{#rollTotal() elixir1 6}}<span class="elixir elixir3"></span>{{/rollTotal() elixir1 6}}
+    {{/elixir1}}
+    <p>Elixier:<span class="sheet-rtresult_elixir"></span></p>
+  </div>
 </rolltemplate>

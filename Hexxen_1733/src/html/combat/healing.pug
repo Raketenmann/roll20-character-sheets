@@ -1,48 +1,51 @@
 <div class="box">
     <h2>Schutz und Gesundheit</h2>
+    <input class="feathertoggle" type="checkbox" name="attr_display-healing" value="1" checked="true"/>
     <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+    <div>
 
-    <div class="right">
-        <label>Aktionspunkte</label>
+        <div class="right">
+            <label>Aktionspunkte</label>
+            <br>
+            <input type="number" class="number" name="attr_ap" value="6" min="0" max="6"/>
+            <span>(max. <span name="attr_ap_max"></span>)</span>
+            <br><br>
+            <label>Initiative</label>
+            <input type="hidden" name="attr_ini"/>
+            <span class="number" name="attr_ini"></span>
+            <br>
+        </div>
+
+        <label class="short">Panzerung</label>
         <br>
-        <input type="number" class="number" name="attr_ap" value="6" min="0" max="6"/>
-        <span>(max. <span name="attr_ap_max"></span>)</span>
-        <br><br>
-        <label>Initiative</label>
-        <input type="hidden" name="attr_ini"/>
-        <span class="number" name="attr_ini"></span>
+        <input type="radio" class="normal" name="attr_armor" value="1" checked="checked"/><span></span><label>Leicht (<span class="pureattribute">Pw1</span>)</label>
         <br>
-    </div>
+        <input type="radio" class="normal" name="attr_armor" value="2" /><span></span><label>Mittel (<span class="pureattribute">Pw2</span>)</label>
+        <br>
+        <input type="radio" class="normal" name="attr_armor" value="3" /><span></span><label>Schwer (<span class="pureattribute">Pw3</span>)</label>
+        
+        <br>
+        <br>
+        
 
-    <label class="short">Panzerung</label>
-    <br>
-    <input type="radio" class="normal" name="attr_armor" value="1" checked="checked"/><span></span><label>Leicht (<span class="pureattribute">Pw1</span>)</label>
-    <br>
-    <input type="radio" class="normal" name="attr_armor" value="2" /><span></span><label>Mittel (<span class="pureattribute">Pw2</span>)</label>
-    <br>
-    <input type="radio" class="normal" name="attr_armor" value="3" /><span></span><label>Schwer (<span class="pureattribute">Pw3</span>)</label>
-    
-    <br>
-    <br>
-    
+        <div class="healinggrid">
+            <label>Erste Hilfe [<span class="pureattribute">Eh</span>]</label>
 
-    <div class="healinggrid">
-        <label>Erste Hilfe [<span class="pureattribute">Eh</span>]</label>
+            <span>
+                <input type="radio" class="rating sheet-zero" name="attr_counter_firstaid" value="0" checked="checked" /><span></span>
+                <input type="radio" class="rating" name="attr_counter_firstaid" value="1" /><span></span>
+                <input type="radio" class="rating" name="attr_counter_firstaid" value="2" /><span></span>
+            </span>
 
-        <span>
-            <input type="radio" class="rating sheet-zero" name="attr_counter_firstaid" value="0" checked="checked" /><span></span>
-            <input type="radio" class="rating" name="attr_counter_firstaid" value="1" /><span></span>
-            <input type="radio" class="rating" name="attr_counter_firstaid" value="2" /><span></span>
-        </span>
+            <label>Mag. Heilung [<span class="pureattribute">Mh</span>] & Elixiere</label>
 
-        <label>Mag. Heilung [<span class="pureattribute">Mh</span>] & Elixiere</label>
-
-        <span>
-            <input type="radio" class="sheet-rating sheet-zero" name="attr_counter_magicalheal" value="0" checked="checked" /><span></span>
-            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="1" /><span></span>
-            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="2" /><span></span>
-            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="3" /><span></span>
-            <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="4" /><span></span>
-        </span>
+            <span>
+                <input type="radio" class="sheet-rating sheet-zero" name="attr_counter_magicalheal" value="0" checked="checked" /><span></span>
+                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="1" /><span></span>
+                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="2" /><span></span>
+                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="3" /><span></span>
+                <input type="radio" class="sheet-rating" name="attr_counter_magicalheal" value="4" /><span></span>
+            </span>
+        </div>
     </div>
 </div>

@@ -168,6 +168,7 @@ const buttonlist = ["character","combat","npc","configuration"];
         'skill_riding',
         'skill_insensibility',
         'skill_fieldsofknowledge',
+        'skill_witchcraft',
         'weapon_punch',
         'weapon_dagger',
         'weapon_fencing',
@@ -262,19 +263,23 @@ const buttonlist = ["character","combat","npc","configuration"];
 
    
 
-    on("change:attribute_athletic", function() {
-        getAttrs(["attribute_athletic"], function(values) {
-            let ath = parseInt(values.attribute_athletic,10)||0;
+    on("change:attribute_athletic change:coup_mod", function() {
+        getAttrs(["attribute_athletic", "coup_mod"], function(values) {
+            var ath = parseInt(values.attribute_athletic,10)||0;
+            var coup_mod = parseInt(values.coup_mod,10)||0;
+            var coup = ath + coup_mod;
             setAttrs({                            
-                coup_max: ath
+                coup_max: coup
             });
           });
     });
-    on("change:attribute_knowledge", function() {
-        getAttrs(["attribute_knowledge"], function(values) {
-            let kno = parseInt(values.attribute_knowledge,10)||0;
+    on("change:attribute_knowledge change:idea_mod", function() {
+        getAttrs(["attribute_knowledge", "idea_mod"], function(values) {
+            var kno = parseInt(values.attribute_knowledge,10)||0;
+            var idea_mod = parseInt(values.idea_mod,10)||0;
+            var idea = kno + idea_mod;
             setAttrs({                            
-                idea_max: kno
+                idea_max: idea
             });
           });
     });
@@ -334,6 +339,9 @@ const buttonlist = ["character","combat","npc","configuration"];
         setAttrs(itemfields);
     });
 
+    on("change:motivation_name change:motivation_target change:motivation_bonus", function(){
+        rebuildMods();
+    });
     on("change:repeating_armorsets change:repeating_effects change:repeating_powers change:repeating_hunterpowers", function(){
         rebuildMods();
     });
@@ -345,12 +353,13 @@ const buttonlist = ["character","combat","npc","configuration"];
         console.log("rebuild mods");
         var mods = {};
         clearMods(mods);
-        
-        crawlEffects("repeating_armorsets", mods, function(mods) {
-            crawlEffects("repeating_powers", mods, function(mods) {
-                crawlEffects("repeating_hunterpowers", mods, function(mods) {
-                    crawlEffects("repeating_effects", mods, function(mods) {
-                        finishRebuildMods(mods);
+        crawlSingleEffect("motivation", mods, function(mods) {
+            crawlEffects("repeating_armorsets", mods, function(mods) {
+                crawlEffects("repeating_powers", mods, function(mods) {
+                    crawlEffects("repeating_hunterpowers", mods, function(mods) {
+                        crawlEffects("repeating_effects", mods, function(mods) {
+                            finishRebuildMods(mods);
+                        });
                     });
                 });
             });
@@ -380,6 +389,29 @@ const buttonlist = ["character","combat","npc","configuration"];
                 
             });
          });
+    }
+
+    var crawlSingleEffect = function(prefix, mods, callback) {
+        console.log("Crawl single effect");
+        var itemfields = [];
+        itemfields.push(prefix+"_name");
+        itemfields.push(prefix+"_target");
+        itemfields.push(prefix+"_bonus");
+        
+        getAttrs(itemfields, function(v) {
+            
+            console.log(itemfields);
+            console.log(v);
+            var target = v[prefix + "_target"];
+            var modname = v[prefix + "_name"];
+            var bonus = parseInt(v[prefix + "_bonus"],10);
+            addToMods(modname, target, bonus, mods);
+            console.log("mods after crawl single effect:");
+            console.log(mods);
+            callback(mods);
+            
+        });
+
     }
 
     var finishRebuildMods = function(mods) {
@@ -421,6 +453,8 @@ const buttonlist = ["character","combat","npc","configuration"];
         mods["hitpoints"] = [];
         mods["ini"] = [];
         mods["parry_all"] = [];
+        mods["idea"] = [];
+        mods["coup"] = [];
     };
     var addToMods = function(modname, target, bonus, mods) {
         if(!mods.hasOwnProperty(target))
@@ -464,6 +498,7 @@ const buttonlist = ["character","combat","npc","configuration"];
         'skill_riding':{att: 'attribute_athletic'},
         'skill_insensibility':{att: 'attribute_strength'},
         'skill_fieldsofknowledge':{att: 'attribute_knowledge'},
+        'skill_witchcraft':{att: 'attribute_knowledge'},
 
         'weapon_punch':{att: 'attribute_athletic'},
         'weapon_dagger':{att: 'attribute_dexterity'},

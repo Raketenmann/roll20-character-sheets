@@ -1,5 +1,5 @@
 <img class="raven" src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />
-<img class="watermark" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+<img class="pc_only watermark" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
 <div class="tabbuttonbar">
 <button type="action" class="pc_only" name="act_character" >Character</button>
 <button type="action" class="npc_only" name="act_npc" >NPC</button>
@@ -13,6 +13,10 @@
 <div>
 <div class="npc_only">
 <button type="action" name="act_converttopc" >Convert to PC</button>
+<div class="npc_only">       
+<label>Lebenspunkte: </label>
+<input class="number" type="number" name="attr_npc_hitpoints" value="1"/>
+<input class="number" type="number" name="attr_npc_hitpoints_max" value="1"/></div>
 </div>
 <div class="pc_only">
 <button type="action" name="act_converttonpc" >Convert to NPC</button>
@@ -35,7 +39,7 @@
 </div>
 </div>
 <div style="min-width:400px">
-<div class="right npc_only">
+<div class="right npc_only npc_leader_only">
   <div class="ressource_hex">
     <div class="tooltip"></div>
     <input class="number" type="hidden" name="attr_hex"/><span class="chipstackgroup">
@@ -59,21 +63,39 @@
 </div><input type="hidden" name="attr_rollvaluename"/>
 <span class="label" name="attr_rollvaluename"></span>
 <br>
-<input type="hidden" min="0" max="10" name="attr_hexxen" />
-<span class="dicebargroup">
-<input type="radio" class="dicebarzero" name="attr_hexxen" value="0" checked="checked" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="1" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="2" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="3" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="4" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="5" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="6" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="7" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="8" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="9" /><span></span>
-<input type="radio" class="dicebar hexdie" name="attr_hexxen" value="10" /><span></span>
-</span>
-<div class="rolltestdice">
+<input type="hidden" min="0" max="10" name="attr_hexxen" /><span class="dicebargroup pc_only">
+  <input class="dicebarzero" type="radio" name="attr_hexxen" value="0" checked="checked"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="1" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="2" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="3" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="4" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="5" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="6" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="7" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="8" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="9" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="10" name="attr_hexxen"/><span></span></span><span class="dicebargroup npc_only">
+  <input class="dicebarzero" type="radio" name="attr_hexxen" value="0" checked="checked"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="1" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="2" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="3" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="4" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="5" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="6" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="7" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="8" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="9" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="10" name="attr_hexxen"/><span></span><br/><span class="spacer_dice"></span>
+  <input class="dicebar hexdie" type="radio" value="11" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="12" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="13" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="14" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="15" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="16" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="17" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="18" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="19" name="attr_hexxen"/><span></span>
+  <input class="dicebar hexdie" type="radio" value="20" name="attr_hexxen"/><span></span></span><div class="rolltestdice">
 <button type='roll' name='roll_testattack' value='@{rollquery}'>Roll</button>
 </div>
 <br>
@@ -114,9 +136,12 @@
 <div class="tooltip">
 <input class='number' type="number" name="attr_hitpoints" />    
 <label class="tooltiptext">Aktuelle Basis-[Lep].<br>Bei Basis-[Lep]≤-1 der Verlust alle Coups/Ideen, deren Benutzung unmöglich. Puffer-[Lep]=0</label>
-<span class="label">(max. <span class="label" name="attr_hitpoints_max" ></span>)</span>
+<span>(max. <span class="label" name="attr_hitpoints_max" ></span>)</span>
 </div>
 </div>
+<div class="npc_only">       
+<label>Lebenspunkte: </label>
+<input class="number" type="number" name="attr_npc_hitpoints" value="1"/><span>(max. <span name="attr_npc_hitpoints_max"></span>)</span></div>
 </div>
 </div>
 <div class="col pc_only">
@@ -142,7 +167,9 @@
         <button type="action" name="act_addcoup">+</button><span name="attr_coup"></span>
         <button type="action" name="act_remcoup">-</button>
       </div>
-      <label class="tooltiptext" data-i18n="ressource_coup">coup</label>
+      <div class="tooltiptext"><span data-i18n="ressource_coup">coup</span>
+        <input class="hideempty_toggle" type="hidden" name="attr_coup_max"/><span class="hideempty"> (max. <span name="attr_coup_max"></span>)</span>
+      </div>
     </div>
     <div class="tooltip ressource_idea">
       <input class="number" type="hidden" name="attr_idea"/>
@@ -162,7 +189,9 @@
         <button type="action" name="act_addidea">+</button><span name="attr_idea"></span>
         <button type="action" name="act_remidea">-</button>
       </div>
-      <label class="tooltiptext" data-i18n="ressource_idea">idea</label>
+      <div class="tooltiptext"><span data-i18n="ressource_idea">idea</span>
+        <input class="hideempty_toggle" type="hidden" name="attr_idea_max"/><span class="hideempty"> (max. <span name="attr_idea_max"></span>)</span>
+      </div>
     </div>
     <div class="tooltip ressource_blessing">
       <input class="number" type="hidden" name="attr_blessing"/>
@@ -182,7 +211,9 @@
         <button type="action" name="act_addblessing">+</button><span name="attr_blessing"></span>
         <button type="action" name="act_remblessing">-</button>
       </div>
-      <label class="tooltiptext" data-i18n="ressource_blessing">blessing</label>
+      <div class="tooltiptext"><span data-i18n="ressource_blessing">blessing</span>
+        <input class="hideempty_toggle" type="hidden" name="attr_blessing_max"/><span class="hideempty"> (max. <span name="attr_blessing_max"></span>)</span>
+      </div>
     </div>
     <div class="tooltip ressource_rage">
       <input class="number" type="hidden" name="attr_rage"/>
@@ -202,7 +233,9 @@
         <button type="action" name="act_addrage">+</button><span name="attr_rage"></span>
         <button type="action" name="act_remrage">-</button>
       </div>
-      <label class="tooltiptext" data-i18n="ressource_rage">rage</label>
+      <div class="tooltiptext"><span data-i18n="ressource_rage">rage</span>
+        <input class="hideempty_toggle" type="hidden" name="attr_rage_max"/><span class="hideempty"> (max. <span name="attr_rage_max"></span>)</span>
+      </div>
     </div>
     <div class="tooltip ressource_ambition">
       <input class="number" type="hidden" name="attr_ambition"/>
@@ -222,7 +255,9 @@
         <button type="action" name="act_addambition">+</button><span name="attr_ambition"></span>
         <button type="action" name="act_remambition">-</button>
       </div>
-      <label class="tooltiptext" data-i18n="ressource_ambition">ambition</label>
+      <div class="tooltiptext"><span data-i18n="ressource_ambition">ambition</span>
+        <input class="hideempty_toggle" type="hidden" name="attr_ambition_max"/><span class="hideempty"> (max. <span name="attr_ambition_max"></span>)</span>
+      </div>
     </div>
     <div class="tooltip ressource_quintessence">
       <input class="number" type="hidden" name="attr_quintessence"/>
@@ -242,7 +277,9 @@
         <button type="action" name="act_addquintessence">+</button><span name="attr_quintessence"></span>
         <button type="action" name="act_remquintessence">-</button>
       </div>
-      <label class="tooltiptext" data-i18n="ressource_quintessence">quintessence</label>
+      <div class="tooltiptext"><span data-i18n="ressource_quintessence">quintessence</span>
+        <input class="hideempty_toggle" type="hidden" name="attr_quintessence_max"/><span class="hideempty"> (max. <span name="attr_quintessence_max"></span>)</span>
+      </div>
     </div>
   </div>
 </div>

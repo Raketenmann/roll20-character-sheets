@@ -1,17 +1,14 @@
 <div class="box">
     <h2>Rollen</h2>
+    <input class="feathertoggle" type="checkbox" name="attr_display-roles" value="1" checked="true"/>
     <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
-    <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
-    <fieldset class="repeating_roles counterreset">
-        <div class="fieldsetcontainer">
-            <div class="display">
-                <label class="counter">Rolle No</label>
-                <span name="attr_role" data-i18n-dynamic></span>
-            </div>
-            <input class="details-flag" type="checkbox" name="attr_details-flag" checked=true/><span>i</span>
-            <div class="wrapper">
-                <input class="options-flag" type="checkbox" name="attr_options-flag" checked=true/><span>y</span>
-                <div class="options">
+    <div>
+        <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
+        <fieldset class="repeating_roles counterreset">
+            <div class="fieldsetcontainer">
+                <div class="display">
+                    <label class="counter">Rolle No</label>
+                    <span class="fieldset_editmode_toggle"></span>
                     <select name="attr_role">
                         <option value="0" selected="selected" data-i18n="role_none">None</option>
                         <option value="role_alchemist"  data-i18n="role_alchemist">Alchemist</option>
@@ -28,12 +25,9 @@
                         <option value="role_priest"  data-i18n="role_priest">Priester</option>
                         <option value="role_strategist"  data-i18n="role_strategist">Stratege</option>       
                     </select>
-                    <textarea name="attr_description" placeholder="Description"></textarea>
-                </div>
-                <div class="details">
-                    <span class="text" name="attr_description"></span>
+                    <span name="attr_role" data-i18n-dynamic></span>
                 </div>
             </div>
-        </div>
-    </fieldset>
+        </fieldset>
+    </div>
 </div>

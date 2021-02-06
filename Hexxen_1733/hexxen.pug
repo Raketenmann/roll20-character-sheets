@@ -32,7 +32,8 @@
     {id:'skill_reflexes', baseattribute:'attribute_senses'},
     {id:'skill_riding', baseattribute:'attribute_athletic'},
     {id:'skill_insensibility', baseattribute:'attribute_strength'},
-    {id:'skill_fieldsofknowledge', baseattribute:'attribute_knowledge'}
+    {id:'skill_fieldsofknowledge', baseattribute:'attribute_knowledge'},
+    {id:'skill_witchcraft', baseattribute:'attribute_knowledge'}
   ];
 
 mixin modoptions
@@ -40,6 +41,8 @@ mixin modoptions
   <option value="hitpoints" >Lebenspunkte</option>
   <option value="ini" >Initiative</option>
   <option value="parry_all" >Alle Paraden</option>
+  <option value="idea" >Ideen</option>
+  <option value="coup" >Coups</option>
   <option value="attribute_strength" data-i18n="attribute_strength">attribute_strength</option>
   <option value="attribute_athletic" data-i18n="attribute_athletic">attribute_athletic</option>
   <option value="attribute_dexterity" data-i18n="attribute_dexterity">attribute_dexterity</option>
@@ -61,6 +64,7 @@ mixin modoptions
   <option value="skill_riding" data-i18n="skill_riding">skill_riding</option>
   <option value="skill_insensibility" data-i18n="skill_insensibility">skill_insensibility</option>
   <option value="skill_fieldsofknowledge" data-i18n="skill_fieldsofknowledge">skill_fieldsofknowledge</option>
+  <option value="skill_witchcraft" data-i18n="skill_witchcraft">skill_witchcraft</option>
   <option value="weapon_punch" data-i18n="weapon_punch">weapon_punch</option>
   <option value="weapon_dagger" data-i18n="weapon_dagger">weapon_dagger</option>
   <option value="weapon_fencing" data-i18n="weapon_fencing">weapon_fencing</option>
@@ -78,6 +82,7 @@ mixin modoptions
                 
 
 input(type='hidden' class='npctoggle' name='attr_npc'  value='0')
+input(type="hidden" class="npc_type_toggle" name="attr_npc_type" value="npc_type_gang")
 
 div(class="charsheet")
   input(type='hidden' class='tabstoggle' name='attr_sheetTab'  value='character')
@@ -97,4 +102,6 @@ div(class="charsheet")
 script(type="text/worker")
     include src/js/sheetworker.js
 
-include src/html/rolltemplate.html
+include src/html/rolltemplate_check.pug
+include src/html/rolltemplate_blood.pug
+include src/html/rolltemplate_elixir.pug

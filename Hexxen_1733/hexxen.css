@@ -235,6 +235,34 @@ div.sheet-box h2 {
 	font-size:1.5em;
 }
 
+input.sheet-feathertoggle[type="checkbox"]
+{
+	position: absolute;
+	right: 6px;
+	top:-7px;
+	width:52px;
+	opacity:100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+input.sheet-feathertoggle[type="checkbox"] + img.sheet-feather
+{
+    position: absolute;
+	right: 6px;
+	top:-7px;
+	width:52px;
+	opacity:50%;
+}
+input.sheet-feathertoggle[type="checkbox"]:checked + img.sheet-feather
+{    
+    opacity:100%;
+}
+
+input.sheet-feathertoggle[type="checkbox"]:not(:checked) + img.sheet-feather + div
+{
+	display:none;
+}
 
 textarea {
 	resize: vertical;
@@ -254,7 +282,7 @@ textarea {
 	display:flex;
 	flex-flow:column wrap;
 	align-content: flex-start;
-	align-items:flex-start;
+	max-height:900px;
 }
 .sheet-2colrow {
 	margin-top:0px;
@@ -623,13 +651,24 @@ input.sheet-chip10 + span::before
 	background-color: transparent;
     text-align: center;
     display: inline-block;
-	vertical-align: top;
     color:black;
 	content: "D";
 	font-family: "Pictos";
     width: 16px;
     height: 16px;
 	opacity: 0.1;
+}
+.sheet-spacer_dice
+{
+	width: 16px;
+    height: 16px;
+	margin-left: 20px;
+}
+.sheet-spacer_gap
+{
+	width: 16px;
+    height: 16px;
+	margin-left: 5px;
 }
 
 .sheet-dicebar + span::before,
@@ -1025,6 +1064,9 @@ span.sheet-dee {
 
 
   /* Edit and details */
+.charsheet .sheet-fieldsetcontainer .sheet-display  {
+    min-height: 24px;
+}
   .charsheet .sheet-fieldsetcontainer .sheet-wrapper  {
     position: relative;
 }
@@ -1036,6 +1078,7 @@ span.sheet-dee {
 .charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag:not(:checked) ~ .sheet-options {
 	display: none;
 }
+
 .charsheet .sheet-fieldsetcontainer .sheet-details-flag,
 .charsheet .sheet-fieldsetcontainer .sheet-options-flag
  {
@@ -1057,6 +1100,7 @@ span.sheet-dee {
 	line-height: 18px;
 	opacity: 0.75;
 }
+
 .charsheet .sheet-fieldsetcontainer .sheet-details-flag,
 .charsheet .sheet-fieldsetcontainer .sheet-details-flag + span {
     position: absolute;
@@ -1070,7 +1114,7 @@ span.sheet-dee {
 }
 .charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag,
 .charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag + span  {
-    top: -19px;
+    top: -24px;
     right: 21px;
 }
 .charsheet .sheet-fieldsetcontainer .sheet-wrapper .sheet-options-flag {
@@ -1151,55 +1195,70 @@ span.sheet-dee {
 	font-family: "Pictos";
 	background-color: #da4f49;
 }
-
+.charsheet .repcontainer.editmode .sheet-wrapper,
+.charsheet .repcontainer.editmode .sheet-details-flag,
+.charsheet .repcontainer.editmode .sheet-details-flag + span{
+	display: none;
+}
 .sheet-editmode_toggle[value="0"] + input[type="number"],
 .sheet-editmode_toggle[value="0"] + button,
-.sheet-editmode_toggle[value="0"] + div {
+.sheet-editmode_toggle[value="0"] + div,
+.sheet-editmode_toggle[value="0"] + input[type="text"],
+.sheet-editmode_toggle[value="0"] + select,
+.sheet-editmode_toggle[value="0"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + div,
+.sheet-editmode_toggle[value="0"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + input[type="text"],
+.sheet-editmode_toggle[value="0"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + select      {
 	display: none;
 }
 .sheet-editmode_toggle[value="1"] + input[type="number"],
 .sheet-editmode_toggle[value="1"] + button,
-.sheet-editmode_toggle[value="1"] + div  {
+.sheet-editmode_toggle[value="1"] + div,
+.sheet-editmode_toggle[value="1"] + input[type="text"],
+.sheet-editmode_toggle[value="1"] + select,
+.sheet-editmode_toggle[value="1"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + div,
+.sheet-editmode_toggle[value="1"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + input[type="text"],
+.sheet-editmode_toggle[value="1"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + select  {
 	display: inline-block;
 }
 .sheet-editmode_toggle[value="1"] + input[type="number"] + span.sheet-number,
 .sheet-editmode_toggle[value="1"] + input[type="number"] + span.sheet-normal,
 .sheet-editmode_toggle[value="1"] + button + button,
-.sheet-editmode_toggle[value="1"] + div + div {
+.sheet-editmode_toggle[value="1"] + div + div,
+.sheet-editmode_toggle[value="1"] + input[type="text"] + span.sheet-label,
+.sheet-editmode_toggle[value="1"] + select + span.sheet-label,
+.sheet-editmode_toggle[value="1"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + div + div,
+.sheet-editmode_toggle[value="1"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + input[type="text"] + span,
+.sheet-editmode_toggle[value="1"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + select + span {
 	display: none;
 }
 .sheet-editmode_toggle[value="0"] + input[type="number"] + span.sheet-number,
 .sheet-editmode_toggle[value="0"] + input[type="number"] + span.sheet-normal,
 .sheet-editmode_toggle[value="0"] + button + button,
-.sheet-editmode_toggle[value="0"] + div + div {
+.sheet-editmode_toggle[value="0"] + div + div,
+.sheet-editmode_toggle[value="0"] + input[type="text"] + span.sheet-label,
+.sheet-editmode_toggle[value="0"] + select + span.sheet-label,
+.sheet-editmode_toggle[value="0"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + div + div,
+.sheet-editmode_toggle[value="0"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + input[type="text"] + span,
+.sheet-editmode_toggle[value="0"] + fieldset + .repcontainer .sheet-fieldset_editmode_toggle  + select + span  {
 	display: inline-block;
 }
 
 
-.sheet-editmode_toggle[value="0"] + input[type="text"] {
+
+.sheet-editmode_toggle[value="0"] + div.sheet-box{
 	display: none;
-}
-.sheet-editmode_toggle[value="1"] + input[type="text"] {
-	display: inline-block;
-}
-.sheet-editmode_toggle[value="1"] + input[type="text"] + span.sheet-label {
-	display: none;
-}
-.sheet-editmode_toggle[value="0"] + input[type="text"] + span.sheet-label  {
-	display: inline-block;
 }
 
-.sheet-editmode_toggle[value="0"] + select {
+.sheet-editmode_toggle[value="1"] + div.sheet-box{
+	display: block;
+}
+
+.sheet-editmode_toggle[value="1"] + div.sheet-box + div.sheet-box{
 	display: none;
 }
-.sheet-editmode_toggle[value="1"] + select {
-	display: inline-block;
-}
-.sheet-editmode_toggle[value="1"] + select + span.sheet-label {
-	display: none;
-}
-.sheet-editmode_toggle[value="0"] + select + span.sheet-label  {
-	display: inline-block;
+
+.sheet-editmode_toggle[value="0"] + div.sheet-box + div.sheet-box{
+	display: block;
 }
 
 .sheet-hideempty_toggle[value="0"] ~ .sheet-hideempty,

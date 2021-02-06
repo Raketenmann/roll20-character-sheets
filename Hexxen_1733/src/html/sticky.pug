@@ -1,6 +1,6 @@
 
 <img class="raven" src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />
-<img class="watermark" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+<img class="pc_only watermark" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
 <div class="tabbuttonbar">
     <button type="action" class="pc_only" name="act_character" >Character</button>
     <button type="action" class="npc_only" name="act_npc" >NPC</button>
@@ -14,6 +14,11 @@
     <div>
         <div class="npc_only">
             <button type="action" name="act_converttopc" >Convert to PC</button>
+            <div class="npc_only">       
+                label Lebenspunkte: 
+                input(class="number" type="number" name="attr_npc_hitpoints" value="1")
+                input(class="number" type="number" name="attr_npc_hitpoints_max" value="1")              
+            </div>
         </div>
         <div class="pc_only">
             <button type="action" name="act_converttonpc" >Convert to NPC</button>
@@ -36,7 +41,7 @@
         </div>
     </div>
     <div style="min-width:400px">
-        div(class="right npc_only")
+        div(class="right npc_only npc_leader_only")
             each res_type in ["hex"]
                 div(class="ressource_"+res_type)
                     div(class="tooltip")
@@ -56,19 +61,25 @@
         <span class="label" name="attr_rollvaluename"></span>
         <br>
         <input type="hidden" min="0" max="10" name="attr_hexxen" />
-        <span class="dicebargroup">
-            <input type="radio" class="dicebarzero" name="attr_hexxen" value="0" checked="checked" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="1" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="2" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="3" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="4" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="5" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="6" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="7" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="8" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="9" /><span></span>
-            <input type="radio" class="dicebar hexdie" name="attr_hexxen" value="10" /><span></span>
-        </span>
+        span(class="dicebargroup pc_only")
+            input(type="radio" class="dicebarzero" name="attr_hexxen" value="0" checked="checked")
+            span
+            each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                input(type="radio" class="dicebar hexdie" value=val name="attr_hexxen")
+                span
+
+        span(class="dicebargroup npc_only")
+            input(type="radio" class="dicebarzero" name="attr_hexxen" value="0" checked="checked")
+            span
+            each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                input(type="radio" class="dicebar hexdie" value=val name="attr_hexxen")
+                span
+            br
+            span(class="spacer_dice")
+            each val in [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+                input(type="radio" class="dicebar hexdie" value=val name="attr_hexxen")
+                span
+
         <div class="rolltestdice">
             <button type='roll' name='roll_testattack' value='@{rollquery}'>Roll</button>
         </div>
@@ -110,8 +121,16 @@
             <div class="tooltip">
                 <input class='number' type="number" name="attr_hitpoints" />    
                 <label class="tooltiptext">Aktuelle Basis-[Lep].<br>Bei Basis-[Lep]≤-1 der Verlust alle Coups/Ideen, deren Benutzung unmöglich. Puffer-[Lep]=0</label>
-                <span class="label">(max. <span class="label" name="attr_hitpoints_max" ></span>)</span>
+                <span>(max. <span class="label" name="attr_hitpoints_max" ></span>)</span>
             </div>
+        </div>
+        <div class="npc_only">       
+            label Lebenspunkte: 
+            input(class="number" type="number" name="attr_npc_hitpoints" value="1")
+            span
+                | (max. 
+                span(name="attr_npc_hitpoints_max")
+                | )
         </div>
         
     </div>
@@ -136,5 +155,11 @@ div(class="col pc_only")
                     button(type="action" name="act_add"+res_type) +
                     span(name="attr_"+res_type)
                     button(type="action" name="act_rem"+res_type) -
-                label(class="tooltiptext"  data-i18n="ressource_"+res_type)=res_type
+                div(class="tooltiptext")
+                    span(data-i18n="ressource_"+res_type)=res_type 
+                    input(class="hideempty_toggle" type="hidden" name="attr_"+res_type+"_max")
+                    span(class="hideempty")
+                        |  (max. 
+                        span(name="attr_"+res_type+"_max")
+                        | )
                 

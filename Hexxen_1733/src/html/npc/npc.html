@@ -1,0 +1,97 @@
+
+<div class="npc">
+  <input class="npc_type_toggle" type="hidden" name="attr_npc_type" value="npc_type_gang"/>
+  <div class="box">
+    <h3><span name="attr_character_name"></span></h3>
+    <div><span class="text">(</span><span class="text" name="attr_npc_type" data-i18n-dynamic="data-i18n-dynamic"> </span><span class="text"> </span><span class="text" name="attr_rank"></span><span class="text">)</span></div>
+    <hr/>
+    <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+    <select name="attr_npc_type"><option value="npc_type_gang" selected="selected" data-i18n="npc_type_gang">Bande</option>
+<option value="npc_type_leader"  data-i18n="npc_type_leader">Anführer</option>
+    </select>
+    <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+    <input class="number" type="number" name="attr_rank" value="1"/>
+    <div class="npc_leader_only"><span class="label" data-i18n="attribute_strength_short">Str</span>
+      <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+      <input class="number" type="number" name="attr_attribute_strength"/><span class="normal" name="attr_attribute_strength"></span><span class="normal">, </span><span class="label" data-i18n="attribute_athletic_short">Ath</span>
+      <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+      <input class="number" type="number" name="attr_attribute_athletic"/><span class="normal" name="attr_attribute_athletic"></span><span class="normal">, </span><span class="label" data-i18n="attribute_dexterity_short">Dex</span>
+      <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+      <input class="number" type="number" name="attr_attribute_dexterity"/><span class="normal" name="attr_attribute_dexterity"></span><span class="normal">, </span><span class="label" data-i18n="attribute_senses_short">Sen</span>
+      <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+      <input class="number" type="number" name="attr_attribute_senses"/><span class="normal" name="attr_attribute_senses"></span><span class="normal">, </span><span class="label" data-i18n="attribute_knowledge_short">Kno</span>
+      <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+      <input class="number" type="number" name="attr_attribute_knowledge"/><span class="normal" name="attr_attribute_knowledge"></span><span class="normal">, </span><span class="label" data-i18n="attribute_willpower_short">Wil</span>
+      <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+      <input class="number" type="number" name="attr_attribute_willpower"/><span class="normal" name="attr_attribute_willpower"></span><br/><span class="label">Pw:</span>
+      <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+      <input class="number" type="number" name="attr_armor" value="1" min="0" max="3"/><span class="normal" name="attr_armor"></span><br/><span class="label">Ini:</span>
+      <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+      <input class="number" type="number" name="attr_ini" value="1"/><span class="normal" name="attr_ini"></span><span class="label"> | </span><span class="label">Strategie:</span>
+      <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+      <select name="attr_npc_strategy"><option value="npc_strategy_simple" selected="selected"  data-i18n="npc_strategy_simple">Tumb</option>
+<option value="npc_strategy_offensive"  data-i18n="npc_strategy_offensive">Offensiv</option>
+<option value="npc_strategy_protective"  data-i18n="npc_strategy_protective">Beschützend</option>
+<option value="npc_strategy_defensive"  data-i18n="npc_strategy_defensive">Defensiv</option>
+<option value="npc_strategy_allrounder" data-i18n="npc_strategy_allrounder">Allrounder</option>
+<option value="npc_strategy_mighty_allrounder"  data-i18n="npc_strategy_mighty_allrounder">Mächtiger Allrounder</option>
+      </select><span class="normal" name="attr_npc_strategy" data-i18n-dynamic="data-i18n-dynamic"></span>
+    </div>
+    <div class="npc_gang_only"><span class="label">Ini: </span>
+      <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
+      <input class="number" type="number" name="attr_ini" value="1"/><span class="normal" name="attr_ini"></span><br/>
+    </div>
+    <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1" checked="checked"/>
+    <fieldset class="repeating_npcattacks">
+      <div class="fieldsetcontainer">
+        <div class="display"><span class="text" name="attr_attacktype" data-i18n-dynamic=""></span><span class="text">: </span><span name="attr_name"></span><span class="text"> (</span><span class="text" name="attr_attribute" data-i18n-dynamic=""></span><span class="text">), </span><span class="text">Angriff </span><span class="text" name="attr_attackvalue"></span><span class="text">, </span><span class="text">Schaden </span><span class="text" name="attr_damage"></span>
+          <button class="roll smallraven attack" type="action" name="act_rollnpcattack"></button>
+        </div>
+        <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
+        <div class="wrapper">
+          <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
+          <div class="options">
+            <select name="attr_attacktype">
+              <option value="melee">Nahkampf</option>
+              <option value="ranged">Fernkampf</option>
+            </select>
+            <input type="text" name="attr_name" placeholder="Name"/>
+            <select name="attr_attribute">
+              <option value="attribute_athletic_short" data-i18n="attribute_athletic_short">Ath</option>
+              <option value="attribute_strength_short" data-i18n="attribute_strength_short">Kkr</option>
+              <option value="attribute_dexterity_short" data-i18n="attribute_dexterity_short">Ges</option>
+              <option value="attribute_senses_short" data-i18n="attribute_senses_short">Sin</option>
+              <option value="attribute_knowledge_short" data-i18n="attribute_knowledge_short">Wis</option>
+              <option value="attribute_willpower_short" data-i18n="attribute_willpower_short">Wil</option>
+            </select>
+            <label>Angriff</label>
+            <input type="number" name="attr_attackvalue"/>
+            <label>Schaden</label>
+            <input type="number" name="attr_damage"/>
+            <textarea name="attr_description" placeholder="Description"></textarea>
+          </div>
+          <div class="details"><span class="text" name="attr_description"></span></div>
+        </div>
+      </div>
+    </fieldset>
+    <hr/>
+    <h4>Kräfte</h4>
+    <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1" checked="checked"/>
+    <ul>
+      <fieldset class="repeating_npcpowers">
+        <div class="fieldsetcontainer">
+          <li class="display"><span name="attr_name"></span><span class="text"> (</span><span class="text" name="attr_description"></span><span class="text">)</span></li>
+          <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
+          <div class="wrapper">
+            <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
+            <div class="options">
+              <input class="medium" type="text" name="attr_name" placeholder="Name"/>
+              <textarea name="attr_description" placeholder="Description"></textarea>
+            </div>
+            <div class="details"></div>
+          </div>
+        </div>
+      </fieldset>
+    </ul>
+  </div>
+</div>
