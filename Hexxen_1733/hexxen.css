@@ -115,7 +115,6 @@ span.sheet-text {
 	font-weight: normal;
 	font-size: 12px;
 }
-
 .charsheet .sheet-character input,
 .charsheet .sheet-combat input,
 .charsheet .sheet-configuration input {
@@ -129,6 +128,115 @@ span.sheet-text {
 	padding: 0;
 	vertical-align: baseline;
 }
+
+.sheet-effect1,
+.sheet-effect2,
+.sheet-effect3,
+.sheet-effect4,
+.sheet-effect5,
+.sheet-effect6,
+.sheet-effect7,
+.sheet-effect8,
+.sheet-effect9,
+.sheet-effect10{
+	display:none;
+	padding:8px;
+	position:relative;
+	width:95%;
+}
+.sheet-effectselector[value="1"] + .sheet-effect1,
+.sheet-effectselector[value="2"] + .sheet-effect2,
+.sheet-effectselector[value="3"] + .sheet-effect3,
+.sheet-effectselector[value="4"] + .sheet-effect4,
+.sheet-effectselector[value="5"] + .sheet-effect5,
+.sheet-effectselector[value="6"] + .sheet-effect6,
+.sheet-effectselector[value="7"] + .sheet-effect7,
+.sheet-effectselector[value="8"] + .sheet-effect8,
+.sheet-effectselector[value="9"] + .sheet-effect9,
+.sheet-effectselector[value="10"] + .sheet-effect10{
+	display:inline-block;
+}
+hr.sheet-powerdivider {
+	margin: 2px;
+	border-top: 1px solid #333;
+}
+div.sheet-powerbox {
+	display: inline-block;
+	border: 1px #333 solid;
+	opacity: 50%;
+	width: 30%;
+	height: 40px;
+	vertical-align: top;
+	text-align: center;
+	padding:4px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	position:relative;
+}
+div.sheet-powerbox input[type="radio"]{
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+div.sheet-powerbox input[type="radio"]:checked + span{
+	color:maroon;
+}
+input[value="1"] + div.sheet-powerbox
+{
+	opacity: 100%;
+}
+
+input.sheet-hidedetails
+{
+	opacity: 0;
+	z-index:2;
+}
+input.sheet-hidedetails + span {
+    white-space: nowrap;
+    font-size: 20px;
+    font-family: pictos;
+    color: #333;
+    cursor: pointer;
+    margin-top: 0px;
+	line-height: 18px;
+	opacity: 0.75;
+}
+input.sheet-hidedetails:hover + span {
+    opacity: 1;
+}
+
+input.sheet-hidedetails,
+input.sheet-hidedetails + span {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 18px;
+    height: 18px;
+}
+
+
+div.sheet-basepowerbox {
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	position:relative;
+}
+div.sheet-basepowerbox input[type="radio"]{
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+div.sheet-basepowerbox input[type="radio"]:checked + span{
+	color:maroon;
+}
+
 
 input[type=number].sheet-number {	
 	width: 2.5em;	
@@ -1064,6 +1172,11 @@ span.sheet-dee {
 
 
   /* Edit and details */
+.sheet-details-flag:checked ~ .sheet-display{
+	color: maroon;
+	font-variant: small-caps;
+}
+
 .charsheet .sheet-fieldsetcontainer .sheet-display  {
     min-height: 24px;
 }

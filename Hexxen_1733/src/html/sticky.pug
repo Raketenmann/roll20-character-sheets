@@ -61,24 +61,17 @@
         <span class="label" name="attr_rollvaluename"></span>
         <br>
         <input type="hidden" min="0" max="10" name="attr_hexxen" />
-        span(class="dicebargroup pc_only")
+        span(class="dicebargroup")
             input(type="radio" class="dicebarzero" name="attr_hexxen" value="0" checked="checked")
             span
             each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
                 input(type="radio" class="dicebar hexdie" value=val name="attr_hexxen")
                 span
-
-        span(class="dicebargroup npc_only")
-            input(type="radio" class="dicebarzero" name="attr_hexxen" value="0" checked="checked")
-            span
-            each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                input(type="radio" class="dicebar hexdie" value=val name="attr_hexxen")
-                span
-            br
-            span(class="spacer_dice")
+            br(class="spacer_dice npc_only")
+            span(class="spacer_dice npc_only")
             each val in [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-                input(type="radio" class="dicebar hexdie" value=val name="attr_hexxen")
-                span
+                input(type="radio" class="npc_only dicebar hexdie" value=val name="attr_hexxen")
+                span(class="npc_only")
 
         <div class="rolltestdice">
             <button type='roll' name='roll_testattack' value='@{rollquery}'>Roll</button>
