@@ -1,15 +1,15 @@
 div(class="box")  
-    h2 Waffenübersicht  
+    h2(data-i18n="heading_weapons") Waffenübersicht  
     <input class="feathertoggle" type="checkbox" name="attr_display-weapons" value="1" checked="true"/>
     img(class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png")
     div(class="weapons")
-        h3 Waffe
-        h3 Sch
-        h3 Ap
-        h3 Fw   
-        h3 Sum
-        h3 Ang
-        h3 Par
+        h4(data-i18n="header_weapon") Waffe
+        h4(data-i18n="header_damage") Sch
+        h4(data-i18n="header_actionpoints") Ap
+        h4(data-i18n="header_skillvalue") Fw   
+        h4(data-i18n="header_sum") Sum
+        h4(data-i18n="header_attack") Ang
+        h4(data-i18n="header_parry") Par
         each val in weapons
             input(type="hidden" class="weaponrowactive" name="attr_"+val.id+"_active")
             div(class="item tooltip")
@@ -25,7 +25,8 @@ div(class="box")
             div(class="item tooltip")
                 span(class="item label" name="attr_"+val.id+"_max") 
                 div(class="tooltiptext")
-                    span() FW +  
+                    span(data-i18n="header_skillvalue") FW
+                    span  +  
                     span(data-i18n=val.baseattribute+"_short") Ath  
             input(type="hidden" class="weaponrowactive" name="attr_"+val.id+"_active")
             div(class="item tooltip")
@@ -35,7 +36,7 @@ div(class="box")
                     input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="1")
                 else
                     input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="0")
-                button(type='action' class="roll raven attack" name='act_'+val.id)
+                button(type='action' class="roll attackdie" name='act_'+val.id)
             input(type="hidden" class="weaponrowactive" name="attr_"+val.id+"_active")
             div(class="item tooltip")
                 input(type="hidden" name="attr_parry_"+val.id+"_mod_desc")
@@ -44,4 +45,4 @@ div(class="box")
                     input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="1")
                 else
                     input(type="hidden" class="normal" name="attr_"+val.id+"_active" value="0")
-                button(type='action' class="roll raven parry" name='act_parry_'+val.id) b
+                button(type='action' class="roll parrydie" name='act_parry_'+val.id) b

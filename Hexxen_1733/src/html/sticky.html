@@ -1,47 +1,46 @@
 <img class="raven" src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />
 <img class="pc_only watermark" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
 <div class="tabbuttonbar">
-<button type="action" class="pc_only" name="act_character" >Character</button>
-<button type="action" class="npc_only" name="act_npc" >NPC</button>
-<button type="action" class="pc_only" name="act_combat" >Combat</button>
+<button type="action" class="pc_only" name="act_character"data-i18n="button_character">Character</button>
+<button type="action" class="npc_only" name="act_npc" data-i18n="button_npc">NPC</button>
+<button type="action" class="pc_only" name="act_combat" data-i18n="button_combat">Combat</button>
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
-<button type="action" name="act_toggleeditmode" >Exit Edit Mode</button>
-<button type="action" name="act_toggleeditmode" >Enter Edit Mode</button>
+<button type="action" name="act_toggleeditmode" data-i18n="button_exit_edit_mode">Exit Edit Mode</button>
+<button type="action" name="act_toggleeditmode" data-i18n="button_enter_edit_mode">Enter Edit Mode</button>
 </div>
 <div class="col" style="min-width:380px">
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
 <div>
 <div class="npc_only">
-<button type="action" name="act_converttopc" >Convert to PC</button>
+<button type="action" name="act_converttopc" data-i18n="button_contert_to_pc">Convert to PC</button>
 <div class="npc_only">       
-<label>Lebenspunkte: </label>
+<label data-i18n="label_hitpoints">Lebenspunkte: </label>
 <input class="number" type="number" name="attr_npc_hitpoints" value="1"/>
 <input class="number" type="number" name="attr_npc_hitpoints_max" value="1"/></div>
 </div>
 <div class="pc_only">
-<button type="action" name="act_converttonpc" >Convert to NPC</button>
+<button type="action" name="act_converttonpc" data-i18n="button_contert_to_npc">Convert to NPC</button>
 <br>
 <input type="checkbox" class="normal" name="attr_displayrage" value="1" checked=true/>
 <span></span>
-<label>Display Rage</label>
+<label data-i18n="label_option_display_rage">Display Rage</label>
 <br>
 <input type="checkbox" class="normal" name="attr_displayambition" value="1" checked=true/>
 <span></span>
-<label>Display Ambition</label>
+<label data-i18n="label_option_display_ambition">Display Ambition</label>
 <br>
 <input type="checkbox" class="normal" name="attr_displayquintessence" value="1" checked=true/>
 <span></span>
-<label>Display Quintessence</label>
+<label data-i18n="label_option_display_quintessence">Display Quintessence</label>
 <br>
 <input type="checkbox" class="normal" name="attr_displaychipstacks" value="1" checked=true/>
 <span></span>
-<label>Display Chipstacks</label>
+<label data-i18n="label_option_display_chipstacks">Display Chipstacks</label>
 </div>
 </div>
 <div style="min-width:400px">
 <div class="right npc_only npc_leader_only">
-  <div class="ressource_hex">
-    <div class="tooltip"></div>
+  <div class="tooltip ressource_hex">
     <input class="number" type="hidden" name="attr_hex"/><span class="chipstackgroup">
       <input class="chipstack chip0" type="radio" name="attr_hex" value="0" checked="checked"/><span></span>
       <input class="chipstack hexchip chip1" type="radio" name="attr_hex" value="1"/><span></span>
@@ -58,7 +57,9 @@
       <button type="action" name="act_addhex">+</button><span name="attr_hex"></span>
       <button type="action" name="act_remhex">-</button>
     </div>
-    <label class="tooltiptext"></label>
+    <div class="tooltiptext"><span data-i18n="ressource_hex">hex</span>
+      <input class="hideempty_toggle" type="hidden" name="attr_hex_max"/><span class="hideempty"> (max. <span name="attr_hex_max"></span>)</span>
+    </div>
   </div>
 </div><input type="hidden" name="attr_rollvaluename"/>
 <span class="label" name="attr_rollvaluename"></span>
@@ -85,7 +86,7 @@
   <input class="npc_only dicebar hexdie" type="radio" value="18" name="attr_hexxen"/><span class="npc_only"></span>
   <input class="npc_only dicebar hexdie" type="radio" value="19" name="attr_hexxen"/><span class="npc_only"></span>
   <input class="npc_only dicebar hexdie" type="radio" value="20" name="attr_hexxen"/><span class="npc_only"></span></span><div class="rolltestdice">
-<button type='roll' name='roll_testattack' value='@{rollquery}'>Roll</button>
+<button type='roll' name='roll_testattack' value='@{rollquery}' data-i18n="button_roll">Roll</button>
 </div>
 <br>
 <input type="hidden" min="-5" max="5" name="attr_janus" />
@@ -109,27 +110,32 @@
 <button type='roll' class="directdieroller blessingdie" name='roll_blessingdie' title="Segnung" value='"&{template:check} {{name=@{character_name}}} {{attr=Segnung}} {{blessing1=[[d6cs>4cf1cf2]]}}"'></button>
 <button type='roll' class="directdieroller blooddie" name='roll_blooddie' title="Blutwürfel" value='"&{template:blood} {{name=@{character_name}}} {{attr=Blutwürfel}} {{blood1=[[d6cs>5cf1]]}}"'></button>
 <button type='roll' class="directdieroller elixirdie" name='roll_elixirdie' title="Elixierwürfel" value='"&{template:elixir} {{name=@{character_name}}} {{attr=Elixierwürfel}} {{elixir1=[[d6cs5]]}}"'></button>
-<button type="action" name="act_resetroll">Reset</button>
-<br>
-<div class="pc_only">
-<label>Aktionspunkte</label>
+<div class="resettestdice">
+<button type="action" name="act_resetroll" data-i18n="button_reset">Reset</button>
+</div>
+<hr class="stickydivider">
+<div class="pc_only stickygrid">
+<label data-i18n="label_actionpoints">Aktionspunkte:</label>
+<div>
 <input type="number" class="number" name="attr_ap" value="6" min="0" max="6"/>
 <span>(max. <span name="attr_ap_max"></span>)</span>
-<br>
-<label>Lebenspunkte</label>        
-<div class="tooltip">
+</div>
+<label data-i18n="label_hitpoints">Lebenspunkte:</label>  
+<div>      
+<div class="tooltip inline">
 <input class='number' type="number" name="attr_bufferhitpoints" /> 
-<label class="tooltiptext">Puffer-[Lep]</label>
+<label class="tooltiptext" data-i18n="label_buffer_hp">Puffer-[Lep]</label>
 </div>
 <span class="label">+</span>
-<div class="tooltip">
+<div class="tooltip inline">
 <input class='number' type="number" name="attr_hitpoints" />    
-<label class="tooltiptext">Aktuelle Basis-[Lep].<br>Bei Basis-[Lep]≤-1 der Verlust alle Coups/Ideen, deren Benutzung unmöglich. Puffer-[Lep]=0</label>
+<label class="tooltiptext" data-i18n="tooltip_hp">Aktuelle Basis-[Lep].<br>Bei Basis-[Lep]≤-1 der Verlust alle Coups/Ideen, deren Benutzung unmöglich. Puffer-[Lep]=0</label>
 <span>(max. <span class="label" name="attr_hitpoints_max" ></span>)</span>
 </div>
 </div>
+</div>
 <div class="npc_only">       
-<label>Lebenspunkte: </label>
+<label data-i18n="label_hitpoints">Lebenspunkte: </label>
 <input class="number" type="number" name="attr_npc_hitpoints" value="1"/><span>(max. <span name="attr_npc_hitpoints_max"></span>)</span></div>
 </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="box">
-    <h2>Kleidungssets</h2>
+    <h2 data-i18n="heading_armorsets">Kleidungssets</h2>
     <input class="feathertoggle" type="checkbox" name="attr_display-armorsets" value="1" checked="true"/>
     <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
     <div>
@@ -7,7 +7,7 @@
         <fieldset class="repeating_armorsets counterreset">
             <div class="fieldsetcontainer">
             <div class="display">
-                <label class="counter">Set No</label>
+                <label class="counter" data-i18n="label_amorset_prefix">Set No</label>
                 <span class="fieldset_editmode_toggle"></span>
                 <input class='textline' type="text" name="attr_name" placeholder="Name"/>           
                 <span class="tooltip" name="attr_name"></span>
@@ -24,8 +24,8 @@
                 <span class="fieldset_editmode_toggle"></span>
                 <div>
                     <textarea name="attr_description" placeholder="Description"></textarea>
-                    <label>Modifikator:</label>
-                    <select name="attr_target">
+                    <label data-i18n="label_modifier">Modifikator:</label>
+                    <select class="textline" name="attr_target">
                         +modoptions
                     </select>
                     <input class="number" type="number" name="attr_bonus" />

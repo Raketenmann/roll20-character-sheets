@@ -1,5 +1,5 @@
 <div class="box">
-    <h2>Ausbaukräfte</h2>
+    <h2 data-i18n="heading_powers">Ausbaukräfte</h2>
     <input class="feathertoggle" type="checkbox" name="attr_display-powers" value="1" checked="true"/>
     <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
     <div>
@@ -21,35 +21,35 @@
                 <div class="wrapper">
                     <span class="fieldset_editmode_toggle"></span>
                     <div>
-                        <input class='textline'  type="text" name="attr_baseeffect" placeholder="Stammeffekt"/>
-                        textarea(name="attr_baseeffect_description" placeholder="Description")
+                        <input class='textline'  type="text" name="attr_baseeffect" data-i18n-placeholder="label_power_baseeffect" placeholder="Stammeffekt"/>
+                        textarea(name="attr_baseeffect_description" data-i18n-placeholder="label_description" placeholder="Description")
                         hr
                         each val in [1,2,3]
                             input(class="normal" type="checkbox" name="attr_apprenticeeffect"+val+"_active" value="1" checked=false)
                             span
-                            input(class='textline'  type="text" name="attr_apprenticeeffect"+val placeholder="Geselleneffekt")
+                            input(class='textline'  type="text" name="attr_apprenticeeffect"+val data-i18n-placeholder="label_power_apprenticeeffect" placeholder="Geselleneffekt")
                             br
-                            textarea(name="attr_apprenticeeffect"+val+"_description" placeholder="Description")
+                            textarea(name="attr_apprenticeeffect"+val+"_description" data-i18n-placeholder="label_description" placeholder="Description")
                             br
                         
                         each val in [1,2,3]
                             input(class="normal" type="checkbox" name="attr_experteffect"+val+"_active" value="1" checked=false)
                             span
-                            input(class='textline'  type="text" name="attr_experteffect"+val placeholder="Experteneffekt")
+                            input(class='textline'  type="text" name="attr_experteffect"+val data-i18n-placeholder="label_power_experteffect" placeholder="Experteneffekt")
                             br
-                            textarea(name="attr_experteffect"+val+"_description" placeholder="Description")
+                            textarea(name="attr_experteffect"+val+"_description" data-i18n-placeholder="label_description" placeholder="Description")
                             br
                         
                         each val in [1,2,3]
                             input(class="normal" type="checkbox" name="attr_mastereffect"+val+"_active" value="1" checked=false)
                             span
-                            input(class='textline'  type="text" name="attr_mastereffect"+val placeholder="Mastereffekt")
+                            input(class='textline'  type="text" name="attr_mastereffect"+val data-i18n-placeholder="label_power_mastereffect" placeholder="Mastereffekt")
                             br
-                            textarea(name="attr_mastereffect"+val+"_description" placeholder="Description")
+                            textarea(name="attr_mastereffect"+val+"_description" data-i18n-placeholder="label_description" placeholder="Description")
                             br
                         
                     </div>
-                    <div>
+                    <div class="powercontainer">
                         div(class="basepowerbox")
                             input(type="radio" name="attr_details" value=10)
                             <span name="attr_baseeffect"></span>

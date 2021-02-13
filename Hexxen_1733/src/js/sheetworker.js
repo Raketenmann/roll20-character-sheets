@@ -283,11 +283,15 @@ const buttonlist = ["character","combat","npc","configuration"];
             });
           });
     });
-    on("change:armor", function() {
-        getAttrs(["armor"], function(values) {
-            let armor = parseInt(values.armor,10)||0;
-            let ap_max = 6 - armor;
-            setAttrs({                            
+    on("change:armor change:paralysisdamage", function() {
+        getAttrs(["armor", "paralysisdamage", "ap"], function(values) {
+            var armor = parseInt(values.armor,10)||0;
+            var paralysisdamage = parseInt(values.paralysisdamage,10)||0;
+            var ap_max = Math.max(0, 6 - armor - paralysisdamage);
+            var ap = parseInt(values.ap,10)||0;
+            var ap = Math.min(ap, ap_max);
+            setAttrs({     
+                ap: ap,                       
                 ap_max: ap_max
             });
           });
@@ -339,6 +343,10 @@ const buttonlist = ["character","combat","npc","configuration"];
         setAttrs(itemfields);
     });
 
+    on("change:malusdamage change:malusdamage_conditions", () => {
+        rebuildMods();
+    });
+
     on("change:motivation_name change:motivation_target change:motivation_bonus", function(){
         rebuildMods();
     });
@@ -353,12 +361,14 @@ const buttonlist = ["character","combat","npc","configuration"];
         console.log("rebuild mods");
         var mods = {};
         clearMods(mods);
-        crawlSingleEffect("motivation", mods, function(mods) {
-            crawlEffects("repeating_armorsets", mods, function(mods) {
-                crawlEffects("repeating_powers", mods, function(mods) {
-                    crawlEffects("repeating_hunterpowers", mods, function(mods) {
-                        crawlEffects("repeating_effects", mods, function(mods) {
-                            finishRebuildMods(mods);
+        crawlInfluences(mods, function(mods) {
+            crawlSingleEffect("motivation", mods, function(mods) {
+                crawlEffects("repeating_armorsets", mods, function(mods) {
+                    crawlEffects("repeating_powers", mods, function(mods) {
+                        crawlEffects("repeating_hunterpowers", mods, function(mods) {
+                            crawlEffects("repeating_effects", mods, function(mods) {
+                                finishRebuildMods(mods);
+                            });
                         });
                     });
                 });
@@ -392,7 +402,6 @@ const buttonlist = ["character","combat","npc","configuration"];
     }
 
     var crawlSingleEffect = function(prefix, mods, callback) {
-        console.log("Crawl single effect");
         var itemfields = [];
         itemfields.push(prefix+"_name");
         itemfields.push(prefix+"_target");
@@ -400,41 +409,55 @@ const buttonlist = ["character","combat","npc","configuration"];
         
         getAttrs(itemfields, function(v) {
             
-            console.log(itemfields);
-            console.log(v);
             var target = v[prefix + "_target"];
             var modname = v[prefix + "_name"];
             var bonus = parseInt(v[prefix + "_bonus"],10);
             addToMods(modname, target, bonus, mods);
-            console.log("mods after crawl single effect:");
-            console.log(mods);
             callback(mods);
             
         });
 
     }
+    var crawlInfluences = function(mods, callback) {
+        
+        getAttrs(["malusdamage", "malusdamage_conditions"], function(values) {
+            let malus = parseInt(values.malusdamage,10)||0;
+            var modname = values.malusdamage_conditions;
+            var target = "mod_checks_all";
+            if(malus > 0)
+            {
+                var bonus = malus * -1;
+                addToMods(modname, target, bonus, mods);
+            }
+            callback(mods);
+          });
+
+
+    }
+
 
     var finishRebuildMods = function(mods) {
         console.log("Finish rebuild mods");
-        applyParryAll(mods);
         applyParryToWeapons(mods);
+        applySpecialMod(mods, "mod_checks_all", checklist);
+        applySpecialMod(mods, "mod_parry_all", parrylist);       
         console.log(mods);
 
         var update = createUpdateListFromMods(mods);
         console.log(update);
         setAttrs(update);
     };
-    var applyParryAll = function(mods) {
-        if (mods.hasOwnProperty('parry_all')) {
-            //add parry_all to all parry_...
-            _.each(parrylist, function (parryitem) {
-                _.each(mods['parry_all'], function (parryallmod) {
-                    addToMods(parryallmod.modname, parryitem, parryallmod.bonus, mods);
+    var applySpecialMod = function(mods, specialModName, specialList) {
+        if (mods.hasOwnProperty(specialModName)) {
+            _.each(specialList, function (item) {
+                _.each(mods[specialModName], function (mod) {
+                    addToMods(mod.modname, item, mod.bonus, mods);
                 });
     
             });
         }
     };
+
     var applyParryToWeapons = function(mods) {
         _.each(parrylist, function (parryitem) {
             var weaponname = parryitem.replace("parry_", "");
@@ -452,7 +475,8 @@ const buttonlist = ["character","combat","npc","configuration"];
         });
         mods["hitpoints"] = [];
         mods["ini"] = [];
-        mods["parry_all"] = [];
+        mods["mod_parry_all"] = [];
+        mods["mod_checks_all"] = [];
         mods["idea"] = [];
         mods["coup"] = [];
     };
@@ -469,11 +493,14 @@ const buttonlist = ["character","combat","npc","configuration"];
             var bonus_sum = 0;
             _.each(v, function(mod){
                 var bonus = mod.bonus;
-                bonus_sum += bonus;
-                var bonusstring = bonus.toString();
-                if(bonus > 0)
-                    bonusstring = "+"+bonusstring;
-                modnames.push(mod.modname + " "+bonusstring);
+                if(bonus != 0 && !isNaN(bonus))
+                {
+                    bonus_sum += bonus;
+                    var bonusstring = bonus.toString();
+                    if(bonus > 0)
+                        bonusstring = "+"+bonusstring;
+                    modnames.push(mod.modname + " "+bonusstring);
+                }
             });                  
 
             update[target+"_mod"] = bonus_sum;
@@ -530,7 +557,18 @@ const buttonlist = ["character","combat","npc","configuration"];
     });
 
     on("sheet:opened", function(eventInfo){
-        
+        getAttrs(["weapon_punch_active", "weapon_dodge_active"], function(values) {
+            console.log("sheet:opened");
+            console.log(values);
+            var weapon_punch_active = parseInt(values.weapon_punch_active,10)||1;
+            var weapon_dodge_active = parseInt(values.weapon_dodge_active,10)||1;
+            console.log(weapon_punch_active);
+            console.log(weapon_dodge_active);
+            setAttrs({
+                weapon_punch_active: weapon_punch_active,
+                weapon_dodge_active: weapon_dodge_active
+            });
+        });
     });
 
 

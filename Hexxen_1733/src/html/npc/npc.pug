@@ -12,7 +12,7 @@ div(class='npc')
       hr
 
       input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-      select(name="attr_npc_type")
+      select(name="attr_npc_type" class="textline")
         <option value="npc_type_gang" selected="selected" data-i18n="npc_type_gang">Bande</option>
         <option value="npc_type_leader"  data-i18n="npc_type_leader">Anführer</option>
       input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
@@ -55,19 +55,19 @@ div(class='npc')
         span(class="normal" name="attr_attribute_willpower")
 
         br
-        span(class="label") Pw:
+        span(class="label" data-i18n="label_armor_short") Pw:
         input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
         input(class="number" type="number" name="attr_armor" value="1" min="0" max="3")
         span(class="normal" name="attr_armor")
         br
-        span(class="label") Ini:
+        span(class="label" data-i18n="label_initiative_short") Ini:
         input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
         input(class="number" type="number" name="attr_ini" value="1")
         span(class="normal" name="attr_ini")
         span(class="label")  | 
-        span(class="label") Strategie:
+        span(class="label" data-i18n="label_strategy") Strategie:
         input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
-        select(name="attr_npc_strategy")
+        select(name="attr_npc_strategy" class="textline")
           <option value="npc_strategy_simple" selected="selected"  data-i18n="npc_strategy_simple">Tumb</option>
           <option value="npc_strategy_offensive"  data-i18n="npc_strategy_offensive">Offensiv</option>
           <option value="npc_strategy_protective"  data-i18n="npc_strategy_protective">Beschützend</option>
@@ -78,7 +78,7 @@ div(class='npc')
         
 
       div(class="npc_gang_only")
-        span(class="label") Ini: 
+        span(class="label" data-i18n="label_initiative_short") Ini: 
         input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
         input(class="number" type="number" name="attr_ini" value="1")
         span(class="normal" name="attr_ini")
@@ -93,39 +93,39 @@ div(class='npc')
               span(class="text")  (
               span(class="text" name="attr_attribute" data-i18n-dynamic="")
               span(class="text") ), 
-              span(class="text") Angriff 
+              span(class="text" data-i18n="label_attack") Angriff 
               span(class="text" name="attr_attackvalue")
               span(class="text") , 
-              span(class="text") Schaden 
+              span(class="text" data-i18n="label_damage") Schaden 
               span(class="text" name="attr_damage")
-              button(type='action' class="roll smallraven attack" name='act_rollnpcattack')
+              button(type='action' class="npcdie" name='act_rollnpcattack')
             input(class="details-flag" type="checkbox" checked="true" name="attr_details-flag")
             span i
             div(class="wrapper")
               input(class="options-flag" type="checkbox" checked="true" name="attr_options-flag")
               span y
               div(class="options")
-                select(name="attr_attacktype")
-                  option(value="melee") Nahkampf
-                  option(value="ranged") Fernkampf
-                input(type="text" name="attr_name" placeholder="Name")
-                select(name="attr_attribute")
+                select(name="attr_attacktype" class="textline medium")
+                  option(value="melee" data-i18n="attacktype_melee") Nahkampf
+                  option(value="ranged" data-i18n="attacktype_ranged") Fernkampf
+                input(class="textline" type="text" name="attr_name" data-i18n-placeholder="label_name" placeholder="Name")
+                select(name="attr_attribute" class="textline short")
                   option(value="attribute_athletic_short" data-i18n="attribute_athletic_short") Ath
                   option(value="attribute_strength_short" data-i18n="attribute_strength_short") Kkr
                   option(value="attribute_dexterity_short" data-i18n="attribute_dexterity_short") Ges
                   option(value="attribute_senses_short" data-i18n="attribute_senses_short") Sin
                   option(value="attribute_knowledge_short" data-i18n="attribute_knowledge_short") Wis
                   option(value="attribute_willpower_short" data-i18n="attribute_willpower_short") Wil
-                label Angriff
-                input(type="number" name="attr_attackvalue")
-                label Schaden
-                input(type="number" name="attr_damage")
-                textarea(name="attr_description" placeholder="Description")
+                label(data-i18n="label_attack") Angriff
+                input(type="number" name="attr_attackvalue" class="number")
+                label(data-i18n="label_damage") Schaden
+                input(type="number" name="attr_damage" class="number")
+                textarea(name="attr_description" data-i18n-placeholder="label_description" placeholder="Description")
               
               div(class="details")
                 span(class="text" name="attr_description")
       hr
-      h4 Kräfte
+      h4(data-i18n="heading_npc_powers") Kräfte
       input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true)
       ul
         fieldset(class="repeating_npcpowers")
@@ -142,8 +142,8 @@ div(class='npc')
                 input(class="options-flag" type="checkbox" checked="true" name="attr_options-flag")
                 span y
                 div(class="options")
-                  input(class='medium'  type="text" name="attr_name" placeholder="Name")
-                  textarea(name="attr_description" placeholder="Description")
+                  input(class='medium'  type="text" name="attr_name" data-i18n-placeholder="label_name" placeholder="Name")
+                  textarea(name="attr_description" data-i18n-placeholder="label_description" placeholder="Description")
                 
                 div(class="details")
                   //-span(class="text" name="attr_description")

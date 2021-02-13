@@ -6,7 +6,7 @@
     <div><span class="text">(</span><span class="text" name="attr_npc_type" data-i18n-dynamic="data-i18n-dynamic"> </span><span class="text"> </span><span class="text" name="attr_rank"></span><span class="text">)</span></div>
     <hr/>
     <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
-    <select name="attr_npc_type"><option value="npc_type_gang" selected="selected" data-i18n="npc_type_gang">Bande</option>
+    <select class="textline" name="attr_npc_type"><option value="npc_type_gang" selected="selected" data-i18n="npc_type_gang">Bande</option>
 <option value="npc_type_leader"  data-i18n="npc_type_leader">Anführer</option>
     </select>
     <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
@@ -23,13 +23,13 @@
       <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
       <input class="number" type="number" name="attr_attribute_knowledge"/><span class="normal" name="attr_attribute_knowledge"></span><span class="normal">, </span><span class="label" data-i18n="attribute_willpower_short">Wil</span>
       <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
-      <input class="number" type="number" name="attr_attribute_willpower"/><span class="normal" name="attr_attribute_willpower"></span><br/><span class="label">Pw:</span>
+      <input class="number" type="number" name="attr_attribute_willpower"/><span class="normal" name="attr_attribute_willpower"></span><br/><span class="label" data-i18n="label_armor_short">Pw:</span>
       <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
-      <input class="number" type="number" name="attr_armor" value="1" min="0" max="3"/><span class="normal" name="attr_armor"></span><br/><span class="label">Ini:</span>
+      <input class="number" type="number" name="attr_armor" value="1" min="0" max="3"/><span class="normal" name="attr_armor"></span><br/><span class="label" data-i18n="label_initiative_short">Ini:</span>
       <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
-      <input class="number" type="number" name="attr_ini" value="1"/><span class="normal" name="attr_ini"></span><span class="label"> | </span><span class="label">Strategie:</span>
+      <input class="number" type="number" name="attr_ini" value="1"/><span class="normal" name="attr_ini"></span><span class="label"> | </span><span class="label" data-i18n="label_strategy">Strategie:</span>
       <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
-      <select name="attr_npc_strategy"><option value="npc_strategy_simple" selected="selected"  data-i18n="npc_strategy_simple">Tumb</option>
+      <select class="textline" name="attr_npc_strategy"><option value="npc_strategy_simple" selected="selected"  data-i18n="npc_strategy_simple">Tumb</option>
 <option value="npc_strategy_offensive"  data-i18n="npc_strategy_offensive">Offensiv</option>
 <option value="npc_strategy_protective"  data-i18n="npc_strategy_protective">Beschützend</option>
 <option value="npc_strategy_defensive"  data-i18n="npc_strategy_defensive">Defensiv</option>
@@ -37,26 +37,26 @@
 <option value="npc_strategy_mighty_allrounder"  data-i18n="npc_strategy_mighty_allrounder">Mächtiger Allrounder</option>
       </select><span class="normal" name="attr_npc_strategy" data-i18n-dynamic="data-i18n-dynamic"></span>
     </div>
-    <div class="npc_gang_only"><span class="label">Ini: </span>
+    <div class="npc_gang_only"><span class="label" data-i18n="label_initiative_short">Ini: </span>
       <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
       <input class="number" type="number" name="attr_ini" value="1"/><span class="normal" name="attr_ini"></span><br/>
     </div>
     <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1" checked="checked"/>
     <fieldset class="repeating_npcattacks">
       <div class="fieldsetcontainer">
-        <div class="display"><span class="text" name="attr_attacktype" data-i18n-dynamic=""></span><span class="text">: </span><span name="attr_name"></span><span class="text"> (</span><span class="text" name="attr_attribute" data-i18n-dynamic=""></span><span class="text">), </span><span class="text">Angriff </span><span class="text" name="attr_attackvalue"></span><span class="text">, </span><span class="text">Schaden </span><span class="text" name="attr_damage"></span>
-          <button class="roll smallraven attack" type="action" name="act_rollnpcattack"></button>
+        <div class="display"><span class="text" name="attr_attacktype" data-i18n-dynamic=""></span><span class="text">: </span><span name="attr_name"></span><span class="text"> (</span><span class="text" name="attr_attribute" data-i18n-dynamic=""></span><span class="text">), </span><span class="text" data-i18n="label_attack">Angriff </span><span class="text" name="attr_attackvalue"></span><span class="text">, </span><span class="text" data-i18n="label_damage">Schaden </span><span class="text" name="attr_damage"></span>
+          <button class="npcdie" type="action" name="act_rollnpcattack"></button>
         </div>
         <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
         <div class="wrapper">
           <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
           <div class="options">
-            <select name="attr_attacktype">
-              <option value="melee">Nahkampf</option>
-              <option value="ranged">Fernkampf</option>
+            <select class="textline medium" name="attr_attacktype">
+              <option value="melee" data-i18n="attacktype_melee">Nahkampf</option>
+              <option value="ranged" data-i18n="attacktype_ranged">Fernkampf</option>
             </select>
-            <input type="text" name="attr_name" placeholder="Name"/>
-            <select name="attr_attribute">
+            <input class="textline" type="text" name="attr_name" data-i18n-placeholder="label_name" placeholder="Name"/>
+            <select class="textline short" name="attr_attribute">
               <option value="attribute_athletic_short" data-i18n="attribute_athletic_short">Ath</option>
               <option value="attribute_strength_short" data-i18n="attribute_strength_short">Kkr</option>
               <option value="attribute_dexterity_short" data-i18n="attribute_dexterity_short">Ges</option>
@@ -64,18 +64,18 @@
               <option value="attribute_knowledge_short" data-i18n="attribute_knowledge_short">Wis</option>
               <option value="attribute_willpower_short" data-i18n="attribute_willpower_short">Wil</option>
             </select>
-            <label>Angriff</label>
-            <input type="number" name="attr_attackvalue"/>
-            <label>Schaden</label>
-            <input type="number" name="attr_damage"/>
-            <textarea name="attr_description" placeholder="Description"></textarea>
+            <label data-i18n="label_attack">Angriff</label>
+            <input class="number" type="number" name="attr_attackvalue"/>
+            <label data-i18n="label_damage">Schaden</label>
+            <input class="number" type="number" name="attr_damage"/>
+            <textarea name="attr_description" data-i18n-placeholder="label_description" placeholder="Description"></textarea>
           </div>
           <div class="details"><span class="text" name="attr_description"></span></div>
         </div>
       </div>
     </fieldset>
     <hr/>
-    <h4>Kräfte</h4>
+    <h4 data-i18n="heading_npc_powers">Kräfte</h4>
     <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1" checked="checked"/>
     <ul>
       <fieldset class="repeating_npcpowers">
@@ -85,8 +85,8 @@
           <div class="wrapper">
             <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
             <div class="options">
-              <input class="medium" type="text" name="attr_name" placeholder="Name"/>
-              <textarea name="attr_description" placeholder="Description"></textarea>
+              <input class="medium" type="text" name="attr_name" data-i18n-placeholder="label_name" placeholder="Name"/>
+              <textarea name="attr_description" data-i18n-placeholder="label_description" placeholder="Description"></textarea>
             </div>
             <div class="details"></div>
           </div>

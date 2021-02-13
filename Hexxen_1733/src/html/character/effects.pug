@@ -1,5 +1,5 @@
 <div class="box">
-    <h2>Aktive Effekte</h2>
+    <h2 data-i18n="heading_effects">Aktive Effekte</h2>
     <input class="feathertoggle" type="checkbox" name="attr_display-effects" value="1" checked="true"/>
     <img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
     <div>
@@ -8,7 +8,7 @@
             <div class="fieldsetcontainer">
                 <div class="display">
                     <span class="fieldset_editmode_toggle"></span>
-                    <input class='textline'  type="text" name="attr_name" placeholder="Name"/>
+                    <input class='textline'  type="text" name="attr_name" data-i18n-placeholder="label_name" placeholder="Name"/>
                     <span name="attr_name"></span>
                     <input class="hideempty_toggle" type="hidden" name="attr_target"/>
                     <span class="hideempty">(
@@ -21,9 +21,9 @@
                 <div class="wrapper">
                     <span class="fieldset_editmode_toggle"></span>
                     <div>
-                        <textarea name="attr_description" placeholder="Description"></textarea>
-                        <label>Modifikator:</label>
-                        <select name="attr_target">
+                        <textarea name="attr_description" data-i18n-placeholder="label_description" placeholder="Description"></textarea>
+                        <label data-i18n="label_modifier">Modifikator:</label>
+                        <select class="textline" name="attr_target">
                             +modoptions
                         </select>
                         <input class="number" type="number" name="attr_bonus" />
