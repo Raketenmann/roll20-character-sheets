@@ -173,5 +173,7 @@
     "label_damage":"Damage:",
     "attacktype_melee":"Melee Combat",
     "attacktype_ranged":"Ranged Combat",
-    "heading_npc_powers":"Powers"
+    "heading_npc_powers":"Powers",
+    "mounted":"Mounted",
+    "vs_mounted":"Vs. Mounted"
 }

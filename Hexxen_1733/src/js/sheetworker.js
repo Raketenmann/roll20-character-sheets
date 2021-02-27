@@ -174,9 +174,12 @@ const buttonlist = ["character","combat","npc","configuration"];
         'weapon_fencing',
         'weapon_swords',
         'weapon_scimitar',
+        'weapon_scimitar_mounted',
         'weapon_impact',
         'weapon_polearm',
+        'weapon_polearm_vsmounted',
         'weapon_lance',
+        'weapon_lance_mounted',
         'weapon_sling',
         'weapon_pistol',
         'weapon_crossbow',
@@ -188,18 +191,34 @@ const buttonlist = ["character","combat","npc","configuration"];
         'parry_weapon_fencing',
         'parry_weapon_swords',
         'parry_weapon_scimitar',
+        'parry_weapon_scimitar_mounted',
         'parry_weapon_impact',
         'parry_weapon_polearm',
+        'parry_weapon_polearm_vsmounted',
         'parry_weapon_lance',
+        'parry_weapon_lance_mounted',
         'parry_weapon_sling',
         'parry_weapon_pistol',
         'parry_weapon_crossbow',
         'parry_weapon_musket',
         'parry_weapon_dodge',
         'parry_weapon_shield'];
-        checklist.forEach(checkname => {
-        on(`clicked:${checkname}`, function() {
+        checklist.forEach(checkaction => {
+        on(`clicked:${checkaction}`, function() {
                 
+            var mounted = false;
+            var vsmounted = false;
+            var checkname = checkaction;
+            if(checkname.endsWith("_mounted"))
+            {
+                checkname = checkname.substring(0, checkname.length - "_mounted".length);
+                mounted = true;
+            }
+            if(checkname.endsWith("_vsmounted"))
+            {
+                checkname = checkname.substring(0, checkname.length - "_vsmounted".length);
+                vsmounted = true;
+            }
             let valuename = "???";
             let baseattributename = "???"; 
             var checkmax = checkname+"_max";
@@ -213,13 +232,26 @@ const buttonlist = ["character","combat","npc","configuration"];
            {
             var checkmax = checkname.replace("parry_", "")+"_max";
             baseattributename = skills[checkname.replace("parry_", "")].att; ;
-               valuename = getTranslationByKey(checkname.replace("parry_", ""))+" ("+getTranslationByKey('parry')+")"+" ["+getTranslationByKey(baseattributename+"_short")+"]";
+               valuename = getTranslationByKey(checkname.replace("parry_", ""));
+               valuename = valuename + " ("+getTranslationByKey('parry');
+               if (mounted)
+                    valuename = valuename + ", "+getTranslationByKey("mounted");
+                if (vsmounted)
+                    valuename = valuename + ", "+getTranslationByKey("vs_mounted");
+                valuename = valuename + ")"
+                valuename = valuename + " ["+getTranslationByKey(baseattributename+"_short")+"]";
            }
           else
             {               
                 baseattributename = skills[checkname].att; 
-                valuename = getTranslationByKey(checkname)+" ["+getTranslationByKey(baseattributename+"_short")+"]";
+                valuename = getTranslationByKey(checkname);
+                if (mounted)
+                    valuename = valuename + " ("+getTranslationByKey("mounted")+")";
+                if (vsmounted)
+                    valuename = valuename + " ("+getTranslationByKey("vs_mounted")+")";
+                valuename = valuename + " ["+getTranslationByKey(baseattributename+"_short")+"]";
             }
+            
             
             var checkmod = checkname+"_mod";
             var checkmoddesc = checkname+"_mod_desc";

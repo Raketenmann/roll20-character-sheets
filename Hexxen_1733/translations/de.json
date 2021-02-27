@@ -173,5 +173,7 @@
     "label_damage":"Schaden",
     "attacktype_melee":"Nahkampf",
     "attacktype_ranged":"Fernkampf",
-    "heading_npc_powers":"Kräfte"
+    "heading_npc_powers":"Kräfte",
+    "mounted":"beritten",
+    "vs_mounted":"geg. Reiter"
 }
