@@ -175,5 +175,7 @@
     "attacktype_ranged":"Fernkampf",
     "heading_npc_powers":"Kräfte",
     "mounted":"beritten",
-    "vs_mounted":"geg. Reiter"
+    "vs_mounted":"geg. Reiter",
+    "janustooltip":"Bonus oder Malus Januswürfel",
+    "janushint":"Verrechne positive und negative Modifikatoren und stelle hier dann die richtige Anzahl Januswürfel ein. Wähle die '-'-Symbole, wenn die Januswürfel ein Malus darstellen und die '+'-Symbole, wenn die Januswürfel einen Bonus darstellen."
 }

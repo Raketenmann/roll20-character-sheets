@@ -175,5 +175,7 @@
     "attacktype_ranged":"Ranged Combat",
     "heading_npc_powers":"Powers",
     "mounted":"Mounted",
-    "vs_mounted":"Vs. Mounted"
+    "vs_mounted":"Vs. Mounted",
+    "janustooltip":"Bonus oder penalty Janusdice",
+    "janushint":"Account positive and negative Modifiers and adjust janusdice count here. Choose dice with '-' symbols if the sum of modifiers adds up negative and '+'-Symbole if positive."
 }
