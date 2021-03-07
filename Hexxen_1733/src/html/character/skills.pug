@@ -12,14 +12,22 @@
             input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1")
             input(class="number" type="number" name="attr_"+skill.id)
             span(class="number" name="attr_"+skill.id)
-
             div(class="item tooltip")
                 span(class="number" name="attr_"+skill.id+"_max") 
                 div(class="tooltiptext")
                     span(data-i18n="header_skillvalue") FW
                     span  +  
-                    span(data-i18n=skill.baseattribute+"_short") Ath  
+                    span(data-i18n=skill.baseattribute+"_short") Ath 
 
-            button(class="roll checkdie" type='action' name='act_'+skill.id)
+            if(skill.id=="skill_acrobatics")
+                input(type="hidden" class="tutorialstep2" name="attr_tutorial_step")
+                div(class="item tooltip hintborder")
+                    button(class="roll checkdie" type='action' name='act_'+skill.id)
+                    span(class="hinttext hinttextright" data-i18n="checkhint") 
+            else  
+                button(class="roll checkdie" type='action' name='act_'+skill.id)
+            
+
+            
     </div>
 </div>

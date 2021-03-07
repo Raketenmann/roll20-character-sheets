@@ -1,12 +1,16 @@
-<img class="raven" src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />
+
+<input class="tutorialtoggle" type="hidden" name="attr_tutorial_done" value="0"/>
+<div class="tutorial">  </div><img class="raven" src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />
 <img class="pc_only watermark" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
-<div class="tabbuttonbar">
+<input class="tutorialstep0" type="hidden" name="attr_tutorial_step"/><div class="tabbuttonbar hintborder">
 <button type="action" class="pc_only" name="act_character"data-i18n="button_character">Character</button>
 <button type="action" class="npc_only" name="act_npc" data-i18n="button_npc">NPC</button>
 <button type="action" class="pc_only" name="act_combat" data-i18n="button_combat">Combat</button>
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
 <button type="action" name="act_toggleeditmode" data-i18n="button_exit_edit_mode">Exit Edit Mode</button>
 <button type="action" name="act_toggleeditmode" data-i18n="button_enter_edit_mode">Enter Edit Mode</button>
+<span class="hinttext hinttextright" data-i18n="navigationhint">
+</span>
 </div>
 <div class="col" style="min-width:380px">
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
@@ -20,6 +24,8 @@
 </div>
 <div class="pc_only">
 <button type="action" name="act_converttonpc" data-i18n="button_contert_to_npc">Convert to NPC</button>
+<br>
+<button type="action" name="act_resettutorial" data-i18n="button_reset_tutorial">Restart Tutorial</button>
 <br>
 <input type="checkbox" class="normal" name="attr_displayrage" value="1" checked=true/>
 <span></span>
@@ -90,7 +96,7 @@
 </div>
 <br>
 <input type="hidden" min="-5" max="5" name="attr_janus" />
-<span class="dicebargroup tooltip hintborder">
+<input class="tutorialstep3" type="hidden" name="attr_tutorial_step" value="0"/><span class="dicebargroup tooltip hintborder">
 <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-5" /><span></span>
 <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-4" /><span></span>
 <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-3" /><span></span>
@@ -148,7 +154,8 @@
     <input class="normal ressource_rage_toggle" type="hidden" name="attr_displayrage" value="1" checked="true"/>
     <input class="normal ressource_ambition_toggle" type="hidden" name="attr_displayambition" value="1" checked="true"/>
     <input class="normal ressource_quintessence_toggle" type="hidden" name="attr_displayquintessence" value="1" checked="true"/>
-    <div class="tooltip ressource_coup">
+    <input class="tutorialstep4" type="hidden" name="attr_tutorial_step"/>
+    <div class="tooltip ressource_coup hintborder">
       <input class="number" type="hidden" name="attr_coup"/>
       <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
         <input class="chipstack chip0" type="radio" name="attr_coup" value="0" checked="checked"/><span></span>
@@ -168,7 +175,7 @@
       </div>
       <div class="tooltiptext"><span data-i18n="ressource_coup">coup</span>
         <input class="hideempty_toggle" type="hidden" name="attr_coup_max"/><span class="hideempty"> (max. <span name="attr_coup_max"></span>)</span>
-      </div>
+      </div><span class="hinttext hintposright" data-i18n="ressourcehint"></span>
     </div>
     <div class="tooltip ressource_idea">
       <input class="number" type="hidden" name="attr_idea"/>

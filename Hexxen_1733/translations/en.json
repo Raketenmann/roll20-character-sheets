@@ -175,7 +175,15 @@
     "attacktype_ranged":"Ranged Combat",
     "heading_npc_powers":"Powers",
     "mounted":"Mounted",
-    "vs_mounted":"Vs. Mounted",
+    "vs_mounted":"vs. Mounted",
     "janustooltip":"Bonus oder penalty Janusdice",
-    "janushint":"Account positive and negative Modifiers and adjust janusdice count here. Choose dice with '-' symbols if the sum of modifiers adds up negative and '+'-Symbole if positive."
+    "button_next_tutorial":"Next Hint",
+    "button_exit_tutorial":"End Tutorial",
+    "button_reset_tutorial":"Reset Tutorial",
+    "janushint":"Account positive and negative Modifiers and adjust janusdice count here. Choose dice with '-' symbols if the sum of modifiers adds up negative and '+'-Symbole if positive.",
+    "navigationhint":"Switch between your basic character information and combat information and fill in your values. Click \"Enter Edit Mode\" if you want to change something later and click \"Exit Edit Mode\" if you want to play.",
+    "collapsehint":"Click a feather symbol to collapse a box and click it again to open it.",
+    "checkhint":"When you want to roll for check, click raven buttons to prepare the roll, then adjust janusdie as you like and hit \"Roll\" to roll the dice.",
+    "ressourcehint":"Adjust your amount of coup, ideas, blessings and so on with this chipstacks by either use the '+' and '-' buttons next to the value or by clicking directly on the stack."
+
 }

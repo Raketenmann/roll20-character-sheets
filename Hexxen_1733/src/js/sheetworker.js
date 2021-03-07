@@ -40,6 +40,37 @@ const buttonlist = ["character","combat","npc","configuration"];
             });
         });
     });
+    on(`clicked:toggletutorial`, function() {
+
+        setAttrs({
+            tutorial_step: 5,
+            tutorial_done: 1,
+            sheetTab: "character",
+            editmode: 1
+        });
+    });
+    on(`clicked:nexttutorial`, function() {
+        getAttrs(["tutorial_step"], function(values) {
+            var tutorial_step = parseInt(values["tutorial_step"],10)||0;
+            tutorial_step = tutorial_step + 1;
+            var tutorial_done = tutorial_step >= 5 ? 1 : 0;
+            var editmode = tutorial_done ? 1 : 0
+            setAttrs({
+                tutorial_step: tutorial_step,
+                tutorial_done: tutorial_done,
+                sheetTab: "character",
+                editmode: editmode
+            });
+        });
+    });
+    on(`clicked:resettutorial`, function() {
+        setAttrs({
+            tutorial_step: 0,
+            tutorial_done: 0,
+            sheetTab: "character",
+            editmode: 0
+        });
+    });
 
     const resourcebuttonlist = ["addcoup","remcoup",
     "addidea","remidea",
@@ -589,16 +620,19 @@ const buttonlist = ["character","combat","npc","configuration"];
     });
 
     on("sheet:opened", function(eventInfo){
-        getAttrs(["weapon_punch_active", "weapon_dodge_active"], function(values) {
+        getAttrs(["weapon_punch_active", "weapon_dodge_active", "tutorial_step"], function(values) {
             console.log("sheet:opened");
             console.log(values);
             var weapon_punch_active = parseInt(values.weapon_punch_active,10)||1;
             var weapon_dodge_active = parseInt(values.weapon_dodge_active,10)||1;
+            var tutorial_step = parseInt(values.tutorial_step,10)||0;
+            
             console.log(weapon_punch_active);
             console.log(weapon_dodge_active);
             setAttrs({
                 weapon_punch_active: weapon_punch_active,
-                weapon_dodge_active: weapon_dodge_active
+                weapon_dodge_active: weapon_dodge_active,
+                tutorial_step: tutorial_step
             });
         });
     });

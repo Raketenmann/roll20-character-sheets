@@ -1,18 +1,23 @@
 
+<input class="tutorialtoggle" type="hidden" name="attr_tutorial_done" value="0"/>
 <input class="npctoggle" type="hidden" name="attr_npc" value="0"/>
 <input class="npc_type_toggle" type="hidden" name="attr_npc_type" value="npc_type_gang"/>
 <div class="charsheet">
   <input class="tabstoggle" type="hidden" name="attr_sheetTab" value="character"/>
   <div class="sticky">
-    <div class="2colrow"><img class="raven" src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />
+    <div class="2colrow">
+      <input class="tutorialtoggle" type="hidden" name="attr_tutorial_done" value="0"/>
+      <div class="tutorial">  </div><img class="raven" src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />
 <img class="pc_only watermark" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
-<div class="tabbuttonbar">
+      <input class="tutorialstep0" type="hidden" name="attr_tutorial_step"/><div class="tabbuttonbar hintborder">
 <button type="action" class="pc_only" name="act_character"data-i18n="button_character">Character</button>
 <button type="action" class="npc_only" name="act_npc" data-i18n="button_npc">NPC</button>
 <button type="action" class="pc_only" name="act_combat" data-i18n="button_combat">Combat</button>
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
 <button type="action" name="act_toggleeditmode" data-i18n="button_exit_edit_mode">Exit Edit Mode</button>
 <button type="action" name="act_toggleeditmode" data-i18n="button_enter_edit_mode">Enter Edit Mode</button>
+<span class="hinttext hinttextright" data-i18n="navigationhint">
+</span>
 </div>
 <div class="col" style="min-width:380px">
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
@@ -26,6 +31,8 @@
 </div>
 <div class="pc_only">
 <button type="action" name="act_converttonpc" data-i18n="button_contert_to_npc">Convert to NPC</button>
+<br>
+<button type="action" name="act_resettutorial" data-i18n="button_reset_tutorial">Restart Tutorial</button>
 <br>
 <input type="checkbox" class="normal" name="attr_displayrage" value="1" checked=true/>
 <span></span>
@@ -96,7 +103,7 @@
 </div>
 <br>
 <input type="hidden" min="-5" max="5" name="attr_janus" />
-<span class="dicebargroup tooltip hintborder">
+      <input class="tutorialstep3" type="hidden" name="attr_tutorial_step" value="0"/><span class="dicebargroup tooltip hintborder">
 <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-5" /><span></span>
 <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-4" /><span></span>
 <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-3" /><span></span>
@@ -154,147 +161,157 @@
           <input class="normal ressource_rage_toggle" type="hidden" name="attr_displayrage" value="1" checked="true"/>
           <input class="normal ressource_ambition_toggle" type="hidden" name="attr_displayambition" value="1" checked="true"/>
           <input class="normal ressource_quintessence_toggle" type="hidden" name="attr_displayquintessence" value="1" checked="true"/>
-          <div class="tooltip ressource_coup">
-            <input class="number" type="hidden" name="attr_coup"/>
-            <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
-              <input class="chipstack chip0" type="radio" name="attr_coup" value="0" checked="checked"/><span></span>
-              <input class="chipstack coupchip chip1" type="radio" name="attr_coup" value="1"/><span></span>
-              <input class="chipstack coupchip chip2" type="radio" name="attr_coup" value="2"/><span></span>
-              <input class="chipstack coupchip chip3" type="radio" name="attr_coup" value="3"/><span></span>
-              <input class="chipstack coupchip chip4" type="radio" name="attr_coup" value="4"/><span></span>
-              <input class="chipstack coupchip chip5" type="radio" name="attr_coup" value="5"/><span></span>
-              <input class="chipstack coupchip chip6" type="radio" name="attr_coup" value="6"/><span></span>
-              <input class="chipstack coupchip chip7" type="radio" name="attr_coup" value="7"/><span></span>
-              <input class="chipstack coupchip chip8" type="radio" name="attr_coup" value="8"/><span></span>
-              <input class="chipstack coupchip chip9" type="radio" name="attr_coup" value="9"/><span></span>
-              <input class="chipstack coupchip chip10" type="radio" name="attr_coup" value="10"/><span></span></span><span class="singlechip coupchip">         </span>
-            <div class="chipnumber">
-              <button type="action" name="act_addcoup">+</button><span name="attr_coup"></span>
-              <button type="action" name="act_remcoup">-</button>
-            </div>
-            <div class="tooltiptext"><span data-i18n="ressource_coup">coup</span>
-              <input class="hideempty_toggle" type="hidden" name="attr_coup_max"/><span class="hideempty"> (max. <span name="attr_coup_max"></span>)</span>
-            </div>
+          <input class="tutorialstep4" type="hidden" name="attr_tutorial_step"/>
+          <div class="tooltip ressource_coup hintborder">
+                  <input class="number" type="hidden" name="attr_coup"/>
+                  <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
+                    <input class="chipstack chip0" type="radio" name="attr_coup" value="0" checked="checked"/><span></span>
+                    <input class="chipstack coupchip chip1" type="radio" name="attr_coup" value="1"/><span></span>
+                    <input class="chipstack coupchip chip2" type="radio" name="attr_coup" value="2"/><span></span>
+                    <input class="chipstack coupchip chip3" type="radio" name="attr_coup" value="3"/><span></span>
+                    <input class="chipstack coupchip chip4" type="radio" name="attr_coup" value="4"/><span></span>
+                    <input class="chipstack coupchip chip5" type="radio" name="attr_coup" value="5"/><span></span>
+                    <input class="chipstack coupchip chip6" type="radio" name="attr_coup" value="6"/><span></span>
+                    <input class="chipstack coupchip chip7" type="radio" name="attr_coup" value="7"/><span></span>
+                    <input class="chipstack coupchip chip8" type="radio" name="attr_coup" value="8"/><span></span>
+                    <input class="chipstack coupchip chip9" type="radio" name="attr_coup" value="9"/><span></span>
+                    <input class="chipstack coupchip chip10" type="radio" name="attr_coup" value="10"/><span></span></span><span class="singlechip coupchip">         </span>
+                  <div class="chipnumber">
+                    <button type="action" name="act_addcoup">+</button><span name="attr_coup"></span>
+                    <button type="action" name="act_remcoup">-</button>
+                  </div>
+                  <div class="tooltiptext"><span data-i18n="ressource_coup">coup</span>
+                    <input class="hideempty_toggle" type="hidden" name="attr_coup_max"/><span class="hideempty"> (max. <span name="attr_coup_max"></span>)</span>
+                  </div><span class="hinttext hintposright" data-i18n="ressourcehint"></span>
           </div>
           <div class="tooltip ressource_idea">
-            <input class="number" type="hidden" name="attr_idea"/>
-            <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
-              <input class="chipstack chip0" type="radio" name="attr_idea" value="0" checked="checked"/><span></span>
-              <input class="chipstack ideachip chip1" type="radio" name="attr_idea" value="1"/><span></span>
-              <input class="chipstack ideachip chip2" type="radio" name="attr_idea" value="2"/><span></span>
-              <input class="chipstack ideachip chip3" type="radio" name="attr_idea" value="3"/><span></span>
-              <input class="chipstack ideachip chip4" type="radio" name="attr_idea" value="4"/><span></span>
-              <input class="chipstack ideachip chip5" type="radio" name="attr_idea" value="5"/><span></span>
-              <input class="chipstack ideachip chip6" type="radio" name="attr_idea" value="6"/><span></span>
-              <input class="chipstack ideachip chip7" type="radio" name="attr_idea" value="7"/><span></span>
-              <input class="chipstack ideachip chip8" type="radio" name="attr_idea" value="8"/><span></span>
-              <input class="chipstack ideachip chip9" type="radio" name="attr_idea" value="9"/><span></span>
-              <input class="chipstack ideachip chip10" type="radio" name="attr_idea" value="10"/><span></span></span><span class="singlechip ideachip">         </span>
-            <div class="chipnumber">
-              <button type="action" name="act_addidea">+</button><span name="attr_idea"></span>
-              <button type="action" name="act_remidea">-</button>
-            </div>
-            <div class="tooltiptext"><span data-i18n="ressource_idea">idea</span>
-              <input class="hideempty_toggle" type="hidden" name="attr_idea_max"/><span class="hideempty"> (max. <span name="attr_idea_max"></span>)</span>
-            </div>
+                  <input class="number" type="hidden" name="attr_idea"/>
+                  <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
+                    <input class="chipstack chip0" type="radio" name="attr_idea" value="0" checked="checked"/><span></span>
+                    <input class="chipstack ideachip chip1" type="radio" name="attr_idea" value="1"/><span></span>
+                    <input class="chipstack ideachip chip2" type="radio" name="attr_idea" value="2"/><span></span>
+                    <input class="chipstack ideachip chip3" type="radio" name="attr_idea" value="3"/><span></span>
+                    <input class="chipstack ideachip chip4" type="radio" name="attr_idea" value="4"/><span></span>
+                    <input class="chipstack ideachip chip5" type="radio" name="attr_idea" value="5"/><span></span>
+                    <input class="chipstack ideachip chip6" type="radio" name="attr_idea" value="6"/><span></span>
+                    <input class="chipstack ideachip chip7" type="radio" name="attr_idea" value="7"/><span></span>
+                    <input class="chipstack ideachip chip8" type="radio" name="attr_idea" value="8"/><span></span>
+                    <input class="chipstack ideachip chip9" type="radio" name="attr_idea" value="9"/><span></span>
+                    <input class="chipstack ideachip chip10" type="radio" name="attr_idea" value="10"/><span></span></span><span class="singlechip ideachip">         </span>
+                  <div class="chipnumber">
+                    <button type="action" name="act_addidea">+</button><span name="attr_idea"></span>
+                    <button type="action" name="act_remidea">-</button>
+                  </div>
+                  <div class="tooltiptext"><span data-i18n="ressource_idea">idea</span>
+                    <input class="hideempty_toggle" type="hidden" name="attr_idea_max"/><span class="hideempty"> (max. <span name="attr_idea_max"></span>)</span>
+                  </div>
           </div>
           <div class="tooltip ressource_blessing">
-            <input class="number" type="hidden" name="attr_blessing"/>
-            <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
-              <input class="chipstack chip0" type="radio" name="attr_blessing" value="0" checked="checked"/><span></span>
-              <input class="chipstack blessingchip chip1" type="radio" name="attr_blessing" value="1"/><span></span>
-              <input class="chipstack blessingchip chip2" type="radio" name="attr_blessing" value="2"/><span></span>
-              <input class="chipstack blessingchip chip3" type="radio" name="attr_blessing" value="3"/><span></span>
-              <input class="chipstack blessingchip chip4" type="radio" name="attr_blessing" value="4"/><span></span>
-              <input class="chipstack blessingchip chip5" type="radio" name="attr_blessing" value="5"/><span></span>
-              <input class="chipstack blessingchip chip6" type="radio" name="attr_blessing" value="6"/><span></span>
-              <input class="chipstack blessingchip chip7" type="radio" name="attr_blessing" value="7"/><span></span>
-              <input class="chipstack blessingchip chip8" type="radio" name="attr_blessing" value="8"/><span></span>
-              <input class="chipstack blessingchip chip9" type="radio" name="attr_blessing" value="9"/><span></span>
-              <input class="chipstack blessingchip chip10" type="radio" name="attr_blessing" value="10"/><span></span></span><span class="singlechip blessingchip">         </span>
-            <div class="chipnumber">
-              <button type="action" name="act_addblessing">+</button><span name="attr_blessing"></span>
-              <button type="action" name="act_remblessing">-</button>
-            </div>
-            <div class="tooltiptext"><span data-i18n="ressource_blessing">blessing</span>
-              <input class="hideempty_toggle" type="hidden" name="attr_blessing_max"/><span class="hideempty"> (max. <span name="attr_blessing_max"></span>)</span>
-            </div>
+                  <input class="number" type="hidden" name="attr_blessing"/>
+                  <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
+                    <input class="chipstack chip0" type="radio" name="attr_blessing" value="0" checked="checked"/><span></span>
+                    <input class="chipstack blessingchip chip1" type="radio" name="attr_blessing" value="1"/><span></span>
+                    <input class="chipstack blessingchip chip2" type="radio" name="attr_blessing" value="2"/><span></span>
+                    <input class="chipstack blessingchip chip3" type="radio" name="attr_blessing" value="3"/><span></span>
+                    <input class="chipstack blessingchip chip4" type="radio" name="attr_blessing" value="4"/><span></span>
+                    <input class="chipstack blessingchip chip5" type="radio" name="attr_blessing" value="5"/><span></span>
+                    <input class="chipstack blessingchip chip6" type="radio" name="attr_blessing" value="6"/><span></span>
+                    <input class="chipstack blessingchip chip7" type="radio" name="attr_blessing" value="7"/><span></span>
+                    <input class="chipstack blessingchip chip8" type="radio" name="attr_blessing" value="8"/><span></span>
+                    <input class="chipstack blessingchip chip9" type="radio" name="attr_blessing" value="9"/><span></span>
+                    <input class="chipstack blessingchip chip10" type="radio" name="attr_blessing" value="10"/><span></span></span><span class="singlechip blessingchip">         </span>
+                  <div class="chipnumber">
+                    <button type="action" name="act_addblessing">+</button><span name="attr_blessing"></span>
+                    <button type="action" name="act_remblessing">-</button>
+                  </div>
+                  <div class="tooltiptext"><span data-i18n="ressource_blessing">blessing</span>
+                    <input class="hideempty_toggle" type="hidden" name="attr_blessing_max"/><span class="hideempty"> (max. <span name="attr_blessing_max"></span>)</span>
+                  </div>
           </div>
           <div class="tooltip ressource_rage">
-            <input class="number" type="hidden" name="attr_rage"/>
-            <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
-              <input class="chipstack chip0" type="radio" name="attr_rage" value="0" checked="checked"/><span></span>
-              <input class="chipstack ragechip chip1" type="radio" name="attr_rage" value="1"/><span></span>
-              <input class="chipstack ragechip chip2" type="radio" name="attr_rage" value="2"/><span></span>
-              <input class="chipstack ragechip chip3" type="radio" name="attr_rage" value="3"/><span></span>
-              <input class="chipstack ragechip chip4" type="radio" name="attr_rage" value="4"/><span></span>
-              <input class="chipstack ragechip chip5" type="radio" name="attr_rage" value="5"/><span></span>
-              <input class="chipstack ragechip chip6" type="radio" name="attr_rage" value="6"/><span></span>
-              <input class="chipstack ragechip chip7" type="radio" name="attr_rage" value="7"/><span></span>
-              <input class="chipstack ragechip chip8" type="radio" name="attr_rage" value="8"/><span></span>
-              <input class="chipstack ragechip chip9" type="radio" name="attr_rage" value="9"/><span></span>
-              <input class="chipstack ragechip chip10" type="radio" name="attr_rage" value="10"/><span></span></span><span class="singlechip ragechip">         </span>
-            <div class="chipnumber">
-              <button type="action" name="act_addrage">+</button><span name="attr_rage"></span>
-              <button type="action" name="act_remrage">-</button>
-            </div>
-            <div class="tooltiptext"><span data-i18n="ressource_rage">rage</span>
-              <input class="hideempty_toggle" type="hidden" name="attr_rage_max"/><span class="hideempty"> (max. <span name="attr_rage_max"></span>)</span>
-            </div>
+                  <input class="number" type="hidden" name="attr_rage"/>
+                  <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
+                    <input class="chipstack chip0" type="radio" name="attr_rage" value="0" checked="checked"/><span></span>
+                    <input class="chipstack ragechip chip1" type="radio" name="attr_rage" value="1"/><span></span>
+                    <input class="chipstack ragechip chip2" type="radio" name="attr_rage" value="2"/><span></span>
+                    <input class="chipstack ragechip chip3" type="radio" name="attr_rage" value="3"/><span></span>
+                    <input class="chipstack ragechip chip4" type="radio" name="attr_rage" value="4"/><span></span>
+                    <input class="chipstack ragechip chip5" type="radio" name="attr_rage" value="5"/><span></span>
+                    <input class="chipstack ragechip chip6" type="radio" name="attr_rage" value="6"/><span></span>
+                    <input class="chipstack ragechip chip7" type="radio" name="attr_rage" value="7"/><span></span>
+                    <input class="chipstack ragechip chip8" type="radio" name="attr_rage" value="8"/><span></span>
+                    <input class="chipstack ragechip chip9" type="radio" name="attr_rage" value="9"/><span></span>
+                    <input class="chipstack ragechip chip10" type="radio" name="attr_rage" value="10"/><span></span></span><span class="singlechip ragechip">         </span>
+                  <div class="chipnumber">
+                    <button type="action" name="act_addrage">+</button><span name="attr_rage"></span>
+                    <button type="action" name="act_remrage">-</button>
+                  </div>
+                  <div class="tooltiptext"><span data-i18n="ressource_rage">rage</span>
+                    <input class="hideempty_toggle" type="hidden" name="attr_rage_max"/><span class="hideempty"> (max. <span name="attr_rage_max"></span>)</span>
+                  </div>
           </div>
           <div class="tooltip ressource_ambition">
-            <input class="number" type="hidden" name="attr_ambition"/>
-            <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
-              <input class="chipstack chip0" type="radio" name="attr_ambition" value="0" checked="checked"/><span></span>
-              <input class="chipstack ambitionchip chip1" type="radio" name="attr_ambition" value="1"/><span></span>
-              <input class="chipstack ambitionchip chip2" type="radio" name="attr_ambition" value="2"/><span></span>
-              <input class="chipstack ambitionchip chip3" type="radio" name="attr_ambition" value="3"/><span></span>
-              <input class="chipstack ambitionchip chip4" type="radio" name="attr_ambition" value="4"/><span></span>
-              <input class="chipstack ambitionchip chip5" type="radio" name="attr_ambition" value="5"/><span></span>
-              <input class="chipstack ambitionchip chip6" type="radio" name="attr_ambition" value="6"/><span></span>
-              <input class="chipstack ambitionchip chip7" type="radio" name="attr_ambition" value="7"/><span></span>
-              <input class="chipstack ambitionchip chip8" type="radio" name="attr_ambition" value="8"/><span></span>
-              <input class="chipstack ambitionchip chip9" type="radio" name="attr_ambition" value="9"/><span></span>
-              <input class="chipstack ambitionchip chip10" type="radio" name="attr_ambition" value="10"/><span></span></span><span class="singlechip ambitionchip">         </span>
-            <div class="chipnumber">
-              <button type="action" name="act_addambition">+</button><span name="attr_ambition"></span>
-              <button type="action" name="act_remambition">-</button>
-            </div>
-            <div class="tooltiptext"><span data-i18n="ressource_ambition">ambition</span>
-              <input class="hideempty_toggle" type="hidden" name="attr_ambition_max"/><span class="hideempty"> (max. <span name="attr_ambition_max"></span>)</span>
-            </div>
+                  <input class="number" type="hidden" name="attr_ambition"/>
+                  <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
+                    <input class="chipstack chip0" type="radio" name="attr_ambition" value="0" checked="checked"/><span></span>
+                    <input class="chipstack ambitionchip chip1" type="radio" name="attr_ambition" value="1"/><span></span>
+                    <input class="chipstack ambitionchip chip2" type="radio" name="attr_ambition" value="2"/><span></span>
+                    <input class="chipstack ambitionchip chip3" type="radio" name="attr_ambition" value="3"/><span></span>
+                    <input class="chipstack ambitionchip chip4" type="radio" name="attr_ambition" value="4"/><span></span>
+                    <input class="chipstack ambitionchip chip5" type="radio" name="attr_ambition" value="5"/><span></span>
+                    <input class="chipstack ambitionchip chip6" type="radio" name="attr_ambition" value="6"/><span></span>
+                    <input class="chipstack ambitionchip chip7" type="radio" name="attr_ambition" value="7"/><span></span>
+                    <input class="chipstack ambitionchip chip8" type="radio" name="attr_ambition" value="8"/><span></span>
+                    <input class="chipstack ambitionchip chip9" type="radio" name="attr_ambition" value="9"/><span></span>
+                    <input class="chipstack ambitionchip chip10" type="radio" name="attr_ambition" value="10"/><span></span></span><span class="singlechip ambitionchip">         </span>
+                  <div class="chipnumber">
+                    <button type="action" name="act_addambition">+</button><span name="attr_ambition"></span>
+                    <button type="action" name="act_remambition">-</button>
+                  </div>
+                  <div class="tooltiptext"><span data-i18n="ressource_ambition">ambition</span>
+                    <input class="hideempty_toggle" type="hidden" name="attr_ambition_max"/><span class="hideempty"> (max. <span name="attr_ambition_max"></span>)</span>
+                  </div>
           </div>
           <div class="tooltip ressource_quintessence">
-            <input class="number" type="hidden" name="attr_quintessence"/>
-            <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
-              <input class="chipstack chip0" type="radio" name="attr_quintessence" value="0" checked="checked"/><span></span>
-              <input class="chipstack quintessencechip chip1" type="radio" name="attr_quintessence" value="1"/><span></span>
-              <input class="chipstack quintessencechip chip2" type="radio" name="attr_quintessence" value="2"/><span></span>
-              <input class="chipstack quintessencechip chip3" type="radio" name="attr_quintessence" value="3"/><span></span>
-              <input class="chipstack quintessencechip chip4" type="radio" name="attr_quintessence" value="4"/><span></span>
-              <input class="chipstack quintessencechip chip5" type="radio" name="attr_quintessence" value="5"/><span></span>
-              <input class="chipstack quintessencechip chip6" type="radio" name="attr_quintessence" value="6"/><span></span>
-              <input class="chipstack quintessencechip chip7" type="radio" name="attr_quintessence" value="7"/><span></span>
-              <input class="chipstack quintessencechip chip8" type="radio" name="attr_quintessence" value="8"/><span></span>
-              <input class="chipstack quintessencechip chip9" type="radio" name="attr_quintessence" value="9"/><span></span>
-              <input class="chipstack quintessencechip chip10" type="radio" name="attr_quintessence" value="10"/><span></span></span><span class="singlechip quintessencechip">         </span>
-            <div class="chipnumber">
-              <button type="action" name="act_addquintessence">+</button><span name="attr_quintessence"></span>
-              <button type="action" name="act_remquintessence">-</button>
-            </div>
-            <div class="tooltiptext"><span data-i18n="ressource_quintessence">quintessence</span>
-              <input class="hideempty_toggle" type="hidden" name="attr_quintessence_max"/><span class="hideempty"> (max. <span name="attr_quintessence_max"></span>)</span>
-            </div>
+                  <input class="number" type="hidden" name="attr_quintessence"/>
+                  <input class="displaychipstacks" type="hidden" name="attr_displaychipstacks" value="1"/><span class="chipstackgroup">
+                    <input class="chipstack chip0" type="radio" name="attr_quintessence" value="0" checked="checked"/><span></span>
+                    <input class="chipstack quintessencechip chip1" type="radio" name="attr_quintessence" value="1"/><span></span>
+                    <input class="chipstack quintessencechip chip2" type="radio" name="attr_quintessence" value="2"/><span></span>
+                    <input class="chipstack quintessencechip chip3" type="radio" name="attr_quintessence" value="3"/><span></span>
+                    <input class="chipstack quintessencechip chip4" type="radio" name="attr_quintessence" value="4"/><span></span>
+                    <input class="chipstack quintessencechip chip5" type="radio" name="attr_quintessence" value="5"/><span></span>
+                    <input class="chipstack quintessencechip chip6" type="radio" name="attr_quintessence" value="6"/><span></span>
+                    <input class="chipstack quintessencechip chip7" type="radio" name="attr_quintessence" value="7"/><span></span>
+                    <input class="chipstack quintessencechip chip8" type="radio" name="attr_quintessence" value="8"/><span></span>
+                    <input class="chipstack quintessencechip chip9" type="radio" name="attr_quintessence" value="9"/><span></span>
+                    <input class="chipstack quintessencechip chip10" type="radio" name="attr_quintessence" value="10"/><span></span></span><span class="singlechip quintessencechip">         </span>
+                  <div class="chipnumber">
+                    <button type="action" name="act_addquintessence">+</button><span name="attr_quintessence"></span>
+                    <button type="action" name="act_remquintessence">-</button>
+                  </div>
+                  <div class="tooltiptext"><span data-i18n="ressource_quintessence">quintessence</span>
+                    <input class="hideempty_toggle" type="hidden" name="attr_quintessence_max"/><span class="hideempty"> (max. <span name="attr_quintessence_max"></span>)</span>
+                  </div>
           </div>
         </div>
       </div>
     </div>
   </div><div class='sheet-character'>
-<div class="2colrow">
-<div class="col"><div class="box">      
+  <input class="tutorialtoggle" type="hidden" name="attr_tutorial_done" value="0"/>
+  <div class="tutorial">
+    <div style="display:inline-block;position:relative">
+      <button type="action" name="act_nexttutorial" data-i18n="button_next_tutorial">Next Hint</button>
+      <button type="action" name="act_toggletutorial" data-i18n="button_exit_tutorial">Toggle Hints</button>
+    </div>
+  </div><div class="2colrow">
+<div class="col"><div class="box">     
 <h2 data-i18n="heading_personal">Charakter</h2>
+  <input class="tutorialstep1" type="hidden" name="attr_tutorial_step"/><div class="hintcontainer">
+<span class="hinttext hinttextright" data-i18n="collapsehint"></span>
+</div>
 <input class="feathertoggle" type="checkbox" name="attr_display-personal" value="1" checked="true"/>
-<img class="feather" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
+  <input class="tutorialstep1" type="hidden" name="attr_tutorial_step"/><img class="feather hintborder" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
 <div class="personalgrid">
 <label data-i18n="label_rank">Jägerstufe</label>
 <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1"/>
@@ -845,118 +862,128 @@
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_acrobatics"/><span class="number" name="attr_skill_acrobatics"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_acrobatics_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_athletic_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_athletic_short">Ath </span></div>
   </div>
-  <button class="roll checkdie" type="action" name="act_skill_acrobatics"></button>
+  <input class="tutorialstep2" type="hidden" name="attr_tutorial_step"/>
+  <div class="item tooltip hintborder">
+    <button class="roll checkdie" type="action" name="act_skill_acrobatics"></button><span class="hinttext hinttextright" data-i18n="checkhint"> </span>
+  </div>
   <label class="item" data-i18n="skill_alertness"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_alertness"/><span class="number" name="attr_skill_alertness"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_alertness_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_senses_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_senses_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_alertness"></button>
   <label class="item" data-i18n="skill_perception"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_perception"/><span class="number" name="attr_skill_perception"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_perception_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_senses_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_senses_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_perception"></button>
   <label class="item" data-i18n="skill_firstaid"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_firstaid"/><span class="number" name="attr_skill_firstaid"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_firstaid_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_knowledge_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_knowledge_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_firstaid"></button>
   <label class="item" data-i18n="skill_sleightofhand"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_sleightofhand"/><span class="number" name="attr_skill_sleightofhand"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_sleightofhand_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_dexterity_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_dexterity_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_sleightofhand"></button>
   <label class="item" data-i18n="skill_mentalpower"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_mentalpower"/><span class="number" name="attr_skill_mentalpower"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_mentalpower_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_willpower_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_willpower_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_mentalpower"></button>
   <label class="item" data-i18n="skill_crafting"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_crafting"/><span class="number" name="attr_skill_crafting"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_crafting_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_dexterity_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_dexterity_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_crafting"></button>
   <label class="item" data-i18n="skill_stealth"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_stealth"/><span class="number" name="attr_skill_stealth"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_stealth_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_athletic_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_athletic_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_stealth"></button>
   <label class="item" data-i18n="skill_countryandpeople"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_countryandpeople"/><span class="number" name="attr_skill_countryandpeople"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_countryandpeople_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_knowledge_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_knowledge_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_countryandpeople"></button>
   <label class="item" data-i18n="skill_rhetoric"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_rhetoric"/><span class="number" name="attr_skill_rhetoric"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_rhetoric_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_willpower_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_willpower_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_rhetoric"></button>
   <label class="item" data-i18n="skill_flexing"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_flexing"/><span class="number" name="attr_skill_flexing"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_flexing_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_strength_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_strength_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_flexing"></button>
   <label class="item" data-i18n="skill_reflexes"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_reflexes"/><span class="number" name="attr_skill_reflexes"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_reflexes_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_senses_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_senses_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_reflexes"></button>
   <label class="item" data-i18n="skill_riding"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_riding"/><span class="number" name="attr_skill_riding"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_riding_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_athletic_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_athletic_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_riding"></button>
   <label class="item" data-i18n="skill_insensibility"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_insensibility"/><span class="number" name="attr_skill_insensibility"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_insensibility_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_strength_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_strength_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_insensibility"></button>
   <label class="item" data-i18n="skill_fieldsofknowledge"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_fieldsofknowledge"/><span class="number" name="attr_skill_fieldsofknowledge"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_fieldsofknowledge_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_knowledge_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_knowledge_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_fieldsofknowledge"></button>
   <label class="item" data-i18n="skill_witchcraft"></label>
   <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
   <input class="number" type="number" name="attr_skill_witchcraft"/><span class="number" name="attr_skill_witchcraft"></span>
   <div class="item tooltip"><span class="number" name="attr_skill_witchcraft_max"> </span>
-    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_knowledge_short">Ath  </span></div>
+    <div class="tooltiptext"><span data-i18n="header_skillvalue">FW</span><span> +  </span><span data-i18n="attribute_knowledge_short">Ath </span></div>
   </div>
   <button class="roll checkdie" type="action" name="act_skill_witchcraft"></button></div>
 </div></div>
 </div>
 </div>
   <div class="sheet-combat">
+    <input class="tutorialtoggle" type="hidden" name="attr_tutorial_done" value="0"/>
+    <div class="tutorial">
+      <div style="display:inline-block;position:relative">
+        <button type="action" name="act_nexttutorial" data-i18n="button_next_tutorial">Next Hint</button>
+        <button type="action" name="act_toggletutorial" data-i18n="button_exit_tutorial">Toggle Hints</button>
+      </div>
+    </div>
     <div class="2colrow">
       <div class="col"><div class="box">
 <h2 data-i18n="heading_influences">Anhaltende Einflüsse</h2>
@@ -1809,6 +1836,37 @@
             });
         });
     });
+    on(`clicked:toggletutorial`, function() {
+
+        setAttrs({
+            tutorial_step: 5,
+            tutorial_done: 1,
+            sheetTab: "character",
+            editmode: 1
+        });
+    });
+    on(`clicked:nexttutorial`, function() {
+        getAttrs(["tutorial_step"], function(values) {
+            var tutorial_step = parseInt(values["tutorial_step"],10)||0;
+            tutorial_step = tutorial_step + 1;
+            var tutorial_done = tutorial_step >= 5 ? 1 : 0;
+            var editmode = tutorial_done ? 1 : 0
+            setAttrs({
+                tutorial_step: tutorial_step,
+                tutorial_done: tutorial_done,
+                sheetTab: "character",
+                editmode: editmode
+            });
+        });
+    });
+    on(`clicked:resettutorial`, function() {
+        setAttrs({
+            tutorial_step: 0,
+            tutorial_done: 0,
+            sheetTab: "character",
+            editmode: 0
+        });
+    });
 
     const resourcebuttonlist = ["addcoup","remcoup",
     "addidea","remidea",
@@ -2358,16 +2416,19 @@
     });
 
     on("sheet:opened", function(eventInfo){
-        getAttrs(["weapon_punch_active", "weapon_dodge_active"], function(values) {
+        getAttrs(["weapon_punch_active", "weapon_dodge_active", "tutorial_step"], function(values) {
             console.log("sheet:opened");
             console.log(values);
             var weapon_punch_active = parseInt(values.weapon_punch_active,10)||1;
             var weapon_dodge_active = parseInt(values.weapon_dodge_active,10)||1;
+            var tutorial_step = parseInt(values.tutorial_step,10)||0;
+            
             console.log(weapon_punch_active);
             console.log(weapon_dodge_active);
             setAttrs({
                 weapon_punch_active: weapon_punch_active,
-                weapon_dodge_active: weapon_dodge_active
+                weapon_dodge_active: weapon_dodge_active,
+                tutorial_step: tutorial_step
             });
         });
     });

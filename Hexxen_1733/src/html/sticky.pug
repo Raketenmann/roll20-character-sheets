@@ -1,13 +1,38 @@
-
+mixin ressourcestack(res_type)
+    input(type="hidden" name="attr_"+res_type class='number')
+    input(type="hidden" name="attr_displaychipstacks" class="displaychipstacks" value="1")
+    span(class="chipstackgroup")
+        input(type="radio" class="chipstack chip0" name="attr_"+res_type value="0" checked="checked")
+        span
+        each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            input(type="radio" class="chipstack "+res_type+"chip chip"+val name="attr_"+res_type value=val)
+            span
+    span(class="singlechip "+res_type+"chip")          
+    div(class="chipnumber")
+        button(type="action" name="act_add"+res_type) +
+        span(name="attr_"+res_type)
+        button(type="action" name="act_rem"+res_type) -
+    div(class="tooltiptext")
+        span(data-i18n="ressource_"+res_type)=res_type 
+        input(class="hideempty_toggle" type="hidden" name="attr_"+res_type+"_max")
+        span(class="hideempty")
+            |  (max. 
+            span(name="attr_"+res_type+"_max")
+            | )
+input(type="hidden" class="tutorialtoggle" name="attr_tutorial_done" value="0")
+div(class="tutorial")   
 <img class="raven" src="http://www.handsongaming.de/public/images/hexxen/Rabenkasten_tc.png" />
 <img class="pc_only watermark" src="http://www.handsongaming.de/public/images/hexxen/Feder.png" />
-<div class="tabbuttonbar">
+input(type="hidden" class="tutorialstep0" name="attr_tutorial_step")
+<div class="tabbuttonbar hintborder">
     <button type="action" class="pc_only" name="act_character"data-i18n="button_character">Character</button>
     <button type="action" class="npc_only" name="act_npc" data-i18n="button_npc">NPC</button>
     <button type="action" class="pc_only" name="act_combat" data-i18n="button_combat">Combat</button>
     <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
     <button type="action" name="act_toggleeditmode" data-i18n="button_exit_edit_mode">Exit Edit Mode</button>
     <button type="action" name="act_toggleeditmode" data-i18n="button_enter_edit_mode">Enter Edit Mode</button>
+    <span class="hinttext hinttextright" data-i18n="navigationhint">
+    </span>
 </div>
 <div class="col" style="min-width:380px">
     <input type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true/>
@@ -22,6 +47,8 @@
         </div>
         <div class="pc_only">
             <button type="action" name="act_converttonpc" data-i18n="button_contert_to_npc">Convert to NPC</button>
+            <br>
+            <button type="action" name="act_resettutorial" data-i18n="button_reset_tutorial">Restart Tutorial</button>
             <br>
             <input type="checkbox" class="normal" name="attr_displayrage" value="1" checked=true/>
             <span></span>
@@ -83,6 +110,7 @@
         </div>
         <br>
         <input type="hidden" min="-5" max="5" name="attr_janus" />
+        input(type="hidden" class="tutorialstep3" name="attr_tutorial_step" value="0")
         <span class="dicebargroup tooltip hintborder">
             <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-5" /><span></span>
             <input type="radio" class="dicebar reverse janusdiemalus" name="attr_janus" value="-4" /><span></span>
@@ -148,25 +176,14 @@ div(class="col pc_only")
         input(type="hidden" class="normal ressource_ambition_toggle" name="attr_displayambition" value="1" checked="true")      
         input(type="hidden" class="normal ressource_quintessence_toggle" name="attr_displayquintessence" value="1" checked="true")
         each res_type in ["coup", "idea", "blessing", "rage", "ambition", "quintessence"]
-            div(class="tooltip ressource_"+res_type)
-                input(type="hidden" name="attr_"+res_type class='number')
-                input(type="hidden" name="attr_displaychipstacks" class="displaychipstacks" value="1")
-                span(class="chipstackgroup")
-                    input(type="radio" class="chipstack chip0" name="attr_"+res_type value="0" checked="checked")
-                    span
-                    each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                        input(type="radio" class="chipstack "+res_type+"chip chip"+val name="attr_"+res_type value=val)
-                        span
-                span(class="singlechip "+res_type+"chip")          
-                div(class="chipnumber")
-                    button(type="action" name="act_add"+res_type) +
-                    span(name="attr_"+res_type)
-                    button(type="action" name="act_rem"+res_type) -
-                div(class="tooltiptext")
-                    span(data-i18n="ressource_"+res_type)=res_type 
-                    input(class="hideempty_toggle" type="hidden" name="attr_"+res_type+"_max")
-                    span(class="hideempty")
-                        |  (max. 
-                        span(name="attr_"+res_type+"_max")
-                        | )
+            if(res_type=="coup")
+                input(type="hidden" class="tutorialstep4" name="attr_tutorial_step")
+                div(class="tooltip ressource_"+res_type+" hintborder")
+                    +ressourcestack(res_type)
+                    span(class="hinttext hintposright" data-i18n="ressourcehint")
+            else 
+                div(class="tooltip ressource_"+res_type)
+                    +ressourcestack(res_type)
+
                 
+            

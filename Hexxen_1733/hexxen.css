@@ -584,12 +584,29 @@ input.sheet-rating[type="radio"]:checked ~ input.sheet-rating[type="radio"] + sp
   .sheet-tooltip:hover + .sheet-tooltiptext:empty {
 	visibility: hidden;
   }
+  
   /*#### Hints ###*/
-.sheet-hintborder{
-	border:0px solid maroon
+.sheet-tutorial{
+	position: absolute;
+	top:12px;
+	left:-2px;
+	width:100%;
+	height:107%;
+	background: rgba(245, 240, 225, 0.85);
+	z-index:9;
 }
- .sheet-hinttext{
-	visibility: hidden;
+.sheet-tutorialtoggle[value="1"] + .sheet-tutorial{
+	display: none;
+}
+.sheet-hintborder{
+	border:2px solid maroon;
+	z-index:11;
+}
+.sheet-hintcontainer{
+	position:relative;
+}
+
+.sheet-hinttext{
 	width: max-content;
 	max-width:300px;
 	background-color: black;
@@ -597,14 +614,48 @@ input.sheet-rating[type="radio"]:checked ~ input.sheet-rating[type="radio"] + sp
 	text-align: center;
 	border-radius: 6px;
 	padding: 5px 7px;
-  
+
 	/* Position the tooltip */
 	position: absolute;
 	top:100%;
 	left:15px;
 	margin-top:10px;
-	z-index: 1;
-  }
+	z-index: 12;
+}
+.sheet-tutorialstep0:not([value="0"]) + .sheet-hintcontainer,
+.sheet-tutorialstep1:not([value="1"]) + .sheet-hintcontainer,
+.sheet-tutorialstep2:not([value="2"]) + .sheet-hintcontainer,
+.sheet-tutorialstep3:not([value="3"]) + .sheet-hintcontainer,
+.sheet-tutorialstep4:not([value="4"]) + .sheet-hintcontainer,
+.sheet-tutorialtoggle[value="1"] + .sheet-hintcontainer{
+	display: none;
+}
+.sheet-tutorialstep0:not([value="0"]) + .sheet-hintborder,
+.sheet-tutorialstep1:not([value="1"]) + .sheet-hintborder,
+.sheet-tutorialstep2:not([value="2"]) + .sheet-hintborder,
+.sheet-tutorialstep3:not([value="3"]) + .sheet-hintborder,
+.sheet-tutorialstep4:not([value="4"]) + .sheet-hintborder,
+.sheet-tutorialtoggle[value="1"] + .sheet-hintborder{
+	border:0px;
+	z-index:unset;
+}
+.sheet-tutorialstep0:not([value="0"]) + .sheet-hintborder .sheet-hinttext,
+.sheet-tutorialstep1:not([value="1"]) + .sheet-hintborder .sheet-hinttext,
+.sheet-tutorialstep2:not([value="2"]) + .sheet-hintborder .sheet-hinttext,
+.sheet-tutorialstep3:not([value="3"]) + .sheet-hintborder .sheet-hinttext,
+.sheet-tutorialstep4:not([value="4"]) + .sheet-hintborder .sheet-hinttext,
+.sheet-tutorialtoggle[value="1"] + .sheet-hintborder .sheet-hinttext{
+	display:none;
+}
+.sheet-hinttextright{
+	right:-15px;
+	left:unset;
+}
+.sheet-hintposright{
+	top:15px;
+	left:100%;
+	margin-left:10px;
+}
 
 /*### CHIPSTACK ###*/
 
