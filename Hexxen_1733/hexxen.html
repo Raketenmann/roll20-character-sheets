@@ -989,8 +989,9 @@
 <h2 data-i18n="heading_influences">Anhaltende Einflüsse</h2>
 <input class="feathertoggle" type="checkbox" name="attr_display-influences" value="1" checked="true"/>
 <img class="feather" src="https://ulisses-digital.de/R20/hexxen/images/Feather.png" />
-<div class="influences">        
-<label class="item" data-i18n="label_outerdamage">Äußerer Schaden</label>
+<div class="influences">   
+<img class="item tooltip" src="https://ulisses-digital.de/R20/hexxen/images/Status Brand.png" />     
+<label class="tooltiptext" data-i18n="label_outerdamage">Äußerer Schaden</label>
 <span class="item">
 <input type="radio" class="sheet-rating sheet-zero" name="attr_outerdamage" value="0" checked="checked" /><span></span>
 <input type="radio" class="sheet-rating" name="attr_outerdamage" value="1" /><span></span>
@@ -1000,7 +1001,8 @@
 <input type="radio" class="sheet-rating" name="attr_outerdamage" value="5" /><span></span>
 </span>
 <input class="item textline" type="text" name="attr_outerdamage_conditions" data-i18n-placeholder="label_condition" placeholder="Zustand"/>
-<label class="item" data-i18n="label_innerdamage">Innerer Schaden</label>
+<img class="item tooltip" src="https://ulisses-digital.de/R20/hexxen/images/Status Gift.png" />     
+<label class="tooltiptext" data-i18n="label_innerdamage">Innerer Schaden</label>
 <span class="item">
 <input type="radio" class="sheet-rating sheet-zero" name="attr_innerdamage" value="0" checked="checked" /><span></span>
 <input type="radio" class="sheet-rating" name="attr_innerdamage" value="1" /><span></span>
@@ -1010,7 +1012,8 @@
 <input type="radio" class="sheet-rating" name="attr_innerdamage" value="5" /><span></span>
 </span>
 <input class="item textline" type="text" name="attr_innerdamage_conditions" data-i18n-placeholder="label_condition" placeholder="Zustand" />
-<label class="item" data-i18n="label_malusdamage">Malusschaden</label>
+<img class="item tooltip" src="https://ulisses-digital.de/R20/hexxen/images/Status Tod.png" />     
+<label class="tooltiptext" data-i18n="label_malusdamage">Malusschaden</label>
 <span class="item">
 <input type="radio" class="sheet-rating sheet-zero" name="attr_malusdamage" value="0" checked="checked" /><span></span>
 <input type="radio" class="sheet-rating" name="attr_malusdamage" value="1" /><span></span>
@@ -1020,7 +1023,8 @@
 <input type="radio" class="sheet-rating" name="attr_malusdamage" value="5" /><span></span>
 </span> 
 <input class="item textline" type="text" name="attr_malusdamage_conditions" data-i18n-placeholder="label_condition" placeholder="Zustand" />
-<label class="item" data-i18n="label_paralysisdamage">Lähmungsschaden</label>
+<img class="item tooltip" src="https://ulisses-digital.de/R20/hexxen/images/Status Ranke.png" />     
+<label class="tooltiptext" data-i18n="label_paralysisdamage">Lähmungsschaden</label>
 <span class="item">
 <input type="radio" class="sheet-rating sheet-zero" name="attr_paralysisdamage" value="0" checked="checked" /><span></span>
 <input type="radio" class="sheet-rating" name="attr_paralysisdamage" value="1" /><span></span>
@@ -1669,6 +1673,12 @@
     </div>
   </div>
   <div class="npc">
+    <input class="tutorialtoggle" type="hidden" name="attr_tutorial_done" value="0"/>
+    <div class="tutorial">
+      <div style="display:inline-block;position:relative">
+        <button type="action" name="act_toggletutorial" data-i18n="button_exit_tutorial">Toggle Hints</button>
+      </div>
+    </div>
     <input class="npc_type_toggle" type="hidden" name="attr_npc_type" value="npc_type_gang"/>
     <div class="box">
       <h3><span name="attr_character_name"></span></h3>
@@ -1704,7 +1714,8 @@
 <option value="npc_strategy_defensive"  data-i18n="npc_strategy_defensive">Defensiv</option>
 <option value="npc_strategy_allrounder" data-i18n="npc_strategy_allrounder">Allrounder</option>
 <option value="npc_strategy_mighty_allrounder"  data-i18n="npc_strategy_mighty_allrounder">Mächtiger Allrounder</option>
-        </select><span class="normal" name="attr_npc_strategy" data-i18n-dynamic="data-i18n-dynamic"></span>
+        </select><span>
+          <input class="npc_strategy_controller" type="hidden" name="attr_npc_strategy" value="npc_strategy_simple"/><span class="npc_strategy_container"><span class="text" name="attr_npc_strategy" data-i18n-dynamic="data-i18n-dynamic"></span><span> (</span><span class="npc_strategy simple"><img class="icon_attacktype_melee"/><span>|</span><img class="icon_attacktype_ranged"/></span><span class="npc_strategy offensive"><img class="icon_attacktype_melee"/><img class="icon_attacktype_melee"/><span>|</span><img class="icon_attacktype_ranged"/></span><span class="npc_strategy protective"><img class="icon_attacktype_melee"/><img class="icon_attacktype_melee"/><span>|</span><img class="icon_attacktype_ranged"/></span><span class="npc_strategy defensive"><img class="icon_attacktype_melee"/><span>|</span><img class="icon_attacktype_ranged"/><img class="icon_attacktype_ranged"/></span><span class="npc_strategy allrounder"><img class="icon_attacktype_melee"/><img class="icon_attacktype_melee"/><span>|</span><img class="icon_attacktype_ranged"/><img class="icon_attacktype_ranged"/></span><span class="npc_strategy mighty_allrounder"><img class="icon_attacktype_melee"/><img class="icon_attacktype_melee"/><img class="icon_attacktype_melee"/><span>|</span><img class="icon_attacktype_ranged"/><img class="icon_attacktype_ranged"/><img class="icon_attacktype_ranged"/></span><span>)</span></span></span>
       </div>
       <div class="npc_gang_only"><span class="label" data-i18n="label_initiative_short">Ini: </span>
         <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1"/>
@@ -1713,13 +1724,13 @@
       <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1" checked="checked"/>
       <fieldset class="repeating_npcattacks">
         <div class="fieldsetcontainer">
-          <div class="display"><span class="text" name="attr_attacktype" data-i18n-dynamic=""></span><span class="text">: </span><span name="attr_name"></span><span class="text"> (</span><span class="text" name="attr_attribute" data-i18n-dynamic=""></span><span class="text">), </span><span class="text" data-i18n="label_attack">Angriff </span><span class="text" name="attr_attackvalue"></span><span class="text">, </span><span class="text" data-i18n="label_damage">Schaden </span><span class="text" name="attr_damage"></span>
+          <div class="display">
+            <input class="icon_controller_attacktype" type="hidden" name="attr_attacktype" value="melee"/><img class="icon_receiver_attacktype"/><span class="text">: </span><span name="attr_name"></span><span class="text"> (</span><span class="text" name="attr_attribute" data-i18n-dynamic=""></span><span class="text">), </span><span class="text" data-i18n="label_attack">Angriff </span><span class="text" name="attr_attackvalue"></span><span class="text">, </span><span class="text" data-i18n="label_damage">Schaden </span><span class="text" name="attr_damage"></span>
             <button class="npcdie" type="action" name="act_rollnpcattack"></button>
           </div>
           <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
-          <div class="wrapper">
-            <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
-            <div class="options">
+          <div class="wrapper"><span class="fieldset_editmode_toggle"></span>
+            <div>
               <select class="textline medium" name="attr_attacktype">
                 <option value="melee" data-i18n="attacktype_melee">Nahkampf</option>
                 <option value="ranged" data-i18n="attacktype_ranged">Fernkampf</option>
@@ -1747,13 +1758,13 @@
       <h4 data-i18n="heading_npc_powers">Kräfte</h4>
       <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1" checked="checked"/>
       <ul>
+        <input class="editmode_toggle" type="hidden" name="attr_editmode" value="1" checked="checked"/>
         <fieldset class="repeating_npcpowers">
           <div class="fieldsetcontainer">
             <li class="display"><span name="attr_name"></span><span class="text"> (</span><span class="text" name="attr_description"></span><span class="text">)</span></li>
             <input class="details-flag" type="checkbox" checked="true" name="attr_details-flag"/><span>i</span>
-            <div class="wrapper">
-              <input class="options-flag" type="checkbox" checked="true" name="attr_options-flag"/><span>y</span>
-              <div class="options">
+            <div class="wrapper"><span class="fieldset_editmode_toggle"></span>
+              <div>
                 <input class="medium" type="text" name="attr_name" data-i18n-placeholder="label_name" placeholder="Name"/>
                 <textarea name="attr_description" data-i18n-placeholder="label_description" placeholder="Description"></textarea>
               </div>
@@ -2559,29 +2570,31 @@
     <p>
       Erfolge:<span class="rtresult_result"></span>
       Esprit:<span class="rtresult_esprit"></span>
-    </p>
+    </p><img class="footer" src="https://ulisses-digital.de/R20/hexxen/images/Rabenbanner2.png"/>
   </div>
 </rolltemplate>
 <rolltemplate class="sheet-rolltemplate-blood">
   <div class="sheet-rtcard">{{#name}}
     <h3>{{name}}</h3>{{/name}}
-    {{#attr}}
-    <p>{{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}</p>{{/attr}}               
-    {{#blood1}}
+    <!--| {{#attr}}-->
+    <!--p-->
+    <!--    | {{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}-->
+    <!--| {{/attr}}               -->{{#blood1}}
     {{#rollTotal() blood1 1}}<span class="blood empty"></span>{{/rollTotal() blood1 1}}
     {{#rollBetween() blood1 2 3}}<span class="blood blood1"></span>{{/rollBetween() blood1 2 3}}
     {{#rollBetween() blood1 4 5}}<span class="blood blood2"></span>{{/rollBetween() blood1 4 5}}
     {{#rollTotal() blood1 6}}<span class="blood blood3"></span>{{/rollTotal() blood1 6}}
     {{/blood1}}
-    <p>Blut:<span class="sheet-rtresult_blood"></span></p>
+    <p>Blut:<span class="sheet-rtresult_blood"></span></p><img class="footer" src="https://ulisses-digital.de/R20/hexxen/images/Rabenbanner2.png"/>
   </div>
 </rolltemplate>
 <rolltemplate class="sheet-rolltemplate-elixir">
   <div class="sheet-rtcard">{{#name}}
     <h3>{{name}}</h3>{{/name}}
-    {{#attr}}
-    <p>{{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}</p>{{/attr}}               
-    {{#elixir1}}
+    <!--| {{#attr}}-->
+    <!--p-->
+    <!--    | {{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}-->
+    <!--| {{/attr}}               -->{{#elixir1}}
     {{#rollTotal() elixir1 1}}<span class="elixir elixir1"></span>{{/rollTotal() elixir1 1}}
     {{#rollTotal() elixir1 2}}<span class="elixir elixir2"></span>{{/rollTotal() elixir1 2}}
     {{#rollTotal() elixir1 3}}<span class="elixir elixir3"></span>{{/rollTotal() elixir1 3}}
@@ -2589,6 +2602,6 @@
     {{#rollTotal() elixir1 5}}<span class="elixir elixir5"></span>{{/rollTotal() elixir1 5}}
     {{#rollTotal() elixir1 6}}<span class="elixir elixir3"></span>{{/rollTotal() elixir1 6}}
     {{/elixir1}}
-    <p>Elixier:<span class="sheet-rtresult_elixir"></span></p>
+    <p>Elixier:<span class="sheet-rtresult_elixir"></span></p><img class="footer" src="https://ulisses-digital.de/R20/hexxen/images/Rabenbanner2.png"/>
   </div>
 </rolltemplate>

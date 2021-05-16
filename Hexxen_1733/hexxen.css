@@ -13,6 +13,9 @@
 	font-family: 'Times New Roman', Times, serif;
 	border: 2px solid #333;
 	padding:10px;
+
+	--icon_attacktype_melee:url("https://ulisses-digital.de/R20/hexxen/images/type_melee.png");
+	--icon_attacktype_ranged:url("https://ulisses-digital.de/R20/hexxen/images/type_range.png");
 }
 
 .sheet-npctoggle[value="1"] ~ .sheet-charsheet {
@@ -1310,7 +1313,7 @@ span.sheet-dee {
   }
   .sheet-influences {
 	display: grid;
-	grid-template-columns: auto 130px 100px;
+	grid-template-columns: 20px 130px auto;
 	grid-row-gap: 2px;
   }
   .sheet-influences > .sheet-item {
@@ -1349,6 +1352,51 @@ span.sheet-dee {
   }
   .sheet-weapons_edit > .sheet-item {
 	  width: auto;
+  }
+
+  .sheet-icon_controller_attacktype[value="melee"] ~ .sheet-icon_receiver_attacktype
+  {
+	  content: var(--icon_attacktype_melee);
+  }
+  .sheet-icon_controller_attacktype[value="ranged"] ~ .sheet-icon_receiver_attacktype
+  {
+	  content: var(--icon_attacktype_ranged);
+  }
+  .sheet-icon_attacktype_melee
+  {
+	content: var(--icon_attacktype_melee);
+  }
+  .sheet-icon_attacktype_ranged
+  {
+	content: var(--icon_attacktype_ranged);
+  }
+  .sheet-npc_strategy_container > .sheet-npc_strategy
+  {
+	display:none;
+  }
+  .sheet-npc_strategy_controller[value="npc_strategy_simple"] ~ .sheet-npc_strategy_container > .sheet-npc_strategy.sheet-simple
+  {
+	display:inline-block;
+  }
+  .sheet-npc_strategy_controller[value="npc_strategy_offensive"] ~ .sheet-npc_strategy_container > .sheet-npc_strategy.sheet-offensive
+  {
+	display:inline-block;
+  }
+  .sheet-npc_strategy_controller[value="npc_strategy_protective"] ~ .sheet-npc_strategy_container > .sheet-npc_strategy.sheet-protective
+  {
+	display:inline-block;
+  }  
+  .sheet-npc_strategy_controller[value="npc_strategy_defensive"] ~ .sheet-npc_strategy_container > .sheet-npc_strategy.sheet-defensive
+  {
+	display:inline-block;
+  }  
+  .sheet-npc_strategy_controller[value="npc_strategy_allrounder"] ~ .sheet-npc_strategy_container > .sheet-npc_strategy.sheet-allrounder
+  {
+	display:inline-block;
+  }  
+  .sheet-npc_strategy_controller[value="npc_strategy_mighty_allrounder"] ~ .sheet-npc_strategy_container > .sheet-npc_strategy.sheet-mighty_allrounder
+  {
+	display:inline-block;
   }
 
 
@@ -1572,13 +1620,25 @@ span.sheet-dee {
     height: auto;
 	padding: 0px;
 	
-	border: 19px solid transparent;
-	border-image: url(http://i.imgur.com/xBk4U1p.jpg) round;
-	border-image-slice: 8% fill;
-
+	text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    border-spacing: 0;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+.sheet-rolltemplate-check .sheet-rtcard .sheet-header,
+.sheet-rolltemplate-blood .sheet-rtcard .sheet-header,
+.sheet-rolltemplate-elixir .sheet-rtcard .sheet-header   {
+	width:124px;
+	content:url("https://ulisses-digital.de/R20/hexxen/images/Rabenbanner.png");
+}
+.sheet-rolltemplate-check .sheet-rtcard .sheet-footer,
+.sheet-rolltemplate-blood .sheet-rtcard .sheet-footer,
+.sheet-rolltemplate-elixir .sheet-rtcard .sheet-footer   {
+	width:124px;
+	content:url("https://ulisses-digital.de/R20/hexxen/images/Rabenbanner2.png");
+	position:relative;
+	bottom:5px;
 }
 
 .sheet-rolltemplate-check .sheet-rtcard {

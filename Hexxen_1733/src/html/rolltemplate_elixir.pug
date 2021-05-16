@@ -4,10 +4,10 @@ rolltemplate(class="sheet-rolltemplate-elixir")
         h3
             | {{name}}
         | {{/name}}
-        | {{#attr}}
-        p
-            | {{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}
-        | {{/attr}}               
+        //| {{#attr}}
+        //p
+        //    | {{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}
+        //| {{/attr}}               
         | {{#elixir1}}
         | {{#rollTotal() elixir1 1}}<span class="elixir elixir1"></span>{{/rollTotal() elixir1 1}}
         | {{#rollTotal() elixir1 2}}<span class="elixir elixir2"></span>{{/rollTotal() elixir1 2}}
@@ -20,3 +20,4 @@ rolltemplate(class="sheet-rolltemplate-elixir")
         p
             | Elixier:
             span(class="sheet-rtresult_elixir")
+        img( class="footer" src="https://ulisses-digital.de/R20/hexxen/images/Rabenbanner2.png")

@@ -4,10 +4,10 @@ rolltemplate(class="sheet-rolltemplate-blood")
         h3
             | {{name}}
         | {{/name}}
-        | {{#attr}}
-        p
-            | {{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}
-        | {{/attr}}               
+        //| {{#attr}}
+        //p
+        //    | {{attr}}{{#attr_val}}({{attr_val}}){{/attr_val}}
+        //| {{/attr}}               
         | {{#blood1}}
         | {{#rollTotal() blood1 1}}<span class="blood empty"></span>{{/rollTotal() blood1 1}}
         | {{#rollBetween() blood1 2 3}}<span class="blood blood1"></span>{{/rollBetween() blood1 2 3}}
@@ -18,3 +18,4 @@ rolltemplate(class="sheet-rolltemplate-blood")
         p
             | Blut:
             span(class="sheet-rtresult_blood")
+        img( class="footer" src="https://ulisses-digital.de/R20/hexxen/images/Rabenbanner2.png")

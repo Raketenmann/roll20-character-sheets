@@ -1,4 +1,9 @@
 div(class='npc')
+    input(type="hidden" class="tutorialtoggle" name="attr_tutorial_done" value="0")
+    div(class="tutorial")
+        div(style="display:inline-block;position:relative")
+            button(type="action" name="act_toggletutorial" data-i18n="button_exit_tutorial") Toggle Hints
+      
     input(type="hidden" class="npc_type_toggle" name="attr_npc_type" value="npc_type_gang")
     div(class="box")
       h3
@@ -74,7 +79,45 @@ div(class='npc')
           <option value="npc_strategy_defensive"  data-i18n="npc_strategy_defensive">Defensiv</option>
           <option value="npc_strategy_allrounder" data-i18n="npc_strategy_allrounder">Allrounder</option>
           <option value="npc_strategy_mighty_allrounder"  data-i18n="npc_strategy_mighty_allrounder">Mächtiger Allrounder</option>
-        span(class="normal" name="attr_npc_strategy" data-i18n-dynamic)
+        span()
+          input(class="npc_strategy_controller" type="hidden" name="attr_npc_strategy" value="npc_strategy_simple")
+          span(class="npc_strategy_container")
+            span(class="text" name="attr_npc_strategy" data-i18n-dynamic)
+            span()  (
+            span(class="npc_strategy simple")
+              img(class="icon_attacktype_melee")
+              span() |
+              img(class="icon_attacktype_ranged")
+            span(class="npc_strategy offensive")
+              img(class="icon_attacktype_melee")
+              img(class="icon_attacktype_melee")
+              span() |
+              img(class="icon_attacktype_ranged")
+            span(class="npc_strategy protective")
+              img(class="icon_attacktype_melee")
+              img(class="icon_attacktype_melee")
+              span() |
+              img(class="icon_attacktype_ranged")
+            span(class="npc_strategy defensive")
+              img(class="icon_attacktype_melee")
+              span() |
+              img(class="icon_attacktype_ranged")
+              img(class="icon_attacktype_ranged")
+            span(class="npc_strategy allrounder")
+              img(class="icon_attacktype_melee")
+              img(class="icon_attacktype_melee")
+              span() |
+              img(class="icon_attacktype_ranged")
+              img(class="icon_attacktype_ranged")
+            span(class="npc_strategy mighty_allrounder")
+              img(class="icon_attacktype_melee")
+              img(class="icon_attacktype_melee")
+              img(class="icon_attacktype_melee")
+              span() |
+              img(class="icon_attacktype_ranged")
+              img(class="icon_attacktype_ranged")
+              img(class="icon_attacktype_ranged")
+            span() )
         
 
       div(class="npc_gang_only")
@@ -87,7 +130,8 @@ div(class='npc')
       fieldset(class="repeating_npcattacks")
           div(class="fieldsetcontainer")
             div(class="display")
-              span(class="text" name="attr_attacktype" data-i18n-dynamic="")
+              input(type="hidden" class="icon_controller_attacktype" name="attr_attacktype" value="melee")
+              img(class="icon_receiver_attacktype")
               span(class="text") : 
               span(name="attr_name")
               span(class="text")  (
@@ -102,9 +146,8 @@ div(class='npc')
             input(class="details-flag" type="checkbox" checked="true" name="attr_details-flag")
             span i
             div(class="wrapper")
-              input(class="options-flag" type="checkbox" checked="true" name="attr_options-flag")
-              span y
-              div(class="options")
+              span(class="fieldset_editmode_toggle")
+              div()
                 select(name="attr_attacktype" class="textline medium")
                   option(value="melee" data-i18n="attacktype_melee") Nahkampf
                   option(value="ranged" data-i18n="attacktype_ranged") Fernkampf
@@ -128,6 +171,7 @@ div(class='npc')
       h4(data-i18n="heading_npc_powers") Kräfte
       input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true)
       ul
+        input(type="hidden" class="editmode_toggle" name="attr_editmode" value="1" checked=true)
         fieldset(class="repeating_npcpowers")
             div(class="fieldsetcontainer")
               
@@ -139,9 +183,8 @@ div(class='npc')
               input(class="details-flag" type="checkbox" checked="true" name="attr_details-flag")
               span i
               div(class="wrapper")
-                input(class="options-flag" type="checkbox" checked="true" name="attr_options-flag")
-                span y
-                div(class="options")
+                span(class="fieldset_editmode_toggle")
+                div()
                   input(class='medium'  type="text" name="attr_name" data-i18n-placeholder="label_name" placeholder="Name")
                   textarea(name="attr_description" data-i18n-placeholder="label_description" placeholder="Description")
                 
